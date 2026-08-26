@@ -2,7 +2,7 @@ import type { ImageMetadata } from 'astro';
 import raaJourneyImage from '../assets/images/raa-journey.png';
 import uxBenchmarkingImage from '../assets/images/ux-benchmarking.png';
 import raaBannerImage from '../assets/images/raa-banner.png';
-import uofaBannerImage from '../assets/images/uofa-banner.png';
+import uofaStyleguideImage from '../assets/images/uofa-styleguide.png';
 
 export type Project = {
 	name: string;
@@ -21,9 +21,9 @@ export const workPageSize = 10;
 export const projects: Project[] = [
 	{
 		name: 'UI Design & Product Delivery',
-		title: 'The design is only as good as how well it survives handover',
+		title: 'RAA Travel — end-to-end UX and UI across a multi-product booking platform',
 		description:
-			'From information architecture and interaction design through to high-fidelity UI, prototyping, and QA — across web, mobile, and native app products.',
+			'Research, interaction design, prototyping, and high-fidelity UI across flights, stays, holidays, car hire, and cruise — web and mobile responsive.',
 		background: 'lime',
 		variant: 'desktop',
 		href: '/portfolio/work/ui-design',
@@ -33,9 +33,9 @@ export const projects: Project[] = [
 	},
 	{
 		name: 'Journey Mapping',
-		title: 'An argument you can see is one you can actually win',
+		title: 'Journey mapping at RAA — making member experience visible across product squads',
 		description:
-			'Making the member experience visible — connecting research, analytics, and team knowledge into a shared reference that turns opinion into evidence.',
+			'Connecting research, analytics, and team knowledge into shared maps that aligned product and design teams around real member needs.',
 		background: 'cyan',
 		variant: 'split',
 		href: '/portfolio/work/journey-mapping',
@@ -45,26 +45,26 @@ export const projects: Project[] = [
 	},
 	{
 		name: 'UX Research & Testing',
-		title: 'Testing at the end checks a decision after it is expensive to change',
+		title: 'UX benchmarking at RAA — measuring effectiveness, efficiency, and desirability over time',
 		description:
-			'Usability benchmarking, confidence testing, and research operations — building the infrastructure that makes testing a habit rather than a one-off event.',
+			'Building a formal research practice from scratch, including benchmarking dashboards, usability testing cadence, and a quantitative metrics framework.',
 		background: 'lavender',
 		variant: 'board',
 		href: '/portfolio/work/research-testing',
 		image: uxBenchmarkingImage,
-		alt: 'Usability benchmarking dashboard showing effectiveness, efficiency, satisfaction, and desirability metrics',
+		alt: 'Usability benchmarking dashboard showing effectiveness, efficiency, satisfaction metrics',
 		imageClass: 'project-preview-image',
 	},
 	{
 		name: 'Design Systems',
-		title: 'Give a design a memory and a hundred screens will share it',
+		title: 'University of Adelaide — a custom design system built for the whole university',
 		description:
-			'Component libraries, token architecture, and documentation built from scratch — including a custom styleguide application used across an entire university.',
+			'A JavaScript-based design system application built from scratch, used by all development teams across the university for public and internal digital products.',
 		background: 'mint',
 		variant: 'desktop',
 		href: '/portfolio/work/design-systems',
-		image: uofaBannerImage,
-		alt: 'University of Adelaide website shown across desktop, tablet, and mobile',
+		image: uofaStyleguideImage,
+		alt: 'University of Adelaide styleguide application showing component documentation',
 		imageClass: 'project-preview-image',
 	},
 ];

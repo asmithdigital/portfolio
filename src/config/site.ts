@@ -23,13 +23,23 @@ export type SiteConfig = {
 export const siteConfig: SiteConfig = {
 	name: 'Andrew Smith',
 	title: 'Andrew Smith | UX Design Leader & Manager',
-	description: 'Portfolio of Andrew Smith — UX Design Leader and Manager with 20 years across design systems, journey mapping, research operations, product design, and front-end development.',
+	description:
+		'Portfolio of Andrew Smith — UX Design Leader and Manager with 20 years across design systems, journey mapping, research operations, product design, and front-end development.',
 	siteUrl: 'https://asmithdigital.github.io/portfolio',
 	email: 'asmithdigital@gmail.com',
 	locale: 'en-AU',
 	authorName: 'Andrew Smith',
 	authorRole: 'UX Design Leader & Manager',
-	keywords: ['UX design leader', 'UX manager portfolio', 'design systems Adelaide', 'journey mapping', 'research operations', 'product design case studies', 'Andrew Smith UX', 'senior UX designer Adelaide'],
+	keywords: [
+		'UX design leader',
+		'UX manager portfolio',
+		'design systems Adelaide',
+		'journey mapping',
+		'research operations',
+		'product design case studies',
+		'Andrew Smith UX',
+		'senior UX designer Adelaide',
+	],
 	ogImage: '/og-image.svg',
 	navLinks: [
 		{ href: '/portfolio/work', label: 'Work' },
@@ -43,5 +53,7 @@ export const siteConfig: SiteConfig = {
 		{ href: '/portfolio/work/design-systems', label: 'Design Systems' },
 	],
 	legalLinks: [],
-	socialLinks: [{ href: 'https://www.linkedin.com/in/asmithdigital/', label: 'LinkedIn' }],
+	socialLinks: [
+		{ href: 'https://www.linkedin.com/in/asmithdigital/', label: 'LinkedIn' },
+	],
 };

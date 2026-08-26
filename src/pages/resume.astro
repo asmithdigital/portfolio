@@ -16,8 +16,8 @@ const tools = [
 ---
 
 <Layout
-	title="Resume | Astro Theme for UI/UX Designer Portfolios"
-	description="Resume page example from the Maria Astro theme for UI/UX designer portfolios, showcasing experience, capabilities, and tools."
+	title="Resume | Andrew Smith — UX Design Leader & Senior Product Designer"
+	description="Resume of Andrew Smith — twenty years across product design, front-end development, design systems, and UX leadership. Based in Adelaide, South Australia."
 >
 	<a class="skip-link" href="#main-content">Skip to content</a>
 
@@ -27,12 +27,10 @@ const tools = [
 		<main id="main-content">
 			<section class="hero">
 				<p class="eyebrow">Resume</p>
-				<h1 class="display-title">10+ years shaping digital products through UX, UI, and systems thinking.</h1>
+				<h1 class="display-title">20 years across product design, front-end development, and UX leadership.</h1>
 				<div class="hero-subgrid">
 					<p class="hero-text">
-						My work has focused on product clarity: helping teams bring structure to messy
-						workflows, overloaded interfaces, and growing systems that need to scale without
-						becoming harder to use.
+						Senior product designer and UX leader. Designs end-to-end, builds design systems, runs research operations, and leads teams to deliver consistently.
 					</p>
 				</div>
 			</section>
@@ -42,10 +40,10 @@ const tools = [
 					<p class="section-kicker">Snapshot</p>
 				</div>
 				<div class="story-block">
-					<p><strong>Location:</strong> Europe</p>
-					<p><strong>Focus:</strong> UX Design / Product Design</p>
-					<p><strong>Specialties:</strong> Dashboards, workflows, design systems</p>
-					<p><strong>Contact:</strong> <a href="mailto:hello@maria.com">hello@maria.com</a></p>
+					<p><strong>Location:</strong> Stirling, South Australia</p>
+					<p><strong>Focus:</strong> Product design, UX leadership, design systems</p>
+					<p><strong>Contact:</strong> <a href="mailto:asmithdigital@gmail.com">asmithdigital@gmail.com</a> &nbsp;·&nbsp; 0400 895 354</p>
+					<p><strong>Portfolio:</strong> <a href="https://asmithdigital.github.io/portfolio">asmithdigital.github.io/portfolio</a></p>
 				</div>
 			</section>
 
@@ -55,48 +53,52 @@ const tools = [
 				</div>
 				<div class="story-block">
 					<p>
-						<strong>Lead UX Designer</strong><br />
-						Independent / Consulting, 2021 - Present
+						<strong>Manager, Digital UX</strong><br />
+						RAA Group, June 2024 – present
 					</p>
 					<p>
-						Leading interface design, product thinking, and design systems work across SaaS and
-						service platforms.
+						Leads the UX practice across product squads and organisational programs. Responsible for design quality, team development, practice frameworks, and governance — including vendor procurement, budget management, and executive presentations to architecture review boards.
 					</p>
 					<p>
-						<strong>Senior Product Designer</strong><br />
-						Digital Product Studio, 2017 - 2021
+						<strong>Senior UX Design Lead</strong><br />
+						RAA, 2019 – June 2024
 					</p>
 					<p>
-						Designed workflows, dashboards, and multi-platform product experiences for startup
-						and enterprise clients.
+						Senior product designer across RAA Travel, My Account, payments, renewals, insurance claims, and identity management. Led end-to-end UX and UI delivery, built Research Operations from scratch, and introduced journey mapping and design system governance to the organisation.
 					</p>
 					<p>
-						<strong>UI/UX Designer</strong><br />
-						In-house Product Teams, 2014 - 2017
+						<strong>UX Designer & Front-End Developer</strong><br />
+						University of Adelaide, 2014 – 2019
 					</p>
 					<p>
-						Built core interface patterns, user flows, and production-ready visual systems for
-						web and mobile products.
+						UX lead and front-end developer across the university website, student portals, and marketing products. Built a custom JavaScript-based design system used by all development teams across the university.
+					</p>
+					<p>
+						<strong>Earlier career</strong><br />
+						Viterra · Private Media · Vmedia · asmithdigital · Tower Hotel, 1999 – 2014
+					</p>
+					<p>
+						Web design, front-end development, client management, and digital production across agency, media, and corporate environments.
 					</p>
 				</div>
 			</section>
 
 			<section class="editorial-section">
 				<div class="section-rail">
-					<p class="section-kicker">Capabilities</p>
+					<p class="section-kicker">Skills</p>
 				</div>
 				<div class="story-block">
 					<p>
-						<strong>Product Strategy:</strong> framing problems, prioritizing experience
-						decisions, and aligning product goals with user value.
+						<strong>Product Design:</strong> End-to-end UX and UI design, user research, usability testing, journey mapping, information architecture, interaction design, prototyping, accessibility.
 					</p>
 					<p>
-						<strong>UI Systems:</strong> building coherent interface languages that scale across
-						flows, features, and implementation teams.
+						<strong>Design Systems:</strong> Component library governance, token architecture, documentation, Design Ops, Research Ops.
 					</p>
 					<p>
-						<strong>Execution:</strong> taking concepts through wireframes, high-fidelity UI,
-						refinement, and developer-ready handoff.
+						<strong>Technical:</strong> HTML, CSS, JavaScript, Drupal CMS, Git, responsive design, AI-assisted workflows.
+					</p>
+					<p>
+						<strong>Leadership:</strong> People management, coaching, stakeholder facilitation, executive presentation, vendor and budget governance.
 					</p>
 				</div>
 			</section>
@@ -105,17 +107,21 @@ const tools = [
 				<div class="section-rail">
 					<p class="section-kicker">Tools</p>
 				</div>
-				<div class="tools-grid">
-					{
-						tools.map((tool) => (
-							<div class="tool-card">
-								<div class:list={['tool-mark', tool.tone === 'dark' && 'tool-mark-dark']} aria-hidden="true">
-									<Image class="tool-logo" src={tool.logo} alt="" loading="lazy" />
-								</div>
-								<p class="tool-name">{tool.name}</p>
-							</div>
-						))
-					}
+				<div class="story-block">
+					<p>Figma · Jira · Confluence · Miro · UserTesting.com · Optimal Workshop · ZeroHeight · Adobe CC · GitHub · Claude</p>
+				</div>
+			</section>
+
+			<section class="editorial-section">
+				<div class="section-rail">
+					<p class="section-kicker">Study</p>
+				</div>
+				<div class="story-block">
+					<p>Certificate in User Experience — Nielsen Norman Group</p>
+					<p>Human Centred Design — thishuman.com</p>
+					<p>Product Management — Udemy</p>
+					<p>Applied Project Management (Grad. Dip., in progress) — University of Adelaide</p>
+					<p>Multimedia Studies (Bachelor) — University of South Australia</p>
 				</div>
 			</section>
 		</main>
