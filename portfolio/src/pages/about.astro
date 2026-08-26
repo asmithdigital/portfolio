@@ -1,0 +1,230 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../layouts/Layout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import portraitImage from '../assets/images/maria.webp';
+---
+
+<Layout
+	title="About | Andrew Smith, UX Design Leader"
+	description="Background and approach of Andrew Smith, a UX design leader working across design systems, journey mapping, research operations, and product design."
+>
+	<a class="skip-link" href="#main-content">Skip to content</a>
+
+	<div class="page">
+		<SiteHeader />
+
+		<main id="main-content">
+			<section class="hero">
+				<p class="eyebrow">About</p>
+				<div class="hero-layout">
+					<div class="hero-copy">
+						<h1 class="display-title">Making the invisible visible, and the complicated usable.</h1>
+						<p class="hero-text">
+							Design decisions should be won on evidence, not opinion or seniority. That belief
+							runs through everything here — from how interfaces get built, to how teams
+							decide what to build in the first place.
+						</p>
+					</div>
+					<div class="hero-portrait-wrap">
+						<Image
+							class="hero-portrait"
+							src={portraitImage}
+							alt="Portrait of Andrew Smith"
+							loading="eager"
+							decoding="async"
+							widths={[320, 480, 640]}
+							sizes="(max-width: 980px) 100vw, 32vw"
+						/>
+					</div>
+				</div>
+			</section>
+
+			<section class="editorial-section">
+				<div class="section-rail">
+					<p class="section-kicker">Background</p>
+				</div>
+				<div class="story-block">
+					<p>
+						Two decades across front-end development and UX design, including the systems layer
+						that sits underneath both: design tokens, component libraries, documentation, and
+						the governance that keeps them consistent as a product grows.
+					</p>
+					<p>
+						That range — writing the code, designing the interface, and building the system that
+						governs both — is what shapes the approach here. Interfaces are judged not just on
+						how they look, but on whether they hold together at scale.
+					</p>
+				</div>
+			</section>
+
+			<section class="editorial-section">
+				<div class="section-rail">
+					<p class="section-kicker">How I Work</p>
+				</div>
+				<div class="story-block">
+					<p>
+						Start by making the experience visible — journey maps, research, evidence — before
+						arguing about solutions. A decision backed by a mapped pain point is a different
+						conversation than a decision backed by a hunch.
+					</p>
+					<p>
+						Then build the systems that make good decisions repeatable: design tokens and
+						component libraries so consistency doesn't depend on memory, testing cadences so
+						validation happens continuously rather than at the end, and documentation that
+						outlives any one project.
+					</p>
+				</div>
+			</section>
+
+			<section class="editorial-section">
+				<div class="section-rail">
+					<p class="section-kicker">Focus</p>
+				</div>
+				<div class="story-block">
+					<p>
+						Particularly interested in the space where UI craft, design systems, and evidence-based
+						process meet — products where getting the underlying structure right is what makes
+						the interface actually work.
+					</p>
+					<p>
+						See the <a href="/work">craft</a> pages for how this plays out in practice, or the
+						<a href="/resume">resume</a> for the leadership track record.
+					</p>
+				</div>
+			</section>
+		</main>
+	</div>
+</Layout>
+
+<style>
+	.page {
+		position: relative;
+		width: min(calc(100% - 3rem), 78rem);
+		margin: 0 auto;
+		padding: 1.25rem 0 5rem;
+	}
+
+	.eyebrow,
+	.section-kicker {
+		font-family: var(--font-mono);
+		font-size: 0.82rem;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		line-height: 1.4;
+		text-transform: uppercase;
+	}
+
+	.hero {
+		padding: 6rem 0 4rem;
+	}
+
+	.hero-layout {
+		display: grid;
+		grid-template-columns: minmax(0, 1.35fr) minmax(15rem, 20rem);
+		gap: 2.5rem;
+		align-items: start;
+		margin-top: 1rem;
+	}
+
+	.hero-copy {
+		max-width: 52rem;
+	}
+
+	.eyebrow,
+	.section-kicker {
+		margin: 0;
+		color: var(--muted-foreground);
+		font-style: normal;
+	}
+
+	.hero-text,
+	.story-block p {
+		font-size: 1.08rem;
+		line-height: 1.7;
+		margin: 0;
+	}
+
+	.hero-text {
+		max-width: 44rem;
+		margin-top: 1.5rem;
+	}
+
+	.hero-portrait-wrap {
+		display: flex;
+		justify-content: flex-end;
+		align-self: start;
+		padding-top: 0.35rem;
+	}
+
+	.hero-portrait {
+		width: min(100%, 20rem);
+		height: auto;
+		display: block;
+		border-radius: 1.5rem;
+		box-shadow: 0 18px 40px rgba(23, 23, 23, 0.08);
+	}
+
+	.editorial-section {
+		display: grid;
+		grid-template-columns: 16rem minmax(0, 1fr);
+		gap: 2rem;
+		padding: 2.5rem 0;
+		border-top: 1px solid var(--border);
+	}
+
+	.section-rail {
+		align-self: start;
+	}
+
+	.story-block {
+		display: grid;
+		gap: 1rem;
+		max-width: 52rem;
+	}
+
+	@media (max-width: 1100px) {
+		.hero-layout {
+			grid-template-columns: 1fr;
+			gap: 1.75rem;
+			align-items: start;
+		}
+
+		.hero-copy {
+			max-width: 100%;
+		}
+
+		.hero-text {
+			max-width: 42rem;
+		}
+
+		.hero-portrait-wrap {
+			justify-content: flex-start;
+			padding-top: 0;
+		}
+	}
+
+	@media (max-width: 720px) {
+		.page {
+			width: min(calc(100% - 1.5rem), 78rem);
+			padding-top: 1rem;
+		}
+
+		.hero {
+			padding: 4rem 0 3rem;
+		}
+
+		.editorial-section {
+			grid-template-columns: 1fr;
+		}
+
+		.hero-text,
+		.story-block p {
+			font-size: 1.05rem;
+		}
+
+		.hero-portrait {
+			width: min(100%, 16rem);
+		}
+	}
+</style>

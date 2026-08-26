@@ -1,0 +1,83 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../../layouts/Layout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import uxBenchmarkingImage from '../../assets/images/ux-benchmarking.png';
+import raaPersonaImage from '../../assets/images/raa-persona.png';
+
+const highlights = [
+  { label: 'Organisation', value: 'RAA' },
+  { label: 'Role', value: 'Senior UX Design Lead' },
+  { label: 'Scope', value: 'Insurance, Travel, Member Portal' },
+];
+---
+<Layout title="UX Research & Testing | Andrew Smith" description="UX research operations, usability benchmarking, and confidence testing at RAA — measuring and tracking the experience over time." ogType="article" ogImageAlt="UX benchmarking dashboard">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="case-page">
+    <SiteHeader />
+    <main id="main-content">
+      <section class="case-hero">
+        <p class="eyebrow"><a class="breadcrumb-link" href="/work">Work</a><span class="breadcrumb-separator" aria-hidden="true">/</span><span>UX Research &amp; Testing</span></p>
+        <h1 class="display-title">Testing at the end checks a decision after it is expensive to change.</h1>
+        <div class="hero-subgrid">
+          <p class="hero-text">Research is how design converts assumption into evidence. The usability benchmarking dashboard below measures the experience across four dimensions — effectiveness, efficiency, satisfaction, and desirability — tracked over time so the team can see whether things are actually improving.</p>
+        </div>
+      </section>
+      <section class="meta-strip" id="overview">
+        {highlights.map((item) => (<div class="meta-item"><p class="meta-label">{item.label}</p><p class="meta-value">{item.value}</p></div>))}
+      </section>
+      <section class="lead-image-section">
+        <Image class="lead-image" src={uxBenchmarkingImage} alt="Usability benchmarking dashboard for RAA Insurance quote — effectiveness 39/1, efficiency 4 min average, satisfaction, and desirability word cloud" decoding="async" widths={[720, 1080, 1440]} sizes="(max-width: 78rem) 100vw, 78rem" />
+      </section>
+      <section class="summary-section">
+        <p class="section-kicker">Research Operations</p>
+        <h2>Built a formal research practice at RAA from nothing.</h2>
+        <div class="summary-main">
+          <p>When I joined RAA, design decisions were made on stakeholder opinion, past convention, or whoever spoke most confidently in the room. There was no research repository, no shared testing methodology, no way to track whether the experience was improving over time.</p>
+          <p>Over five years, I built Research Operations from the ground up — a research repository, team onboarding documentation, a UX metrics framework, and the testing cadences that made continuous validation part of how the team worked rather than an event scheduled before launch.</p>
+          <p class="summary-meta"><strong>Tools:</strong> UserTesting.com, Optimal Workshop, Figma prototypes, analytics synthesis</p>
+          <p class="summary-meta"><strong>Scope:</strong> Moderated and unmoderated usability testing, benchmarking studies, confidence testing, research synthesis</p>
+        </div>
+      </section>
+      <section class="editorial-section" id="process">
+        <div class="section-rail"><p class="section-kicker">The Benchmarking Dashboard</p></div>
+        <div class="story-block">
+          <p>The dashboard above shows quantitative research data for the RAA Insurance home and contents quote flow. Effectiveness measures whether users completed the task successfully (39 success, 1 fail). Efficiency shows time-on-task distribution with a mean of 4 minutes. Satisfaction and usefulness are measured via post-task Likert scales. Desirability captures the emotional quality of the experience through word choice.</p>
+          <p>This format makes the research actionable and comparable over time. When a feature ships, the next benchmarking study either confirms the improvement or surfaces new issues — giving the team a data-backed case for what to prioritise next.</p>
+        </div>
+      </section>
+      <section class="editorial-section">
+        <div class="section-rail"><p class="section-kicker">User Research</p></div>
+        <div class="story-block">
+          <p>Quantitative benchmarking is only half the picture. Moderated usability sessions, ethnographic interviews, and field research provide the qualitative layer — the reasons behind the numbers, the language users actually use, the mental models that the interface does or does not match.</p>
+          <p>Research findings were synthesised into personas, journey maps, and insight repositories that the whole team could reference — turning individual research sessions into organisational knowledge rather than a folder on someone's hard drive.</p>
+        </div>
+      </section>
+      <section class="supporting-image-section">
+        <Image class="supporting-image" src={raaPersonaImage} alt="User persona for RAA Travel — Ali, 32, young professional RAA member" loading="lazy" decoding="async" widths={[720, 1080, 1440]} sizes="(max-width: 78rem) 100vw, 78rem" />
+      </section>
+    </main>
+  </div>
+</Layout>
+<style>
+  .case-page { position: relative; width: min(calc(100% - 3rem), 78rem); margin: 0 auto; padding: 1.25rem 0 5rem; }
+  .eyebrow { font-family: var(--font-mono); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted-foreground); margin: 0 0 1.25rem; display: flex; gap: 0.5rem; align-items: center; }
+  .breadcrumb-link { font-weight: 600; } .breadcrumb-separator { color: var(--muted-foreground); }
+  h1, h2 { margin: 0; font-weight: 800; letter-spacing: -0.05em; color: var(--foreground); }
+  .display-title { font-size: clamp(2rem, 4.5vw, 3.5rem); line-height: 1.06; margin: 1rem 0 0; max-width: 28ch; }
+  .hero-subgrid { margin-top: 1.75rem; }
+  .hero-text, .story-block p, .summary-main p, .summary-meta { font-size: 1.08rem; line-height: 1.7; margin: 0 0 1rem; }
+  .case-hero { padding: 5rem 0 2rem; }
+  .meta-strip { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; padding: 1.5rem 0 0.5rem; border-top: 1px solid var(--border); }
+  .meta-label { font-family: var(--font-mono); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted-foreground); margin: 0; }
+  .meta-value { margin: 0.35rem 0 0; font-size: 1.1rem; font-weight: 700; }
+  .lead-image-section { padding: 2rem 0 4rem; }
+  .lead-image, .supporting-image { width: 100%; border: 1px solid var(--border); border-radius: 1.5rem; box-shadow: var(--shadow-large); }
+  .supporting-image-section { padding: 2rem 0 4rem; border-bottom: 1px solid var(--border); }
+  .summary-section { padding: 0 0 3rem; border-bottom: 1px solid var(--border); }
+  .summary-section h2 { margin-top: 0.75rem; font-size: clamp(1.5rem, 2.5vw, 2.2rem); max-width: 32ch; }
+  .summary-main { margin-top: 1.5rem; max-width: 44rem; }
+  .section-kicker { font-family: var(--font-mono); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted-foreground); margin: 0 0 0.5rem; }
+  .editorial-section { display: grid; grid-template-columns: 14rem minmax(0,1fr); gap: 2rem; padding: 3rem 0; border-bottom: 1px solid var(--border); }
+  .story-block { max-width: 44rem; }
+</style>
