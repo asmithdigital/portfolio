@@ -20,50 +20,28 @@ export type SiteConfig = {
 	socialLinks: SiteLink[];
 };
 
-const defaultSiteUrl = 'https://maria-lake.vercel.app';
-const envSiteUrl = process.env.SITE_URL ?? process.env.PUBLIC_SITE_URL;
-const normalizedSiteUrl = (envSiteUrl || defaultSiteUrl).replace(/\/+$/, '');
-
 export const siteConfig: SiteConfig = {
 	name: 'Andrew Smith',
-	title: 'Andrew Smith | UX Design Leader',
-	description:
-		'UX design practice spanning design systems, journey mapping, research operations, and evidence-based product design.',
-	// Set SITE_URL or PUBLIC_SITE_URL to keep canonicals, robots.txt, and the sitemap aligned in each environment.
-	siteUrl: normalizedSiteUrl,
+	title: 'Andrew Smith | UX Design Leader & Manager',
+	description: 'Portfolio of Andrew Smith — UX Design Leader and Manager with 20 years across design systems, journey mapping, research operations, product design, and front-end development.',
+	siteUrl: 'https://asmithdigital.github.io/portfolio',
 	email: 'asmithdigital@gmail.com',
-	locale: 'en-US',
+	locale: 'en-AU',
 	authorName: 'Andrew Smith',
-	authorRole: 'UX Design Leader',
-	keywords: [
-		'UX design leader portfolio',
-		'design systems',
-		'journey mapping',
-		'research operations',
-		'product design case studies',
-	],
+	authorRole: 'UX Design Leader & Manager',
+	keywords: ['UX design leader', 'UX manager portfolio', 'design systems Adelaide', 'journey mapping', 'research operations', 'product design case studies', 'Andrew Smith UX', 'senior UX designer Adelaide'],
 	ogImage: '/og-image.svg',
 	navLinks: [
-		{ href: '/work', label: 'Work' },
-		{ href: '/about', label: 'About' },
-		{ href: '/resume', label: 'Resume' },
+		{ href: '/portfolio/work', label: 'Work' },
+		{ href: '/portfolio/about', label: 'About' },
+		{ href: '/portfolio/resume', label: 'Resume' },
 	],
 	extraPages: [
-		{ href: '/work/ui-design', label: 'UI Design' },
-		{ href: '/work/journey-mapping', label: 'Journey Mapping' },
-		{ href: '/work/research-testing', label: 'Research' },
-		{ href: '/work/design-systems', label: 'Design Systems' },
-		{ href: '/cookies', label: 'Cookies' },
-		{ href: '/privacy', label: 'Privacy' },
-		{ href: '/terms', label: 'Terms' },
-		{ href: '/404', label: '404' },
+		{ href: '/portfolio/work/ui-design', label: 'UI Design' },
+		{ href: '/portfolio/work/journey-mapping', label: 'Journey Mapping' },
+		{ href: '/portfolio/work/research-testing', label: 'Research' },
+		{ href: '/portfolio/work/design-systems', label: 'Design Systems' },
 	],
-	legalLinks: [
-		{ href: '/cookies', label: 'Cookies' },
-		{ href: '/privacy', label: 'Privacy' },
-		{ href: '/terms', label: 'Terms' },
-	],
-	socialLinks: [
-		{ href: 'https://www.linkedin.com/in/asmithdigital/', label: 'LinkedIn' },
-	],
+	legalLinks: [],
+	socialLinks: [{ href: 'https://www.linkedin.com/in/asmithdigital/', label: 'LinkedIn' }],
 };
