@@ -27,32 +27,26 @@ import { projects } from '../data/projects';
         </div>
       </section>
 
-      <section class="works-list" aria-label="Project list">
+      <section class="project-grid" aria-label="Work">
         {projects.map((project) => (
-          <article class="work-card">
-            <div class="work-copy">
-              <p class="work-name">{project.name}</p>
-              <h2>{project.title}</h2>
-              <p class="work-description">{project.description}</p>
-              <div class="actions">
-                <a href={project.href}>
-                  <span>View case study</span>
-                  <span aria-hidden="true">-&gt;</span>
-                </a>
-              </div>
+          <a class={`project-card project-card--${project.background}`} href={project.href}>
+            <div class="project-card-copy">
+              <p class="project-card-name">{project.name}</p>
+              <h2 class="project-card-title">{project.title}</h2>
+              <p class="project-card-desc">{project.description}</p>
             </div>
-            <a class="work-visual" href={project.href}>
+            <div class="project-card-visual">
               <Image
-                class={project.imageClass}
+                class="project-card-img"
                 src={project.image}
                 alt={project.alt}
                 loading="lazy"
                 decoding="async"
-                widths={[640, 960, 1280]}
-                sizes="(max-width: 860px) 100vw, 55vw"
+                widths={[480, 720, 960]}
+                sizes="(max-width: 860px) 100vw, 45vw"
               />
-            </a>
-          </article>
+            </div>
+          </a>
         ))}
       </section>
     </main>
@@ -66,7 +60,7 @@ import { projects } from '../data/projects';
     margin: 0 auto;
     padding: 1.25rem 0 5rem;
   }
-  .hero { padding: 4rem 0 1rem; }
+  .hero { padding: 4rem 0 3rem; }
   .display-title {
     font-size: clamp(1.8rem, 3.5vw, 2.8rem);
     font-weight: 800;
@@ -80,7 +74,7 @@ import { projects } from '../data/projects';
     line-height: 1.65;
     color: var(--muted-foreground);
     max-width: 38rem;
-    margin: 0 0 0.75rem;
+    margin: 0 0 0.6rem;
   }
   .hero-note {
     font-size: 1.05rem;
@@ -89,56 +83,81 @@ import { projects } from '../data/projects';
     font-style: italic;
     max-width: 38rem;
   }
-  .works-list { display: grid; gap: 1.5rem; margin-top: 3rem; }
-  .work-card {
+
+  /* Project grid — 2 columns */
+  .project-grid {
     display: grid;
-    grid-template-columns: minmax(0, 0.9fr) minmax(22rem, 1.1fr);
-    gap: 2rem;
-    align-items: start;
-    padding: 1.5rem;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 1.5rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
   }
-  .work-copy { display: grid; align-content: start; gap: 0.8rem; }
-  .work-name {
+
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid transparent;
+    transition: transform 120ms ease, box-shadow 120ms ease;
+  }
+  .project-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(23,23,23,0.1);
+  }
+
+  /* Card background colours */
+  .project-card--lime   { background: #d4f5b0; }
+  .project-card--cyan   { background: #b0eaf5; }
+  .project-card--lavender { background: #d0c8f5; }
+  .project-card--mint   { background: #b0f0d8; }
+
+  .project-card-copy {
+    padding: 1.75rem 1.75rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .project-card-name {
     font-family: var(--font-mono);
-    font-size: 0.78rem;
+    font-size: 0.72rem;
     font-weight: 600;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: var(--muted-foreground);
+    color: rgba(23,23,23,0.55);
     margin: 0;
   }
-  .work-card h2 {
-    font-size: clamp(1.1rem, 1.6vw, 1.4rem);
+  .project-card-title {
+    font-size: clamp(1rem, 1.4vw, 1.25rem);
     font-weight: 800;
     letter-spacing: -0.03em;
     line-height: 1.2;
     margin: 0;
+    color: #171717;
   }
-  .work-description { max-width: 34rem; margin: 0; font-size: 0.95rem; line-height: 1.6; color: var(--muted-foreground); }
-  .actions { display: flex; margin-top: 0.5rem; }
-  .actions a {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
+  .project-card-desc {
     font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--foreground);
-    text-decoration: none;
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 2px;
+    line-height: 1.55;
+    color: rgba(23,23,23,0.65);
+    margin: 0;
+    max-width: 28ch;
   }
-  .actions a:hover { border-bottom-color: var(--foreground); }
-  .work-visual {
-    display: block;
-    border-radius: 1rem;
+  .project-card-visual {
+    margin-top: auto;
     overflow: hidden;
-    border: 1px solid var(--border);
+    border-radius: 0.75rem 0.75rem 0 0;
+    margin: 0.5rem 1rem 0;
   }
-  .project-preview-image { width: 100%; height: auto; display: block; }
+  .project-card-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    border-radius: 0.75rem 0.75rem 0 0;
+  }
+
   @media(max-width: 860px) {
-    .work-card { grid-template-columns: 1fr; }
+    .project-grid { grid-template-columns: 1fr; }
   }
 </style>
