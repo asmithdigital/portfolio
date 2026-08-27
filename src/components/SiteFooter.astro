@@ -10,9 +10,9 @@ const currentYear = new Date().getFullYear();
 		{
 			showCta && (
 				<div class="shared-footer-cta">
-					<h2>Got something worth building? I'd love to hear about it.</h2>
+					<h2>Open to new opportunities.</h2>
 					<p>
-						Check my <a class="shared-footer-inline-link" href="/resume">resume</a> or reach out directly if something here sparked an idea.
+						Check my <a class="shared-footer-inline-link" href="/portfolio/resume">resume</a> or reach out directly.
 					</p>
 					<a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
 				</div>
@@ -30,17 +30,8 @@ const currentYear = new Date().getFullYear();
 				}
 			</div>
 			<div class="shared-footer-note">
-				<div class="shared-footer-legal">
-					{siteConfig.legalLinks.map((link) => <a href={link.href}>{link.label}</a>)}
-					<button
-						class="footer-cookie-btn"
-						type="button"
-						onclick="window.dispatchEvent(new CustomEvent('maria:openCookieConsent'))"
-					>
-						Cookie Preferences
-					</button>
-				</div>
-				<p>&copy; {currentYear} {siteConfig.name}. Sample Astro portfolio theme for presentation purposes.</p>
+				<div class="shared-footer-legal"></div>
+				<p>&copy; {currentYear} {siteConfig.name}</p>
 			</div>
 		</div>
 	</div>

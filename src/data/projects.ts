@@ -1,8 +1,8 @@
 import type { ImageMetadata } from 'astro';
-import competitorAnalysisImage from '../assets/images/competitor-analysis.png';
+import miroIdeationCritiqueImage from '../assets/images/miro-ideation-critique-example.png';
 import myAccountImage from '../assets/images/my-account.png';
 import journeyMap1Image from '../assets/images/journey-map-1.png';
-import designSystem1Image from '../assets/images/design-system-1.png';
+import designSystem1Image from '../assets/images/design-system-2.png';
 import uxBenchmarkingImage from '../assets/images/ux-benchmarking.png';
 import wayOfWorkingImage from '../assets/images/way-of-working-1.png';
 
@@ -28,8 +28,8 @@ export const projects: Project[] = [
     background: 'lime',
     variant: 'desktop',
     href: '/portfolio/work/ux-process',
-    image: competitorAnalysisImage,
-    alt: 'Competitor analysis board showing annotated screenshots across multiple insurance providers',
+    image: miroIdeationCritiqueImage,
+    alt: 'FigJam discovery session showing problem framing, competitor analysis, and design options',
     imageClass: 'project-preview-image',
   },
   {

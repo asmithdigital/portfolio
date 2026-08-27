@@ -54,6 +54,6 @@ export const siteConfig: SiteConfig = {
 	],
 	legalLinks: [],
 	socialLinks: [
-		{ href: 'https://www.linkedin.com/in/asmithdigital/', label: 'LinkedIn' },
+		{ href: 'https://www.linkedin.com/in/andrewstephensmith/', label: 'LinkedIn' },
 	],
 };

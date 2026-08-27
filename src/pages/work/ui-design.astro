@@ -93,7 +93,7 @@ import f4a from '../../assets/images/freelance-4a.png';
       <section class="img-pair-section">
         <div class="img-pair">
           <Image class="pair-image" src={uofaSubpage} alt="University of Adelaide research institutes subpage" loading="lazy" decoding="async" widths={[720,1080]} sizes="50vw"/>
-          <Image class="pair-image" src={uofaMobileMenu} alt="University of Adelaide mobile global navigation menu" loading="lazy" decoding="async" widths={[720,1080]} sizes="50vw"/>
+          <Image class="pair-image-constrained" src={uofaMobileMenu} alt="University of Adelaide mobile global navigation menu" loading="lazy" decoding="async" widths={[720,1080]} sizes="50vw"/>
         </div>
       </section>
 
@@ -114,6 +114,10 @@ import f4a from '../../assets/images/freelance-4a.png';
             <Image class="freelance-thumb" src={f4a} alt="Bass Coast Podiatry homepage" loading="lazy" decoding="async" widths={[400,600]} sizes="280px"/>
           </div>
         </div>
+        <p class="scroll-hint">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Scroll to see more
+        </p>
       </section>
 
     </main>
@@ -144,8 +148,11 @@ h1,h2{margin:0;font-weight:800;letter-spacing:-.05em;color:var(--foreground)}
 .freelance-section{padding:3.5rem 0 0;border-top:1px solid var(--border)}
 .freelance-section h2{margin:.5rem 0 0;font-size:clamp(1.5rem,2.5vw,2rem)}
 .freelance-intro{font-size:1rem;color:var(--muted-foreground);margin:.75rem 0 1.75rem;max-width:42rem}
-.freelance-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:1rem;margin:0 -2rem;padding-left:2rem;padding-right:2rem}
+.freelance-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:1rem;margin:0 -2rem;padding-left:2rem;padding-right:2rem;position:relative}
 .freelance-track{display:flex;gap:1.25rem;width:max-content}
-.freelance-thumb{width:280px;height:190px;object-fit:cover;border-radius:1rem;border:1px solid var(--border);box-shadow:0 8px 20px rgba(23,23,23,.07);flex-shrink:0}
-@media(max-width:860px){.img-pair{grid-template-columns:1fr}.editorial-section{grid-template-columns:1fr}.freelance-thumb{width:220px;height:150px}}
+.freelance-thumb{width:840px;height:570px;object-fit:cover;border-radius:1rem;border:1px solid var(--border);box-shadow:0 8px 20px rgba(23,23,23,.07);flex-shrink:0}
+.scroll-hint{display:flex;align-items:center;gap:.5rem;margin-top:.75rem;font-family:var(--font-mono);font-size:.75rem;color:var(--muted-foreground);letter-spacing:.04em}
+.scroll-hint svg{width:1.25rem;height:1.25rem;opacity:.6}
+.pair-image-constrained{width:100%;aspect-ratio:16/10;object-fit:cover;border:1px solid var(--border);border-radius:1.5rem;box-shadow:var(--shadow-large)}
+@media(max-width:860px){.img-pair{grid-template-columns:1fr}.editorial-section{grid-template-columns:1fr}.freelance-thumb{width:320px;height:215px}}
 </style>
