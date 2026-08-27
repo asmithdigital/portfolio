@@ -2,51 +2,63 @@
 import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
-import miroIdeationCritique from '../../assets/images/miro-ideation-critique-example.png';
-import miroIdeation from '../../assets/images/miro-ideation-example.png';
+import wow1 from '../../assets/images/way-of-working-1.png';
+import wow2 from '../../assets/images/way-of-working-2.png';
+import orchestration from '../../assets/images/claude-orchestration-layer-diagram.png';
 ---
-<Layout title="Strategic Practice | Andrew Smith" description="Discovery sessions, critique models, and the thinking behind the work — the strategic layer that shapes what gets designed before anyone opens Figma.">
+<Layout title="Ways of Working | Andrew Smith" description="Operating models, process frameworks, and AI-assisted tooling — the strategic layer that structures how a design practice delivers at scale.">
   <a class="skip-link" href="#main-content">Skip to content</a>
   <div class="case-page">
     <SiteHeader />
     <main id="main-content">
       <section class="case-hero">
-        <p class="eyebrow"><a class="breadcrumb-link" href="/portfolio/work">Work</a><span class="breadcrumb-separator">/</span><span>Strategic Practice</span></p>
-        <h1 class="display-title">The thinking that happens before anyone opens Figma.</h1>
-        <p class="hero-text">Good design outcomes depend on good problem framing. The work below shows how discovery sessions, structured critique, and competitor analysis are run — not as process steps, but as tools for getting the right answer before committing to a direction.</p>
+        <p class="eyebrow"><a class="breadcrumb-link" href="/portfolio/work">Work</a><span class="breadcrumb-separator">/</span><span>Ways of Working</span></p>
+        <h1 class="display-title">Operating models, process frameworks, and strategic tooling.</h1>
+        <p class="hero-text">How a design practice is structured matters as much as how individual designers work. The frameworks below cover how work moves through the team, how the studio critique model keeps quality consistent, and how AI tooling connects design knowledge across a department.</p>
       </section>
       <section class="meta-strip">
         <div class="meta-item"><p class="meta-label">Organisation</p><p class="meta-value">RAA</p></div>
-        <div class="meta-item"><p class="meta-label">Role</p><p class="meta-value">Senior UX Lead, UX Manager</p></div>
-        <div class="meta-item"><p class="meta-label">Tools</p><p class="meta-value">FigJam, Miro</p></div>
+        <div class="meta-item"><p class="meta-label">Role</p><p class="meta-value">UX Manager</p></div>
+        <div class="meta-item"><p class="meta-label">Scope</p><p class="meta-value">Ways of working, EXD operating model, AI orchestration</p></div>
       </section>
+
       <section class="lead-image-section">
-        <Image class="lead-image" src={miroIdeationCritique} alt="FigJam discovery session board showing housekeeping, feedback, problem framing, competitor analysis, discovery scope, and design options" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
+        <Image class="lead-image" src={wow1} alt="UX team ways of working framework showing three delivery pathways — dual-track discovery, solution discovery, and existing components" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
       </section>
+
       <section class="summary-section">
-        <p class="section-kicker">Discovery Sessions</p>
-        <h2>Structured to produce a decision, not just a discussion.</h2>
+        <p class="section-kicker">Ways of Working Framework</p>
+        <h2>Three delivery pathways. One decision that changes everything downstream.</h2>
         <div class="summary-main">
-          <p>The discovery session above covers a full problem-framing cycle: a look back at feedback from the last round, the problem and opportunity statement, competitor analysis with annotated observations, discovery scope with what is and is not in scope, and design options for where to go next.</p>
-          <p>Running sessions this way means the team leaves with a shared understanding of the problem and a clear next step — not a set of individual impressions that diverge over the following week.</p>
+          <p>The framework defines how every piece of work enters the team and which pathway it takes: dual-track discovery for problems that need defining before any solution is considered, solution discovery for problems the team already understands, and existing components for work the design system already solves.</p>
+          <p>That pathway decision — made in the Studio before any individual starts work — determines how much time gets invested and at what stage design gets involved. Getting it right saves weeks. Getting it wrong wastes them.</p>
         </div>
       </section>
-      <section class="editorial-section">
-        <div class="section-rail"><p class="section-kicker">Design Critique</p></div>
-        <div class="story-block">
-          <p>The Studio model runs weekly — a standing critique session where designers bring work at any stage for collective review. The Miro board below shows a live critique session: current state screens annotated with observations, competitor examples with notes, and design options laid out for discussion. The session structure keeps critique focused on the problem, not on personal preference.</p>
-          <p>Running critique this way builds shared taste and consistent quality standards across the team over time — something that individual feedback sessions cannot replicate.</p>
-        </div>
-      </section>
+
       <section class="supporting-image-section">
-        <Image class="supporting-image" src={miroIdeation} alt="Miro board showing current state screens annotated with observations, competitor examples, and design options for critique" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
+        <Image class="supporting-image" src={wow2} alt="Ways of working framework with Pathway Decision panel open showing the three pathways and why each one matters" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
       </section>
+
       <section class="editorial-section">
-        <div class="section-rail"><p class="section-kicker">Still to come</p></div>
+        <div class="section-rail"><p class="section-kicker">EXD Studio Model</p></div>
         <div class="story-block">
-          <p>[ Placeholder: AI-assisted orchestration layer — Claude workflow connecting design system, journey maps, and research synthesis. Screenshot from the slide deck. ]</p>
+          <p>The Studio is a standing weekly session where designers bring work at any stage for collective review. It replaced ad-hoc feedback loops with a shared, structured critique practice — so quality standards are held by the team, not by any one person's availability.</p>
+          <p>When a team member left mid-project, the Studio meant the rest of the team already understood the work and could absorb it without dropping anything. That is the actual test of whether a process is real.</p>
         </div>
       </section>
+
+      <section class="editorial-section">
+        <div class="section-rail"><p class="section-kicker">AI Orchestration Layer</p></div>
+        <div class="story-block">
+          <p>As the team reduced in size, the question became how to maintain quality and knowledge access without adding headcount. The answer was an AI-assisted orchestration layer — connecting the design system, journey maps, research synthesis, and live product data into a single workflow that the team could query through a Slackbot.</p>
+          <p>The diagram below shows the full architecture: business and management inputs on the left, the EXD Studio and prioritisation layer in the centre, the Claude orchestration layer at the base connecting all tools and knowledge sources, and delivered outputs and reporting on the right.</p>
+        </div>
+      </section>
+
+      <section class="supporting-image-section">
+        <Image class="supporting-image" src={orchestration} alt="EXD operating model and Claude orchestration layer diagram showing how business inputs, the Studio, AI tooling, and delivered outputs connect" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
+      </section>
+
     </main>
   </div>
 </Layout>

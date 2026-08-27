@@ -3,55 +3,43 @@ import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
 import benchmarking from '../../assets/images/ux-benchmarking.png';
-import usertesting1 from '../../assets/images/usertesting-1.png';
-import usertesting2 from '../../assets/images/usertesting-2.png';
-import competitorAnalysis from '../../assets/images/competitor-analysis.png';
+import journeyMap1 from '../../assets/images/journey-map-1.png';
 ---
-<Layout title="Research & Benchmarking | Andrew Smith" description="Usability testing, confidence studies, and quantitative benchmarking — measuring the experience over time to inform what gets prioritised.">
+<Layout title="Benchmarking | Andrew Smith" description="Quantitative UX benchmarking that measures the success of digital products over time — tracking effectiveness, efficiency, satisfaction, and desirability.">
   <a class="skip-link" href="#main-content">Skip to content</a>
   <div class="case-page">
     <SiteHeader />
     <main id="main-content">
       <section class="case-hero">
-        <p class="eyebrow"><a class="breadcrumb-link" href="/portfolio/work">Work</a><span class="breadcrumb-separator">/</span><span>Research &amp; Benchmarking</span></p>
-        <h1 class="display-title">Measuring the experience over time, not just at launch.</h1>
-        <p class="hero-text">Research is how design converts assumption into evidence. The work below covers quantitative benchmarking, moderated usability testing, and competitor analysis — each serving a different question, all feeding back into what gets prioritised and why.</p>
+        <p class="eyebrow"><a class="breadcrumb-link" href="/portfolio/work">Work</a><span class="breadcrumb-separator">/</span><span>Benchmarking</span></p>
+        <h1 class="display-title">Measuring the success of digital products over time.</h1>
+        <p class="hero-text">Shipping a feature is not the end of the design process — it is the start of the measurement phase. Benchmarking tracks whether a product is genuinely improving across four dimensions: effectiveness, efficiency, satisfaction, and desirability. Running the same study at regular intervals makes the data compound over time.</p>
       </section>
       <section class="meta-strip">
         <div class="meta-item"><p class="meta-label">Organisation</p><p class="meta-value">RAA</p></div>
         <div class="meta-item"><p class="meta-label">Role</p><p class="meta-value">Senior UX Design Lead</p></div>
-        <div class="meta-item"><p class="meta-label">Tools</p><p class="meta-value">UserTesting.com, Optimal Workshop</p></div>
+        <div class="meta-item"><p class="meta-label">Scope</p><p class="meta-value">Insurance, member portal, mobile app</p></div>
       </section>
       <section class="lead-image-section">
-        <Image class="lead-image" src={benchmarking} alt="Usability benchmarking dashboard for RAA Insurance showing effectiveness, efficiency, satisfaction, and desirability metrics" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
+        <Image class="lead-image" src={benchmarking} alt="Usability benchmarking dashboard for insurance quote showing effectiveness 39/1, efficiency 4 minute average, satisfaction, and desirability word cloud" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
       </section>
       <section class="summary-section">
-        <p class="section-kicker">UX Benchmarking</p>
-        <h2>Tracking effectiveness, efficiency, and desirability across products over time.</h2>
+        <p class="section-kicker">The Four Dimensions</p>
+        <h2>Effectiveness, efficiency, satisfaction, and desirability.</h2>
         <div class="summary-main">
-          <p>The benchmarking dashboard above measures the RAA Insurance quote experience against four dimensions: effectiveness (did users complete the task), efficiency (how long did it take), satisfaction (ease of use and usefulness), and desirability (word-choice responses to describe the experience). Running the same study at regular intervals shows whether the product is genuinely improving — or just changing.</p>
+          <p>Effectiveness measures whether users completed the task. Efficiency measures how long it took. Satisfaction captures ease of use and perceived usefulness. Desirability captures the emotional quality of the experience through word-choice responses.</p>
+          <p>Together these four dimensions give a complete picture of where the experience is working, where it is not, and what kind of problem each gap represents — which determines what kind of fix is needed.</p>
         </div>
       </section>
       <section class="editorial-section">
-        <div class="section-rail"><p class="section-kicker">Usability Testing</p></div>
+        <div class="section-rail"><p class="section-kicker">Connecting to Journey Management</p></div>
         <div class="story-block">
-          <p>Moderated sessions run through UserTesting.com give real-time insight into how members navigate RAA products. The session below shows a car insurance pay/renew test — pain points, friction moments, and moments of ease tagged in real time against the transcript. Every finding is tagged and classified before synthesis, so patterns emerge from data rather than memory.</p>
+          <p>Benchmarking data feeds directly into the journey map — adding quantitative metrics alongside the qualitative research findings. When win rates drop, drop-off rates climb, or desirability scores shift, the journey map captures those changes as evidence that a specific stage of the experience needs attention.</p>
+          <p>This closes the loop between measurement and prioritisation. The data does not sit in a report — it informs what the team works on next.</p>
         </div>
       </section>
       <section class="supporting-image-section">
-        <Image class="supporting-image" src={usertesting1} alt="UserTesting session for RAA car insurance pay/renew — mobile screen recording with tagged transcript showing pain points, friction, and ease moments" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
-      </section>
-      <section class="supporting-image-section">
-        <Image class="supporting-image" src={usertesting2} alt="UserTesting confidence test for RAA Log Book app — mobile prototype session with friction and like tags across the transcript" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
-      </section>
-      <section class="editorial-section">
-        <div class="section-rail"><p class="section-kicker">Competitor Analysis</p></div>
-        <div class="story-block">
-          <p>Competitor analysis maps how other insurers handle the same problem — authenticated quote retrieval, pre-filled data, member recognition — and identifies where RAA's current state creates unnecessary friction. This kind of analysis informs the problem definition before any solutions are proposed.</p>
-        </div>
-      </section>
-      <section class="supporting-image-section">
-        <Image class="supporting-image" src={competitorAnalysis} alt="Competitor analysis board showing AAMI, NRMA, Youi, and Suncorp authenticated quote and account flows with annotated observations" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
+        <Image class="supporting-image" src={journeyMap1} alt="QTB Journey Explorer showing live metrics connected to each stage of the member journey" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
       </section>
     </main>
   </div>

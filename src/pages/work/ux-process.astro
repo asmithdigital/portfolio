@@ -2,63 +2,134 @@
 import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
-import wow1 from '../../assets/images/way-of-working-1.png';
-import wow2 from '../../assets/images/way-of-working-2.png';
+import competitorAnalysis from '../../assets/images/competitor-analysis.png';
 import miroIdeation from '../../assets/images/miro-ideation-example.png';
+import miroIdeationCritique from '../../assets/images/miro-ideation-critique-example.png';
 import flowDiagram from '../../assets/images/flow-diagram-2.png';
 import figmaFlows from '../../assets/images/figma-myaccount-flows.png';
+import figmaWiresMobile from '../../assets/images/raa-wires-mobile.png';
+import raaWires from '../../assets/images/raa-wires.png';
+import usertesting1 from '../../assets/images/usertesting-1.png';
+import figmaRenewals from '../../assets/images/figma-renewals-example.png';
+import figmaClaims from '../../assets/images/figma-claims-screen-example.png';
+import myAccount from '../../assets/images/my-account.png';
+import uxBenchmarking from '../../assets/images/ux-benchmarking.png';
+import journeyMap1 from '../../assets/images/journey-map-1.png';
 ---
-<Layout title="UX Process | Andrew Smith" description="How a piece of work moves through the UX team — three delivery pathways covering discovery, solution design, and design system reuse.">
+<Layout title="UX Process | Andrew Smith" description="The senior UX design process — from discovery through research, ideation, flows, testing, and delivery.">
   <a class="skip-link" href="#main-content">Skip to content</a>
   <div class="case-page">
     <SiteHeader />
     <main id="main-content">
       <section class="case-hero">
         <p class="eyebrow"><a class="breadcrumb-link" href="/portfolio/work">Work</a><span class="breadcrumb-separator">/</span><span>UX Process</span></p>
-        <h1 class="display-title">How a piece of work moves through the UX team.</h1>
-        <p class="hero-text">Most design teams run informally until they don't. A departure, a deadline crunch, or a new hire exposes exactly how much was running on one person's memory. This framework makes the process explicit, repeatable, and owned by the team.</p>
+        <h1 class="display-title">The senior UX design process — from discovery to delivery.</h1>
+        <p class="hero-text">Good design outcomes are the result of a deliberate process. What follows is how that process works in practice — the activities, artefacts, and decisions that sit between understanding a problem and shipping something that solves it.</p>
       </section>
-      <section class="meta-strip">
-        <div class="meta-item"><p class="meta-label">Organisation</p><p class="meta-value">RAA</p></div>
-        <div class="meta-item"><p class="meta-label">Role</p><p class="meta-value">UX Manager</p></div>
-        <div class="meta-item"><p class="meta-label">Scope</p><p class="meta-value">Ways of working, three delivery pathways</p></div>
-      </section>
-      <section class="lead-image-section">
-        <Image class="lead-image" src={wow1} alt="UX team ways of working framework showing three delivery pathways" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
-      </section>
-      <section class="summary-section">
-        <p class="section-kicker">The Three Pathways</p>
-        <h2>Not every piece of work needs the same process.</h2>
-        <div class="summary-main">
-          <p>The framework defines three routes: dual-track discovery for problems we need to define before recommending anything, solution discovery for problems we already understand and want to solve within delivery, and existing components for work where the design system already has the answer and what's needed is guidance, not new design.</p>
-          <p>Every piece of work starts with a pathway decision, discussed in the Studio — not made solo. That single decision changes how much time gets invested and at what stage design gets involved.</p>
+
+      <section class="process-overview">
+        <div class="process-steps">
+          <div class="step"><span class="step-num">01</span><span class="step-label">Discovery</span></div>
+          <div class="step-arrow">→</div>
+          <div class="step"><span class="step-num">02</span><span class="step-label">Research</span></div>
+          <div class="step-arrow">→</div>
+          <div class="step"><span class="step-num">03</span><span class="step-label">Ideation</span></div>
+          <div class="step-arrow">→</div>
+          <div class="step"><span class="step-num">04</span><span class="step-label">Flow & IA</span></div>
+          <div class="step-arrow">→</div>
+          <div class="step"><span class="step-num">05</span><span class="step-label">Wireframes</span></div>
+          <div class="step-arrow">→</div>
+          <div class="step"><span class="step-num">06</span><span class="step-label">Testing</span></div>
+          <div class="step-arrow">→</div>
+          <div class="step"><span class="step-num">07</span><span class="step-label">UI Design</span></div>
+          <div class="step-arrow">→</div>
+          <div class="step"><span class="step-num">08</span><span class="step-label">Benchmarking</span></div>
         </div>
       </section>
-      <section class="supporting-image-section">
-        <Image class="supporting-image" src={wow2} alt="Ways of working framework with Pathway Decision side panel open showing the three pathways and why it matters" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
-      </section>
-      <section class="editorial-section">
-        <div class="section-rail"><p class="section-kicker">Discovery</p></div>
-        <div class="story-block">
-          <p>Discovery work — competitor analysis, contextual inquiry, analytics review — happens continuously, not as a project phase. The outputs feed the journey map and the product roadmap, not a report that nobody opens after the presentation.</p>
-          <p>The Miro board below shows a discovery session covering the problem and opportunity, competitor analysis, discovery scope, and design options — structured for critique, not just for reference.</p>
+
+      <section class="process-section">
+        <div class="process-label">
+          <span class="step-tag">01</span>
+          <h2>Discovery</h2>
+          <p>Understanding the problem before proposing a solution. Reviewing analytics, talking with stakeholders, examining what competitors are doing, and identifying where the current experience is costing users or the business.</p>
+        </div>
+        <div class="process-images">
+          <Image class="process-img" src={competitorAnalysis} alt="Competitor analysis board showing annotated AAMI, NRMA, and Youi flows" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
+          <Image class="process-img" src={miroIdeationCritique} alt="FigJam discovery session showing problem framing, competitor analysis, and design options" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
         </div>
       </section>
-      <section class="supporting-image-section">
-        <Image class="supporting-image" src={miroIdeation} alt="FigJam discovery session showing problem framing, competitor analysis, discovery scope, and design options" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
-      </section>
-      <section class="editorial-section">
-        <div class="section-rail"><p class="section-kicker">Flow & IA</p></div>
-        <div class="story-block">
-          <p>Before any UI gets designed, the flow needs to be right. These logic diagrams map out decision points, edge cases, and alternate paths — working through the requirements with the BA before any visual design begins.</p>
+
+      <section class="process-section">
+        <div class="process-label">
+          <span class="step-tag">02</span>
+          <h2>Research & Ideation</h2>
+          <p>Synthesising what is known into a clear problem statement, then generating ideas with the team. Workshops, analysis, and structured critique sessions that produce a direction — not just a list of possibilities.</p>
+        </div>
+        <div class="process-images">
+          <Image class="process-img" src={miroIdeation} alt="Miro ideation board showing current state analysis and design options" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
         </div>
       </section>
-      <section class="supporting-image-section">
-        <Image class="supporting-image" src={flowDiagram} alt="Insurance and road service logic flow diagrams showing decision points and alternate paths" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
+
+      <section class="process-section">
+        <div class="process-label">
+          <span class="step-tag">03</span>
+          <h2>Flow & Information Architecture</h2>
+          <p>Mapping every path through the experience before any visual design begins. Decision points, edge cases, alternate flows — documented with the BA so requirements and design are aligned before a single screen is drawn.</p>
+        </div>
+        <div class="process-images">
+          <Image class="process-img" src={flowDiagram} alt="Insurance and road service logic flow diagrams with decision points and alternate paths" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
+          <Image class="process-img" src={figmaFlows} alt="Figma high-level user flow and information architecture for My Account" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
+        </div>
       </section>
-      <section class="supporting-image-section">
-        <Image class="supporting-image" src={figmaFlows} alt="Figma high-level user flow and information architecture diagram for My Account" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
+
+      <section class="process-section">
+        <div class="process-label">
+          <span class="step-tag">04</span>
+          <h2>Wireframes & Prototyping</h2>
+          <p>Low-fidelity structure before visual polish. Getting the layout, hierarchy, and interactions right before investing in high-fidelity design — so testing reveals genuine usability issues, not reactions to colour choices.</p>
+        </div>
+        <div class="process-images">
+          <Image class="process-img" src={figmaWiresMobile} alt="Low-fidelity wireframes for RAA app deals, categories, and favourites screens" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
+          <Image class="process-img" src={raaWires} alt="RAA Travel prototype flow diagram showing connected screens across user journeys" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
+        </div>
       </section>
+
+      <section class="process-section">
+        <div class="process-label">
+          <span class="step-tag">05</span>
+          <h2>Usability Testing</h2>
+          <p>Checking the design against real users before build. Moderated sessions with 5–8 participants, findings tagged as pain points, friction, or moments of ease — synthesised into actionable recommendations, not just observations.</p>
+        </div>
+        <div class="process-images">
+          <Image class="process-img" src={usertesting1} alt="UserTesting moderated session showing tagged transcript with pain points and ease moments" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
+        </div>
+      </section>
+
+      <section class="process-section">
+        <div class="process-label">
+          <span class="step-tag">06</span>
+          <h2>High-Fidelity UI Design</h2>
+          <p>Finished designs built against the design system — with full variant coverage, annotated specs, and documentation that gives developers what they need to build without interpretation. Reviewed against accessibility standards before handover.</p>
+        </div>
+        <div class="process-images">
+          <Image class="process-img" src={figmaRenewals} alt="Figma canvas showing road service renewals screens across desktop and mobile" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
+          <Image class="process-img" src={figmaClaims} alt="Figma canvas showing insurance claims screens across breakpoints" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
+          <Image class="process-img" src={myAccount} alt="RAA My Account shipped product" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
+        </div>
+      </section>
+
+      <section class="process-section">
+        <div class="process-label">
+          <span class="step-tag">07</span>
+          <h2>Post-Delivery Benchmarking</h2>
+          <p>Measuring whether the shipped product actually improved the experience. Quantitative studies tracking effectiveness, efficiency, satisfaction, and desirability — run at regular intervals so the data compounds over time and informs the next round of discovery.</p>
+        </div>
+        <div class="process-images">
+          <Image class="process-img" src={uxBenchmarking} alt="Usability benchmarking dashboard showing effectiveness, efficiency, and desirability metrics" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
+          <Image class="process-img" src={journeyMap1} alt="QTB Journey Explorer with live metrics feeding back into solution prioritisation" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
+        </div>
+      </section>
+
     </main>
   </div>
 </Layout>
@@ -68,19 +139,19 @@ import figmaFlows from '../../assets/images/figma-myaccount-flows.png';
 .breadcrumb-link{font-weight:600}.breadcrumb-separator{color:var(--muted-foreground)}
 h1,h2{margin:0;font-weight:800;letter-spacing:-.05em;color:var(--foreground)}
 .display-title{font-size:clamp(2rem,4.5vw,3.5rem);line-height:1.06;margin:1rem 0 0;max-width:28ch}
-.hero-subgrid{margin-top:1.75rem}
-.hero-text,.story-block p,.summary-main p{font-size:1.08rem;line-height:1.7;margin:0 0 1rem}
+.hero-text{font-size:1.08rem;line-height:1.7;margin:1.5rem 0 0;max-width:42rem}
 .case-hero{padding:5rem 0 2rem}
-.meta-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2rem;padding:1.5rem 0 .5rem;border-top:1px solid var(--border)}
-.meta-label{font-family:var(--font-mono);font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted-foreground);margin:0}
-.meta-value{margin:.35rem 0 0;font-size:1.1rem;font-weight:700}
-.lead-image-section{padding:2rem 0 4rem}
-.lead-image,.supporting-image{width:100%;border:1px solid var(--border);border-radius:1.5rem;box-shadow:var(--shadow-large)}
-.supporting-image-section{padding:2rem 0 4rem;border-bottom:1px solid var(--border)}
-.summary-section{padding:0 0 3rem;border-bottom:1px solid var(--border)}
-.summary-section h2{margin-top:.75rem;font-size:clamp(1.5rem,2.5vw,2.2rem);max-width:32ch}
-.summary-main{margin-top:1.5rem;max-width:44rem}
-.section-kicker{font-family:var(--font-mono);font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted-foreground);margin:0 0 .5rem}
-.editorial-section{display:grid;grid-template-columns:14rem minmax(0,1fr);gap:2rem;padding:3rem 0;border-bottom:1px solid var(--border)}
-.story-block{max-width:44rem}
+.process-overview{padding:2rem 0 3rem;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:0}
+.process-steps{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem}
+.step{display:flex;flex-direction:column;align-items:center;gap:.25rem;padding:.75rem 1rem;border-radius:.5rem;background:var(--muted);min-width:5rem;text-align:center}
+.step-num{font-family:var(--font-mono);font-size:.7rem;font-weight:600;color:var(--muted-foreground)}
+.step-label{font-size:.85rem;font-weight:700}
+.step-arrow{color:var(--muted-foreground);font-size:1.2rem}
+.process-section{display:grid;grid-template-columns:22rem minmax(0,1fr);gap:3rem;padding:3rem 0;border-bottom:1px solid var(--border)}
+.process-label h2{font-size:1.3rem;margin:.5rem 0;letter-spacing:-.02em}
+.process-label p{font-size:.96rem;line-height:1.65;color:var(--muted-foreground);margin:.75rem 0 0}
+.step-tag{font-family:var(--font-mono);font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted-foreground)}
+.process-images{display:flex;flex-direction:column;gap:1.25rem}
+.process-img{width:100%;border-radius:1rem;border:1px solid var(--border);box-shadow:0 8px 20px rgba(23,23,23,.07)}
+@media(max-width:860px){.process-section{grid-template-columns:1fr}.process-steps{gap:.35rem}.step{min-width:4rem;padding:.5rem .75rem}}
 </style>

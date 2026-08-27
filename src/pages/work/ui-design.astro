@@ -7,100 +7,115 @@ import paymentPortal from '../../assets/images/payment-portal.png';
 import qtbMotor from '../../assets/images/QTB-motor.png';
 import logIn from '../../assets/images/log-in.png';
 import raaWebsite from '../../assets/images/raa-website.png';
-import figmaRenewals from '../../assets/images/figma-renewals-example.png';
-import figmaClaims from '../../assets/images/figma-claims-screen-example.png';
-import figmaAppFlows from '../../assets/images/figma-mobile-app-screen-flows.png';
 import raaBanner from '../../assets/images/raa-banner.png';
 import raaHoliday from '../../assets/images/raa-holiday.png';
+import uofaBanner from '../../assets/images/uofa-banner.png';
+import uofaSubpage from '../../assets/images/uofa-subpage.png';
+import uofaMobileMenu from '../../assets/images/uofa-mobile-global-menu.png';
+import f1a from '../../assets/images/freelance-1a.png';
+import f1b from '../../assets/images/freelance-1b.png';
+import f1c from '../../assets/images/freelance-1c.png';
+import f2a from '../../assets/images/freelance-2a.png';
+import f2b from '../../assets/images/freelance-2b.png';
+import f2c from '../../assets/images/freelance-2c.png';
+import f3a from '../../assets/images/freelance-3a.png';
+import f3b from '../../assets/images/freelance-3b.png';
+import f4a from '../../assets/images/freelance-4a.png';
 ---
-<Layout title="UI Design | Andrew Smith" description="UX and UI design across RAA digital products — insurance, membership, payments, identity, travel, and mobile.">
+<Layout title="UI Design | Andrew Smith" description="UI design across digital products — web, mobile, responsive design, and freelance client work.">
   <a class="skip-link" href="#main-content">Skip to content</a>
   <div class="case-page">
     <SiteHeader />
     <main id="main-content">
       <section class="case-hero">
         <p class="eyebrow"><a class="breadcrumb-link" href="/portfolio/work">Work</a><span class="breadcrumb-separator">/</span><span>UI Design</span></p>
-        <h1 class="display-title">RAA digital products — UX and UI across web and mobile.</h1>
-        <p class="hero-text">End-to-end design across insurance, membership, payments, identity management, travel, and the RAA website. Every product area below followed the same discipline: understand the problem, map the flow, test before building, ship against the design system.</p>
+        <h1 class="display-title">UI design across digital products — web, mobile, and responsive.</h1>
+        <p class="hero-text">End-to-end UI design across insurance, membership, payments, identity, travel, and the university website. Every product area follows the same discipline: understand the problem, map the flow, test before building, ship against the design system.</p>
       </section>
       <section class="meta-strip">
-        <div class="meta-item"><p class="meta-label">Organisation</p><p class="meta-value">RAA</p></div>
+        <div class="meta-item"><p class="meta-label">Organisations</p><p class="meta-value">RAA, University of Adelaide</p></div>
         <div class="meta-item"><p class="meta-label">Role</p><p class="meta-value">Senior UX Design Lead</p></div>
         <div class="meta-item"><p class="meta-label">Scope</p><p class="meta-value">Web, mobile, native app</p></div>
       </section>
+
       <section class="lead-image-section">
-        <Image class="lead-image" src={myAccount} alt="RAA My Account dashboard showing member products and account management" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
+        <Image class="lead-image" src={myAccount} alt="My Account dashboard showing member products and account management" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
       </section>
+
       <section class="summary-section">
-        <p class="section-kicker">My Account</p>
-        <h2>A member portal that brings everything together in one place.</h2>
+        <p class="section-kicker">Member Portal</p>
+        <h2>An authenticated member portal across insurance, road service, and payments.</h2>
         <div class="summary-main">
-          <p>My Account lets RAA members manage their insurance products, road service membership, payment details, and personal information. Designing for an authenticated product meant working with real member data, complex state conditions, and strict accessibility requirements across all device sizes.</p>
+          <p>The member portal brings together insurance products, road service membership, payment management, and personal details. Complex authenticated state, multiple product types, and strict accessibility requirements across all device sizes.</p>
         </div>
       </section>
+
       <section class="editorial-section">
-        <div class="section-rail"><p class="section-kicker">Insurance & Quotes</p></div>
-        <div class="story-block">
-          <p>The motor insurance quote flow guides members through a multi-step process with progressive disclosure, contextual help, and clear wayfinding. The payment portal handles due payments and direct credit card transactions — both tested against real members before any build began.</p>
-        </div>
+        <div class="section-rail"><p class="section-kicker">Insurance & Payments</p></div>
+        <div class="story-block"><p>Multi-step quote flows with progressive disclosure, contextual help, and clear wayfinding. The payment portal handles due payments and direct credit card transactions — both tested with real members before any development.</p></div>
       </section>
       <section class="img-pair-section">
         <div class="img-pair">
-          <Image class="pair-image" src={qtbMotor} alt="RAA car insurance quote flow step 2 — car use and finance details" loading="lazy" decoding="async" widths={[720,1080]} sizes="50vw"/>
-          <Image class="pair-image" src={paymentPortal} alt="RAA payment portal showing payment method selection" loading="lazy" decoding="async" widths={[720,1080]} sizes="50vw"/>
+          <Image class="pair-image" src={qtbMotor} alt="Car insurance quote flow — car use and finance step" loading="lazy" decoding="async" widths={[720,1080]} sizes="50vw"/>
+          <Image class="pair-image" src={paymentPortal} alt="Payment portal showing payment method selection" loading="lazy" decoding="async" widths={[720,1080]} sizes="50vw"/>
         </div>
       </section>
-      <section class="editorial-section">
-        <div class="section-rail"><p class="section-kicker">Identity & Login</p></div>
-        <div class="story-block">
-          <p>The RAA identity and login system covers authentication across the whole RAA digital ecosystem. The login screen below shows the production design — clean, focused, and consistent with the broader design system.</p>
-        </div>
-      </section>
-      <section class="supporting-image-section">
-        <Image class="supporting-image" src={logIn} alt="RAA login screen with email field and continue button" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
-      </section>
-      <section class="editorial-section">
-        <div class="section-rail"><p class="section-kicker">Figma — Design Process</p></div>
-        <div class="story-block">
-          <p>These Figma canvas views show the design process behind the shipped product — renewals screens across desktop and mobile at multiple product tiers, and claims screens across device breakpoints. Each canvas documents the full design scope before handover.</p>
-        </div>
-      </section>
-      <section class="supporting-image-section">
-        <Image class="supporting-image" src={figmaRenewals} alt="Figma canvas showing road service renewals screens across desktop and mobile for four product tiers" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
-      </section>
-      <section class="supporting-image-section">
-        <Image class="supporting-image" src={figmaClaims} alt="Figma canvas showing insurance claims screens across mobile, tablet, and desktop" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
-      </section>
+
       <section class="editorial-section">
         <div class="section-rail"><p class="section-kicker">Travel</p></div>
-        <div class="story-block">
-          <p>RAA Travel covers flights, stays, holidays, cruises, car hire, and attractions. A complex multi-product booking experience designed for web and mobile — research, IA, prototyping, usability testing, and UI delivery across the full product lifecycle.</p>
-        </div>
+        <div class="story-block"><p>A complex multi-product booking experience covering flights, stays, holidays, cruises, car hire, and attractions — designed for web and mobile, responsive across all device sizes.</p></div>
       </section>
       <section class="supporting-image-section">
-        <Image class="supporting-image" src={raaBanner} alt="RAA Travel shown across desktop, tablet, and mobile" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
+        <Image class="supporting-image" src={raaBanner} alt="Travel website shown across desktop, tablet, and mobile" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
       </section>
       <section class="supporting-image-section">
-        <Image class="supporting-image" src={raaHoliday} alt="RAA Travel holiday detail page — cruise itinerary with pricing" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
+        <Image class="supporting-image" src={raaHoliday} alt="Travel holiday detail page — cruise itinerary with pricing and booking" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
       </section>
+
       <section class="editorial-section">
-        <div class="section-rail"><p class="section-kicker">Mobile App</p></div>
-        <div class="story-block">
-          <p>This Figma canvas shows the RAA Log Book — a native app feature for learner drivers to log driving hours with supervisor sign-off. The flow covers entry, dashboard, and sign-off screens across multiple states. Collaborated with the team's mobile designer from the UX and flow stages through to handover.</p>
+        <div class="section-rail"><p class="section-kicker">Website & Identity</p></div>
+        <div class="story-block"><p>The main website homepage and navigation — a high-traffic entry point serving insurance, membership, motor, home, and travel. The login and identity system covers authentication across the full digital ecosystem.</p></div>
+      </section>
+      <section class="img-pair-section">
+        <div class="img-pair">
+          <Image class="pair-image" src={raaWebsite} alt="Website homepage showing navigation, hero, and member value proposition" loading="lazy" decoding="async" widths={[720,1080]} sizes="50vw"/>
+          <Image class="pair-image" src={logIn} alt="Login screen with email field and continue button" loading="lazy" decoding="async" widths={[720,1080]} sizes="50vw"/>
         </div>
       </section>
-      <section class="supporting-image-section">
-        <Image class="supporting-image" src={figmaAppFlows} alt="Figma canvas showing RAA Log Book app screens — entry, dashboard, drive details, and sign-off flows" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
-      </section>
+
       <section class="editorial-section">
-        <div class="section-rail"><p class="section-kicker">RAA Website</p></div>
-        <div class="story-block">
-          <p>The RAA.com.au homepage and navigation — a high-traffic entry point serving insurance, membership, motor, home, and travel. The navigation system, hero layout, and content hierarchy were designed to serve members across all device sizes.</p>
-        </div>
+        <div class="section-rail"><p class="section-kicker">University of Adelaide</p></div>
+        <div class="story-block"><p>UX designer and front-end developer on the University of Adelaide website redesign — desktop and mobile interfaces built on a custom Drupal CMS, with a styleguide-driven development approach that standardised design across the whole university.</p></div>
       </section>
       <section class="supporting-image-section">
-        <Image class="supporting-image" src={raaWebsite} alt="RAA website homepage showing navigation, hero, and member value proposition" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
+        <Image class="supporting-image" src={uofaBanner} alt="University of Adelaide website shown across desktop, tablet, and mobile" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
       </section>
+      <section class="img-pair-section">
+        <div class="img-pair">
+          <Image class="pair-image" src={uofaSubpage} alt="University of Adelaide research institutes subpage" loading="lazy" decoding="async" widths={[720,1080]} sizes="50vw"/>
+          <Image class="pair-image" src={uofaMobileMenu} alt="University of Adelaide mobile global navigation menu" loading="lazy" decoding="async" widths={[720,1080]} sizes="50vw"/>
+        </div>
+      </section>
+
+      <section class="freelance-section">
+        <p class="section-kicker">Freelance UI, UX & Front-End Development</p>
+        <h2>A sample from 20 years of client work.</h2>
+        <p class="freelance-intro">E-commerce, service businesses, and small brands — each designed and built end to end, from brief through to live site.</p>
+        <div class="freelance-scroll">
+          <div class="freelance-track">
+            <Image class="freelance-thumb" src={f1a} alt="PALI Footwear homepage" loading="lazy" decoding="async" widths={[400,600]} sizes="280px"/>
+            <Image class="freelance-thumb" src={f1b} alt="PALI Footwear products page" loading="lazy" decoding="async" widths={[400,600]} sizes="280px"/>
+            <Image class="freelance-thumb" src={f1c} alt="PALI Footwear product detail" loading="lazy" decoding="async" widths={[400,600]} sizes="280px"/>
+            <Image class="freelance-thumb" src={f2a} alt="Chaircovers Over All homepage" loading="lazy" decoding="async" widths={[400,600]} sizes="280px"/>
+            <Image class="freelance-thumb" src={f2b} alt="Chaircovers Over All products" loading="lazy" decoding="async" widths={[400,600]} sizes="280px"/>
+            <Image class="freelance-thumb" src={f2c} alt="Chaircovers Over All product detail" loading="lazy" decoding="async" widths={[400,600]} sizes="280px"/>
+            <Image class="freelance-thumb" src={f3a} alt="Graceful Grounded Yoga about page" loading="lazy" decoding="async" widths={[400,600]} sizes="280px"/>
+            <Image class="freelance-thumb" src={f3b} alt="Graceful Grounded Yoga section" loading="lazy" decoding="async" widths={[400,600]} sizes="280px"/>
+            <Image class="freelance-thumb" src={f4a} alt="Bass Coast Podiatry homepage" loading="lazy" decoding="async" widths={[400,600]} sizes="280px"/>
+          </div>
+        </div>
+      </section>
+
     </main>
   </div>
 </Layout>
@@ -126,5 +141,11 @@ h1,h2{margin:0;font-weight:800;letter-spacing:-.05em;color:var(--foreground)}
 .section-kicker{font-family:var(--font-mono);font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted-foreground);margin:0 0 .5rem}
 .editorial-section{display:grid;grid-template-columns:14rem minmax(0,1fr);gap:2rem;padding:3rem 0;border-bottom:1px solid var(--border)}
 .story-block{max-width:44rem}
-@media(max-width:860px){.img-pair{grid-template-columns:1fr}.editorial-section{grid-template-columns:1fr}}
+.freelance-section{padding:3.5rem 0 0;border-top:1px solid var(--border)}
+.freelance-section h2{margin:.5rem 0 0;font-size:clamp(1.5rem,2.5vw,2rem)}
+.freelance-intro{font-size:1rem;color:var(--muted-foreground);margin:.75rem 0 1.75rem;max-width:42rem}
+.freelance-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:1rem;margin:0 -2rem;padding-left:2rem;padding-right:2rem}
+.freelance-track{display:flex;gap:1.25rem;width:max-content}
+.freelance-thumb{width:280px;height:190px;object-fit:cover;border-radius:1rem;border:1px solid var(--border);box-shadow:0 8px 20px rgba(23,23,23,.07);flex-shrink:0}
+@media(max-width:860px){.img-pair{grid-template-columns:1fr}.editorial-section{grid-template-columns:1fr}.freelance-thumb{width:220px;height:150px}}
 </style>
