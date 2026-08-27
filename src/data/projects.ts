@@ -23,7 +23,7 @@ export const workPageSize = 10;
 export const projects: Project[] = [
   {
     name: 'UX Process',
-    title: 'The senior UX design process — from discovery to delivery',
+    title: 'The UX design process, end to end',
     description: 'How research, ideation, flows, wireframes, testing, and UI design work together across a product — the end-to-end practice of a senior product designer.',
     background: 'lime',
     variant: 'desktop',
@@ -34,7 +34,7 @@ export const projects: Project[] = [
   },
   {
     name: 'UI Design',
-    title: 'UI design across digital products — web, mobile, and responsive',
+    title: 'UI design across digital products',
     description: 'End-to-end UI design across insurance, membership, payments, identity, travel, the university website, and freelance client work.',
     background: 'cyan',
     variant: 'desktop',
@@ -45,7 +45,7 @@ export const projects: Project[] = [
   },
   {
     name: 'Journey Mapping',
-    title: 'Making member experience visible and actionable',
+    title: 'Journey mapping for experience visibility',
     description: 'Journey maps that connect real metrics, research, and pain points — giving product and design teams a shared reference for where the experience breaks down.',
     background: 'lavender',
     variant: 'board',
@@ -56,7 +56,7 @@ export const projects: Project[] = [
   },
   {
     name: 'Design Systems',
-    title: 'Design systems — components, tokens, and documentation',
+    title: 'Design systems for consistency at scale',
     description: 'Shared component libraries built for scale — from a custom JavaScript styleguide for an entire university to a governed Figma and ZeroHeight system for a major member organisation.',
     background: 'mint',
     variant: 'desktop',
@@ -67,7 +67,7 @@ export const projects: Project[] = [
   },
   {
     name: 'Benchmarking',
-    title: 'Measuring the success of digital products over time',
+    title: 'Benchmarking digital product quality over time',
     description: 'Quantitative UX benchmarking that tracks effectiveness, efficiency, satisfaction, and desirability — feeding results back into what gets prioritised and why.',
     background: 'lime',
     variant: 'board',
@@ -78,7 +78,7 @@ export const projects: Project[] = [
   },
   {
     name: 'Ways of Working',
-    title: 'Operating models, process frameworks, and strategic tooling',
+    title: 'Ways of working for a UX team',
     description: 'How a design practice is structured — delivery pathways, the EXD Studio model, team governance, and AI-assisted workflows that connect design system, journey maps, and research.',
     background: 'cyan',
     variant: 'split',
