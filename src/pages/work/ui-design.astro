@@ -22,7 +22,7 @@ import f3a from '../../assets/images/freelance-3a.png';
 import f3b from '../../assets/images/freelance-3b.png';
 import f4a from '../../assets/images/freelance-4a.png';
 ---
-<Layout title="UI Design | Andrew Smith" description="UI design across digital products — web, mobile, responsive design, and freelance client work.">
+<Layout title="UI Design | Andrew Smith" description="UI design across digital products — web, mobile, responsive design, and two decades of freelance client work.">
   <a class="skip-link" href="#main-content">Skip to content</a>
   <div class="case-page">
     <SiteHeader />
@@ -30,88 +30,94 @@ import f4a from '../../assets/images/freelance-4a.png';
       <section class="case-hero">
         <p class="eyebrow"><a class="breadcrumb-link" href="/portfolio/work">Work</a><span class="breadcrumb-separator">/</span><span>UI Design</span></p>
         <h1 class="display-title">UI design across digital products — web, mobile, and responsive.</h1>
-        <p class="hero-text">End-to-end UI design across insurance, membership, payments, identity, travel, and the university website. Every product area follows the same discipline: understand the problem, map the flow, test before building, ship against the design system.</p>
+        <p class="hero-text">UI design is not what the interface looks like. It is how every decision about layout, hierarchy, component choice, colour, spacing, and interaction adds up to an experience that either earns a user's confidence or quietly erodes it. The screenshots below show finished product across a range of digital contexts — each one the result of research, testing, and iteration against a design system.</p>
+        <p class="hero-text">The technical background matters here. Before working in UX, the tools were HTML, CSS, and JavaScript. That means conversations with engineers about implementation constraints, decisions about what to build versus what to pull from the component library, and handover documents that a developer can actually use — are all informed by having done that work on the other side.</p>
+        <p class="hero-text">AI is now part of the UI design process too. Figma plugins for accessibility checking, AI-assisted spec generation, and prototype scanning tools that create realistic test environments from live products — all reducing the overhead of documentation and validation so more time goes to the work that requires judgment.</p>
       </section>
       <section class="meta-strip">
-        <div class="meta-item"><p class="meta-label">Organisations</p><p class="meta-value">RAA, University of Adelaide</p></div>
+        <div class="meta-item"><p class="meta-label">Organisations</p><p class="meta-value">Multiple, plus freelance</p></div>
         <div class="meta-item"><p class="meta-label">Role</p><p class="meta-value">Senior UX Design Lead</p></div>
-        <div class="meta-item"><p class="meta-label">Scope</p><p class="meta-value">Web, mobile, native app</p></div>
+        <div class="meta-item"><p class="meta-label">Scope</p><p class="meta-value">Web, mobile, native app, responsive</p></div>
       </section>
 
       <section class="lead-image-section">
-        <Image class="lead-image" src={myAccount} alt="My Account dashboard showing member products and account management" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
+        <Image class="lead-image" src={myAccount} alt="Member portal dashboard showing product management and account details" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
       </section>
 
       <section class="summary-section">
-        <p class="section-kicker">Member Portal</p>
-        <h2>An authenticated member portal across insurance, road service, and payments.</h2>
+        <p class="section-kicker">Authenticated Products</p>
+        <h2>Designing for members who are logged in — where the stakes are higher.</h2>
         <div class="summary-main">
-          <p>The member portal brings together insurance products, road service membership, payment management, and personal details. Complex authenticated state, multiple product types, and strict accessibility requirements across all device sizes.</p>
+          <p>Authenticated products are harder to design than marketing pages. The user has a real account, real data, and real expectations. The interface needs to serve multiple product types in one place, handle complex state conditions gracefully, and work accessibly across every device size and assistive technology.</p>
+          <p>Insurance quote flows, payment portals, and identity management are all technically complex interactions where a small UX failure — a confusing error message, a missing confirmation, a form that loses entered data — has a real cost to the user and the business. Getting these right requires research, testing, and iteration. Not just craft.</p>
+        </div>
+      </section>
+
+      <section class="img-pair-section">
+        <div class="img-pair">
+          <Image class="pair-image" src={qtbMotor} alt="Multi-step insurance quote flow with progressive disclosure and contextual guidance" loading="lazy" decoding="async" widths={[720,1080]} sizes="50vw"/>
+          <Image class="pair-image" src={paymentPortal} alt="Payment portal with clear payment method selection and member recognition" loading="lazy" decoding="async" widths={[720,1080]} sizes="50vw"/>
         </div>
       </section>
 
       <section class="editorial-section">
-        <div class="section-rail"><p class="section-kicker">Insurance & Payments</p></div>
-        <div class="story-block"><p>Multi-step quote flows with progressive disclosure, contextual help, and clear wayfinding. The payment portal handles due payments and direct credit card transactions — both tested with real members before any development.</p></div>
-      </section>
-      <section class="img-pair-section">
-        <div class="img-pair">
-          <Image class="pair-image" src={qtbMotor} alt="Car insurance quote flow — car use and finance step" loading="lazy" decoding="async" widths={[720,1080]} sizes="50vw"/>
-          <Image class="pair-image" src={paymentPortal} alt="Payment portal showing payment method selection" loading="lazy" decoding="async" widths={[720,1080]} sizes="50vw"/>
+        <div class="section-rail"><p class="section-kicker">Travel & Booking</p></div>
+        <div class="story-block">
+          <p>Multi-product booking experiences are a particular UI challenge. Flights, stays, holidays, cruises, car hire, and attractions each have different data models, different decision flows, and different user mental models — but they need to feel like one coherent product. The design system is what makes that possible without starting from scratch for each product type.</p>
+          <p>Everything here is responsive across all device sizes, following a mobile-first approach that treats the small-screen experience as the baseline rather than the afterthought.</p>
         </div>
       </section>
-
-      <section class="editorial-section">
-        <div class="section-rail"><p class="section-kicker">Travel</p></div>
-        <div class="story-block"><p>A complex multi-product booking experience covering flights, stays, holidays, cruises, car hire, and attractions — designed for web and mobile, responsive across all device sizes.</p></div>
+      <section class="supporting-image-section">
+        <Image class="supporting-image" src={raaBanner} alt="Travel booking platform shown across desktop, tablet, and mobile" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
       </section>
       <section class="supporting-image-section">
-        <Image class="supporting-image" src={raaBanner} alt="Travel website shown across desktop, tablet, and mobile" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
-      </section>
-      <section class="supporting-image-section">
-        <Image class="supporting-image" src={raaHoliday} alt="Travel holiday detail page — cruise itinerary with pricing and booking" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
+        <Image class="supporting-image" src={raaHoliday} alt="Holiday detail page with itinerary information, pricing, and booking" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
       </section>
 
       <section class="editorial-section">
-        <div class="section-rail"><p class="section-kicker">Website & Identity</p></div>
-        <div class="story-block"><p>The main website homepage and navigation — a high-traffic entry point serving insurance, membership, motor, home, and travel. The login and identity system covers authentication across the full digital ecosystem.</p></div>
+        <div class="section-rail"><p class="section-kicker">Identity & Website</p></div>
+        <div class="story-block">
+          <p>A login screen is the first moment of trust in an authenticated product. Get it wrong — too many fields, confusing error states, unclear recovery paths — and users call the contact centre instead of completing what they came to do. The website homepage serves a different challenge: a high-traffic entry point that needs to route multiple audiences to multiple products without overwhelming anyone.</p>
+        </div>
       </section>
       <section class="img-pair-section">
         <div class="img-pair">
-          <Image class="pair-image" src={raaWebsite} alt="Website homepage showing navigation, hero, and member value proposition" loading="lazy" decoding="async" widths={[720,1080]} sizes="50vw"/>
-          <Image class="pair-image" src={logIn} alt="Login screen with email field and continue button" loading="lazy" decoding="async" widths={[720,1080]} sizes="50vw"/>
+          <Image class="pair-image" src={raaWebsite} alt="Website homepage showing navigation hierarchy and member value proposition" loading="lazy" decoding="async" widths={[720,1080]} sizes="50vw"/>
+          <Image class="pair-image" src={logIn} alt="Login screen with clear email entry and accessible layout" loading="lazy" decoding="async" widths={[720,1080]} sizes="50vw"/>
         </div>
       </section>
 
       <section class="editorial-section">
         <div class="section-rail"><p class="section-kicker">University of Adelaide</p></div>
-        <div class="story-block"><p>UX designer and front-end developer on the University of Adelaide website redesign — desktop and mobile interfaces built on a custom Drupal CMS, with a styleguide-driven development approach that standardised design across the whole university.</p></div>
+        <div class="story-block">
+          <p>Five years as UX designer and front-end developer on a large-scale university website rebuild — designing the interfaces and building them simultaneously on a custom Drupal CMS. The styleguide-driven development approach meant that design decisions made once propagated automatically across every team building on the same codebase. Consistency as a property of the system, not a property of vigilance.</p>
+        </div>
       </section>
       <section class="supporting-image-section">
-        <Image class="supporting-image" src={uofaBanner} alt="University of Adelaide website shown across desktop, tablet, and mobile" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
+        <Image class="supporting-image" src={uofaBanner} alt="University website shown across desktop, tablet, and mobile — responsive design" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
       </section>
       <section class="img-pair-section">
         <div class="img-pair">
-          <Image class="pair-image" src={uofaSubpage} alt="University of Adelaide research institutes subpage" loading="lazy" decoding="async" widths={[720,1080]} sizes="50vw"/>
-          <Image class="pair-image-constrained" src={uofaMobileMenu} alt="University of Adelaide mobile global navigation menu" loading="lazy" decoding="async" widths={[720,1080]} sizes="50vw"/>
+          <Image class="pair-image" src={uofaSubpage} alt="University research institutes subpage showing navigation, typography, and content hierarchy" loading="lazy" decoding="async" widths={[720,1080]} sizes="50vw"/>
+          <Image class="pair-image-constrained" src={uofaMobileMenu} alt="University mobile global navigation menu" loading="lazy" decoding="async" widths={[720,1080]} sizes="50vw"/>
         </div>
       </section>
 
       <section class="freelance-section">
         <p class="section-kicker">Freelance UI, UX & Front-End Development</p>
-        <h2>A sample from 20 years of client work.</h2>
-        <p class="freelance-intro">E-commerce, service businesses, and small brands — each designed and built end to end, from brief through to live site.</p>
+        <h2>Twenty years of client work — designed, built, and shipped.</h2>
+        <p class="freelance-intro">Before working in-house, and alongside it, the work was freelance — building websites end to end for clients across e-commerce, health, fitness, and hospitality. Project management, client relationship, design, development, and launch. Every part of the process owned by one person. A sample below.</p>
         <div class="freelance-scroll">
           <div class="freelance-track">
-            <Image class="freelance-thumb" src={f1a} alt="PALI Footwear homepage" loading="lazy" decoding="async" widths={[400,600]} sizes="280px"/>
-            <Image class="freelance-thumb" src={f1b} alt="PALI Footwear products page" loading="lazy" decoding="async" widths={[400,600]} sizes="280px"/>
-            <Image class="freelance-thumb" src={f1c} alt="PALI Footwear product detail" loading="lazy" decoding="async" widths={[400,600]} sizes="280px"/>
-            <Image class="freelance-thumb" src={f2a} alt="Chaircovers Over All homepage" loading="lazy" decoding="async" widths={[400,600]} sizes="280px"/>
-            <Image class="freelance-thumb" src={f2b} alt="Chaircovers Over All products" loading="lazy" decoding="async" widths={[400,600]} sizes="280px"/>
-            <Image class="freelance-thumb" src={f2c} alt="Chaircovers Over All product detail" loading="lazy" decoding="async" widths={[400,600]} sizes="280px"/>
-            <Image class="freelance-thumb" src={f3a} alt="Graceful Grounded Yoga about page" loading="lazy" decoding="async" widths={[400,600]} sizes="280px"/>
-            <Image class="freelance-thumb" src={f3b} alt="Graceful Grounded Yoga section" loading="lazy" decoding="async" widths={[400,600]} sizes="280px"/>
-            <Image class="freelance-thumb" src={f4a} alt="Bass Coast Podiatry homepage" loading="lazy" decoding="async" widths={[400,600]} sizes="280px"/>
+            <Image class="freelance-thumb" src={f1a} alt="PALI Footwear homepage — Shopify e-commerce" loading="lazy" decoding="async" widths={[600,900]} sizes="280px"/>
+            <Image class="freelance-thumb" src={f1b} alt="PALI Footwear product listing page" loading="lazy" decoding="async" widths={[600,900]} sizes="280px"/>
+            <Image class="freelance-thumb" src={f1c} alt="PALI Footwear product detail page" loading="lazy" decoding="async" widths={[600,900]} sizes="280px"/>
+            <Image class="freelance-thumb" src={f2a} alt="Chaircovers Over All homepage — event hire e-commerce" loading="lazy" decoding="async" widths={[600,900]} sizes="280px"/>
+            <Image class="freelance-thumb" src={f2b} alt="Chaircovers Over All product catalogue" loading="lazy" decoding="async" widths={[600,900]} sizes="280px"/>
+            <Image class="freelance-thumb" src={f2c} alt="Chaircovers Over All product detail" loading="lazy" decoding="async" widths={[600,900]} sizes="280px"/>
+            <Image class="freelance-thumb" src={f3a} alt="Graceful Grounded Yoga about page — boutique studio" loading="lazy" decoding="async" widths={[600,900]} sizes="280px"/>
+            <Image class="freelance-thumb" src={f3b} alt="Graceful Grounded Yoga homepage section" loading="lazy" decoding="async" widths={[600,900]} sizes="280px"/>
+            <Image class="freelance-thumb" src={f4a} alt="Bass Coast Podiatry homepage — health services" loading="lazy" decoding="async" widths={[600,900]} sizes="280px"/>
           </div>
         </div>
         <p class="scroll-hint">
@@ -136,6 +142,7 @@ h1,h2{margin:0;font-weight:800;letter-spacing:-.05em;color:var(--foreground)}
 .meta-value{margin:.35rem 0 0;font-size:1.1rem;font-weight:700}
 .lead-image-section{padding:2rem 0 4rem}
 .lead-image,.supporting-image,.pair-image{width:100%;border:1px solid var(--border);border-radius:1.5rem;box-shadow:var(--shadow-large)}
+.pair-image-constrained{width:100%;aspect-ratio:16/10;object-fit:cover;border:1px solid var(--border);border-radius:1.5rem;box-shadow:var(--shadow-large)}
 .supporting-image-section{padding:2rem 0 4rem;border-bottom:1px solid var(--border)}
 .img-pair-section{padding:2rem 0 4rem;border-bottom:1px solid var(--border)}
 .img-pair{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
@@ -147,12 +154,11 @@ h1,h2{margin:0;font-weight:800;letter-spacing:-.05em;color:var(--foreground)}
 .story-block{max-width:44rem}
 .freelance-section{padding:3.5rem 0 0;border-top:1px solid var(--border)}
 .freelance-section h2{margin:.5rem 0 0;font-size:clamp(1.5rem,2.5vw,2rem)}
-.freelance-intro{font-size:1rem;color:var(--muted-foreground);margin:.75rem 0 1.75rem;max-width:42rem}
-.freelance-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:1rem;margin:0 -2rem;padding-left:2rem;padding-right:2rem;position:relative}
+.freelance-intro{font-size:1rem;color:var(--muted-foreground);margin:.75rem 0 1.75rem;max-width:42rem;line-height:1.7}
+.freelance-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:1rem;margin:0 -2rem;padding-left:2rem;padding-right:2rem}
 .freelance-track{display:flex;gap:1.25rem;width:max-content}
 .freelance-thumb{width:840px;height:570px;object-fit:cover;border-radius:1rem;border:1px solid var(--border);box-shadow:0 8px 20px rgba(23,23,23,.07);flex-shrink:0}
 .scroll-hint{display:flex;align-items:center;gap:.5rem;margin-top:.75rem;font-family:var(--font-mono);font-size:.75rem;color:var(--muted-foreground);letter-spacing:.04em}
 .scroll-hint svg{width:1.25rem;height:1.25rem;opacity:.6}
-.pair-image-constrained{width:100%;aspect-ratio:16/10;object-fit:cover;border:1px solid var(--border);border-radius:1.5rem;box-shadow:var(--shadow-large)}
 @media(max-width:860px){.img-pair{grid-template-columns:1fr}.editorial-section{grid-template-columns:1fr}.freelance-thumb{width:320px;height:215px}}
 </style>

@@ -2,57 +2,73 @@
 import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
-import ds1 from '../../assets/images/design-system-1.png';
 import ds2 from '../../assets/images/design-system-2.png';
+import ds1 from '../../assets/images/design-system-1.png';
 import figmaComponents from '../../assets/images/figma-component-library-button-example.png';
 import uofaStyleguide from '../../assets/images/uofa-styleguide.png';
 ---
-<Layout title="Design Systems | Andrew Smith" description="RAA design system and University of Adelaide styleguide — component libraries, tokens, and documentation built for scale.">
+<Layout title="Design Systems | Andrew Smith" description="Design systems as infrastructure — component libraries, token architecture, and documentation that enable teams to build consistently without designer intervention.">
   <a class="skip-link" href="#main-content">Skip to content</a>
   <div class="case-page">
     <SiteHeader />
     <main id="main-content">
       <section class="case-hero">
         <p class="eyebrow"><a class="breadcrumb-link" href="/portfolio/work">Work</a><span class="breadcrumb-separator">/</span><span>Design Systems</span></p>
-        <h1 class="display-title">Components, tokens, and documentation built for scale.</h1>
-        <p class="hero-text">A design system earns its place when it makes the right decision the easy one. The examples below cover two organisations where the system was built as infrastructure — not a side project — with governance, documentation, and adoption built in from the start.</p>
+        <h1 class="display-title">Design systems as infrastructure — not a side project.</h1>
+        <p class="hero-text">Every time a developer asks a designer which shade of blue to use, or a product manager gets a different answer from two different designers about whether to use a modal or a drawer, the organisation is paying the tax of not having a design system. It is not a visible cost in any single moment, but it compounds — inconsistent interfaces, slower delivery, accessibility failures, and a team that spends more time resolving small decisions than making important ones.</p>
+        <p class="hero-text">A design system is the infrastructure that makes consistency a property of the process rather than a property of individual vigilance. Components are built once, documented properly, and reused everywhere. Tokens define colour, spacing, and typography at the source, so a single change propagates across every product that references them. Accessibility standards are baked into the component, not audited retrospectively after a product ships.</p>
       </section>
       <section class="meta-strip">
-        <div class="meta-item"><p class="meta-label">Organisations</p><p class="meta-value">RAA, University of Adelaide</p></div>
-        <div class="meta-item"><p class="meta-label">Role</p><p class="meta-value">Senior UX Lead, UX Manager</p></div>
-        <div class="meta-item"><p class="meta-label">Scope</p><p class="meta-value">Figma, ZeroHeight, tokens, docs</p></div>
+        <div class="meta-item"><p class="meta-label">Scope</p><p class="meta-value">Two organisations, built from scratch</p></div>
+        <div class="meta-item"><p class="meta-label">Role</p><p class="meta-value">Senior UX Lead, UX Manager, Front-End Developer</p></div>
+        <div class="meta-item"><p class="meta-label">Tools</p><p class="meta-value">Figma, ZeroHeight, HTML/CSS/JS</p></div>
       </section>
+
       <section class="lead-image-section">
-        <Image class="lead-image" src={ds2} alt="RAA Apiary Button component page showing anatomy, overview, usage guidelines, design specs, changelog, and code tabs" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
+        <Image class="lead-image" src={ds2} alt="Component documentation showing anatomy, usage guidelines, design specs, changelog, and code tabs" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
       </section>
+
       <section class="summary-section">
-        <p class="section-kicker">RAA Apiary Design System</p>
-        <h2>A shared library of components, patterns, and principles.</h2>
+        <p class="section-kicker">Why Design Systems Matter</p>
+        <h2>The goal is self-service — not designer handholding on every micro decision.</h2>
         <div class="summary-main">
-          <p>Apiary is RAA's design system — published in ZeroHeight and maintained in Figma, covering accessibility standards, design tokens, typography, layout, all UI components, and usage patterns. Every component includes an overview, usage guidelines, design specs, a changelog, and code documentation.</p>
-          <p>The governance work around Apiary — getting ARB endorsement, managing the contribution process, and ensuring adoption across design and engineering — is what makes it a system rather than a library.</p>
+          <p>The most important shift a design system enables is moving from a model where designers are the bottleneck to a model where anyone building a digital product can find what they need, understand how to use it, and implement it correctly without asking. Product teams can move faster. Engineers do not need to wait for design review on standard patterns. QA knows what correct looks like because it is documented.</p>
+          <p>That frees design teams to spend their time on the work that actually requires design judgment — discovery, research, new patterns, edge cases, and the problems that a component library cannot solve on its own.</p>
+          <p>AI is accelerating the documentation side of this. Component specs, accessibility guidance, do's and don'ts, content guidelines, and usage notes — all of this can be drafted by AI from the design file and reviewed by a designer, rather than written from scratch. The system stays current without requiring constant manual effort, and the documentation reflects what was actually built rather than what was planned twelve months ago.</p>
         </div>
       </section>
-      <section class="supporting-image-section">
-        <Image class="supporting-image" src={ds1} alt="RAA Apiary design system homepage in ZeroHeight showing Get started, Foundations, Components, and Patterns" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
-      </section>
+
       <section class="editorial-section">
-        <div class="section-rail"><p class="section-kicker">Figma Component Library</p></div>
+        <div class="section-rail"><p class="section-kicker">Component Library</p></div>
         <div class="story-block">
-          <p>The Figma side of the system — RAADS — holds the component library with full variant coverage including regular, secondary, text, icon-only, sizes, states, and error variants. Each component is documented with usage rules directly in the Figma layers panel so designers have guidance without leaving the tool.</p>
+          <p>The Figma component library holds every UI element used across web and mobile products — buttons, inputs, cards, navigation, forms, modals, and patterns. Full variant coverage across states, sizes, and contexts. Each component is documented with usage rules directly in the design file so designers have guidance without leaving the tool.</p>
+          <p>Tokens connect the component library to the codebase. A colour change in the token layer propagates automatically to every component that references it — no manual search-and-replace, no inconsistencies introduced because someone updated one file and not another.</p>
         </div>
       </section>
       <section class="supporting-image-section">
-        <Image class="supporting-image" src={figmaComponents} alt="Figma RAADS component library showing button variants across regular, secondary, and text styles with all states" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
+        <Image class="supporting-image" src={figmaComponents} alt="Figma component library showing button variants across regular, secondary, and text styles with all interaction states" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
       </section>
+
       <section class="editorial-section">
-        <div class="section-rail"><p class="section-kicker">University of Adelaide</p></div>
+        <div class="section-rail"><p class="section-kicker">Documentation Platform</p></div>
         <div class="story-block">
-          <p>Before RAA, a custom JavaScript-based styleguide application was built from scratch at the University of Adelaide — covering all HTML, CSS, and JavaScript used by every development team across the university. Before this existed, teams built independently with no shared foundation. After, consistency was a property of the system, not of individual effort.</p>
+          <p>A component library without documentation is a tool without instructions. The documentation platform publishes every component with the information a developer or product manager needs to use it correctly: overview, usage guidelines, design specs, changelog, and code examples — synced automatically from the design file so documentation stays in step with the actual components.</p>
+          <p>Self-service access means any team building on the design system can find what they need without going through the design team. The governance model determines who can contribute new components, how contributions are reviewed, and how the system evolves over time — because without governance, a design system slowly drifts back toward the inconsistency it was built to prevent.</p>
         </div>
       </section>
       <section class="supporting-image-section">
-        <Image class="supporting-image" src={uofaStyleguide} alt="University of Adelaide styleguide application showing audio component documentation with HTML and JavaScript code examples" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
+        <Image class="supporting-image" src={ds1} alt="Design system documentation homepage showing foundations, components, and patterns categories" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
+      </section>
+
+      <section class="editorial-section">
+        <div class="section-rail"><p class="section-kicker">Built From Scratch</p></div>
+        <div class="story-block">
+          <p>Before working in a product organisation, the equivalent of a design system was built from scratch for a university — a custom JavaScript application documenting every HTML, CSS, and JavaScript pattern used across the institution. Every public-facing website and internal system was built from this foundation. Consistency became a property of the shared codebase, not of individual teams remembering to check with each other.</p>
+          <p>Having built a design system at the code level — not just designed one in Figma — changes how you think about it. The technical constraints are real, the maintenance cost is real, and the payoff is real. That background makes conversations with engineering teams about system adoption and governance more grounded in how these things actually work in practice.</p>
+        </div>
+      </section>
+      <section class="supporting-image-section">
+        <Image class="supporting-image" src={uofaStyleguide} alt="Custom styleguide application showing component documentation with HTML, CSS, and JavaScript code examples" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
       </section>
     </main>
   </div>

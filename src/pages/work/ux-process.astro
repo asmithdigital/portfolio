@@ -2,9 +2,9 @@
 import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
+import miroIdeationCritique from '../../assets/images/miro-ideation-critique-example.png';
 import competitorAnalysis from '../../assets/images/competitor-analysis.png';
 import miroIdeation from '../../assets/images/miro-ideation-example.png';
-import miroIdeationCritique from '../../assets/images/miro-ideation-critique-example.png';
 import flowDiagram from '../../assets/images/flow-diagram-2.png';
 import figmaFlows from '../../assets/images/figma-myaccount-flows.png';
 import figmaWiresMobile from '../../assets/images/raa-wires-mobile.png';
@@ -16,7 +16,7 @@ import myAccount from '../../assets/images/my-account.png';
 import uxBenchmarking from '../../assets/images/ux-benchmarking.png';
 import journeyMap1 from '../../assets/images/journey-map-1.png';
 ---
-<Layout title="UX Process | Andrew Smith" description="The senior UX design process — from discovery through research, ideation, flows, testing, and delivery.">
+<Layout title="UX Process | Andrew Smith" description="The senior UX design process — from discovery through research, ideation, flows, prototyping, testing, and delivery.">
   <a class="skip-link" href="#main-content">Skip to content</a>
   <div class="case-page">
     <SiteHeader />
@@ -24,7 +24,7 @@ import journeyMap1 from '../../assets/images/journey-map-1.png';
       <section class="case-hero">
         <p class="eyebrow"><a class="breadcrumb-link" href="/portfolio/work">Work</a><span class="breadcrumb-separator">/</span><span>UX Process</span></p>
         <h1 class="display-title">The senior UX design process — from discovery to delivery.</h1>
-        <p class="hero-text">Good design outcomes are the result of a deliberate process. What follows is how that process works in practice — the activities, artefacts, and decisions that sit between understanding a problem and shipping something that solves it.</p>
+        <p class="hero-text">Design does not start with opening Figma. It starts with a question: what problem are we actually trying to solve, and how much does it cost to leave it unsolved? The process below is how that question gets answered — and how it stays answered through research, design, testing, delivery, and the measurement that comes after.</p>
       </section>
 
       <section class="process-overview">
@@ -51,82 +51,96 @@ import journeyMap1 from '../../assets/images/journey-map-1.png';
         <div class="process-label">
           <span class="step-tag">01</span>
           <h2>Discovery</h2>
-          <p>Understanding the problem before proposing a solution. Reviewing analytics, talking with stakeholders, examining what competitors are doing, and identifying where the current experience is costing users or the business.</p>
+          <p>Before any design work begins, the problem needs to be understood from multiple angles. Analytics reveal where users are dropping off. Stakeholder conversations surface what the business is trying to achieve. Competitor analysis shows how others have approached the same problem — and where they have failed.</p>
+          <p>Discovery is not a phase with a start and end date. It runs continuously alongside delivery, feeding new evidence back into the journey map and the product roadmap. The goal is never to eliminate uncertainty — it is to make decisions with the best available evidence rather than the loudest opinion.</p>
+          <p>AI tools are now part of this stage too. Chrome scanning, live product analysis, and automated insight synthesis mean that understanding the current state of a product no longer requires days of manual audit work.</p>
         </div>
         <div class="process-images">
-          <Image class="process-img" src={miroIdeationCritique} alt="FigJam discovery session showing problem framing, competitor analysis, and design options" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
-          <Image class="process-img" src={competitorAnalysis} alt="Competitor analysis board showing annotated AAMI, NRMA, and Youi flows" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
+          <Image class="process-img" src={miroIdeationCritique} alt="FigJam discovery session showing problem framing, competitor analysis, discovery scope, and design options" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
+          <Image class="process-img" src={competitorAnalysis} alt="Competitor analysis board showing annotated flows across multiple insurance providers" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
         </div>
       </section>
 
       <section class="process-section">
         <div class="process-label">
-          <span class="step-tag">02</span>
+          <span class="step-tag">02 — 03</span>
           <h2>Research & Ideation</h2>
-          <p>Synthesising what is known into a clear problem statement, then generating ideas with the team. Workshops, analysis, and structured critique sessions that produce a direction — not just a list of possibilities.</p>
+          <p>Research without synthesis is just data. The work here is turning what has been observed, measured, and tested into a clear problem statement that the whole team can act on — not a report that gets presented once and filed away.</p>
+          <p>Ideation then generates options before committing to a direction. Structured workshop sessions using FigJam bring together UX, service design, content, and product — because the best solutions come from collective thinking, not from a designer working in isolation and presenting a finished answer.</p>
+          <p>AI assists at this stage with research synthesis: pulling patterns from interview transcripts, tagging insights from usability sessions, and generating initial journey map structures from raw notes. The thinking still requires humans. The administrative work around it increasingly does not.</p>
         </div>
         <div class="process-images">
-          <Image class="process-img" src={miroIdeation} alt="Miro ideation board showing current state analysis and design options" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
+          <Image class="process-img" src={miroIdeation} alt="Miro board showing current state screens annotated with observations and design options" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
         </div>
       </section>
 
       <section class="process-section">
         <div class="process-label">
-          <span class="step-tag">03</span>
+          <span class="step-tag">03 — 04</span>
           <h2>Flow & Information Architecture</h2>
-          <p>Mapping every path through the experience before any visual design begins. Decision points, edge cases, alternate flows — documented with the BA so requirements and design are aligned before a single screen is drawn.</p>
+          <p>Before any screen is designed, the path through the experience needs to be mapped. Every decision point, every edge case, every alternate flow — documented with the business analyst before a single frame opens in Figma.</p>
+          <p>Getting this right early is the single most effective way to avoid late-stage rework. A logic gap found in a flow diagram costs an afternoon. The same gap found in a coded feature costs a sprint, a release delay, and the trust of the engineering team.</p>
+          <p>Information architecture work also involves understanding the full product landscape — what already exists, what can be reused from the design system, and where genuinely new patterns are needed versus where an existing component solves the problem.</p>
         </div>
         <div class="process-images">
-          <Image class="process-img" src={flowDiagram} alt="Insurance and road service logic flow diagrams with decision points and alternate paths" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
-          <Image class="process-img" src={figmaFlows} alt="Figma high-level user flow and information architecture for My Account" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
-        </div>
-      </section>
-
-      <section class="process-section">
-        <div class="process-label">
-          <span class="step-tag">04</span>
-          <h2>Wireframes & Prototyping</h2>
-          <p>Low-fidelity structure before visual polish. Getting the layout, hierarchy, and interactions right before investing in high-fidelity design — so testing reveals genuine usability issues, not reactions to colour choices.</p>
-        </div>
-        <div class="process-images">
-          <Image class="process-img" src={figmaWiresMobile} alt="Low-fidelity wireframes for RAA app deals, categories, and favourites screens" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
-          <Image class="process-img" src={raaWires} alt="RAA Travel prototype flow diagram showing connected screens across user journeys" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
+          <Image class="process-img" src={flowDiagram} alt="Logic flow diagrams showing decision points and alternate paths across insurance and road service" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
+          <Image class="process-img" src={figmaFlows} alt="Figma high-level user flow and information architecture diagram" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
         </div>
       </section>
 
       <section class="process-section">
         <div class="process-label">
           <span class="step-tag">05</span>
-          <h2>Usability Testing</h2>
-          <p>Checking the design against real users before build. Moderated sessions with 5–8 participants, findings tagged as pain points, friction, or moments of ease — synthesised into actionable recommendations, not just observations.</p>
+          <h2>Wireframes & Prototyping</h2>
+          <p>Low fidelity before high fidelity. Getting the layout, hierarchy, and interaction model right before investing in the visual layer means that usability testing surfaces genuine problems — not reactions to colour choices or placeholder text.</p>
+          <p>AI-assisted prototyping has changed this stage significantly. Tools that scan the live product and generate a working replica with a new feature integrated mean that users test in context, not against an abstract mockup. The result is faster, more accurate feedback and less guesswork about whether the prototype reflects the real experience.</p>
+          <p>The wireframe is also a communication tool. A clear low-fidelity prototype is the fastest way to align a product manager, a developer, and a designer on what is actually being built before anyone has written a line of code.</p>
         </div>
         <div class="process-images">
-          <Image class="process-img" src={usertesting1} alt="UserTesting moderated session showing tagged transcript with pain points and ease moments" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
+          <Image class="process-img" src={figmaWiresMobile} alt="Low-fidelity wireframes for mobile app screens showing layout and interaction structure" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
+          <Image class="process-img" src={raaWires} alt="Figma prototype flow diagram showing connected screens across user journeys" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
         </div>
       </section>
 
       <section class="process-section">
         <div class="process-label">
           <span class="step-tag">06</span>
-          <h2>High-Fidelity UI Design</h2>
-          <p>Finished designs built against the design system — with full variant coverage, annotated specs, and documentation that gives developers what they need to build without interpretation. Reviewed against accessibility standards before handover.</p>
+          <h2>Usability Testing</h2>
+          <p>A design that has not been tested with real users is a hypothesis. Usability testing is how hypotheses become evidence. Moderated sessions with five to eight participants, tasks defined against the research questions, findings tagged as pain points, friction moments, or moments of ease — synthesised into recommendations that change what gets built, not just what gets filed.</p>
+          <p>Testing happens before delivery, not after. The cost of a finding at the prototype stage is a Figma change. The cost of the same finding in production is a development sprint, a regression risk, and a period of a broken experience for real users.</p>
+          <p>Confidence testing is also part of this stage — a lighter-weight study that checks a specific decision rather than a full flow. Quick, cheap, and often the most actionable kind of research for an agile team.</p>
         </div>
         <div class="process-images">
-          <Image class="process-img" src={figmaRenewals} alt="Figma canvas showing road service renewals screens across desktop and mobile" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
-          <Image class="process-img" src={figmaClaims} alt="Figma canvas showing insurance claims screens across breakpoints" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
-          <Image class="process-img" src={myAccount} alt="RAA My Account shipped product" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
+          <Image class="process-img" src={usertesting1} alt="UserTesting moderated session with transcript tagged for pain points, friction, and ease" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
         </div>
       </section>
 
       <section class="process-section">
         <div class="process-label">
           <span class="step-tag">07</span>
-          <h2>Post-Delivery Benchmarking</h2>
-          <p>Measuring whether the shipped product actually improved the experience. Quantitative studies tracking effectiveness, efficiency, satisfaction, and desirability — run at regular intervals so the data compounds over time and informs the next round of discovery.</p>
+          <h2>High-Fidelity UI Design & Handover</h2>
+          <p>Finished designs are built against the design system — not around it. Every component references a token, every pattern follows a documented guideline, and every screen is reviewed against accessibility standards before it leaves the design tool.</p>
+          <p>Annotated specs capture decisions, not just dimensions. A developer reading a handover document should understand not just what to build but why it works this way — what the user research said, what the accessibility requirement is, what the edge cases are. That context is what prevents the design intent from being lost in translation during build.</p>
+          <p>AI is used here to generate component documentation, accessibility guidance, and design specs — reducing the manual overhead of documentation so the team can spend more time on the work that requires judgment rather than the work that requires typing.</p>
         </div>
         <div class="process-images">
-          <Image class="process-img" src={uxBenchmarking} alt="Usability benchmarking dashboard showing effectiveness, efficiency, and desirability metrics" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
-          <Image class="process-img" src={journeyMap1} alt="QTB Journey Explorer with live metrics feeding back into solution prioritisation" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
+          <Image class="process-img" src={figmaRenewals} alt="Figma canvas showing design screens across desktop and mobile at multiple product tiers" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
+          <Image class="process-img" src={figmaClaims} alt="Figma canvas showing screens across mobile, tablet, and desktop breakpoints" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
+          <Image class="process-img" src={myAccount} alt="Shipped product — authenticated member portal across insurance and membership products" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
+        </div>
+      </section>
+
+      <section class="process-section">
+        <div class="process-label">
+          <span class="step-tag">08</span>
+          <h2>Post-Delivery Benchmarking</h2>
+          <p>Shipping is not the end of the design process. It is the point where the hypothesis can finally be tested at scale. Quantitative benchmarking measures the experience across four dimensions after delivery — effectiveness, efficiency, satisfaction, and desirability — and runs the same study at regular intervals so changes in the data are visible over time.</p>
+          <p>These results feed directly back into the journey map, connecting quantitative evidence to specific stages of the experience. When a drop-off rate climbs or a satisfaction score shifts, the map captures it as a signal that a particular stage needs attention — and the process starts again from discovery.</p>
+          <p>This is the loop that makes design a practice rather than a project. The insights from one round of measurement become the starting point for the next round of discovery.</p>
+        </div>
+        <div class="process-images">
+          <Image class="process-img" src={uxBenchmarking} alt="Usability benchmarking dashboard showing effectiveness, efficiency, satisfaction, and desirability metrics" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
+          <Image class="process-img" src={journeyMap1} alt="Journey explorer with live metrics feeding back into solution prioritisation" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
         </div>
       </section>
 
@@ -141,7 +155,7 @@ h1,h2{margin:0;font-weight:800;letter-spacing:-.05em;color:var(--foreground)}
 .display-title{font-size:clamp(2rem,4.5vw,3.5rem);line-height:1.06;margin:1rem 0 0;max-width:28ch}
 .hero-text{font-size:1.08rem;line-height:1.7;margin:1.5rem 0 0;max-width:42rem}
 .case-hero{padding:5rem 0 2rem}
-.process-overview{padding:2rem 0 3rem;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:0}
+.process-overview{padding:2rem 0 3rem;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 .process-steps{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem}
 .step{display:flex;flex-direction:column;align-items:center;gap:.25rem;padding:.75rem 1rem;border-radius:.5rem;background:var(--muted);min-width:5rem;text-align:center}
 .step-num{font-family:var(--font-mono);font-size:.7rem;font-weight:600;color:var(--muted-foreground)}
