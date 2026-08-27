@@ -1,0 +1,76 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../../layouts/Layout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import f1a from '../../assets/images/freelance-1a.png';
+import f1b from '../../assets/images/freelance-1b.png';
+import f1c from '../../assets/images/freelance-1c.png';
+import f2a from '../../assets/images/freelance-2a.png';
+import f2b from '../../assets/images/freelance-2b.png';
+import f3a from '../../assets/images/freelance-3a.png';
+import f3b from '../../assets/images/freelance-3b.png';
+import f4a from '../../assets/images/freelance-4a.png';
+---
+<Layout title="Freelance Work | Andrew Smith" description="Freelance web design and development across e-commerce, small business, and service websites — built and shipped end to end.">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="case-page">
+    <SiteHeader />
+    <main id="main-content">
+      <section class="case-hero">
+        <p class="eyebrow"><a class="breadcrumb-link" href="/portfolio/work">Work</a><span class="breadcrumb-separator">/</span><span>Freelance</span></p>
+        <h1 class="display-title">20 years of client work — designed, built, and shipped.</h1>
+        <p class="hero-text">A sample from two decades of freelance web design and development. Small businesses, e-commerce, service providers — each project managed end to end from brief through to live site.</p>
+      </section>
+      <section class="meta-strip">
+        <div class="meta-item"><p class="meta-label">Clients</p><p class="meta-value">Small business, e-commerce, services</p></div>
+        <div class="meta-item"><p class="meta-label">Role</p><p class="meta-value">Designer & Developer</p></div>
+        <div class="meta-item"><p class="meta-label">Period</p><p class="meta-value">2004 – present</p></div>
+      </section>
+      <section class="editorial-section" style="border-top:1px solid var(--border)">
+        <div class="section-rail"><p class="section-kicker">PALI Footwear</p></div>
+        <div class="story-block"><p>Shopify e-commerce site for an Australian wool footwear brand. Custom theme, product catalogue, and checkout flow — designed to reflect the brand's focus on natural materials and ethical production.</p></div>
+      </section>
+      <section class="freelance-grid">
+        <Image class="freelance-img" src={f1a} alt="PALI Footwear homepage" loading="lazy" decoding="async" widths={[600,900]} sizes="33vw"/>
+        <Image class="freelance-img" src={f1b} alt="PALI Footwear products page" loading="lazy" decoding="async" widths={[600,900]} sizes="33vw"/>
+        <Image class="freelance-img" src={f1c} alt="PALI Footwear product detail page" loading="lazy" decoding="async" widths={[600,900]} sizes="33vw"/>
+      </section>
+      <section class="editorial-section">
+        <div class="section-rail"><p class="section-kicker">Chaircovers Over All</p></div>
+        <div class="story-block"><p>WooCommerce catalogue site for an event hire business with over 600 products across table linen, chair covers, centrepieces, and tableware. Custom category navigation, product filtering, and an enquiry basket flow.</p></div>
+      </section>
+      <section class="freelance-grid">
+        <Image class="freelance-img" src={f2a} alt="Chaircovers Over All homepage" loading="lazy" decoding="async" widths={[600,900]} sizes="33vw"/>
+        <Image class="freelance-img" src={f2b} alt="Chaircovers Over All products page" loading="lazy" decoding="async" widths={[600,900]} sizes="33vw"/>
+        <Image class="freelance-img" src={f4a} alt="Bass Coast Podiatry homepage" loading="lazy" decoding="async" widths={[600,900]} sizes="33vw"/>
+      </section>
+      <section class="editorial-section">
+        <div class="section-rail"><p class="section-kicker">Graceful Grounded Yoga</p></div>
+        <div class="story-block"><p>Boutique yoga studio website for a Melbourne instructor. Booking integration, class schedule, and about page — designed to feel warm and personal rather than corporate.</p></div>
+      </section>
+      <section class="freelance-grid">
+        <Image class="freelance-img" src={f3a} alt="Graceful Grounded Yoga about page" loading="lazy" decoding="async" widths={[600,900]} sizes="33vw"/>
+        <Image class="freelance-img" src={f3b} alt="Graceful Grounded Yoga section" loading="lazy" decoding="async" widths={[600,900]} sizes="33vw"/>
+        <div class="freelance-placeholder"><p>[ More screenshots coming ]</p></div>
+      </section>
+    </main>
+  </div>
+</Layout>
+<style>
+.case-page{position:relative;width:min(calc(100% - 3rem),78rem);margin:0 auto;padding:1.25rem 0 5rem}
+.eyebrow{font-family:var(--font-mono);font-size:.82rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted-foreground);margin:0 0 1.25rem;display:flex;gap:.5rem;align-items:center}
+.breadcrumb-link{font-weight:600}.breadcrumb-separator{color:var(--muted-foreground)}
+h1{margin:0;font-weight:800;letter-spacing:-.05em;color:var(--foreground);font-size:clamp(2rem,4.5vw,3.5rem);line-height:1.06;margin:1rem 0 0;max-width:28ch}
+.hero-text,.story-block p{font-size:1.08rem;line-height:1.7;margin:0 0 1rem}
+.case-hero{padding:5rem 0 2rem}
+.meta-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2rem;padding:1.5rem 0 .5rem;border-top:1px solid var(--border)}
+.meta-label{font-family:var(--font-mono);font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted-foreground);margin:0}
+.meta-value{margin:.35rem 0 0;font-size:1.1rem;font-weight:700}
+.section-kicker{font-family:var(--font-mono);font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted-foreground);margin:0 0 .5rem}
+.editorial-section{display:grid;grid-template-columns:14rem minmax(0,1fr);gap:2rem;padding:3rem 0;border-bottom:1px solid var(--border)}
+.story-block{max-width:44rem}
+.freelance-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;padding:1rem 0 3rem;border-bottom:1px solid var(--border)}
+.freelance-img{width:100%;border-radius:.75rem;border:1px solid var(--border);box-shadow:0 8px 24px rgba(23,23,23,.08)}
+.freelance-placeholder{border-radius:.75rem;border:1px dashed var(--border);display:flex;align-items:center;justify-content:center;min-height:200px;font-family:var(--font-mono);font-size:.8rem;color:var(--muted-foreground)}
+@media(max-width:860px){.freelance-grid{grid-template-columns:1fr 1fr}.editorial-section{grid-template-columns:1fr}}
+</style>

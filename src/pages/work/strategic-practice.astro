@@ -1,0 +1,73 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../../layouts/Layout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import miroIdeationCritique from '../../assets/images/miro-ideation-critique-example.png';
+import miroIdeation from '../../assets/images/miro-ideation-example.png';
+---
+<Layout title="Strategic Practice | Andrew Smith" description="Discovery sessions, critique models, and the thinking behind the work — the strategic layer that shapes what gets designed before anyone opens Figma.">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="case-page">
+    <SiteHeader />
+    <main id="main-content">
+      <section class="case-hero">
+        <p class="eyebrow"><a class="breadcrumb-link" href="/portfolio/work">Work</a><span class="breadcrumb-separator">/</span><span>Strategic Practice</span></p>
+        <h1 class="display-title">The thinking that happens before anyone opens Figma.</h1>
+        <p class="hero-text">Good design outcomes depend on good problem framing. The work below shows how discovery sessions, structured critique, and competitor analysis are run — not as process steps, but as tools for getting the right answer before committing to a direction.</p>
+      </section>
+      <section class="meta-strip">
+        <div class="meta-item"><p class="meta-label">Organisation</p><p class="meta-value">RAA</p></div>
+        <div class="meta-item"><p class="meta-label">Role</p><p class="meta-value">Senior UX Lead, UX Manager</p></div>
+        <div class="meta-item"><p class="meta-label">Tools</p><p class="meta-value">FigJam, Miro</p></div>
+      </section>
+      <section class="lead-image-section">
+        <Image class="lead-image" src={miroIdeationCritique} alt="FigJam discovery session board showing housekeeping, feedback, problem framing, competitor analysis, discovery scope, and design options" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
+      </section>
+      <section class="summary-section">
+        <p class="section-kicker">Discovery Sessions</p>
+        <h2>Structured to produce a decision, not just a discussion.</h2>
+        <div class="summary-main">
+          <p>The discovery session above covers a full problem-framing cycle: a look back at feedback from the last round, the problem and opportunity statement, competitor analysis with annotated observations, discovery scope with what is and is not in scope, and design options for where to go next.</p>
+          <p>Running sessions this way means the team leaves with a shared understanding of the problem and a clear next step — not a set of individual impressions that diverge over the following week.</p>
+        </div>
+      </section>
+      <section class="editorial-section">
+        <div class="section-rail"><p class="section-kicker">Design Critique</p></div>
+        <div class="story-block">
+          <p>The Studio model runs weekly — a standing critique session where designers bring work at any stage for collective review. The Miro board below shows a live critique session: current state screens annotated with observations, competitor examples with notes, and design options laid out for discussion. The session structure keeps critique focused on the problem, not on personal preference.</p>
+          <p>Running critique this way builds shared taste and consistent quality standards across the team over time — something that individual feedback sessions cannot replicate.</p>
+        </div>
+      </section>
+      <section class="supporting-image-section">
+        <Image class="supporting-image" src={miroIdeation} alt="Miro board showing current state screens annotated with observations, competitor examples, and design options for critique" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
+      </section>
+      <section class="editorial-section">
+        <div class="section-rail"><p class="section-kicker">Still to come</p></div>
+        <div class="story-block">
+          <p>[ Placeholder: AI-assisted orchestration layer — Claude workflow connecting design system, journey maps, and research synthesis. Screenshot from the slide deck. ]</p>
+        </div>
+      </section>
+    </main>
+  </div>
+</Layout>
+<style>
+.case-page{position:relative;width:min(calc(100% - 3rem),78rem);margin:0 auto;padding:1.25rem 0 5rem}
+.eyebrow{font-family:var(--font-mono);font-size:.82rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted-foreground);margin:0 0 1.25rem;display:flex;gap:.5rem;align-items:center}
+.breadcrumb-link{font-weight:600}.breadcrumb-separator{color:var(--muted-foreground)}
+h1,h2{margin:0;font-weight:800;letter-spacing:-.05em;color:var(--foreground)}
+.display-title{font-size:clamp(2rem,4.5vw,3.5rem);line-height:1.06;margin:1rem 0 0;max-width:28ch}
+.hero-text,.story-block p,.summary-main p{font-size:1.08rem;line-height:1.7;margin:0 0 1rem}
+.case-hero{padding:5rem 0 2rem}
+.meta-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2rem;padding:1.5rem 0 .5rem;border-top:1px solid var(--border)}
+.meta-label{font-family:var(--font-mono);font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted-foreground);margin:0}
+.meta-value{margin:.35rem 0 0;font-size:1.1rem;font-weight:700}
+.lead-image-section{padding:2rem 0 4rem}
+.lead-image,.supporting-image{width:100%;border:1px solid var(--border);border-radius:1.5rem;box-shadow:var(--shadow-large)}
+.supporting-image-section{padding:2rem 0 4rem;border-bottom:1px solid var(--border)}
+.summary-section{padding:0 0 3rem;border-bottom:1px solid var(--border)}
+.summary-section h2{margin-top:.75rem;font-size:clamp(1.5rem,2.5vw,2.2rem);max-width:32ch}
+.summary-main{margin-top:1.5rem;max-width:44rem}
+.section-kicker{font-family:var(--font-mono);font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted-foreground);margin:0 0 .5rem}
+.editorial-section{display:grid;grid-template-columns:14rem minmax(0,1fr);gap:2rem;padding:3rem 0;border-bottom:1px solid var(--border)}
+.story-block{max-width:44rem}
+</style>

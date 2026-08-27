@@ -2,87 +2,79 @@
 import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
-import uofaStyleguideImage from '../../assets/images/uofa-styleguide.png';
-import uofaBannerImage from '../../assets/images/uofa-banner.png';
-import uofaSubpageImage from '../../assets/images/uofa-subpage.png';
-
-const highlights = [
-  { label: 'Organisation', value: 'University of Adelaide' },
-  { label: 'Role', value: 'UX Designer & Front-End Developer' },
-  { label: 'Scope', value: 'Custom styleguide application, Drupal CMS, all public-facing websites' },
-];
+import ds1 from '../../assets/images/design-system-1.png';
+import ds2 from '../../assets/images/design-system-2.png';
+import figmaComponents from '../../assets/images/figma-component-library-button-example.png';
+import uofaStyleguide from '../../assets/images/uofa-styleguide.png';
 ---
-<Layout title="Design Systems | Andrew Smith" description="Custom styleguide application built from scratch at the University of Adelaide — component library, documentation, and governance across the entire university web ecosystem." ogType="article" ogImageAlt="University of Adelaide styleguide application">
+<Layout title="Design Systems | Andrew Smith" description="RAA design system and University of Adelaide styleguide — component libraries, tokens, and documentation built for scale.">
   <a class="skip-link" href="#main-content">Skip to content</a>
   <div class="case-page">
     <SiteHeader />
     <main id="main-content">
       <section class="case-hero">
-        <p class="eyebrow"><a class="breadcrumb-link" href="/work">Work</a><span class="breadcrumb-separator" aria-hidden="true">/</span><span>Design Systems</span></p>
-        <h1 class="display-title">Give a design a memory and a hundred screens will share it.</h1>
-        <div class="hero-subgrid">
-          <p class="hero-text">A design system is institutional memory made operational. Without it, every designer and developer makes the same decisions from scratch, introduces inconsistencies that cost development time, and builds interfaces where the quality depends entirely on who built it last.</p>
-        </div>
+        <p class="eyebrow"><a class="breadcrumb-link" href="/portfolio/work">Work</a><span class="breadcrumb-separator">/</span><span>Design Systems</span></p>
+        <h1 class="display-title">Components, tokens, and documentation built for scale.</h1>
+        <p class="hero-text">A design system earns its place when it makes the right decision the easy one. The examples below cover two organisations where the system was built as infrastructure — not a side project — with governance, documentation, and adoption built in from the start.</p>
       </section>
-      <section class="meta-strip" id="overview">
-        {highlights.map((item) => (<div class="meta-item"><p class="meta-label">{item.label}</p><p class="meta-value">{item.value}</p></div>))}
+      <section class="meta-strip">
+        <div class="meta-item"><p class="meta-label">Organisations</p><p class="meta-value">RAA, University of Adelaide</p></div>
+        <div class="meta-item"><p class="meta-label">Role</p><p class="meta-value">Senior UX Lead, UX Manager</p></div>
+        <div class="meta-item"><p class="meta-label">Scope</p><p class="meta-value">Figma, ZeroHeight, tokens, docs</p></div>
       </section>
       <section class="lead-image-section">
-        <Image class="lead-image" src={uofaStyleguideImage} alt="University of Adelaide custom styleguide application showing Audio component documentation with HTML, CSS, and JavaScript code examples" decoding="async" widths={[720, 1080, 1440]} sizes="(max-width: 78rem) 100vw, 78rem" />
+        <Image class="lead-image" src={ds1} alt="RAA Apiary design system homepage in ZeroHeight showing Get started, Foundations, Components, and Patterns" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
       </section>
       <section class="summary-section">
-        <p class="section-kicker">The Challenge</p>
-        <h2>Every development team building separately, from scratch, without a shared foundation.</h2>
+        <p class="section-kicker">RAA Apiary Design System</p>
+        <h2>A shared library of components, patterns, and principles.</h2>
         <div class="summary-main">
-          <p>The University of Adelaide had multiple development teams building public-facing websites and internal systems independently. Each team had their own approach to markup, styling, and JavaScript. The result was inconsistency across the university's digital presence, inaccessible interfaces, and enormous amounts of duplicated effort.</p>
-          <p>The solution was to build a custom styleguide application that every team could reference — a single, maintained source of truth for how interfaces should be built across the university.</p>
-          <p class="summary-meta"><strong>Technical scope:</strong> HTML, CSS, JavaScript, Drupal CMS integration, responsive design, accessibility standards</p>
-          <p class="summary-meta"><strong>Scale:</strong> Used across all public-facing websites and internal systems across the university</p>
-        </div>
-      </section>
-      <section class="editorial-section" id="process">
-        <div class="section-rail"><p class="section-kicker">What Was Built</p></div>
-        <div class="story-block">
-          <p>The styleguide application documented every component across the university's digital ecosystem — layouts, navigation, containers, typography, forms, media, and interactive elements. Each component included the HTML markup, CSS classes, JavaScript behaviours, accessibility requirements, and a live demonstration in context.</p>
-          <p>Development teams could either reference a minified version of the assets directly, or pull specific components and templates from the Git repository and customise them for their context. Either way, they were building on a tested, documented foundation rather than inventing their own.</p>
-          <p>Building this required both the UX thinking (what are the right patterns, how should components behave, what are the accessibility requirements) and the front-end development skills to implement them correctly and document them clearly. That combination — designer and developer in one role — is what made the system credible to both teams.</p>
+          <p>Apiary is RAA's design system — published in ZeroHeight and maintained in Figma, covering accessibility standards, design tokens, typography, layout, all UI components, and usage patterns. Every component includes an overview, usage guidelines, design specs, a changelog, and code documentation.</p>
+          <p>The governance work around Apiary — getting ARB endorsement, managing the contribution process, and ensuring adoption across design and engineering — is what makes it a system rather than a library.</p>
         </div>
       </section>
       <section class="supporting-image-section">
-        <Image class="supporting-image" src={uofaBannerImage} alt="University of Adelaide website shown across desktop, tablet, and mobile devices" loading="lazy" decoding="async" widths={[720, 1080, 1440]} sizes="(max-width: 78rem) 100vw, 78rem" />
+        <Image class="supporting-image" src={ds2} alt="RAA Apiary Button component page showing anatomy, overview, usage guidelines, design specs, changelog, and code tabs" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
       </section>
       <section class="editorial-section">
-        <div class="section-rail"><p class="section-kicker">The Output</p></div>
+        <div class="section-rail"><p class="section-kicker">Figma Component Library</p></div>
         <div class="story-block">
-          <p>The result was a consistent visual language across the university's public presence — the same navigation patterns, typography system, and component behaviour on every page, regardless of which team built it. Accessibility was baked into the components rather than audited retrospectively.</p>
-          <p>The subpage below shows the design system in action — the same header, navigation, typography, and layout patterns that every team across the university used as their starting point.</p>
+          <p>The Figma side of the system — RAADS — holds the component library with full variant coverage including regular, secondary, text, icon-only, sizes, states, and error variants. Each component is documented with usage rules directly in the Figma layers panel so designers have guidance without leaving the tool.</p>
         </div>
       </section>
       <section class="supporting-image-section">
-        <Image class="supporting-image" src={uofaSubpageImage} alt="University of Adelaide Research Institutes subpage showing the styleguide design system in production" loading="lazy" decoding="async" widths={[720, 1080, 1440]} sizes="(max-width: 78rem) 100vw, 78rem" />
+        <Image class="supporting-image" src={figmaComponents} alt="Figma RAADS component library showing button variants across regular, secondary, and text styles with all states" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
+      </section>
+      <section class="editorial-section">
+        <div class="section-rail"><p class="section-kicker">University of Adelaide</p></div>
+        <div class="story-block">
+          <p>Before RAA, a custom JavaScript-based styleguide application was built from scratch at the University of Adelaide — covering all HTML, CSS, and JavaScript used by every development team across the university. Before this existed, teams built independently with no shared foundation. After, consistency was a property of the system, not of individual effort.</p>
+        </div>
+      </section>
+      <section class="supporting-image-section">
+        <Image class="supporting-image" src={uofaStyleguide} alt="University of Adelaide styleguide application showing audio component documentation with HTML and JavaScript code examples" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
       </section>
     </main>
   </div>
 </Layout>
 <style>
-  .case-page { position: relative; width: min(calc(100% - 3rem), 78rem); margin: 0 auto; padding: 1.25rem 0 5rem; }
-  .eyebrow { font-family: var(--font-mono); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted-foreground); margin: 0 0 1.25rem; display: flex; gap: 0.5rem; align-items: center; }
-  .breadcrumb-link { font-weight: 600; } .breadcrumb-separator { color: var(--muted-foreground); }
-  h1, h2 { margin: 0; font-weight: 800; letter-spacing: -0.05em; color: var(--foreground); }
-  .display-title { font-size: clamp(2rem, 4.5vw, 3.5rem); line-height: 1.06; margin: 1rem 0 0; max-width: 28ch; }
-  .hero-subgrid { margin-top: 1.75rem; }
-  .hero-text, .story-block p, .summary-main p, .summary-meta { font-size: 1.08rem; line-height: 1.7; margin: 0 0 1rem; }
-  .case-hero { padding: 5rem 0 2rem; }
-  .meta-strip { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; padding: 1.5rem 0 0.5rem; border-top: 1px solid var(--border); }
-  .meta-label { font-family: var(--font-mono); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted-foreground); margin: 0; }
-  .meta-value { margin: 0.35rem 0 0; font-size: 1.1rem; font-weight: 700; }
-  .lead-image-section { padding: 2rem 0 4rem; }
-  .lead-image, .supporting-image { width: 100%; border: 1px solid var(--border); border-radius: 1.5rem; box-shadow: var(--shadow-large); }
-  .supporting-image-section { padding: 2rem 0 4rem; border-bottom: 1px solid var(--border); }
-  .summary-section { padding: 0 0 3rem; border-bottom: 1px solid var(--border); }
-  .summary-section h2 { margin-top: 0.75rem; font-size: clamp(1.5rem, 2.5vw, 2.2rem); max-width: 32ch; }
-  .summary-main { margin-top: 1.5rem; max-width: 44rem; }
-  .section-kicker { font-family: var(--font-mono); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted-foreground); margin: 0 0 0.5rem; }
-  .editorial-section { display: grid; grid-template-columns: 14rem minmax(0,1fr); gap: 2rem; padding: 3rem 0; border-bottom: 1px solid var(--border); }
-  .story-block { max-width: 44rem; }
+.case-page{position:relative;width:min(calc(100% - 3rem),78rem);margin:0 auto;padding:1.25rem 0 5rem}
+.eyebrow{font-family:var(--font-mono);font-size:.82rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted-foreground);margin:0 0 1.25rem;display:flex;gap:.5rem;align-items:center}
+.breadcrumb-link{font-weight:600}.breadcrumb-separator{color:var(--muted-foreground)}
+h1,h2{margin:0;font-weight:800;letter-spacing:-.05em;color:var(--foreground)}
+.display-title{font-size:clamp(2rem,4.5vw,3.5rem);line-height:1.06;margin:1rem 0 0;max-width:28ch}
+.hero-text,.story-block p,.summary-main p{font-size:1.08rem;line-height:1.7;margin:0 0 1rem}
+.case-hero{padding:5rem 0 2rem}
+.meta-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2rem;padding:1.5rem 0 .5rem;border-top:1px solid var(--border)}
+.meta-label{font-family:var(--font-mono);font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted-foreground);margin:0}
+.meta-value{margin:.35rem 0 0;font-size:1.1rem;font-weight:700}
+.lead-image-section{padding:2rem 0 4rem}
+.lead-image,.supporting-image{width:100%;border:1px solid var(--border);border-radius:1.5rem;box-shadow:var(--shadow-large)}
+.supporting-image-section{padding:2rem 0 4rem;border-bottom:1px solid var(--border)}
+.summary-section{padding:0 0 3rem;border-bottom:1px solid var(--border)}
+.summary-section h2{margin-top:.75rem;font-size:clamp(1.5rem,2.5vw,2.2rem);max-width:32ch}
+.summary-main{margin-top:1.5rem;max-width:44rem}
+.section-kicker{font-family:var(--font-mono);font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted-foreground);margin:0 0 .5rem}
+.editorial-section{display:grid;grid-template-columns:14rem minmax(0,1fr);gap:2rem;padding:3rem 0;border-bottom:1px solid var(--border)}
+.story-block{max-width:44rem}
 </style>

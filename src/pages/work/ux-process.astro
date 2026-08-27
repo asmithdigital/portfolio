@@ -1,0 +1,86 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../../layouts/Layout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import wow1 from '../../assets/images/way-of-working-1.png';
+import wow2 from '../../assets/images/way-of-working-2.png';
+import miroIdeation from '../../assets/images/miro-ideation-example.png';
+import flowDiagram from '../../assets/images/flow-diagram-2.png';
+import figmaFlows from '../../assets/images/figma-myaccount-flows.png';
+---
+<Layout title="UX Process | Andrew Smith" description="How a piece of work moves through the UX team — three delivery pathways covering discovery, solution design, and design system reuse.">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="case-page">
+    <SiteHeader />
+    <main id="main-content">
+      <section class="case-hero">
+        <p class="eyebrow"><a class="breadcrumb-link" href="/portfolio/work">Work</a><span class="breadcrumb-separator">/</span><span>UX Process</span></p>
+        <h1 class="display-title">How a piece of work moves through the UX team.</h1>
+        <p class="hero-text">Most design teams run informally until they don't. A departure, a deadline crunch, or a new hire exposes exactly how much was running on one person's memory. This framework makes the process explicit, repeatable, and owned by the team.</p>
+      </section>
+      <section class="meta-strip">
+        <div class="meta-item"><p class="meta-label">Organisation</p><p class="meta-value">RAA</p></div>
+        <div class="meta-item"><p class="meta-label">Role</p><p class="meta-value">UX Manager</p></div>
+        <div class="meta-item"><p class="meta-label">Scope</p><p class="meta-value">Ways of working, three delivery pathways</p></div>
+      </section>
+      <section class="lead-image-section">
+        <Image class="lead-image" src={wow1} alt="UX team ways of working framework showing three delivery pathways" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
+      </section>
+      <section class="summary-section">
+        <p class="section-kicker">The Three Pathways</p>
+        <h2>Not every piece of work needs the same process.</h2>
+        <div class="summary-main">
+          <p>The framework defines three routes: dual-track discovery for problems we need to define before recommending anything, solution discovery for problems we already understand and want to solve within delivery, and existing components for work where the design system already has the answer and what's needed is guidance, not new design.</p>
+          <p>Every piece of work starts with a pathway decision, discussed in the Studio — not made solo. That single decision changes how much time gets invested and at what stage design gets involved.</p>
+        </div>
+      </section>
+      <section class="supporting-image-section">
+        <Image class="supporting-image" src={wow2} alt="Ways of working framework with Pathway Decision side panel open showing the three pathways and why it matters" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
+      </section>
+      <section class="editorial-section">
+        <div class="section-rail"><p class="section-kicker">Discovery</p></div>
+        <div class="story-block">
+          <p>Discovery work — competitor analysis, contextual inquiry, analytics review — happens continuously, not as a project phase. The outputs feed the journey map and the product roadmap, not a report that nobody opens after the presentation.</p>
+          <p>The Miro board below shows a discovery session covering the problem and opportunity, competitor analysis, discovery scope, and design options — structured for critique, not just for reference.</p>
+        </div>
+      </section>
+      <section class="supporting-image-section">
+        <Image class="supporting-image" src={miroIdeation} alt="FigJam discovery session showing problem framing, competitor analysis, discovery scope, and design options" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
+      </section>
+      <section class="editorial-section">
+        <div class="section-rail"><p class="section-kicker">Flow & IA</p></div>
+        <div class="story-block">
+          <p>Before any UI gets designed, the flow needs to be right. These logic diagrams map out decision points, edge cases, and alternate paths — working through the requirements with the BA before any visual design begins.</p>
+        </div>
+      </section>
+      <section class="supporting-image-section">
+        <Image class="supporting-image" src={flowDiagram} alt="Insurance and road service logic flow diagrams showing decision points and alternate paths" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
+      </section>
+      <section class="supporting-image-section">
+        <Image class="supporting-image" src={figmaFlows} alt="Figma high-level user flow and information architecture diagram for My Account" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
+      </section>
+    </main>
+  </div>
+</Layout>
+<style>
+.case-page{position:relative;width:min(calc(100% - 3rem),78rem);margin:0 auto;padding:1.25rem 0 5rem}
+.eyebrow{font-family:var(--font-mono);font-size:.82rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted-foreground);margin:0 0 1.25rem;display:flex;gap:.5rem;align-items:center}
+.breadcrumb-link{font-weight:600}.breadcrumb-separator{color:var(--muted-foreground)}
+h1,h2{margin:0;font-weight:800;letter-spacing:-.05em;color:var(--foreground)}
+.display-title{font-size:clamp(2rem,4.5vw,3.5rem);line-height:1.06;margin:1rem 0 0;max-width:28ch}
+.hero-subgrid{margin-top:1.75rem}
+.hero-text,.story-block p,.summary-main p{font-size:1.08rem;line-height:1.7;margin:0 0 1rem}
+.case-hero{padding:5rem 0 2rem}
+.meta-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2rem;padding:1.5rem 0 .5rem;border-top:1px solid var(--border)}
+.meta-label{font-family:var(--font-mono);font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted-foreground);margin:0}
+.meta-value{margin:.35rem 0 0;font-size:1.1rem;font-weight:700}
+.lead-image-section{padding:2rem 0 4rem}
+.lead-image,.supporting-image{width:100%;border:1px solid var(--border);border-radius:1.5rem;box-shadow:var(--shadow-large)}
+.supporting-image-section{padding:2rem 0 4rem;border-bottom:1px solid var(--border)}
+.summary-section{padding:0 0 3rem;border-bottom:1px solid var(--border)}
+.summary-section h2{margin-top:.75rem;font-size:clamp(1.5rem,2.5vw,2.2rem);max-width:32ch}
+.summary-main{margin-top:1.5rem;max-width:44rem}
+.section-kicker{font-family:var(--font-mono);font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted-foreground);margin:0 0 .5rem}
+.editorial-section{display:grid;grid-template-columns:14rem minmax(0,1fr);gap:2rem;padding:3rem 0;border-bottom:1px solid var(--border)}
+.story-block{max-width:44rem}
+</style>

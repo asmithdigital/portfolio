@@ -2,85 +2,74 @@
 import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
-import raaJourneyImage from '../../assets/images/raa-journey.png';
-import raaPersonaImage from '../../assets/images/raa-persona.png';
-import raaWiresImage from '../../assets/images/raa-wires.png';
-
-const highlights = [
-  { label: 'Organisation', value: 'RAA' },
-  { label: 'Role', value: 'Senior UX Design Lead' },
-  { label: 'Scope', value: 'Travel, Insurance, Mobile App' },
-];
+import journeyMap1 from '../../assets/images/journey-map-1.png';
+import journeyMap2 from '../../assets/images/journey-map-2.png';
+import raaJourney from '../../assets/images/raa-journey.png';
+import raaPersona from '../../assets/images/raa-persona.png';
 ---
-<Layout title="Journey Mapping | Andrew Smith" description="Journey mapping practice at RAA — connecting research, analytics, and team knowledge into shared evidence for product decisions." ogType="article" ogImageAlt="RAA Travel journey map">
+<Layout title="Journey Mapping | Andrew Smith" description="Journey maps that connect real metrics, research, and pain points — making member experience visible and actionable.">
   <a class="skip-link" href="#main-content">Skip to content</a>
   <div class="case-page">
     <SiteHeader />
     <main id="main-content">
       <section class="case-hero">
-        <p class="eyebrow"><a class="breadcrumb-link" href="/work">Work</a><span class="breadcrumb-separator" aria-hidden="true">/</span><span>Journey Mapping</span></p>
-        <h1 class="display-title">An argument you can see is one you can actually win.</h1>
-        <div class="hero-subgrid">
-          <p class="hero-text">Most organisations argue about the member experience from memory and anecdote. Journey mapping changes that — making the experience visible in a way everyone in the room can point to, question, and improve.</p>
-        </div>
+        <p class="eyebrow"><a class="breadcrumb-link" href="/portfolio/work">Work</a><span class="breadcrumb-separator">/</span><span>Journey Mapping</span></p>
+        <h1 class="display-title">Making member experience visible and actionable.</h1>
+        <p class="hero-text">A journey map is only useful if it stays connected to real data and real decisions. The examples below show two different approaches — a live, metrics-connected journey explorer and a research-grounded static map — both built to be referenced, not filed away.</p>
       </section>
-      <section class="meta-strip" id="overview">
-        {highlights.map((item) => (<div class="meta-item"><p class="meta-label">{item.label}</p><p class="meta-value">{item.value}</p></div>))}
+      <section class="meta-strip">
+        <div class="meta-item"><p class="meta-label">Organisation</p><p class="meta-value">RAA</p></div>
+        <div class="meta-item"><p class="meta-label">Role</p><p class="meta-value">Senior UX Design Lead</p></div>
+        <div class="meta-item"><p class="meta-label">Scope</p><p class="meta-value">Insurance, travel, identity</p></div>
       </section>
       <section class="lead-image-section">
-        <Image class="lead-image" src={raaJourneyImage} alt="RAA Travel journey map for Ali, 32 — showing stages from research through booking, with moods, touchpoints, pain points, and opportunities" decoding="async" widths={[720, 1080, 1440]} sizes="(max-width: 78rem) 100vw, 78rem" />
+        <Image class="lead-image" src={journeyMap1} alt="QTB Journey Explorer showing phases, win rates, drop-offs, emotion curve, and prioritised solutions" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
       </section>
       <section class="summary-section">
-        <p class="section-kicker">Why It Matters</p>
-        <h2>A disagreement about priorities becomes a disagreement about evidence.</h2>
+        <p class="section-kicker">QTB Journey Explorer</p>
+        <h2>A journey map connected to live metrics and a prioritised solution backlog.</h2>
         <div class="summary-main">
-          <p>Before journey mapping was introduced at RAA, product decisions were made based on stakeholder assumptions, whatever was loudest in the last sprint review, or whoever spoke most confidently in the room. The experience was being designed in fragments.</p>
-          <p>A journey map connects what research has found, what analytics has measured, and what the team knows from delivery — into a single shared reference. Pain points become arguable, not anecdotal. Opportunities become visible rather than assumed.</p>
-          <p class="summary-meta"><strong>Process:</strong> User research synthesis, cross-functional workshops, continuous iteration across multiple product areas</p>
-        </div>
-      </section>
-      <section class="editorial-section" id="process">
-        <div class="section-rail"><p class="section-kicker">User Personas</p></div>
-        <div class="story-block">
-          <p>Personas ground the team in a real person with real motivations, not a demographic average. The RAA Travel personas were built from research interviews, analytics data, and usability testing observations — then used consistently across design critique, sprint planning, and stakeholder presentations.</p>
-          <p>When a decision came up about which feature to prioritise, the question became "what does Ali need here?" rather than "what do we think users want?"</p>
+          <p>The Quote to Buy journey explorer connects real analytics data to each stage of the member journey — win rates, drop-offs, failure rates, and emotion scores — alongside a prioritised backlog of solutions rated by member value and business value. A team using this map can point to exactly where the experience breaks down and what to do about it.</p>
+          <p>This is what journey management looks like when it works: not a slide in a presentation, but a living reference that shapes what gets built next.</p>
         </div>
       </section>
       <section class="supporting-image-section">
-        <Image class="supporting-image" src={raaPersonaImage} alt="User persona document — Ali, 32, young professional RAA member with travel goals, motivations, research behaviour, likes, and dislikes" loading="lazy" decoding="async" widths={[720, 1080, 1440]} sizes="(max-width: 78rem) 100vw, 78rem" />
+        <Image class="supporting-image" src={journeyMap2} alt="QTB Journey Explorer with solution detail panel open showing priority, effort, member value, and business value ratings" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
       </section>
       <section class="editorial-section">
-        <div class="section-rail"><p class="section-kicker">Prototype Flows</p></div>
+        <div class="section-rail"><p class="section-kicker">Research-Grounded Maps</p></div>
         <div class="story-block">
-          <p>Once the journey was mapped, the prototype flow documented how the designed experience should respond at each stage. This Figma prototype map shows the connected screens across the RAA Travel booking flow — every decision point, edge case, and alternate path mapped before a line of code was written.</p>
-          <p>This level of documentation means developers build the right thing, QA tests the right scenarios, and the team has a single source of truth for the intended experience.</p>
+          <p>Before digital journey management platforms, maps were built from research synthesis — interviews, usability sessions, analytics, and team knowledge combined into a shared artefact. The RAA Travel map below shows the full member journey from Instagram inspiration through to booking confirmation, with moods, touchpoints, pain points, and opportunities mapped at each stage.</p>
+          <p>The persona that informed this map — Ali, a young professional RAA member — grounds every design decision in a real person's motivations, not a demographic average.</p>
         </div>
       </section>
       <section class="supporting-image-section">
-        <Image class="supporting-image" src={raaWiresImage} alt="RAA Travel prototype flow diagram showing connected screens across the booking journey" loading="lazy" decoding="async" widths={[720, 1080, 1440]} sizes="(max-width: 78rem) 100vw, 78rem" />
+        <Image class="supporting-image" src={raaJourney} alt="RAA Travel journey map showing stages from research through booking, with moods, touchpoints, pain points, and opportunities" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
+      </section>
+      <section class="supporting-image-section">
+        <Image class="supporting-image" src={raaPersona} alt="User persona for RAA Travel — Ali, 32, young professional RAA member" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
       </section>
     </main>
   </div>
 </Layout>
 <style>
-  .case-page { position: relative; width: min(calc(100% - 3rem), 78rem); margin: 0 auto; padding: 1.25rem 0 5rem; }
-  .eyebrow { font-family: var(--font-mono); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted-foreground); margin: 0 0 1.25rem; display: flex; gap: 0.5rem; align-items: center; }
-  .breadcrumb-link { font-weight: 600; } .breadcrumb-separator { color: var(--muted-foreground); }
-  h1, h2 { margin: 0; font-weight: 800; letter-spacing: -0.05em; color: var(--foreground); }
-  .display-title { font-size: clamp(2rem, 4.5vw, 3.5rem); line-height: 1.06; margin: 1rem 0 0; max-width: 28ch; }
-  .hero-subgrid { margin-top: 1.75rem; }
-  .hero-text, .story-block p, .summary-main p, .summary-meta { font-size: 1.08rem; line-height: 1.7; margin: 0 0 1rem; }
-  .case-hero { padding: 5rem 0 2rem; }
-  .meta-strip { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; padding: 1.5rem 0 0.5rem; border-top: 1px solid var(--border); }
-  .meta-label { font-family: var(--font-mono); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted-foreground); margin: 0; }
-  .meta-value { margin: 0.35rem 0 0; font-size: 1.1rem; font-weight: 700; }
-  .lead-image-section { padding: 2rem 0 4rem; }
-  .lead-image, .supporting-image { width: 100%; border: 1px solid var(--border); border-radius: 1.5rem; box-shadow: var(--shadow-large); }
-  .supporting-image-section { padding: 2rem 0 4rem; border-bottom: 1px solid var(--border); }
-  .summary-section { padding: 0 0 3rem; border-bottom: 1px solid var(--border); }
-  .summary-section h2 { margin-top: 0.75rem; font-size: clamp(1.5rem, 2.5vw, 2.2rem); max-width: 32ch; }
-  .summary-main { margin-top: 1.5rem; max-width: 44rem; }
-  .section-kicker { font-family: var(--font-mono); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted-foreground); margin: 0 0 0.5rem; }
-  .editorial-section { display: grid; grid-template-columns: 14rem minmax(0,1fr); gap: 2rem; padding: 3rem 0; border-bottom: 1px solid var(--border); }
-  .story-block { max-width: 44rem; }
+.case-page{position:relative;width:min(calc(100% - 3rem),78rem);margin:0 auto;padding:1.25rem 0 5rem}
+.eyebrow{font-family:var(--font-mono);font-size:.82rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted-foreground);margin:0 0 1.25rem;display:flex;gap:.5rem;align-items:center}
+.breadcrumb-link{font-weight:600}.breadcrumb-separator{color:var(--muted-foreground)}
+h1,h2{margin:0;font-weight:800;letter-spacing:-.05em;color:var(--foreground)}
+.display-title{font-size:clamp(2rem,4.5vw,3.5rem);line-height:1.06;margin:1rem 0 0;max-width:28ch}
+.hero-text,.story-block p,.summary-main p{font-size:1.08rem;line-height:1.7;margin:0 0 1rem}
+.case-hero{padding:5rem 0 2rem}
+.meta-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2rem;padding:1.5rem 0 .5rem;border-top:1px solid var(--border)}
+.meta-label{font-family:var(--font-mono);font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted-foreground);margin:0}
+.meta-value{margin:.35rem 0 0;font-size:1.1rem;font-weight:700}
+.lead-image-section{padding:2rem 0 4rem}
+.lead-image,.supporting-image{width:100%;border:1px solid var(--border);border-radius:1.5rem;box-shadow:var(--shadow-large)}
+.supporting-image-section{padding:2rem 0 4rem;border-bottom:1px solid var(--border)}
+.summary-section{padding:0 0 3rem;border-bottom:1px solid var(--border)}
+.summary-section h2{margin-top:.75rem;font-size:clamp(1.5rem,2.5vw,2.2rem);max-width:32ch}
+.summary-main{margin-top:1.5rem;max-width:44rem}
+.section-kicker{font-family:var(--font-mono);font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted-foreground);margin:0 0 .5rem}
+.editorial-section{display:grid;grid-template-columns:14rem minmax(0,1fr);gap:2rem;padding:3rem 0;border-bottom:1px solid var(--border)}
+.story-block{max-width:44rem}
 </style>
