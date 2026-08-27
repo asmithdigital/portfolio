@@ -6,9 +6,9 @@ import myAccount from '../../assets/images/my-account.png';
 import paymentPortal from '../../assets/images/payment-portal.png';
 import qtbMotor from '../../assets/images/QTB-motor.png';
 import logIn from '../../assets/images/log-in.png';
+import imdUi from '../../assets/images/imd-ui-2.png';
 import raaWebsite from '../../assets/images/raa-website.png';
 import raaBanner from '../../assets/images/raa-banner.png';
-import raaHoliday from '../../assets/images/raa-holiday.png';
 import uofaBanner from '../../assets/images/uofa-banner.png';
 import uofaSubpage from '../../assets/images/uofa-subpage.png';
 import uofaMobileMenu from '../../assets/images/uofa-mobile-global-menu.png';
@@ -70,9 +70,6 @@ import f4a from '../../assets/images/freelance-4a.png';
       <section class="supporting-image-section">
         <Image class="supporting-image" src={raaBanner} alt="Travel booking platform shown across desktop, tablet, and mobile" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
       </section>
-      <section class="supporting-image-section">
-        <Image class="supporting-image" src={raaHoliday} alt="Holiday detail page with itinerary information, pricing, and booking" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
-      </section>
 
       <section class="editorial-section">
         <div class="section-rail"><p class="section-kicker">Identity & Website</p></div>
@@ -83,7 +80,7 @@ import f4a from '../../assets/images/freelance-4a.png';
       <section class="img-pair-section">
         <div class="img-pair">
           <Image class="pair-image" src={raaWebsite} alt="Website homepage showing navigation hierarchy and member value proposition" loading="lazy" decoding="async" widths={[720,1080]} sizes="50vw"/>
-          <Image class="pair-image" src={logIn} alt="Login screen with clear email entry and accessible layout" loading="lazy" decoding="async" widths={[720,1080]} sizes="50vw"/>
+          <Image class="pair-image" src={imdUi} alt="Identity management screens showing verify details and 6-digit code authentication flow" loading="lazy" decoding="async" widths={[720,1080]} sizes="50vw"/>
         </div>
       </section>
 
@@ -158,8 +155,7 @@ h1,h2{margin:0;font-weight:800;letter-spacing:-.05em;color:var(--foreground)}
 .freelance-intro{font-size:1rem;color:var(--muted-foreground);margin:.75rem 0 1.75rem;max-width:42rem;line-height:1.7}
 .freelance-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:1rem;margin:0 -2rem;padding-left:2rem;padding-right:2rem}
 .freelance-track{display:flex;gap:1.25rem;width:max-content}
-.freelance-thumb{width:840px;height:570px;object-fit:cover;border-radius:1rem;border:1px solid var(--border);box-shadow:0 8px 20px rgba(23,23,23,.07);flex-shrink:0}
+.freelance-thumb{width:420px;height:280px;object-fit:cover;object-position:top center;border-radius:1rem;border:1px solid var(--border);box-shadow:0 8px 20px rgba(23,23,23,.07);flex-shrink:0}
 .scroll-hint{display:flex;align-items:center;gap:.5rem;margin-top:.75rem;font-family:var(--font-mono);font-size:.75rem;color:var(--muted-foreground);letter-spacing:.04em}
 .scroll-hint svg{width:1.25rem;height:1.25rem;opacity:.6}
-@media(max-width:860px){.img-pair{grid-template-columns:1fr}.editorial-section{grid-template-columns:1fr}.freelance-thumb{width:320px;height:215px}}
-</style>
+@media(max-width:860px){.img-pair{grid-template-columns:1fr}.editorial-section{grid-template-columns:1fr}.freelance-thumb{width:320px;height:215px}}</style>
