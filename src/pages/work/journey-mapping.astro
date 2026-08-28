@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
+import CaseStudyNav from '../../components/CaseStudyNav.astro';
 import journeyMap1 from '../../assets/images/journey-map-1.png';
 import journeyMap2 from '../../assets/images/journey-map-2.png';
 import raaJourney from '../../assets/images/raa-journey.png';
@@ -68,6 +69,7 @@ import raaPersona from '../../assets/images/raa-persona.png';
       <section class="supporting-image-section">
         <Image class="supporting-image" src={raaPersona} alt="User persona with background, travel goals, research behaviour, likes, dislikes, and device usage" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
       </section>
+      <CaseStudyNav />
     </main>
   </div>
 </Layout>

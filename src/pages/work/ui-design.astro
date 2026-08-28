@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
+import CaseStudyNav from '../../components/CaseStudyNav.astro';
 import myAccount from '../../assets/images/my-account.png';
 import paymentPortal from '../../assets/images/payment-portal.png';
 import qtbMotor from '../../assets/images/QTB-motor.png';
@@ -31,7 +32,7 @@ import f4a from '../../assets/images/freelance-4a.png';
         <p class="eyebrow"><a class="breadcrumb-link" href="/portfolio/work">Work</a><span class="breadcrumb-separator">/</span><span>UI Design</span></p>
         <h1 class="display-title">UI design across digital products , web, mobile, and responsive.</h1>
         <p class="hero-text">UI design is not what the interface looks like. It is how every decision about layout, hierarchy, component choice, colour, spacing, and interaction adds up to an experience that either earns a user's confidence or quietly erodes it. The screenshots below show finished product across a range of digital contexts , each one the result of research, testing, and iteration against a design system.</p>
-        <p class="hero-text">The technical background matters here. Before working in UX, the tools were HTML, CSS, and JavaScript. That means conversations with engineers about implementation constraints, decisions about what to build versus what to pull from the component library, and handover documents that a developer can actually use , are all informed by having done that work on the other side.</p>
+        <p class="hero-text">Before working in UX, I was writing HTML, CSS, and JavaScript professionally. That means working alongside developers as a designer is collaborative rather than transactional — conversations about implementation constraints, decisions about what to build versus what to pull from the design system, and handover documents that developers can actually use are all informed by having done that work on the other side.</p>
         <p class="hero-text">AI is now part of the UI design process too. Figma plugins for accessibility checking, AI-assisted spec generation, and prototype scanning tools that create realistic test environments from live products , all reducing the overhead of documentation and validation so more time goes to the work that requires judgment.</p>
       </section>
       <section class="meta-strip">
@@ -117,6 +118,7 @@ import f4a from '../../assets/images/freelance-4a.png';
         </p>
       </section>
 
+      <CaseStudyNav />
     </main>
   </div>
 </Layout>

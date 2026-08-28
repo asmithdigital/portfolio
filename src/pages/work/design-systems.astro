@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
+import CaseStudyNav from '../../components/CaseStudyNav.astro';
 import ds2 from '../../assets/images/design-system-2.png';
 import ds1 from '../../assets/images/design-system-1.png';
 import figmaComponents from '../../assets/images/figma-component-library-button-example.png';
@@ -70,6 +71,7 @@ import uofaStyleguide from '../../assets/images/uofa-styleguide.png';
       <section class="supporting-image-section">
         <Image class="supporting-image" src={uofaStyleguide} alt="Custom styleguide application showing component documentation with HTML, CSS, and JavaScript code examples" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
       </section>
+      <CaseStudyNav />
     </main>
   </div>
 </Layout>

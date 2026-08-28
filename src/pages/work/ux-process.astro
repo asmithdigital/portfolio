@@ -2,13 +2,14 @@
 import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
+import CaseStudyNav from '../../components/CaseStudyNav.astro';
 import miroIdeationCritique from '../../assets/images/miro-ideation-critique-example.png';
 import miroIdeation from '../../assets/images/miro-ideation-example.png';
 import flowDiagram from '../../assets/images/flow-diagram-2.png';
 import figmaFlows from '../../assets/images/figma-myaccount-flows.png';
-import figmaWiresMobile from '../../assets/images/raa-wires-mobile.png';
+import figmaWiresMobile from '../../assets/images/travel-sd-wireframes.png';
 import raaWires from '../../assets/images/raa-wires.png';
-import usertesting1 from '../../assets/images/usertesting-1.png';
+import usertesting1 from '../../assets/images/usertesting-2.png';
 import figmaRenewals from '../../assets/images/figma-renewals-example.png';
 import figmaClaims from '../../assets/images/figma-claims-screen-example.png';
 import myAccount from '../../assets/images/my-account.png';
@@ -88,7 +89,7 @@ import journeyMap1 from '../../assets/images/journey-map-1.png';
           <p>Low fidelity before high fidelity. Getting structure and interaction right before investing in the visual layer. AI-assisted prototyping tools that scan the live product and generate a test environment in context mean user feedback is faster and more accurate.</p>
         </div>
         <div class="process-images">
-          <Image class="process-img" src={figmaWiresMobile} alt="Low-fidelity wireframes for mobile app screens" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
+          <Image class="process-img" src={figmaWiresMobile} alt="Travel booking wireframes showing search results, hotel detail, payment, and confirmation screens" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
           <Image class="process-img" src={raaWires} alt="Figma prototype flow diagram showing connected screens across user journeys" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
         </div>
       </section>
@@ -100,7 +101,7 @@ import journeyMap1 from '../../assets/images/journey-map-1.png';
           <p>Checking the design against real users before build. Moderated sessions, findings tagged as pain points or friction moments, synthesised into actionable recommendations. A problem found in a prototype costs hours to fix. The same problem found after launch costs a sprint.</p>
         </div>
         <div class="process-images">
-          <Image class="process-img" src={usertesting1} alt="UserTesting moderated session with tagged transcript showing pain points and ease moments" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
+          <Image class="process-img" src={usertesting1} alt="UserTesting moderated session showing participant screen recording with tagged transcript" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
         </div>
       </section>
 
@@ -129,6 +130,7 @@ import journeyMap1 from '../../assets/images/journey-map-1.png';
         </div>
       </section>
 
+      <CaseStudyNav />
     </main>
   </div>
 </Layout>

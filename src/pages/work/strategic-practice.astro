@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
+import CaseStudyNav from '../../components/CaseStudyNav.astro';
 import wow1 from '../../assets/images/way-of-working-1.png';
 import wow2 from '../../assets/images/way-of-working-2.png';
 import orchestration from '../../assets/images/claude-orchestration-layer-diagram.png';
@@ -45,8 +46,8 @@ import orchestration from '../../assets/images/claude-orchestration-layer-diagra
       <section class="editorial-section">
         <div class="section-rail"><p class="section-kicker">The Studio Model</p></div>
         <div class="story-block">
-          <p>The Studio is a standing weekly session where the full team brings work at any stage: early sketches, mid-process decisions, near-final designs , for collective critique. It is the single most important practice for maintaining consistent quality across a distributed team.</p>
-          <p>Without a shared critique space, quality depends entirely on whether individual designers happen to have the right conversations with the right people at the right time. The Studio, the team develops a shared sense of what good looks like , informed by the collective experience of UX, service design, content, and business analysis all in the same room.</p>
+          <p>The Studio is a standing weekly session where the full team brings work at any stage: early sketches, mid-process decisions, near-final designs, for collective critique. It is the single most important practice for maintaining consistent quality across a distributed team.</p>
+          <p>Without a shared critique space, quality depends entirely on whether individual designers happen to have the right conversations with the right people at the right time. The Studio, the team develops a shared sense of what good looks like, informed by the collective experience of UX, service design, content, and business analysis all in the same room.</p>
           <p>The Studio also functions as a safety net. When a team member went on leave mid-project, the rest of the team already understood the work because it had been through the Studio. The system absorbed the disruption without anything being dropped. That is the actual test of whether a practice is real or decorative.</p>
         </div>
       </section>
@@ -55,7 +56,7 @@ import orchestration from '../../assets/images/claude-orchestration-layer-diagra
         <div class="section-rail"><p class="section-kicker">AI Orchestration Layer</p></div>
         <div class="story-block">
           <p>As the team reduced in size, the question became how to maintain quality and knowledge access without adding headcount. Individual designers in product squads were physically distributed across the organisation. Knowledge was fragmented across tools. A designer starting a new piece of work had no reliable way to know what research existed for that product area, what the design system already covered, or what decisions had been documented previously.</p>
-          <p>The orchestration layer connected these sources. A Slackbot connected to the design system, journey maps, research repository, live products, and internal documentation , so a designer could ask a question in the channel they were already working in and get an answer synthesised from all available sources rather than searching across four tools manually.</p>
+          <p>The orchestration layer connected these sources. A Slackbot connected to the design system, journey maps, research repository, live products, and internal documentation, so a designer could ask a question in the channel they were already working in and get an answer synthesised from all available sources. The knowledge layer also connected to WCAG accessibility guidelines, solution architecture standards, brand guidelines, and legal requirements, meaning the team could surface constraints from across the organisation rather than working in isolation from the broader standards they were expected to design against.</p>
           <p>The diagram below shows the full architecture: business and management inputs on the left, the prioritisation and routing layer in the centre, the AI layer at the base connecting all knowledge sources, and delivered outputs and reporting on the right. The result was a smaller team maintaining the same quality and decision-making speed as a larger one , because the institutional knowledge was finally accessible.</p>
         </div>
       </section>
@@ -64,6 +65,7 @@ import orchestration from '../../assets/images/claude-orchestration-layer-diagra
         <Image class="supporting-image" src={orchestration} alt="Experience Design operating model showing business inputs, prioritisation layer, EXD Studio, Claude AI orchestration connecting all tools and knowledge sources, and delivered outputs" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
       </section>
 
+      <CaseStudyNav />
     </main>
   </div>
 </Layout>

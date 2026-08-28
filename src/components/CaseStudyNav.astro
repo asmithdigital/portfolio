@@ -1,0 +1,82 @@
+---
+const pages = [
+  { href: '/portfolio/work/ux-process', label: 'UX Process' },
+  { href: '/portfolio/work/ui-design', label: 'UI Design' },
+  { href: '/portfolio/work/journey-mapping', label: 'Journey Mapping' },
+  { href: '/portfolio/work/design-systems', label: 'Design Systems' },
+  { href: '/portfolio/work/research-benchmarking', label: 'Benchmarking' },
+  { href: '/portfolio/work/strategic-practice', label: 'Ways of Working' },
+];
+
+const currentPath = Astro.url.pathname.replace(/\/$/, '');
+const currentIndex = pages.findIndex(p => currentPath.endsWith(p.href.replace('/portfolio', '')));
+const prev = currentIndex > 0 ? pages[currentIndex - 1] : null;
+const next = currentIndex < pages.length - 1 ? pages[currentIndex + 1] : null;
+---
+
+{(prev || next) && (
+  <nav class="case-nav" aria-label="Case study navigation">
+    <div class="case-nav-inner">
+      {prev ? (
+        <a href={prev.href} class="case-nav-link case-nav-prev">
+          <span class="case-nav-dir">← Previous</span>
+          <span class="case-nav-title">{prev.label}</span>
+        </a>
+      ) : <div />}
+      {next ? (
+        <a href={next.href} class="case-nav-link case-nav-next">
+          <span class="case-nav-dir">Next →</span>
+          <span class="case-nav-title">{next.label}</span>
+        </a>
+      ) : <div />}
+    </div>
+  </nav>
+)}
+
+<style>
+.case-nav {
+  border-top: 1px solid var(--border);
+  padding: 2.5rem 0 0;
+  margin-top: 3rem;
+}
+.case-nav-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.case-nav-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  text-decoration: none;
+  padding: 1rem 1.25rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border);
+  transition: background 120ms ease, border-color 120ms ease;
+}
+.case-nav-link:hover {
+  background: var(--muted);
+  border-color: var(--foreground);
+}
+.case-nav-next {
+  text-align: right;
+  margin-left: auto;
+}
+.case-nav-dir {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+.case-nav-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--foreground);
+}
+@media(max-width: 600px) {
+  .case-nav-inner { grid-template-columns: 1fr; }
+  .case-nav-next { text-align: left; margin-left: 0; }
+}
+</style>
