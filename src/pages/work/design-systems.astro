@@ -8,7 +8,7 @@ import ds1 from '../../assets/images/design-system-1.png';
 import figmaComponents from '../../assets/images/figma-component-library-button-example.png';
 import uofaStyleguide from '../../assets/images/uofa-styleguide.png';
 ---
-<Layout title="Design Systems | Andrew Smith" description="Design systems as infrastructure, component libraries, token architecture, and documentation that enable teams to build consistently without designer intervention.">
+<Layout title="Design Systems | Andrew Smith" description="Design systems as infrastructure — component libraries, token architecture, and documentation that enable teams to build consistently without designer intervention.">
   <a class="skip-link" href="#main-content">Skip to content</a>
   <div class="case-page">
     <SiteHeader />
@@ -16,11 +16,11 @@ import uofaStyleguide from '../../assets/images/uofa-styleguide.png';
       <section class="case-hero">
         <p class="eyebrow"><a class="breadcrumb-link" href="/portfolio/work">Work</a><span class="breadcrumb-separator">/</span><span>Design Systems</span></p>
         <h1 class="display-title">Design systems for consistency at scale.</h1>
-        <p class="hero-text">A design system captures decisions once and applies them everywhere. Components built once and reused across every product. Tokens that propagate a colour or spacing change automatically. Accessibility baked into the component, not audited after the fact.</p>
-        <p class="hero-text">The result is consistency as a property of the process rather than individual vigilance, and a team that can spend time on design problems instead of design system maintenance.</p>
+        <p class="hero-text">A design system changes what product, engineering, and design teams spend their time on. When components are documented and governed properly, engineers can build from a shared library without waiting for design review on every standard pattern. Designers write lighter specs and spend less time re-establishing patterns that already exist. The time that is freed up goes toward discovery, testing, and the work that actually requires judgment.</p>
+        <p class="hero-subtext">Built from scratch across two organisations.</p>
       </section>
       <section class="meta-strip">
-        <div class="meta-item"><p class="meta-label">Scope</p><p class="meta-value">Two organisations, built from scratch</p></div>
+        <div class="meta-item"><p class="meta-label">Organisations</p><p class="meta-value">RAA, University of Adelaide</p></div>
         <div class="meta-item"><p class="meta-label">Role</p><p class="meta-value">Senior UX Lead, UX Manager, Front-End Developer</p></div>
         <div class="meta-item"><p class="meta-label">Tools</p><p class="meta-value">Figma, ZeroHeight, HTML/CSS/JS</p></div>
       </section>
@@ -30,20 +30,29 @@ import uofaStyleguide from '../../assets/images/uofa-styleguide.png';
       </section>
 
       <section class="summary-section">
-        <p class="section-kicker">Why Design Systems Matter</p>
-        <h2>The goal is self-service.</h2>
+        <p class="section-kicker">What a Design System Actually Changes</p>
+        <h2>The goal is self-service — not designer sign-off on every small decision.</h2>
         <div class="summary-main">
-          <p>The most important shift a design system enables is moving from a model where designers are the bottleneck to a model where anyone building a digital product can find what they need, understand how to use it, and implement it correctly without asking. Product teams can move faster. Engineers do not need to wait for design review on standard patterns. QA knows what correct looks like because it is documented.</p>
-          <p>That frees design teams to spend their time on the work that actually requires design judgment: discovery, research, new patterns, edge cases, and the problems that a component library cannot solve on its own.</p>
-          <p>AI is accelerating the documentation side of this. Component specs, accessibility guidance, do's and don'ts, content guidelines, and usage notes. All of this can be drafted by AI from the design file and reviewed by a designer, rather than written from scratch. The system stays current without requiring constant manual effort, and the documentation reflects what was actually built rather than what was planned twelve months ago.</p>
+          <p>The shift a mature design system enables is moving from a model where designers are the bottleneck to a model where product and engineering teams can find what they need, understand how to use it, and implement it correctly without asking. Specs become lighter because the patterns are already documented. Testing during delivery increases because there is more time available. Consistency improves not because designers are more vigilant but because the decisions are captured at the source.</p>
+          <p>As the system matured, the team noticed a clear shift — less time spent redefining things that already existed, more time available for usability testing and discovery work alongside product and engineering. The efficiency gain was not abstract. It showed up in what the team was able to do with its time.</p>
+          <p>Governance is what prevents that gain from eroding. Who can contribute new components, how contributions are reviewed, how the system evolves as products change — without a clear governance model, a design system slowly drifts back toward the inconsistency it was built to prevent. Governance is the senior-specific part of running a system rather than just building one.</p>
+        </div>
+      </section>
+
+      <section class="editorial-section">
+        <div class="section-rail"><p class="section-kicker">Governance</p></div>
+        <div class="story-block">
+          <p>Governance covers three things: who can propose changes, how those changes are reviewed against accessibility standards and existing patterns before they are accepted, and how the system is communicated across product and engineering teams so they know what exists and when it changes.</p>
+          <p>In practice this meant a contribution process for new components, regular reviews with engineering leads to align on implementation, a changelog that engineering could reference without coming back to design, and a process for retiring patterns that had been superseded without breaking the products that still used them.</p>
+          <p>Without governance, the system grows in one direction and the products grow in another. With it, the system stays useful rather than becoming a reference that is technically maintained but practically ignored.</p>
         </div>
       </section>
 
       <section class="editorial-section">
         <div class="section-rail"><p class="section-kicker">Component Library</p></div>
         <div class="story-block">
-          <p>The Figma component library holds every UI element: buttons, inputs, cards, navigation, forms, modals, and patterns, each with full variant coverage across states, sizes, and contexts. Each component is documented with usage rules directly in the design file so designers have guidance without leaving the tool.</p>
-          <p>Tokens connect the component library to the codebase. A colour change in the token layer propagates automatically to every component that references it. No manual search-and-replace, no inconsistencies introduced because someone updated one file and not another.</p>
+          <p>The Figma component library holds every UI element used across web and mobile products, with full variant coverage across states, sizes, and contexts. Usage rules documented directly in the design file so designers have guidance without leaving the tool. Tokens connect the library to the codebase — a colour change at the token level propagates automatically to every component that references it.</p>
+          <p>AI assists with documentation — generating component specs, accessibility guidance, and usage notes from the design file, reducing the manual overhead of keeping documentation current with what was actually built.</p>
         </div>
       </section>
       <section class="supporting-image-section">
@@ -53,8 +62,8 @@ import uofaStyleguide from '../../assets/images/uofa-styleguide.png';
       <section class="editorial-section">
         <div class="section-rail"><p class="section-kicker">Documentation Platform</p></div>
         <div class="story-block">
-          <p>A component library without documentation is a tool without instructions. The documentation platform publishes every component with the information a developer or product manager needs to use it correctly: overview, usage guidelines, design specs, changelog, and code examples, synced automatically from the design file so documentation stays in step with the actual components.</p>
-          <p>Self-service access means any team building on the design system can find what they need without going through the design team. The governance model determines who can contribute new components, how contributions are reviewed, and how the system evolves over time. Without governance, a design system slowly drifts back toward the inconsistency it was built to prevent.</p>
+          <p>Every component published with the information product managers and engineers need to use it correctly — overview, usage guidelines, design specs, changelog, and code examples, synced from the design file so documentation stays current with what actually shipped.</p>
+          <p>Self-service access means any team building on the system can find what they need without going through design. That is the point. The governance model keeps contributions consistent. The documentation makes adoption possible without hand-holding.</p>
         </div>
       </section>
       <section class="supporting-image-section">
@@ -64,13 +73,14 @@ import uofaStyleguide from '../../assets/images/uofa-styleguide.png';
       <section class="editorial-section">
         <div class="section-rail"><p class="section-kicker">Built From Scratch</p></div>
         <div class="story-block">
-          <p>Before working in a product organisation, the equivalent of a design system was built from scratch for a university. It was a custom JavaScript application documenting every HTML, CSS, and JavaScript pattern used across the institution. Every public-facing website and internal system was built from this foundation. Consistency became a property of the shared codebase, not of individual teams remembering to check with each other.</p>
-          <p>Having built a design system at the code level, not just designed one in Figma, changes how you think about it. The technical constraints are real, the maintenance cost is real, and the payoff is real. That background makes conversations with engineering teams about system adoption and governance more grounded in how these things actually work in practice.</p>
+          <p>Before working in a product organisation, the equivalent of a design system was built from scratch for a university — a custom JavaScript application documenting every HTML, CSS, and JavaScript pattern used across the institution. Built at the code level, not just designed in Figma. Every development team across the university built from this foundation.</p>
+          <p>Having built a design system in code changes how you think about it. The technical constraints are real, the maintenance cost is real, and the payoff is real. Conversations with engineering teams about adoption and governance are more grounded because the work has been done from that side too.</p>
         </div>
       </section>
       <section class="supporting-image-section">
         <Image class="supporting-image" src={uofaStyleguide} alt="Custom styleguide application showing component documentation with HTML, CSS, and JavaScript code examples" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
       </section>
+
       <CaseStudyNav />
     </main>
   </div>
@@ -81,8 +91,8 @@ import uofaStyleguide from '../../assets/images/uofa-styleguide.png';
 .breadcrumb-link{font-weight:600}.breadcrumb-separator{color:var(--muted-foreground)}
 h1,h2{margin:0;font-weight:800;letter-spacing:-.05em;color:var(--foreground)}
 .display-title{font-size:clamp(2rem,4.5vw,3.5rem);line-height:1.06;margin:1rem 0 1.5rem;max-width:28ch}
-.hero-subtext{font-size:1.05rem;line-height:1.65;color:var(--muted-foreground);font-style:italic;margin:.25rem 0 0;max-width:42rem}
 .hero-text,.story-block p,.summary-main p{font-size:1.08rem;line-height:1.7;margin:0 0 1rem}
+.hero-subtext{font-size:1.05rem;line-height:1.65;color:var(--muted-foreground);font-style:italic;margin:.25rem 0 0;max-width:42rem}
 .case-hero{padding:5rem 0 2rem}
 .meta-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2rem;padding:1.5rem 0 .5rem;border-top:1px solid var(--border)}
 .meta-label{font-family:var(--font-mono);font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted-foreground);margin:0}

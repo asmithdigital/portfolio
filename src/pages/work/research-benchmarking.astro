@@ -6,7 +6,7 @@ import CaseStudyNav from '../../components/CaseStudyNav.astro';
 import benchmarking from '../../assets/images/ux-benchmarking.png';
 import journeyMap1 from '../../assets/images/journey-map-1.png';
 ---
-<Layout title="Benchmarking | Andrew Smith" description="Quantitative UX benchmarking, measuring effectiveness, efficiency, satisfaction, and desirability to track whether digital products are improving over time.">
+<Layout title="Benchmarking | Andrew Smith" description="Quantitative UX benchmarking that measures the success of digital products over time — tracking effectiveness, efficiency, satisfaction, and desirability.">
   <a class="skip-link" href="#main-content">Skip to content</a>
   <div class="case-page">
     <SiteHeader />
@@ -14,36 +14,40 @@ import journeyMap1 from '../../assets/images/journey-map-1.png';
       <section class="case-hero">
         <p class="eyebrow"><a class="breadcrumb-link" href="/portfolio/work">Work</a><span class="breadcrumb-separator">/</span><span>Benchmarking</span></p>
         <h1 class="display-title">Benchmarking digital product quality over time.</h1>
-        <p class="hero-text">Measuring whether changes to a product actually improved the experience, not just changed it. Quantitative studies tracking effectiveness, efficiency, satisfaction, and desirability at regular intervals, so the data tells a story about direction over time rather than just a current snapshot.</p>
+        <p class="hero-text">Measuring whether changes to a product actually improved the experience, not just changed it. Quantitative studies tracking effectiveness, efficiency, satisfaction, and desirability at regular intervals, so the data tells a story about direction over time rather than a snapshot of the current state.</p>
+        <p class="hero-subtext">Results feed directly into the <a href="/portfolio/work/journey-mapping">journey map</a>, where they shape what gets prioritised next.</p>
       </section>
       <section class="meta-strip">
         <div class="meta-item"><p class="meta-label">Scope</p><p class="meta-value">Insurance, member portal, mobile app</p></div>
         <div class="meta-item"><p class="meta-label">Role</p><p class="meta-value">Senior UX Design Lead</p></div>
         <div class="meta-item"><p class="meta-label">Tools</p><p class="meta-value">UserTesting.com, Optimal Workshop, analytics</p></div>
       </section>
+
       <section class="lead-image-section">
-        <Image class="lead-image" src={benchmarking} alt="Usability benchmarking dashboard showing effectiveness 39/1, efficiency 4 minute average, satisfaction scores, and desirability word cloud" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
+        <Image class="lead-image" src={benchmarking} alt="Usability benchmarking dashboard showing effectiveness, efficiency, satisfaction, and desirability metrics" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
       </section>
+
       <section class="summary-section">
         <p class="section-kicker">The Four Dimensions</p>
-        <h2>Effectiveness, efficiency, satisfaction, and desirability , each with a different job to do.</h2>
+        <h2>Effectiveness, efficiency, satisfaction, and desirability — each measuring something different.</h2>
         <div class="summary-main">
-          <p>Effectiveness asks whether users can complete the task at all. A product with high effectiveness but low efficiency is technically usable but exhausting to use. A product with high efficiency but low satisfaction might be quick, but users do not trust it. Desirability captures the emotional quality of the experience: the words users choose to describe it reveal whether it feels professional, approachable, clear, or cluttered.</p>
-          <p>Running these four dimensions together paints a complete picture. A drop in desirability scores while effectiveness holds steady points to a different problem than a drop in efficiency with stable satisfaction. The data tells you not just that something is wrong, but what kind of thing is wrong and where to look first.</p>
-          <p>These studies also integrate with NPS, CSAT, Google Analytics drop-off data, and call centre feedback, so the quantitative UX data can be interpreted alongside operational metrics rather than sitting in a separate report that nobody connects to anything else.</p>
+          <p>Effectiveness measures whether users completed the task. Efficiency measures how long it took. Satisfaction captures ease of use and perceived usefulness. Desirability captures the emotional quality of the experience through word-choice responses.</p>
+          <p>Running these together gives a complete diagnostic picture. A drop in desirability while effectiveness holds steady points to a different problem than a drop in efficiency with stable satisfaction. The data tells you not just that something is wrong but what kind of thing is wrong, which shapes what kind of fix is needed.</p>
+          <p>These studies connect to NPS, CSAT, Google Analytics drop-off data, and call centre feedback — so the quantitative UX data can be interpreted alongside operational data rather than sitting in a separate report that nobody connects to anything else. The team was able to identify where discovery investment would have the greatest impact rather than spreading attention evenly, and to bring that prioritisation into planning conversations with product and engineering.</p>
         </div>
       </section>
+
       <section class="editorial-section">
         <div class="section-rail"><p class="section-kicker">Connecting to Journey Maps</p></div>
         <div class="story-block">
-          <p>Benchmarking data does not sit in a dashboard. It feeds directly into the journey map, attaching quantitative evidence to specific stages of the experience so the team can see where the data and the research are aligned, and where they are pointing in different directions.</p>
-          <p>When a drop-off rate climbs at a specific step, the journey map shows what research already exists for that stage and whether it explains the drop-off. If there is no research for that stage, the gap becomes visible immediately and feeds into the discovery backlog as a priority for the next research cycle.</p>
-          <p>This is what closes the loop between measurement and action. Benchmarking without a journey map produces insights that have no home. A journey map without benchmarking data is a static artefact. Together, they create a system where evidence continuously informs what gets prioritised.</p>
+          <p>Benchmarking data feeds directly into the <a href="/portfolio/work/journey-mapping">journey map</a> — attaching quantitative evidence to specific stages of the experience so product, engineering, and design teams can see where the data and the research are aligned, and where they are pointing in different directions. When a metric shifts, the map shows what research already exists for that stage and whether there is a gap that needs filling before a solution is proposed.</p>
+          <p>This is what closes the loop between measurement and action. The insights do not sit in a dashboard. They become the starting point for the next round of discovery.</p>
         </div>
       </section>
       <section class="supporting-image-section">
         <Image class="supporting-image" src={journeyMap1} alt="Journey explorer showing live analytics metrics at each stage with prioritised solutions" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
       </section>
+
       <CaseStudyNav />
     </main>
   </div>
@@ -54,8 +58,10 @@ import journeyMap1 from '../../assets/images/journey-map-1.png';
 .breadcrumb-link{font-weight:600}.breadcrumb-separator{color:var(--muted-foreground)}
 h1,h2{margin:0;font-weight:800;letter-spacing:-.05em;color:var(--foreground)}
 .display-title{font-size:clamp(2rem,4.5vw,3.5rem);line-height:1.06;margin:1rem 0 1.5rem;max-width:28ch}
-.hero-subtext{font-size:1.05rem;line-height:1.65;color:var(--muted-foreground);font-style:italic;margin:.25rem 0 0;max-width:42rem}
 .hero-text,.story-block p,.summary-main p{font-size:1.08rem;line-height:1.7;margin:0 0 1rem}
+.hero-subtext{font-size:1.05rem;line-height:1.65;color:var(--muted-foreground);font-style:italic;margin:.25rem 0 0;max-width:42rem}
+.hero-subtext a{color:var(--muted-foreground);text-decoration:underline;text-underline-offset:3px}
+.hero-subtext a:hover{color:var(--foreground)}
 .case-hero{padding:5rem 0 2rem}
 .meta-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2rem;padding:1.5rem 0 .5rem;border-top:1px solid var(--border)}
 .meta-label{font-family:var(--font-mono);font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted-foreground);margin:0}
@@ -66,6 +72,8 @@ h1,h2{margin:0;font-weight:800;letter-spacing:-.05em;color:var(--foreground)}
 .summary-section{padding:0 0 3rem;border-bottom:1px solid var(--border)}
 .summary-section h2{margin-top:.75rem;font-size:clamp(1.5rem,2.5vw,2.2rem);max-width:32ch}
 .summary-main{margin-top:1.5rem;max-width:44rem}
+.summary-main a,.story-block a{color:var(--foreground);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--border)}
+.summary-main a:hover,.story-block a:hover{text-decoration-color:var(--foreground)}
 .section-kicker{font-family:var(--font-mono);font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted-foreground);margin:0 0 .5rem}
 .editorial-section{display:grid;grid-template-columns:14rem minmax(0,1fr);gap:2rem;padding:3rem 0;border-bottom:1px solid var(--border)}
 .story-block{max-width:44rem}

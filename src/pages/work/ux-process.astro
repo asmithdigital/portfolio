@@ -16,7 +16,7 @@ import myAccount from '../../assets/images/my-account.png';
 import uxBenchmarking from '../../assets/images/ux-benchmarking.png';
 import journeyMap1 from '../../assets/images/journey-map-1.png';
 ---
-<Layout title="UX Process | Andrew Smith" description="The senior UX design process, from discovery through research, ideation, flows, testing, and delivery.">
+<Layout title="UX Process | Andrew Smith" description="The senior UX design process, from business alignment through discovery, research, design, testing, and delivery.">
   <a class="skip-link" href="#main-content">Skip to content</a>
   <div class="case-page">
     <SiteHeader />
@@ -24,12 +24,14 @@ import journeyMap1 from '../../assets/images/journey-map-1.png';
       <section class="case-hero">
         <p class="eyebrow"><a class="breadcrumb-link" href="/portfolio/work">Work</a><span class="breadcrumb-separator">/</span><span>UX Process</span></p>
         <h1 class="display-title">The UX design process, end to end.</h1>
-        <p class="hero-text">From the first question about what problem needs solving, through research, design, testing, and delivery, to measuring whether it actually worked.</p>
-        <p class="hero-subtext">Each stage below is part of how I approach product design work.</p>
+        <p class="hero-text">Good design outcomes start before anyone opens a design tool. They start with the right conversation — across product, engineering, and the business — about what problem is actually worth solving. The process below is how that conversation leads to something shipped and measured.</p>
+        <p class="hero-subtext">Each stage is part of how I approach product design work, both as a practitioner and in shaping how the team operates.</p>
       </section>
 
       <section class="process-overview">
         <div class="process-steps">
+          <div class="step"><span class="step-num">00</span><span class="step-label">Alignment</span></div>
+          <div class="step-arrow">→</div>
           <div class="step"><span class="step-num">01</span><span class="step-label">Discovery</span></div>
           <div class="step-arrow">→</div>
           <div class="step"><span class="step-num">02</span><span class="step-label">Research</span></div>
@@ -50,9 +52,10 @@ import journeyMap1 from '../../assets/images/journey-map-1.png';
 
       <section class="process-section">
         <div class="process-label">
-          <span class="step-tag">01</span>
-          <h2>Discovery</h2>
-          <p>Understanding the problem before proposing a solution. Discovery runs continuously alongside delivery, feeding new evidence back into the product roadmap through analytics, stakeholder input, and competitor analysis.</p>
+          <span class="step-tag">00</span>
+          <h2>Business & Roadmap Alignment</h2>
+          <p>Before any piece of work enters a squad, there is a conversation that happens across product, engineering, and experience design about what is on the roadmap, where problems overlap across products, and what the team already knows. This is where <a href="/portfolio/work/strategic-practice">ways of working</a> decisions get made — which pathway a piece of work takes, what is already understood, and where genuine discovery is needed before a solution is considered.</p>
+          <p>Accessibility is introduced here as a design constraint, not a post-delivery checklist. What the standards require shapes what gets scoped.</p>
         </div>
         <div class="process-images">
           <Image class="process-img" src={miroIdeationCritique} alt="FigJam discovery session showing problem framing, competitor analysis, and design options" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
@@ -61,12 +64,25 @@ import journeyMap1 from '../../assets/images/journey-map-1.png';
 
       <section class="process-section">
         <div class="process-label">
-          <span class="step-tag">02 — 03</span>
-          <h2>Research & Ideation</h2>
-          <p>Synthesising what is known into a clear problem statement, then generating options with the team. Research informs the hypothesis. Ideation produces directions worth testing. AI assists with synthesis and pattern identification to move faster without losing rigour.</p>
+          <span class="step-tag">01</span>
+          <h2>Discovery</h2>
+          <p>Understanding the problem before proposing a solution. Discovery runs continuously alongside delivery, feeding new evidence back into the product roadmap. Analytics, competitor analysis, and stakeholder input — including product managers, engineers, and the business — all contribute to defining what the problem actually is before the team commits to solving it.</p>
+          <p>The output is not a document. It is a shared understanding across the team of what is known, what is not, and what needs answering before design begins.</p>
         </div>
         <div class="process-images">
-          <Image class="process-img" src={miroIdeation} alt="Miro board showing current state analysis, annotated observations, and design options" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
+          <Image class="process-img" src={miroIdeation} alt="Miro board showing current state analysis and design options" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
+        </div>
+      </section>
+
+      <section class="process-section">
+        <div class="process-label">
+          <span class="step-tag">02 — 03</span>
+          <h2>Research & Ideation</h2>
+          <p>Research turns observations into a problem statement the whole team can act on. <a href="/portfolio/work/journey-mapping">Journey maps</a> bring that knowledge into workshops alongside product and engineering, so ideation time is spent on genuine unknowns rather than re-establishing shared context that already exists. AI tools accelerate the synthesis step — identifying patterns across sessions, surfacing gaps in knowledge, and generating initial structures for review.</p>
+          <p>Ideation produces directions worth testing, not finished solutions. The session ends with a clear next step, not a backlog of unresolved options.</p>
+        </div>
+        <div class="process-images">
+          <Image class="process-img" src={miroIdeation} alt="Miro ideation board showing current state and design options" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
         </div>
       </section>
 
@@ -74,7 +90,8 @@ import journeyMap1 from '../../assets/images/journey-map-1.png';
         <div class="process-label">
           <span class="step-tag">04</span>
           <h2>Flow & Information Architecture</h2>
-          <p>Mapping every path through the experience before any visual design begins. Decision points, edge cases, and alternate flows documented with the BA, so the design and the requirements are aligned before a screen is drawn.</p>
+          <p>Every path through the experience mapped before any screen is designed. Decision points, edge cases, and alternate flows documented alongside product and engineering so that requirements and design are aligned before development scope is committed. Accessibility requirements for each interaction type are confirmed at this stage — not added later.</p>
+          <p>A logic gap found in a flow diagram costs an afternoon. The same gap found in a coded feature costs a sprint and the trust of the engineering team.</p>
         </div>
         <div class="process-images">
           <Image class="process-img" src={flowDiagram} alt="Logic flow diagrams showing decision points and alternate paths" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
@@ -86,11 +103,12 @@ import journeyMap1 from '../../assets/images/journey-map-1.png';
         <div class="process-label">
           <span class="step-tag">05</span>
           <h2>Wireframes & Prototyping</h2>
-          <p>Low fidelity before high fidelity. Getting structure and interaction right before investing in the visual layer. AI-assisted prototyping tools that scan the live product and generate a test environment in context mean user feedback is faster and more accurate.</p>
+          <p>Low fidelity before high fidelity. Structure and interaction reviewed before the visual layer. AI-assisted prototyping that generates test environments from live products means users test in context, not against an abstract mockup, and feedback arrives faster and with less ambiguity about what caused it.</p>
+          <p>A wireframe is also a communication tool — the fastest way to align product, engineering, and design on what is actually being built before anyone writes a line of code.</p>
         </div>
         <div class="process-images">
           <Image class="process-img" src={figmaWiresMobile} alt="Travel booking wireframes showing search results, hotel detail, payment, and confirmation screens" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
-          <Image class="process-img" src={raaWires} alt="Figma prototype flow diagram showing connected screens across user journeys" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
+          <Image class="process-img" src={raaWires} alt="Figma prototype flow showing connected screens across user journeys" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
         </div>
       </section>
 
@@ -98,7 +116,8 @@ import journeyMap1 from '../../assets/images/journey-map-1.png';
         <div class="process-label">
           <span class="step-tag">06</span>
           <h2>Usability Testing</h2>
-          <p>Checking the design against real users before build. Moderated sessions, findings tagged as pain points or friction moments, synthesised into actionable recommendations. A problem found in a prototype costs hours to fix. The same problem found after launch costs a sprint.</p>
+          <p>Checking the design against real users before build. Moderated sessions, findings tagged as pain points or friction moments, synthesised into recommendations that change what gets built. A finding at the prototype stage costs a Figma change. The same finding after launch costs a development sprint, a regression risk, and a period of broken experience for real users.</p>
+          <p>Because the <a href="/portfolio/work/design-systems">design system</a> handles the repeatable patterns, testing time focuses on the genuinely new interactions — the decisions that have not been made before.</p>
         </div>
         <div class="process-images">
           <Image class="process-img" src={usertesting1} alt="UserTesting moderated session showing participant screen recording with tagged transcript" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
@@ -109,7 +128,8 @@ import journeyMap1 from '../../assets/images/journey-map-1.png';
         <div class="process-label">
           <span class="step-tag">07</span>
           <h2>High-Fidelity UI Design</h2>
-          <p>Finished designs built against the design system. Annotated specs that capture decisions not just dimensions. Reviewed against accessibility standards before handover. AI assists with component documentation and spec generation to reduce overhead.</p>
+          <p>Finished designs built against the design system. Specs that include accessibility guidance, content notes, and edge case handling alongside the visual design — so engineers have what they need to build without interpretation. AI assists with component documentation and spec generation, freeing time for the decisions that require judgment.</p>
+          <p>Lighter specs became possible as the design system matured. Less time spent redefining patterns that already existed meant more time available for the testing and discovery work that actually moves quality forward.</p>
         </div>
         <div class="process-images">
           <Image class="process-img" src={figmaRenewals} alt="Figma canvas showing design screens across desktop and mobile" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
@@ -122,7 +142,7 @@ import journeyMap1 from '../../assets/images/journey-map-1.png';
         <div class="process-label">
           <span class="step-tag">08</span>
           <h2>Post-Delivery Benchmarking</h2>
-          <p>Measuring whether the shipped product improved the experience. Quantitative studies run at regular intervals tracking effectiveness, efficiency, satisfaction, and desirability. Results feed back into the journey map and the next discovery cycle.</p>
+          <p>Measuring whether the shipped product improved the experience. Quantitative studies run at regular intervals tracking effectiveness, efficiency, satisfaction, and desirability — so the data tells a story about direction over time rather than just a current snapshot. Results feed directly into the <a href="/portfolio/work/journey-mapping">journey map</a>, where they become evidence that a specific stage of the experience needs attention and shapes what gets prioritised next.</p>
         </div>
         <div class="process-images">
           <Image class="process-img" src={uxBenchmarking} alt="Usability benchmarking dashboard showing effectiveness, efficiency, satisfaction, and desirability metrics" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
@@ -152,6 +172,8 @@ h1,h2{margin:0;font-weight:800;letter-spacing:-.05em;color:var(--foreground)}
 .process-section{display:grid;grid-template-columns:22rem minmax(0,1fr);gap:3rem;padding:3rem 0;border-bottom:1px solid var(--border)}
 .process-label h2{font-size:1.3rem;margin:.5rem 0;letter-spacing:-.02em}
 .process-label p{font-size:.96rem;line-height:1.65;color:var(--muted-foreground);margin:.75rem 0 0}
+.process-label a{color:var(--foreground);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--border)}
+.process-label a:hover{text-decoration-color:var(--foreground)}
 .step-tag{font-family:var(--font-mono);font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted-foreground)}
 .process-images{display:flex;flex-direction:column;gap:1.25rem}
 .process-img{width:100%;border-radius:1rem;border:1px solid var(--border);box-shadow:0 8px 20px rgba(23,23,23,.07)}
