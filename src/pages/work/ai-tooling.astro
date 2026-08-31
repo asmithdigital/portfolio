@@ -1,0 +1,108 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../../layouts/Layout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import CaseStudyNav from '../../components/CaseStudyNav.astro';
+import orchestration from '../../assets/images/claude-orchestration-layer-diagram.png';
+import journeyMap1 from '../../assets/images/journey-map-1.png';
+import travelWireframes from '../../assets/images/travel-sd-wireframes.png';
+---
+<Layout title="AI Tooling | Andrew Smith" description="How AI tools reduce overhead and accelerate discovery across the design and product process.">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="case-page">
+    <SiteHeader />
+    <main id="main-content">
+      <section class="case-hero">
+        <p class="eyebrow"><a class="breadcrumb-link" href="/portfolio/work">Work</a><span class="breadcrumb-separator">/</span><span>AI Tooling</span></p>
+        <h1 class="display-title">AI in the design and product process.</h1>
+        <p class="hero-text">AI tools are most useful when they reduce the overhead that competes with the work that requires judgment — synthesis, documentation, spec generation, pattern identification. The time that is freed up goes toward discovery, testing, and the decisions that actually move product quality forward.</p>
+        <p class="hero-subtext">How AI has been integrated across the team's process, and what it enabled.</p>
+      </section>
+      <section class="meta-strip">
+        <div class="meta-item"><p class="meta-label">Scope</p><p class="meta-value">Research, design, delivery, knowledge management</p></div>
+        <div class="meta-item"><p class="meta-label">Role</p><p class="meta-value">UX Manager, Senior UX Design Lead</p></div>
+        <div class="meta-item"><p class="meta-label">Tools</p><p class="meta-value">Claude, Figma AI, journey management AI, UserTesting</p></div>
+      </section>
+
+      <section class="lead-image-section">
+        <Image class="lead-image" src={orchestration} alt="Experience Design operating model showing AI orchestration layer connecting all tools and knowledge sources" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
+      </section>
+
+      <section class="summary-section">
+        <p class="section-kicker">The Principle</p>
+        <h2>Faster discovery means the business can validate or redirect product decisions faster.</h2>
+        <div class="summary-main">
+          <p>That is a business outcome argument, not a craft efficiency argument. When AI compresses the time it takes to synthesise research, generate journey map structures from raw notes, or produce component documentation from a design file, the gain is not just hours saved. It is earlier access to the insight that would have taken a week to surface manually — which means product decisions get better information sooner, and the cost of being wrong about a direction is lower.</p>
+          <p>This framing shapes how AI has been used across the team's process. Not as a way to do design faster at the expense of quality, but as a way to reduce the administrative overhead that competes with quality.</p>
+        </div>
+      </section>
+
+      <section class="editorial-section">
+        <div class="section-rail"><p class="section-kicker">Research Synthesis</p></div>
+        <div class="story-block">
+          <p>Research synthesis is one of the most time-consuming parts of the discovery process — reading session transcripts, tagging observations, identifying patterns across participants, and turning raw notes into a coherent problem statement. AI tools now assist with all of this.</p>
+          <p>The practical outcome: a research round that previously took several days to synthesise can be turned around in hours, with the designer spending their time reviewing and refining AI-generated patterns rather than building them from scratch. The quality of the insight is the same. The time to action is significantly shorter.</p>
+        </div>
+      </section>
+
+      <section class="editorial-section">
+        <div class="section-rail"><p class="section-kicker">Journey Mapping</p></div>
+        <div class="story-block">
+          <p>Journey management platforms now include AI tools that can mine data across journeys, surface patterns in customer feedback, and generate initial map structures from raw research inputs. The designer reviews and refines rather than builds from scratch.</p>
+          <p>The more significant use is surfacing knowledge gaps — identifying the stages of the experience where the team is making decisions without adequate evidence, and flagging those gaps for the next round of discovery planning with product.</p>
+        </div>
+      </section>
+      <section class="supporting-image-section">
+        <Image class="supporting-image" src={journeyMap1} alt="Journey explorer showing live metrics and prioritised solutions" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
+      </section>
+
+      <section class="editorial-section">
+        <div class="section-rail"><p class="section-kicker">Rapid Prototyping</p></div>
+        <div class="story-block">
+          <p>AI-assisted prototyping tools can scan a live product and generate a working replica with a new feature integrated — so users test in context rather than against an abstract mockup. The result is more accurate feedback about whether the design works in the real environment, and less ambiguity about what caused any issues that surface.</p>
+          <p>Figma's AI tools assist with variant generation, accessibility checking, and spec annotation — reducing the documentation overhead that would otherwise compete with design and testing time.</p>
+        </div>
+      </section>
+      <section class="supporting-image-section">
+        <Image class="supporting-image" src={travelWireframes} alt="Travel booking wireframes showing rapid prototype flow" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
+      </section>
+
+      <section class="editorial-section">
+        <div class="section-rail"><p class="section-kicker">Orchestration Layer</p></div>
+        <div class="story-block">
+          <p>As the Experience Design team reduced in size, institutional knowledge became a risk. Individual designers knew things that were not documented — about products, decisions, patterns that had been tried and failed. When someone left, that knowledge went with them.</p>
+          <p>The orchestration layer addressed this by connecting the design system documentation, journey maps, research repository, live products, and internal standards — WCAG guidelines, solution architecture, brand requirements, legal constraints — into a single queryable source via a Slackbot. A designer in a product squad could ask a question in the channel they were already working in and get a synthesised answer from all available sources rather than searching across four tools manually.</p>
+          <p>The outcome: a smaller team maintaining the same delivery quality and knowledge access because the institutional knowledge was finally accessible rather than locked in individual heads or buried in folders.</p>
+        </div>
+      </section>
+      <section class="supporting-image-section">
+        <Image class="supporting-image" src={orchestration} alt="Full orchestration layer architecture showing business inputs, EXD Studio, AI knowledge layer, and delivered outputs" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
+      </section>
+
+      <CaseStudyNav />
+    </main>
+  </div>
+</Layout>
+<style>
+.case-page{position:relative;width:min(calc(100% - 3rem),78rem);margin:0 auto;padding:1.25rem 0 5rem}
+.eyebrow{font-family:var(--font-mono);font-size:.82rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted-foreground);margin:0 0 1.25rem;display:flex;gap:.5rem;align-items:center}
+.breadcrumb-link{font-weight:600}.breadcrumb-separator{color:var(--muted-foreground)}
+h1,h2{margin:0;font-weight:800;letter-spacing:-.05em;color:var(--foreground)}
+.display-title{font-size:clamp(2rem,4.5vw,3.5rem);line-height:1.06;margin:1rem 0 1.5rem;max-width:28ch}
+.hero-text,.story-block p,.summary-main p{font-size:1.08rem;line-height:1.7;margin:0 0 1rem}
+.hero-subtext{font-size:1.05rem;line-height:1.65;color:var(--muted-foreground);font-style:italic;margin:.25rem 0 0;max-width:42rem}
+.case-hero{padding:5rem 0 2rem}
+.meta-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2rem;padding:1.5rem 0 .5rem;border-top:1px solid var(--border)}
+.meta-label{font-family:var(--font-mono);font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted-foreground);margin:0}
+.meta-value{margin:.35rem 0 0;font-size:1.1rem;font-weight:700}
+.lead-image-section{padding:2rem 0 4rem}
+.lead-image,.supporting-image{width:100%;border:1px solid var(--border);border-radius:1.5rem;box-shadow:var(--shadow-large)}
+.supporting-image-section{padding:2rem 0 4rem;border-bottom:1px solid var(--border)}
+.summary-section{padding:0 0 3rem;border-bottom:1px solid var(--border)}
+.summary-section h2{margin-top:.75rem;font-size:clamp(1.5rem,2.5vw,2.2rem);max-width:32ch}
+.summary-main{margin-top:1.5rem;max-width:44rem}
+.section-kicker{font-family:var(--font-mono);font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted-foreground);margin:0 0 .5rem}
+.editorial-section{display:grid;grid-template-columns:14rem minmax(0,1fr);gap:2rem;padding:3rem 0;border-bottom:1px solid var(--border)}
+.story-block{max-width:44rem}
+@media(max-width:860px){.meta-strip{grid-template-columns:1fr;gap:1rem}.editorial-section{grid-template-columns:1fr}}
+</style>
