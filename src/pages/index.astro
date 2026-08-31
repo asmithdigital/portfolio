@@ -122,34 +122,6 @@ import { projects } from '../data/projects';
     gap: 1.5rem;
   }
 
-  /* First card spans full width */
-  .project-link:first-child {
-    grid-column: 1 / -1;
-  }
-  .project-link:first-child .project-card {
-    flex-direction: row;
-    align-items: flex-start;
-    min-height: 0;
-    padding: 2rem 2rem 0;
-    gap: 1rem;
-  }
-  .project-link:first-child .card-image {
-    flex: 0 0 48%;
-    margin-top: 0;
-    align-self: flex-end;
-  }
-  .project-link:first-child .card-image img {
-    height: 240px;
-    border-radius: 0.75rem 0.75rem 0 0;
-  }
-  .project-link:first-child .card-title {
-    font-size: clamp(1.2rem, 2vw, 1.65rem);
-    max-width: 26ch;
-  }
-  .project-link:first-child .card-desc {
-    max-width: 34ch;
-  }
-
   .project-link {
     text-decoration: none;
     color: inherit;
@@ -215,9 +187,5 @@ import { projects } from '../data/projects';
     .hero { padding: 4rem 0 3rem; }
     .project-card { min-height: 0; }
     .project-visual { flex: 0 0 auto; margin-top: 1rem; }
-    .project-link:first-child { grid-column: auto; }
-    .project-link:first-child .project-card { flex-direction: column; padding: 1.5rem 1.5rem 0; }
-    .project-link:first-child .card-image { flex: 0 0 auto; align-self: auto; }
-    .project-link:first-child .card-image img { height: 180px; }
   }
 </style>
