@@ -5,6 +5,7 @@ import SiteHeader from '../../components/SiteHeader.astro';
 import CaseStudyNav from '../../components/CaseStudyNav.astro';
 import discoveryDelivery from '../../assets/images/product-management-discovery-delivery.png';
 import miroIdeationCritique from '../../assets/images/miro-ideation-critique-example.png';
+import waysOfWorking from '../../assets/images/way-of-working-2.png';
 import miroIdeation from '../../assets/images/miro-ideation-example.png';
 import flowDiagram from '../../assets/images/flow-diagram-2.png';
 import figmaFlows from '../../assets/images/figma-myaccount-flows.png';
@@ -51,6 +52,18 @@ import orchestration from '../../assets/images/claude-orchestration-layer-diagra
           <div class="step"><span class="step-num">07</span><span class="step-label">Delivery</span></div>
           <div class="step-arrow">→</div>
           <div class="step"><span class="step-num">08</span><span class="step-label">Measure</span></div>
+        </div>
+      </section>
+
+      <section class="process-section">
+        <div class="process-label">
+          <span class="step-tag">Operating Model</span>
+          <h2>Aligning the team's process to the product delivery cycle.</h2>
+          <p>Before any piece of work begins, the team has a shared framework for how it moves through discovery and delivery. Three pathways: dual-track discovery for problems that need defining before any solution is considered, solution discovery for problems already understood, and existing components for work the design system already solves.</p>
+          <p>This structure means design is always working ahead of delivery, not catching up to it. Product managers and engineering leads know what the team is working on and when it will feed into the squad. The stages below describe what happens at each point in that process.</p>
+        </div>
+        <div class="process-images">
+          <Image class="process-img" src={waysOfWorking} alt="Ways of working framework with pathway decision panel open showing dual-track discovery, solution discovery, and existing components pathways" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
         </div>
       </section>
 
