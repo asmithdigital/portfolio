@@ -1,5 +1,5 @@
 import type { ImageMetadata } from 'astro';
-import miroIdeationCritiqueImage from '../assets/images/miro-ideation-critique-example.png';
+import miroIdeationCritiqueImage from '../assets/images/product-management-discovery-delivery.png';
 import myAccountImage from '../assets/images/my-account.png';
 import journeyMap1Image from '../assets/images/journey-map-1.png';
 import designSystem2Image from '../assets/images/design-system-2.png';
