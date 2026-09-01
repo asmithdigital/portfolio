@@ -3,7 +3,8 @@ import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
 import CaseStudyNav from '../../components/CaseStudyNav.astro';
-import miroIdeationCritique from '../../assets/images/miro-ideation-critique-example.png';
+import discoveryDelivery from '../../assets/images/product-management-discovery-delivery.png';
+import roadmap from '../../assets/images/roadmap.png';
 import miroIdeation from '../../assets/images/miro-ideation-example.png';
 import flowDiagram from '../../assets/images/flow-diagram-2.png';
 import figmaFlows from '../../assets/images/figma-myaccount-flows.png';
@@ -26,6 +27,11 @@ import orchestration from '../../assets/images/claude-orchestration-layer-diagra
         <h1 class="display-title">How experience design works within the product delivery cycle.</h1>
         <p class="hero-text">The experience design team works as part of the product trio — alongside product management and engineering — from the earliest conversations about what is worth building through to measuring whether it worked. This is what that contribution looks like at each stage, and how I led the team through it as manager while contributing directly as a practitioner.</p>
         <p class="hero-subtext">Covering discovery, design, delivery, and measurement across multiple product squads simultaneously.</p>
+      </section>
+
+      <section class="lead-image-section">
+        <Image class="lead-image" src={discoveryDelivery} alt="Dual-track agile diagram showing discovery track focusing on value, usability, feasibility, and viability alongside delivery track focusing on scalability, reliability, performance, and maintainability" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
+        <p class="diagram-caption">Discovery and delivery as parallel tracks — the model that shapes how experience design and product work together.</p>
       </section>
 
       <section class="process-overview">
@@ -56,7 +62,7 @@ import orchestration from '../../assets/images/claude-orchestration-layer-diagra
           <p>As manager, this is where I represented the team at the senior management level — working with the senior manager of product, service design, and engineering to align the team's discovery and delivery capacity with upcoming roadmap priorities across multiple product streams.</p>
         </div>
         <div class="process-images">
-          <Image class="process-img" src={miroIdeationCritique} alt="FigJam session showing problem framing, roadmap alignment, and design options" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
+          <Image class="process-img" src={roadmap} alt="Product roadmap showing initiatives across multiple squads with timeline and current sprint marker" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
         </div>
       </section>
 
@@ -92,7 +98,7 @@ import orchestration from '../../assets/images/claude-orchestration-layer-diagra
           <p>As manager, I planned and led these sessions at the program level — working across squads to run discovery workshops that fed into roadmap planning rather than individual feature delivery. The goal is always the same: get the right people in the room with the right information, and leave with a shared decision rather than a list of options to revisit later.</p>
         </div>
         <div class="process-images">
-          <Image class="process-img" src={miroIdeationCritique} alt="FigJam discovery and ideation session with stakeholders" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
+          <Image class="process-img" src={miroIdeation} alt="FigJam discovery and ideation session with stakeholders" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
         </div>
       </section>
 
@@ -104,7 +110,6 @@ import orchestration from '../../assets/images/claude-orchestration-layer-diagra
           <p>A gap found in a flow diagram costs an afternoon to fix. The same gap found in a coded feature costs a sprint. Getting this right early is one of the clearest ways the design team adds value to the product delivery cycle.</p>
         </div>
         <div class="process-images">
-          <Image class="process-img" src={flowDiagram} alt="Logic flow diagrams showing decision points and alternate paths" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
           <Image class="process-img" src={figmaFlows} alt="Figma high-level user flow and information architecture" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
         </div>
       </section>
@@ -119,6 +124,7 @@ import orchestration from '../../assets/images/claude-orchestration-layer-diagra
         <div class="process-images">
           <Image class="process-img" src={travelWireframes} alt="Travel booking wireframes showing search, detail, payment, and confirmation screens" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
           <Image class="process-img" src={usertesting} alt="UserTesting session showing participant screen with tagged transcript" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
+          <Image class="process-img" src={myAccount} alt="Shipped product screens showing authenticated member portal" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
         </div>
       </section>
 
@@ -131,7 +137,6 @@ import orchestration from '../../assets/images/claude-orchestration-layer-diagra
         </div>
         <div class="process-images">
           <Image class="process-img" src={figmaRenewals} alt="Figma canvas showing design screens across desktop and mobile" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
-          <Image class="process-img" src={myAccount} alt="Shipped product — authenticated member portal" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
         </div>
       </section>
 
@@ -164,6 +169,9 @@ import orchestration from '../../assets/images/claude-orchestration-layer-diagra
   </div>
 </Layout>
 <style>
+.lead-image-section{padding:2rem 0 3rem}
+.lead-image{width:100%;border:1px solid var(--border);border-radius:1.5rem;box-shadow:0 16px 40px rgba(23,23,23,.08)}
+.diagram-caption{font-size:.85rem;color:var(--muted-foreground);font-style:italic;margin:.75rem 0 0;text-align:center}
 .case-page{position:relative;width:min(calc(100% - 3rem),78rem);margin:0 auto;padding:1.25rem 0 5rem}
 .eyebrow{font-family:var(--font-mono);font-size:.82rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted-foreground);margin:0 0 1.25rem;display:flex;gap:.5rem;align-items:center}
 .breadcrumb-link{font-weight:600}.breadcrumb-separator{color:var(--muted-foreground)}
