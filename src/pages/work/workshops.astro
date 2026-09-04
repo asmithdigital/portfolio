@@ -4,6 +4,8 @@ import Layout from '../../layouts/Layout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
 import CaseStudyNav from '../../components/CaseStudyNav.astro';
 
+import sprintBook from '../../assets/images/design-sprint-five-days.png';
+
 import qtbRoom from '../../assets/images/qtb-sprint-IMG_0306.jpg';
 import qtbWall from '../../assets/images/qtb-sprint-IMG_0307.jpg';
 import qtbInsights from '../../assets/images/qtb-sprint-IMG_0308.jpg';
@@ -17,7 +19,7 @@ import travelVoting from '../../assets/images/travel-sprint-voting.jpg';
 import travelVoting2 from '../../assets/images/travel-sprint-voting-2.jpg';
 import travelStoryboards from '../../assets/images/travel-sprint-storyboards.jpg';
 ---
-<Layout title="Workshop Facilitation | Andrew Smith" description="Facilitating design sprints, ideation workshops, and cross-functional discovery sessions to align product, engineering, and business on the right problem before committing to a solution.">
+<Layout title="Workshop Facilitation | Andrew Smith" description="Facilitating design sprints, ideation workshops, and cross-functional discovery sessions.">
   <a class="skip-link" href="#main-content">Skip to content</a>
   <div class="case-page">
     <SiteHeader />
@@ -26,82 +28,54 @@ import travelStoryboards from '../../assets/images/travel-sprint-storyboards.jpg
       <section class="case-hero">
         <p class="eyebrow"><a class="breadcrumb-link" href="/portfolio/work">Work</a><span class="breadcrumb-separator">/</span><span>Workshop Facilitation</span></p>
         <h1 class="display-title">Facilitating discovery — getting the right people in the room to solve the right problem.</h1>
-        <p class="hero-text">Workshops and design sprints are how a cross-functional team moves from individual opinions to a shared, evidence-based decision. Running them well means having the right structure, keeping it tight, and making sure the output is something the team can act on — not a wall of sticky notes that gets photographed and forgotten.</p>
+        <p class="hero-text">Workshops and design sprints are how a cross-functional team moves from individual opinions to a shared, evidence-based decision. Running them well means the right structure, strict timeboxing, and leaving with something the team can act on.</p>
         <p class="hero-subtext">Two design sprints facilitated using Google Ventures methodology, alongside ongoing ideation workshops, requirements gathering sessions, and cross-functional discovery work.</p>
       </section>
 
-      <div class="two-col-section">
-        <div class="col-content">
+      <section class="editorial-section">
+        <div class="section-content">
           <p class="section-kicker">What is a Design Sprint?</p>
           <h2>A structured, time-boxed process for moving from problem to tested solution.</h2>
-          <p>The Google Ventures Design Sprint is a five-day (or adapted) framework for answering critical business questions through rapid design and testing. The process brings together a cross-functional group — product, engineering, design, business, and stakeholders — and moves them through problem definition, ideation, prototyping, and user testing in a compressed timeframe.</p>
-          <p>The value is not the speed. It is the discipline. By timeboxing every activity and limiting discussion in favour of parallel individual work, the sprint surfaces what the team actually knows, what it assumes, and where the evidence points. A Decider makes the final call. The Facilitator keeps the process honest.</p>
-          <p>Two full sprints facilitated at RAA using this methodology — one for the Travel booking platform, one for the Quote to Buy payments experience.</p>
+          <p>The Google Ventures Design Sprint is a framework for answering critical business questions through rapid design and user testing. It brings together a cross-functional group including product, engineering, design, and stakeholders, and moves them through problem definition, ideation, prototyping, and testing in a compressed timeframe.</p>
+          <p>The value is not the speed. It is the discipline. By timeboxing every activity and running individual work in parallel rather than group discussion, the sprint surfaces what the team actually knows, what it assumes, and where the evidence points. A nominated Decider makes the final call. The Facilitator keeps the process honest.</p>
         </div>
-        <div class="col-aside">
-          <div class="process-card">
-            <p class="process-card-label">Sprint Structure</p>
-            <div class="process-step"><span class="step-n">1</span><span>Problem definition and long-term goal</span></div>
-            <div class="process-step"><span class="step-n">2</span><span>Lightning demos and inspiration</span></div>
-            <div class="process-step"><span class="step-n">3</span><span>Crazy 8s and solution sketching</span></div>
-            <div class="process-step"><span class="step-n">4</span><span>Gallery walk and dot voting</span></div>
-            <div class="process-step"><span class="step-n">5</span><span>Decider super vote</span></div>
-            <div class="process-step"><span class="step-n">6</span><span>Prototype and user testing</span></div>
-          </div>
+        <div class="section-image">
+          <Image class="aside-img" src={sprintBook} alt="Five-day design sprint diagram showing Monday Map, Tuesday Sketch, Wednesday Decide, Thursday Prototype, Friday Test" loading="eager" decoding="async" widths={[320,480]} sizes="320px"/>
         </div>
-      </div>
+      </section>
 
       <section class="sprint-section">
-        <div class="sprint-header">
-          <p class="section-kicker">Sprint 1</p>
-          <h2>RAA Quote to Buy — Payments Design Sprint</h2>
-          <p class="sprint-intro">RAA's online insurance quote and purchase platform had a conversion problem. Members were dropping off at the payment stage. The business assumed the problem was payment options. Before committing delivery capacity to that assumption, a design sprint was run to find out whether it was actually true.</p>
-        </div>
-
-        <div class="two-col-section sprint-detail">
-          <div class="col-content">
-            <p class="section-kicker">The Process</p>
-            <p>The sprint synthesised five years of existing research — usability studies, Google Analytics funnel data, third-party UX diagnostics, and journey maps — into a single structured reference before any ideation began. Insights were organised into 23 evidence-based cards, each written in a consistent format: persona, situation, need, and obstacle.</p>
-            <p>Two senior leadership sessions were built into the process. The first aligned the group on which problems were most worth solving. The second reviewed prototypes and determined what would proceed to delivery planning.</p>
-            <p class="section-kicker" style="margin-top: 1.5rem">The Finding</p>
-            <p>The real blocker was not payment options. Around 38 to 40 percent of quotes were ending as deferred — members could not complete the purchase online because RAA could not verify their identity to proceed. The problem was member matching, not payment method.</p>
-            <p>That finding redirected the product roadmap. Instead of building additional payment options, the squad pivoted to authenticated quote-to-buy. That work is now live for motor insurance.</p>
+        <div class="editorial-section">
+          <div class="section-content">
+            <p class="section-kicker">Sprint 1 — QTB Payments</p>
+            <h2>RAA Quote to Buy — Payments Design Sprint</h2>
+            <p>RAA's online insurance purchase platform had a conversion problem at the payment stage. The business assumed the fix was adding more payment methods. Before committing delivery capacity to that assumption, a design sprint was run to find out whether it was actually true.</p>
+            <p>The sprint synthesised five years of existing research including usability studies, GA4 analytics, journey maps, and third-party UX diagnostics into a single structured reference before any ideation began. Two senior leadership sessions were built into the process — the first to align on the right problems, the second to review prototypes and determine what would proceed to delivery.</p>
+            <p>The synthesis revealed the real blocker: around 38 to 40 percent of quotes were ending as deferred because RAA could not verify the member's identity to proceed. The problem was member matching, not payment method. That finding redirected the product roadmap. The authenticated quote-to-buy experience is now live for motor insurance.</p>
           </div>
-          <div class="col-aside">
-            <div class="process-card">
-              <p class="process-card-label">Sprint Details</p>
-              <div class="process-step"><span class="step-n">4h</span><span>Ideation workshop duration</span></div>
-              <div class="process-step"><span class="step-n">8+</span><span>Cross-functional participants</span></div>
-              <div class="process-step"><span class="step-n">23</span><span>Evidence-based insight cards</span></div>
-              <div class="process-step"><span class="step-n">2</span><span>Rounds of usability testing</span></div>
-              <div class="process-step"><span class="step-n">2</span><span>Executive leadership sessions</span></div>
-            </div>
+          <div class="section-image">
+            <Image class="aside-img" src={qtbWall} alt="QTB sprint insight wall showing HMW statements, personas, and key insights organised on the wall" loading="lazy" decoding="async" widths={[320,480]} sizes="320px"/>
           </div>
         </div>
-
         <div class="scroll-section">
           <p class="scroll-hint-label">Scroll to see more <span>→</span></p>
           <div class="image-scroll-track-wrap">
             <div class="image-scroll-track">
               <figure class="scroll-fig">
-                <Image class="scroll-img" src={qtbRoom} alt="Full room view during QTB payments design sprint solution sketching session" loading="lazy" decoding="async" widths={[600,900]} sizes="600px"/>
-                <figcaption>Solution sketching in progress — cross-functional group working in silence with screens showing the sprint prompt</figcaption>
+                <Image class="scroll-img" src={qtbRoom} alt="Full room view during QTB payments sprint solution sketching session" loading="lazy" decoding="async" widths={[420,600]} sizes="420px"/>
+                <figcaption>Solution sketching in progress</figcaption>
               </figure>
               <figure class="scroll-fig">
-                <Image class="scroll-img" src={qtbWall} alt="Wall showing insight cards organised by HMW statements, personas, and key insights from research synthesis" loading="lazy" decoding="async" widths={[600,900]} sizes="600px"/>
-                <figcaption>Research synthesis on the wall — 23 insight cards organised by HMW statements, personas, and pain points</figcaption>
+                <Image class="scroll-img" src={qtbInsights} alt="Wall showing payment pain points and insights from analytics and research" loading="lazy" decoding="async" widths={[420,600]} sizes="420px"/>
+                <figcaption>Pain points and insights on the wall</figcaption>
               </figure>
               <figure class="scroll-fig">
-                <Image class="scroll-img" src={qtbInsights} alt="Wall section showing payment drop-off data, key insights, and pain points from Lumivo and GA4 research" loading="lazy" decoding="async" widths={[600,900]} sizes="600px"/>
-                <figcaption>Payment pain points and insights — connecting analytics data to qualitative research findings</figcaption>
+                <Image class="scroll-img" src={qtbVoting} alt="Sprint voting activity with dot votes applied to solution sketches" loading="lazy" decoding="async" widths={[420,600]} sizes="420px"/>
+                <figcaption>Gallery walk and dot voting</figcaption>
               </figure>
               <figure class="scroll-fig">
-                <Image class="scroll-img" src={qtbVoting} alt="Sprint voting activity with participants reviewing sketches and applying dot votes" loading="lazy" decoding="async" widths={[600,900]} sizes="600px"/>
-                <figcaption>Gallery walk and dot voting — participants reviewing solution sketches quietly before marking most promising ideas</figcaption>
-              </figure>
-              <figure class="scroll-fig">
-                <Image class="scroll-img" src={qtbSketches} alt="Close up of solution storyboards pinned to wall showing payment flow concepts" loading="lazy" decoding="async" widths={[600,900]} sizes="600px"/>
-                <figcaption>Solution storyboards — three-panel sketches showing problem, idea, and outcome for each proposed direction</figcaption>
+                <Image class="scroll-img" src={qtbSketches} alt="Solution storyboards pinned to wall" loading="lazy" decoding="async" widths={[420,600]} sizes="420px"/>
+                <figcaption>Three-panel solution storyboards</figcaption>
               </figure>
             </div>
           </div>
@@ -109,58 +83,36 @@ import travelStoryboards from '../../assets/images/travel-sprint-storyboards.jpg
       </section>
 
       <section class="sprint-section">
-        <div class="sprint-header">
-          <p class="section-kicker">Sprint 2</p>
-          <h2>RAA Travel — Discovery Design Sprint</h2>
-          <p class="sprint-intro">A design sprint run as part of a broader discovery program for the RAA Travel platform — bringing together product managers, travel agents, marketing, and engineering to map the end-to-end customer journey and identify the highest-impact opportunities for a redesigned booking experience.</p>
-        </div>
-
-        <div class="two-col-section sprint-detail">
-          <div class="col-content">
-            <p class="section-kicker">The Process</p>
-            <p>The sprint began with in-person customer interviews conducted in RAA stores alongside the product manager, observing how members researched and booked travel and understanding what drove trust and drop-off. Those findings fed directly into the sprint's problem definition phase.</p>
-            <p>The team mapped the full customer journey on a whiteboard, from initial awareness through booking and post-travel, identifying where the digital experience was breaking down and where offline processes were creating unnecessary friction. Stakeholders from travel operations and agency partnerships were in the room, ensuring that the back-stage constraints were visible alongside the front-stage customer experience.</p>
-            <p class="section-kicker" style="margin-top: 1.5rem">The Output</p>
-            <p>A prioritised set of design opportunities across the booking flow, backed by customer evidence and stakeholder-validated feasibility. The sprint outputs directly shaped the design direction for the Travel platform rebuild that followed.</p>
+        <div class="editorial-section">
+          <div class="section-content">
+            <p class="section-kicker">Sprint 2 — Travel Discovery</p>
+            <h2>RAA Travel — Discovery Design Sprint</h2>
+            <p>A design sprint run as part of the discovery program for the RAA Travel platform — bringing together product managers, travel agents, marketing, and engineering to map the end-to-end customer journey and identify the highest-impact opportunities for the redesigned booking experience.</p>
+            <p>The sprint began with in-person customer interviews conducted in RAA stores alongside the product manager. The team then mapped the full customer journey on a whiteboard, from awareness through booking and post-travel, with back-stage constraints from travel operations visible alongside the front-stage customer experience. The sprint outputs shaped the design direction for the Travel platform rebuild that followed.</p>
           </div>
-          <div class="col-aside">
-            <div class="process-card">
-              <p class="process-card-label">Sprint Details</p>
-              <div class="process-step"><span class="step-n">5d</span><span>Full sprint duration</span></div>
-              <div class="process-step"><span class="step-n">In-store</span><span>Customer interviews in RAA branches</span></div>
-              <div class="process-step"><span class="step-n">Cross-fn</span><span>Product, travel ops, engineering, marketing</span></div>
-              <div class="process-step"><span class="step-n">Full JM</span><span>End-to-end journey mapped on whiteboard</span></div>
-            </div>
+          <div class="section-image">
+            <Image class="aside-img" src={travelWhiteboard} alt="Facilitator at whiteboard presenting journey map to sprint participants" loading="lazy" decoding="async" widths={[320,480]} sizes="320px"/>
           </div>
         </div>
-
         <div class="scroll-section">
           <p class="scroll-hint-label">Scroll to see more <span>→</span></p>
           <div class="image-scroll-track-wrap">
             <div class="image-scroll-track">
               <figure class="scroll-fig">
-                <Image class="scroll-img" src={travelWhiteboard} alt="Facilitator at whiteboard presenting journey map to sprint participants" loading="lazy" decoding="async" widths={[600,900]} sizes="600px"/>
-                <figcaption>Facilitating the journey mapping session — presenting the end-to-end customer experience map to the cross-functional group</figcaption>
+                <Image class="scroll-img" src={travelAffinity} alt="Team doing affinity mapping with sticky notes on a large window" loading="lazy" decoding="async" widths={[420,600]} sizes="420px"/>
+                <figcaption>Affinity mapping with the full group</figcaption>
               </figure>
               <figure class="scroll-fig">
-                <Image class="scroll-img" src={travelAffinity} alt="Team doing affinity mapping with sticky notes on a large window" loading="lazy" decoding="async" widths={[600,900]} sizes="600px"/>
-                <figcaption>Affinity mapping — cross-functional group clustering insights from customer interviews and research onto a window</figcaption>
+                <Image class="scroll-img" src={travelMap} alt="Full whiteboard showing journey map with dot votes" loading="lazy" decoding="async" widths={[420,600]} sizes="420px"/>
+                <figcaption>Journey map with priority dot voting</figcaption>
               </figure>
               <figure class="scroll-fig">
-                <Image class="scroll-img" src={travelMap} alt="Full whiteboard showing journey map with decision points, opportunity areas, and dot votes" loading="lazy" decoding="async" widths={[600,900]} sizes="600px"/>
-                <figcaption>Journey map with dot voting — identifying highest-priority opportunity areas across the full travel booking flow</figcaption>
+                <Image class="scroll-img" src={travelVoting} alt="Whiteboard with sketches and red dot votes marking priority ideas" loading="lazy" decoding="async" widths={[420,600]} sizes="420px"/>
+                <figcaption>Solution sketches with prioritisation</figcaption>
               </figure>
               <figure class="scroll-fig">
-                <Image class="scroll-img" src={travelVoting} alt="Whiteboard covered in sketches and sticky notes with red dot votes marking priority ideas" loading="lazy" decoding="async" widths={[600,900]} sizes="600px"/>
-                <figcaption>Solution sketches with prioritisation voting — red dots marking the ideas the group most wanted to take forward</figcaption>
-              </figure>
-              <figure class="scroll-fig">
-                <Image class="scroll-img" src={travelVoting2} alt="Close-up of whiteboard showing sketched journey stages with priority sticky notes" loading="lazy" decoding="async" widths={[600,900]} sizes="600px"/>
-                <figcaption>Detailed journey stage mapping — sketching the user flow across stages with feasibility notes from engineering</figcaption>
-              </figure>
-              <figure class="scroll-fig">
-                <Image class="scroll-img" src={travelStoryboards} alt="Person reviewing hand-drawn solution storyboards pinned to wall" loading="lazy" decoding="async" widths={[600,900]} sizes="600px"/>
-                <figcaption>Gallery walk — reviewing hand-drawn solution storyboards before the silent dot voting round</figcaption>
+                <Image class="scroll-img" src={travelStoryboards} alt="Person reviewing hand-drawn solution storyboards" loading="lazy" decoding="async" widths={[420,600]} sizes="420px"/>
+                <figcaption>Gallery walk reviewing storyboards</figcaption>
               </figure>
             </div>
           </div>
@@ -180,38 +132,31 @@ h1,h2{margin:0;font-weight:800;letter-spacing:-.05em;color:var(--foreground)}
 .display-title{font-size:clamp(2rem,4.5vw,3.5rem);line-height:1.06;margin:1rem 0 1.5rem;max-width:28ch}
 .hero-text{font-size:1.08rem;line-height:1.7;margin:0 0 .5rem;max-width:42rem}
 .hero-subtext{font-size:1.05rem;line-height:1.65;color:var(--muted-foreground);font-style:italic;margin:.25rem 0 0;max-width:42rem}
-.case-hero{padding:5rem 0 3rem}
+.case-hero{padding:5rem 0 2rem}
 .section-kicker{font-family:var(--font-mono);font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted-foreground);margin:0 0 .75rem;display:block}
 
-.two-col-section{display:grid;grid-template-columns:1fr 340px;gap:3rem;padding:3rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:0}
-.col-content h2{font-size:clamp(1.3rem,2vw,1.8rem);margin:.5rem 0 1.25rem}
-.col-content p{font-size:1.05rem;line-height:1.7;color:var(--muted-foreground);margin:0 0 1rem}
-.col-content p:last-child{margin-bottom:0}
+.editorial-section{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:3rem;padding:3rem 0;border-top:1px solid var(--border);align-items:start}
+.section-content{max-width:42rem}
+.section-content h2{font-size:clamp(1.3rem,2vw,1.7rem);margin:.5rem 0 1.25rem}
+.section-content p{font-size:1rem;line-height:1.7;color:var(--muted-foreground);margin:0 0 .9rem}
+.section-content p:last-child{margin-bottom:0}
+.aside-img{width:100%;border-radius:1rem;border:1px solid var(--border);box-shadow:0 8px 20px rgba(23,23,23,.07)}
 
-.process-card{background:var(--muted);border-radius:1rem;padding:1.25rem 1.5rem}
-.process-card-label{font-family:var(--font-mono);font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted-foreground);margin:0 0 1rem}
-.process-step{display:flex;align-items:flex-start;gap:.75rem;padding:.5rem 0;border-bottom:1px solid var(--border);font-size:.9rem;line-height:1.4;color:var(--foreground)}
-.process-step:last-child{border-bottom:none}
-.step-n{font-family:var(--font-mono);font-size:.72rem;font-weight:700;color:var(--muted-foreground);min-width:2.5rem;padding-top:.1rem}
+.sprint-section{border-bottom:1px solid var(--border);padding-bottom:2rem;margin-bottom:0}
+.sprint-section .editorial-section{border-bottom:none;padding-bottom:1rem}
 
-.sprint-section{padding:3rem 0;border-bottom:1px solid var(--border)}
-.sprint-header{margin-bottom:2rem}
-.sprint-header h2{font-size:clamp(1.5rem,2.5vw,2rem);margin:.5rem 0 1rem}
-.sprint-intro{font-size:1.05rem;line-height:1.7;color:var(--muted-foreground);max-width:44rem;margin:0}
-.sprint-detail{border-top:none;border-bottom:none;padding:0 0 2rem}
-
-.scroll-section{padding:1rem 0 0}
+.scroll-section{padding:.5rem 0 1rem}
 .scroll-hint-label{font-family:var(--font-mono);font-size:.75rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--muted-foreground);margin:0 0 .75rem}
 .image-scroll-track-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 -1.5rem;padding:0 1.5rem 1rem}
-.image-scroll-track{display:flex;gap:1.25rem;width:max-content}
-.scroll-fig{margin:0;flex-shrink:0;width:420px}
-.scroll-img{width:420px;height:280px;object-fit:cover;object-position:center;border-radius:1rem;border:1px solid var(--border);box-shadow:0 8px 20px rgba(23,23,23,.07);display:block}
-figcaption{font-size:.82rem;line-height:1.5;color:var(--muted-foreground);margin:.5rem 0 0;max-width:400px}
+.image-scroll-track{display:flex;gap:1rem;width:max-content}
+.scroll-fig{margin:0;flex-shrink:0;width:380px}
+.scroll-img{width:380px;height:255px;object-fit:cover;object-position:center;border-radius:1rem;border:1px solid var(--border);box-shadow:0 8px 20px rgba(23,23,23,.07);display:block}
+figcaption{font-size:.82rem;line-height:1.5;color:var(--muted-foreground);margin:.5rem 0 0}
 
 @media(max-width:860px){
-  .two-col-section{grid-template-columns:1fr}
-  .col-aside{order:-1}
-  .scroll-img{width:320px;height:213px}
-  .scroll-fig{width:320px}
+  .editorial-section{grid-template-columns:1fr}
+  .section-image{order:-1}
+  .scroll-img{width:300px;height:200px}
+  .scroll-fig{width:300px}
 }
 </style>

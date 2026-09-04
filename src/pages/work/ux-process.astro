@@ -110,7 +110,7 @@ import orchestration from '../../assets/images/claude-orchestration-layer-diagra
           <p>A gap found in a flow diagram costs an afternoon to fix. The same gap found in a coded feature costs a sprint. Getting this right early is one of the clearest ways the design team adds value to the product delivery cycle.</p>
         </div>
         <div class="process-images">
-          <Image class="process-img" src={figmaFlows} alt="Figma high-level user flow and information architecture" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
+          <Image class="process-img" src={figmaFlows} alt="Figma high-level user flow and information architecture" loading="lazy" decoding="async" widths={[320,480]} sizes="320px"/>
         </div>
       </section>
 
@@ -121,11 +121,13 @@ import orchestration from '../../assets/images/claude-orchestration-layer-diagra
           <p>Wireframes before high fidelity. Usability testing before build. The <a href="/portfolio/work/design-systems">design system</a> handles the repeatable patterns so testing time focuses on the genuinely new interactions — the decisions that have not been made before and carry the most risk if they are wrong.</p>
           <p>Finished designs include accessibility guidance, content notes, and edge case handling alongside the visual design. Engineers have what they need to build without interpretation. AI assists with spec generation and component documentation, reducing the manual overhead that would otherwise compete with design and testing time.</p>
         </div>
-        <div class="process-images">
-          <Image class="process-img" src={travelWireframes} alt="Travel booking wireframes showing search, detail, payment, and confirmation screens" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
-          <Image class="process-img" src={mobileAppFlows} alt="Figma mobile app prototype flow showing RAA logbook screens connected end to end" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
-          <Image class="process-img" src={usertesting} alt="UserTesting session showing participant screen with tagged transcript" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
-          <Image class="process-img" src={myAccount} alt="Shipped product screens showing authenticated member portal" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
+        <div class="process-scroll-wrap">
+          <div class="process-scroll-track">
+            <Image class="process-scroll-img" src={myAccount} alt="Shipped product — authenticated member portal" loading="lazy" decoding="async" widths={[280,420]} sizes="280px"/>
+            <Image class="process-scroll-img" src={usertesting} alt="UserTesting session showing participant screen with tagged transcript" loading="lazy" decoding="async" widths={[280,420]} sizes="280px"/>
+            <Image class="process-scroll-img" src={travelWireframes} alt="Travel booking wireframes showing search, detail, payment, and confirmation screens" loading="lazy" decoding="async" widths={[280,420]} sizes="280px"/>
+            <Image class="process-scroll-img" src={mobileAppFlows} alt="Figma mobile app prototype flow showing RAA logbook screens" loading="lazy" decoding="async" widths={[280,420]} sizes="280px"/>
+          </div>
         </div>
       </section>
 
@@ -187,13 +189,17 @@ h1,h2{margin:0;font-weight:800;letter-spacing:-.05em;color:var(--foreground)}
 .step-num{font-family:var(--font-mono);font-size:.7rem;font-weight:600;color:var(--muted-foreground)}
 .step-label{font-size:.85rem;font-weight:700}
 .step-arrow{color:var(--muted-foreground);font-size:1.2rem}
-.process-section{display:grid;grid-template-columns:22rem minmax(0,1fr);gap:3rem;padding:3rem 0;border-bottom:1px solid var(--border)}
+.process-section{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:3rem;padding:3rem 0;border-bottom:1px solid var(--border);align-items:start}
+.process-label{max-width:42rem}
 .process-label h2{font-size:1.3rem;margin:.5rem 0;letter-spacing:-.02em}
 .process-label p{font-size:.96rem;line-height:1.65;color:var(--muted-foreground);margin:.75rem 0 0}
 .process-label a{color:var(--foreground);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--border)}
 .process-label a:hover{text-decoration-color:var(--foreground)}
 .step-tag{font-family:var(--font-mono);font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted-foreground)}
-.process-images{display:flex;flex-direction:column;gap:1.25rem}
+.process-images{display:flex;flex-direction:column;gap:1rem}
 .process-img{width:100%;border-radius:1rem;border:1px solid var(--border);box-shadow:0 8px 20px rgba(23,23,23,.07)}
+.process-scroll-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0;padding:0 0 .75rem}
+.process-scroll-track{display:flex;gap:.75rem;width:max-content}
+.process-scroll-img{width:280px;height:180px;object-fit:cover;object-position:top;border-radius:.75rem;border:1px solid var(--border);box-shadow:0 4px 12px rgba(23,23,23,.07);flex-shrink:0}
 @media(max-width:860px){.meta-strip{grid-template-columns:1fr;gap:1rem}.process-section{grid-template-columns:1fr}.process-steps{gap:.35rem}.step{min-width:4rem;padding:.5rem .75rem}}
 </style>
