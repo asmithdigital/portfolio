@@ -95,6 +95,10 @@ h1, h2 { margin: 0; font-weight: 800; letter-spacing: -.05em; color: var(--foreg
 .scroll-img { width: 380px; height: 255px; object-fit: cover; object-position: top center; border-radius: 1rem; border: 1px solid var(--border); box-shadow: 0 8px 20px rgba(23,23,23,.07); display: block; }
 figcaption { font-size: .82rem; line-height: 1.5; color: var(--muted-foreground); margin: .5rem 0 0; }
 
+/* Large scroll gallery variant */
+.scroll-fig.large { width: 560px; }
+.scroll-img.large { width: 560px; height: 387px; }
+
 /* ============================================
    FULL-WIDTH IMAGE
    Single large image spanning full width.
@@ -143,6 +147,8 @@ figcaption { font-size: .82rem; line-height: 1.5; color: var(--muted-foreground)
   .content-section { grid-template-columns: 1fr; }
   .section-image { order: -1; }
   .scroll-img { width: 300px; height: 200px; }
+  .scroll-fig.large { width: 300px; }
+  .scroll-img.large { width: 300px; height: 207px; }
   .scroll-fig { width: 300px; }
   .case-hero { padding: 4rem 0 2rem; }
 }
