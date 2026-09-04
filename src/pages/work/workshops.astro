@@ -40,7 +40,7 @@ import travelStoryboards from '../../assets/images/travel-sprint-storyboards.jpg
           <p>The value is not the speed. It is the discipline. By timeboxing every activity and running individual work in parallel rather than group discussion, the sprint surfaces what the team actually knows, what it assumes, and where the evidence points. A nominated Decider makes the final call. The Facilitator keeps the process honest.</p>
         </div>
         <div class="section-image">
-          <Image class="aside-img" src={sprintBook} alt="Five-day design sprint diagram showing Monday Map, Tuesday Sketch, Wednesday Decide, Thursday Prototype, Friday Test" loading="eager" decoding="async" widths={[320,480]} sizes="320px"/>
+          <Image class="aside-img" src={sprintBook} alt="Five-day design sprint diagram showing Monday Map, Tuesday Sketch, Wednesday Decide, Thursday Prototype, Friday Test" loading="eager" decoding="async" widths={[480,720]} sizes="(max-width:1200px) 30vw, 480px"/>
         </div>
       </section>
 
@@ -54,7 +54,7 @@ import travelStoryboards from '../../assets/images/travel-sprint-storyboards.jpg
             <p>The synthesis revealed the real blocker: around 38 to 40 percent of quotes were ending as deferred because RAA could not verify the member's identity to proceed. The problem was member matching, not payment method. That finding redirected the product roadmap. The authenticated quote-to-buy experience is now live for motor insurance.</p>
           </div>
           <div class="section-image">
-            <Image class="aside-img" src={qtbWall} alt="QTB sprint insight wall showing HMW statements, personas, and key insights organised on the wall" loading="lazy" decoding="async" widths={[320,480]} sizes="320px"/>
+            <Image class="aside-img" src={qtbWall} alt="QTB sprint insight wall showing HMW statements, personas, and key insights organised on the wall" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:1200px) 30vw, 480px"/>
           </div>
         </div>
         <div class="scroll-section">
@@ -91,7 +91,7 @@ import travelStoryboards from '../../assets/images/travel-sprint-storyboards.jpg
             <p>The sprint began with in-person customer interviews conducted in RAA stores alongside the product manager. The team then mapped the full customer journey on a whiteboard, from awareness through booking and post-travel, with back-stage constraints from travel operations visible alongside the front-stage customer experience. The sprint outputs shaped the design direction for the Travel platform rebuild that followed.</p>
           </div>
           <div class="section-image">
-            <Image class="aside-img" src={travelWhiteboard} alt="Facilitator at whiteboard presenting journey map to sprint participants" loading="lazy" decoding="async" widths={[320,480]} sizes="320px"/>
+            <Image class="aside-img" src={travelWhiteboard} alt="Facilitator at whiteboard presenting journey map to sprint participants" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:1200px) 30vw, 480px"/>
           </div>
         </div>
         <div class="scroll-section">
@@ -135,8 +135,8 @@ h1,h2{margin:0;font-weight:800;letter-spacing:-.05em;color:var(--foreground)}
 .case-hero{padding:5rem 0 2rem}
 .section-kicker{font-family:var(--font-mono);font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted-foreground);margin:0 0 .75rem;display:block}
 
-.editorial-section{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:3rem;padding:3rem 0;border-top:1px solid var(--border);align-items:start}
-.section-content{max-width:42rem}
+.editorial-section{display:grid;grid-template-columns:42rem minmax(0,1fr);gap:3rem;padding:3rem 0;border-top:1px solid var(--border);align-items:start}
+.section-content{max-width:100%}
 .section-content h2{font-size:clamp(1.3rem,2vw,1.7rem);margin:.5rem 0 1.25rem}
 .section-content p{font-size:1rem;line-height:1.7;color:var(--muted-foreground);margin:0 0 .9rem}
 .section-content p:last-child{margin-bottom:0}

@@ -110,7 +110,7 @@ import orchestration from '../../assets/images/claude-orchestration-layer-diagra
           <p>A gap found in a flow diagram costs an afternoon to fix. The same gap found in a coded feature costs a sprint. Getting this right early is one of the clearest ways the design team adds value to the product delivery cycle.</p>
         </div>
         <div class="process-images">
-          <Image class="process-img" src={figmaFlows} alt="Figma high-level user flow and information architecture" loading="lazy" decoding="async" widths={[320,480]} sizes="320px"/>
+          <Image class="process-img" src={figmaFlows} alt="Figma high-level user flow and information architecture" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:1200px) 30vw, 480px"/>
         </div>
       </section>
 
@@ -189,8 +189,8 @@ h1,h2{margin:0;font-weight:800;letter-spacing:-.05em;color:var(--foreground)}
 .step-num{font-family:var(--font-mono);font-size:.7rem;font-weight:600;color:var(--muted-foreground)}
 .step-label{font-size:.85rem;font-weight:700}
 .step-arrow{color:var(--muted-foreground);font-size:1.2rem}
-.process-section{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:3rem;padding:3rem 0;border-bottom:1px solid var(--border);align-items:start}
-.process-label{max-width:42rem}
+.process-section{display:grid;grid-template-columns:42rem minmax(0,1fr);gap:3rem;padding:3rem 0;border-bottom:1px solid var(--border);align-items:start}
+.process-label{max-width:100%}
 .process-label h2{font-size:1.3rem;margin:.5rem 0;letter-spacing:-.02em}
 .process-label p{font-size:.96rem;line-height:1.65;color:var(--muted-foreground);margin:.75rem 0 0}
 .process-label a{color:var(--foreground);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--border)}
