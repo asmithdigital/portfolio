@@ -1,0 +1,148 @@
+/* ============================================
+   SHARED CASE STUDY STYLES
+   Used across all work pages.
+   Import with: import '../../styles/case-study.css';
+   ============================================ */
+
+/* Page wrapper */
+.case-page {
+  position: relative;
+  width: min(calc(100% - 3rem), 78rem);
+  margin: 0 auto;
+  padding: 1.25rem 0 5rem;
+}
+
+/* Breadcrumb */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: .82rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+  margin: 0 0 1.25rem;
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+}
+.breadcrumb-link { font-weight: 600; }
+.breadcrumb-separator { color: var(--muted-foreground); }
+
+/* Typography */
+h1, h2 { margin: 0; font-weight: 800; letter-spacing: -.05em; color: var(--foreground); }
+
+/* Hero */
+.case-hero { padding: 5rem 0 2rem; }
+.display-title { font-size: clamp(2rem, 4.5vw, 3.5rem); line-height: 1.06; margin: 1rem 0 1.5rem; max-width: 28ch; }
+.hero-text { font-size: 1.08rem; line-height: 1.7; margin: 0 0 .5rem; max-width: 42rem; }
+.hero-subtext { font-size: 1.05rem; line-height: 1.65; color: var(--muted-foreground); font-style: italic; margin: .25rem 0 0; max-width: 42rem; }
+
+/* Meta strip */
+.meta-strip { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; padding: 1.5rem 0 .5rem; border-top: 1px solid var(--border); }
+.meta-label { font-family: var(--font-mono); font-size: .78rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted-foreground); margin: 0; }
+.meta-value { margin: .35rem 0 0; font-size: 1.1rem; font-weight: 700; }
+
+/* Section label */
+.section-kicker { font-family: var(--font-mono); font-size: .78rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted-foreground); margin: 0 0 .75rem; display: block; }
+
+/* ============================================
+   CONTENT SECTION
+   Two-column: content left (42rem), image right.
+   Usage:
+   <section class="content-section">
+     <div class="section-content"> ... </div>
+     <div class="section-image"> ... </div>
+   </section>
+   ============================================ */
+.content-section {
+  display: grid;
+  grid-template-columns: 42rem minmax(0, 1fr);
+  gap: 3rem;
+  padding: 6rem 0;
+  border-top: 1px solid var(--border);
+  align-items: start;
+}
+.content-section.no-border { border-top: none; }
+.section-content { max-width: 100%; }
+.section-content h2 { font-size: clamp(1.3rem, 2vw, 1.7rem); margin: .5rem 0 1.25rem; }
+.section-content p { font-size: 1rem; line-height: 1.7; color: var(--muted-foreground); margin: 0 0 .9rem; }
+.section-content p:last-child { margin-bottom: 0; }
+.section-content a { color: var(--foreground); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--border); }
+.section-content a:hover { text-decoration-color: var(--foreground); }
+.aside-img { width: 100%; border-radius: 1rem; border: 1px solid var(--border); box-shadow: 0 8px 20px rgba(23,23,23,.07); }
+
+/* ============================================
+   SCROLL SECTION
+   Full-width horizontal scroll gallery.
+   Usage:
+   <div class="scroll-section">
+     <p class="scroll-hint-label">Scroll to see more <span>→</span></p>
+     <div class="image-scroll-track-wrap">
+       <div class="image-scroll-track">
+         <figure class="scroll-fig">
+           <Image class="scroll-img" src={img} alt="..." .../>
+           <figcaption>Caption</figcaption>
+         </figure>
+       </div>
+     </div>
+   </div>
+   ============================================ */
+.scroll-section { padding: 0 0 6rem; }
+.scroll-hint-label { font-family: var(--font-mono); font-size: .75rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--muted-foreground); margin: 0 0 .75rem; }
+.image-scroll-track-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0 -1.5rem; padding: 0 1.5rem 1rem; }
+.image-scroll-track { display: flex; gap: 1rem; width: max-content; }
+.scroll-fig { margin: 0; flex-shrink: 0; width: 380px; }
+.scroll-img { width: 380px; height: 255px; object-fit: cover; object-position: top center; border-radius: 1rem; border: 1px solid var(--border); box-shadow: 0 8px 20px rgba(23,23,23,.07); display: block; }
+figcaption { font-size: .82rem; line-height: 1.5; color: var(--muted-foreground); margin: .5rem 0 0; }
+
+/* ============================================
+   FULL-WIDTH IMAGE
+   Single large image spanning full width.
+   Usage:
+   <section class="full-image-section">
+     <Image class="full-image" src={img} alt="..." .../>
+   </section>
+   ============================================ */
+.full-image-section { padding: 2rem 0 6rem; border-bottom: 1px solid var(--border); }
+.full-image-section.no-border { border-bottom: none; }
+.full-image { width: 100%; border: 1px solid var(--border); border-radius: 1.5rem; box-shadow: 0 16px 40px rgba(23,23,23,.08); }
+
+/* ============================================
+   LEAD IMAGE
+   Large image at the top of the page, no border below.
+   Usage:
+   <section class="lead-image-section">
+     <Image class="lead-image" src={img} alt="..." .../>
+   </section>
+   ============================================ */
+.lead-image-section { padding: 2rem 0 4rem; }
+.lead-image { width: 100%; border: 1px solid var(--border); border-radius: 1.5rem; box-shadow: 0 16px 40px rgba(23,23,23,.08); }
+
+/* ============================================
+   SUMMARY SECTION
+   Wide text block, used for opening narrative.
+   Usage:
+   <section class="summary-section">
+     <p class="section-kicker">Label</p>
+     <h2>Heading</h2>
+     <div class="summary-body"> ... </div>
+   </section>
+   ============================================ */
+.summary-section { padding: 0 0 6rem; border-bottom: 1px solid var(--border); }
+.summary-section h2 { margin-top: .75rem; font-size: clamp(1.5rem, 2.5vw, 2.2rem); max-width: 32ch; }
+.summary-body { margin-top: 1.5rem; max-width: 44rem; }
+.summary-body p { font-size: 1.08rem; line-height: 1.7; margin: 0 0 1rem; }
+.summary-body a { color: var(--foreground); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--border); }
+.summary-body a:hover { text-decoration-color: var(--foreground); }
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 860px) {
+  .meta-strip { grid-template-columns: 1fr; gap: 1rem; }
+  .content-section { grid-template-columns: 1fr; }
+  .section-image { order: -1; }
+  .scroll-img { width: 300px; height: 200px; }
+  .scroll-fig { width: 300px; }
+  .case-hero { padding: 4rem 0 2rem; }
+}

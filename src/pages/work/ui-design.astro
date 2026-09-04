@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
 import CaseStudyNav from '../../components/CaseStudyNav.astro';
+import '../../styles/case-study.css';
 
 import travelHome from '../../assets/images/raa-travel-home.png';
 import qtbStart from '../../assets/images/raa-qtb-start.png';
@@ -16,11 +17,11 @@ import appDsAlerts from '../../assets/images/raa-app-ds-alerts.png';
 import dsButtons from '../../assets/images/raa-ds-buttons.png';
 import mobileFlows from '../../assets/images/figma-mobile-app-screen-flows.png';
 import freelance1a from '../../assets/images/freelance-1a.png';
-import freelance1b from '../../assets/images/freelance-1b.png';
 import freelance2a from '../../assets/images/freelance-2a.png';
 import freelance3a from '../../assets/images/freelance-3a.png';
+import freelance4a from '../../assets/images/freelance-4a.png';
 ---
-<Layout title="UI Design | Andrew Smith" description="UI design across RAA's digital products — from the public website and travel platform to insurance, payments, identity management, and the native mobile app.">
+<Layout title="UI Design | Andrew Smith" description="UI design across RAA digital products — travel, insurance, payments, identity management, and mobile.">
   <a class="skip-link" href="#main-content">Skip to content</a>
   <div class="case-page">
     <SiteHeader />
@@ -29,156 +30,138 @@ import freelance3a from '../../assets/images/freelance-3a.png';
       <section class="case-hero">
         <p class="eyebrow"><a class="breadcrumb-link" href="/portfolio/work">Work</a><span class="breadcrumb-separator">/</span><span>UI Design</span></p>
         <h1 class="display-title">UI design across digital products.</h1>
-        <p class="hero-text">End-to-end UI design across insurance, membership, payments, identity, travel, and mobile. Designed within Agile squads alongside product managers, engineers, and content — from discovery through to shipped product. Starting in front-end development means working with engineers is a peer conversation, not a handover.</p>
-        <p class="hero-subtext">Interactions and interfaces built for 800,000+ RAA members and millions of site visitors. Design system components built for engineering adoption from day one.</p>
+        <p class="hero-text">End-to-end UI design across insurance, membership, payments, identity, travel, and mobile. Designed within Agile squads alongside product managers, engineers, and content from discovery through to shipped product. Starting in front-end development means working with engineers is a peer conversation, not a handover.</p>
+        <p class="hero-subtext">Interactions and interfaces built for 800,000+ RAA members. Design system components built for engineering adoption from day one.</p>
       </section>
+
       <section class="meta-strip">
         <div><p class="meta-label">Scope</p><p class="meta-value">Travel, Insurance, Membership, Identity, Payments, Mobile</p></div>
         <div><p class="meta-label">Role</p><p class="meta-value">Senior UX Design Lead, UX Manager</p></div>
         <div><p class="meta-label">Tools</p><p class="meta-value">Expert in Figma, design system governance, WCAG accessibility</p></div>
       </section>
 
-      <section class="ui-section">
-        <div class="two-col-content">
-
+      <section class="content-section">
+        <div class="section-content">
           <p class="section-kicker">Shipped Products</p>
-            <h2>Public-facing digital products used by members every day.</h2>
-            <p>Designed and iterated the RAA Travel platform from the initial rebuild through to its current state — flights, stays, holidays, cruises, car hire, and experiences, across desktop and mobile. Led the UX design for the RAA website redesign, working with external agencies and internal engineering.</p>
-            <p>The quote and buy journey covers motor, home, and landlord insurance. Multiple rounds of usability testing, prototype iteration, and post-delivery benchmarking across each product area.</p>
-          <p class="section-kicker">Approach</p>
-            <p>Every product worked through the same cycle — discovery, research, wireframing, prototype testing, high-fidelity design, handover to engineering with accessibility specs, and post-delivery measurement. The design system handles the repeatable patterns so testing time focuses on the genuinely new interactions.</p>
-            <p>Accessibility reviewed against WCAG 2.1/2.2 standards at every stage, with ongoing audits through the Vision Australia partnership embedded into the delivery process.</p>
-          
-          </div>
-
-        <div class="scroll-section">
-          <p class="scroll-hint-label">Scroll to see more <span>→</span></p>
-          <div class="image-scroll-track-wrap">
-            <div class="image-scroll-track">
-              <figure class="scroll-fig wide">
-                <Image class="scroll-img" src={travelHome} alt="RAA Travel homepage showing search widget, holiday deals, and navigation across product types" loading="eager" decoding="async" widths={[700,1000]} sizes="700px"/>
-                <figcaption>RAA Travel homepage — redesigned and rebuilt, covering flights, stays, holidays, cruises, car hire, and experiences</figcaption>
-              </figure>
-              <figure class="scroll-fig wide">
-                <Image class="scroll-img" src={raaWebsite} alt="RAA website homepage showing insurance, membership, motor, home, and travel navigation" loading="eager" decoding="async" widths={[700,1000]} sizes="700px"/>
-                <figcaption>RAA website homepage — redesigned working with external agencies and internal engineering</figcaption>
-              </figure>
-              <figure class="scroll-fig wide">
-                <Image class="scroll-img" src={qtbStart} alt="RAA Car Insurance quote start page showing step 1 of 4 with number plate lookup" loading="lazy" decoding="async" widths={[700,1000]} sizes="700px"/>
-                <figcaption>Car insurance quote and buy — step one of four, with My Account pre-fill prompt and clear progress stepper</figcaption>
-              </figure>
-              <figure class="scroll-fig wide">
-                <Image class="scroll-img" src={myAccount} alt="RAA My Account member portal showing authenticated dashboard" loading="lazy" decoding="async" widths={[700,1000]} sizes="700px"/>
-                <figcaption>My Account member portal — authenticated product managing insurance, membership, payments, and claims</figcaption>
-              </figure>
-            </div>
-          </div>
+          <h2>Public-facing digital products used by members every day.</h2>
+          <p>Designed and iterated the RAA Travel platform from the initial rebuild through to its current state covering flights, stays, holidays, cruises, car hire, and experiences, across desktop and mobile. Led the UX design for the RAA website redesign working with external agencies and internal engineering.</p>
+          <p>The quote and buy journey covers motor, home, and landlord insurance. Multiple rounds of usability testing, prototype iteration, and post-delivery benchmarking across each product area. Accessibility reviewed against WCAG 2.1 standards throughout, with ongoing audits through the Vision Australia partnership.</p>
         </div>
       </section>
+      <div class="scroll-section">
+        <p class="scroll-hint-label">Scroll to see more <span>→</span></p>
+        <div class="image-scroll-track-wrap">
+          <div class="image-scroll-track">
+            <figure class="scroll-fig wide">
+              <Image class="scroll-img-wide" src={travelHome} alt="RAA Travel homepage showing search widget, holiday deals, and navigation across product types" loading="eager" decoding="async" widths={[700,1000]} sizes="700px"/>
+              <figcaption>RAA Travel homepage — redesigned and rebuilt across flights, stays, holidays, cruises, car hire, and experiences</figcaption>
+            </figure>
+            <figure class="scroll-fig wide">
+              <Image class="scroll-img-wide" src={raaWebsite} alt="RAA website homepage showing insurance, membership, motor, home, and travel navigation" loading="eager" decoding="async" widths={[700,1000]} sizes="700px"/>
+              <figcaption>RAA website homepage — redesigned working with external agencies and internal engineering</figcaption>
+            </figure>
+            <figure class="scroll-fig wide">
+              <Image class="scroll-img-wide" src={qtbStart} alt="RAA Car Insurance quote start page showing step 1 of 4 with number plate lookup" loading="lazy" decoding="async" widths={[700,1000]} sizes="700px"/>
+              <figcaption>Car insurance quote and buy — step one of four with My Account pre-fill prompt and progress stepper</figcaption>
+            </figure>
+            <figure class="scroll-fig wide">
+              <Image class="scroll-img-wide" src={myAccount} alt="RAA My Account member portal showing authenticated dashboard" loading="lazy" decoding="async" widths={[700,1000]} sizes="700px"/>
+              <figcaption>My Account member portal — authenticated product managing insurance, membership, payments, and claims</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
 
-      <section class="ui-section">
-        <div class="two-col-content">
-
+      <section class="content-section">
+        <div class="section-content">
           <p class="section-kicker">Figma Design Files</p>
-            <h2>High-fidelity design work across the full product suite.</h2>
-            <p>Figma files show the breadth of product coverage — identity management and authentication flows, payment and renewals screens, claims submission, and the My Account portal. Each file is structured for engineering handover with component references, accessibility annotations, and edge case documentation.</p>
-          <p class="section-kicker">Design System Integration</p>
-            <p>All screens built against the RAA design system — a component library governing web and mobile UI across the full product suite. Contributed to the design system from its foundation, building components, documentation, and governance before the system existed in its current form.</p>
-          
-          </div>
-
-        <div class="scroll-section">
-          <p class="scroll-hint-label">Scroll to see more <span>→</span></p>
-          <div class="image-scroll-track-wrap">
-            <div class="image-scroll-track">
-              <figure class="scroll-fig wide">
-                <Image class="scroll-img" src={myaccountFigma} alt="Figma file showing My Account screens ready for dev across multiple features" loading="lazy" decoding="async" widths={[700,1000]} sizes="700px"/>
-                <figcaption>My Account Figma file — showing ready-for-dev screens across multiple features including direct debit management</figcaption>
-              </figure>
-              <figure class="scroll-fig wide">
-                <Image class="scroll-img" src={paymentsFigma} alt="Figma file showing online payments and renewals flow across multiple states" loading="lazy" decoding="async" widths={[700,1000]} sizes="700px"/>
-                <figcaption>Payments and renewals Figma file — covering all product types, payment states, and validation scenarios</figcaption>
-              </figure>
-              <figure class="scroll-fig wide">
-                <Image class="scroll-img" src={idmFigma} alt="Figma file showing identity management login flows including email, mobile, and password reset" loading="lazy" decoding="async" widths={[700,1000]} sizes="700px"/>
-                <figcaption>Identity management — email login, mobile OTP, and password reset flows across all states and breakpoints</figcaption>
-              </figure>
-              <figure class="scroll-fig wide">
-                <Image class="scroll-img" src={claimsFigma} alt="Figma file showing motor claims rebuild screens including review and lodge step" loading="lazy" decoding="async" widths={[700,1000]} sizes="700px"/>
-                <figcaption>Motor claims rebuild — five-step claims flow with accessibility review and handoff specs included</figcaption>
-              </figure>
-            </div>
-          </div>
+          <h2>High-fidelity design work across the full product suite.</h2>
+          <p>Figma files show the breadth of product coverage — identity management and authentication flows, payment and renewals screens, claims submission, and the My Account portal. Each file is structured for engineering handover with component references, accessibility annotations, and edge case documentation.</p>
+          <p>All screens built against the RAA design system — a component library governing web and mobile UI across the full product suite. Contributed to the design system from its foundation, building components, documentation, and governance before the system existed in its current form.</p>
         </div>
       </section>
-
-      <section class="ui-section">
-        <div class="two-col-content">
-
-          <p class="section-kicker">Design System</p>
-            <h2>Components built for engineering adoption, not just design consistency.</h2>
-            <p>The RAA design system covers web and mobile across all product areas. Alert components, button variants, form elements, navigation patterns, and mobile-specific components all governed through a documented library with usage guidelines, anatomy, accessibility notes, and coded examples.</p>
-          <p class="section-kicker">Mobile App</p>
-            <p>Contributed UX design to the RAA native app alongside senior mobile designers — covering screen flows, interaction patterns, and mobile-specific design system components. The Figma file shows the connected prototype flow for the RAA logbook feature across all states.</p>
-          
-          </div>
-
-        <div class="scroll-section">
-          <p class="scroll-hint-label">Scroll to see more <span>→</span></p>
-          <div class="image-scroll-track-wrap">
-            <div class="image-scroll-track">
-              <figure class="scroll-fig wide">
-                <Image class="scroll-img" src={appDsAlerts} alt="RAA app design system showing alert components across information, confirmation, warning, error, and helpful tip variants in light and dark mode" loading="lazy" decoding="async" widths={[700,1000]} sizes="700px"/>
-                <figcaption>RAA app design system — alert components showing all variants in light and dark mode with usage guidance</figcaption>
-              </figure>
-              <figure class="scroll-fig wide">
-                <Image class="scroll-img" src={dsButtons} alt="Design system button documentation showing anatomy, spacing, typography, states, and accessibility guidelines" loading="lazy" decoding="async" widths={[700,1000]} sizes="700px"/>
-                <figcaption>Button component documentation — anatomy, spacing, accessibility considerations, dos and don'ts, with coded examples</figcaption>
-              </figure>
-              <figure class="scroll-fig wide">
-                <Image class="scroll-img" src={mobileFlows} alt="Figma prototype flow for RAA logbook mobile app showing connected screens from onboarding through to drive recording" loading="lazy" decoding="async" widths={[700,1000]} sizes="700px"/>
-                <figcaption>RAA app prototype flow — logbook feature showing all connected screens from entry through to drive recording and sign-off</figcaption>
-              </figure>
-            </div>
+      <div class="scroll-section">
+        <p class="scroll-hint-label">Scroll to see more <span>→</span></p>
+        <div class="image-scroll-track-wrap">
+          <div class="image-scroll-track">
+            <figure class="scroll-fig wide">
+              <Image class="scroll-img-wide" src={myaccountFigma} alt="Figma file showing My Account screens ready for dev across multiple features" loading="lazy" decoding="async" widths={[700,1000]} sizes="700px"/>
+              <figcaption>My Account Figma file — showing ready-for-dev screens across multiple features including direct debit management</figcaption>
+            </figure>
+            <figure class="scroll-fig wide">
+              <Image class="scroll-img-wide" src={paymentsFigma} alt="Figma file showing online payments and renewals flow across multiple states" loading="lazy" decoding="async" widths={[700,1000]} sizes="700px"/>
+              <figcaption>Payments and renewals Figma file — covering all product types, payment states, and validation scenarios</figcaption>
+            </figure>
+            <figure class="scroll-fig wide">
+              <Image class="scroll-img-wide" src={idmFigma} alt="Figma file showing identity management login flows including email, mobile, and password reset" loading="lazy" decoding="async" widths={[700,1000]} sizes="700px"/>
+              <figcaption>Identity management — email login, mobile OTP, and password reset flows across all states and breakpoints</figcaption>
+            </figure>
+            <figure class="scroll-fig wide">
+              <Image class="scroll-img-wide" src={claimsFigma} alt="Figma file showing motor claims rebuild screens including review and lodge step" loading="lazy" decoding="async" widths={[700,1000]} sizes="700px"/>
+              <figcaption>Motor claims rebuild — five-step claims flow with accessibility review and handoff specs included</figcaption>
+            </figure>
           </div>
         </div>
+      </div>
+
+      <section class="content-section">
+        <div class="section-content">
+          <p class="section-kicker">Design System and Mobile</p>
+          <h2>Components built for engineering adoption, not just design consistency.</h2>
+          <p>The RAA design system covers web and mobile across all product areas. Alert components, button variants, form elements, and mobile-specific components all governed through a documented library with usage guidelines, anatomy, accessibility notes, and coded examples.</p>
+          <p>Contributed UX design to the RAA native app alongside senior mobile designers covering screen flows, interaction patterns, and mobile-specific design system components.</p>
+        </div>
       </section>
+      <div class="scroll-section">
+        <p class="scroll-hint-label">Scroll to see more <span>→</span></p>
+        <div class="image-scroll-track-wrap">
+          <div class="image-scroll-track">
+            <figure class="scroll-fig wide">
+              <Image class="scroll-img-wide" src={appDsAlerts} alt="RAA app design system showing alert components across information, confirmation, warning, error, and helpful tip variants" loading="lazy" decoding="async" widths={[700,1000]} sizes="700px"/>
+              <figcaption>RAA app design system — alert components showing all variants in light and dark mode with usage guidance</figcaption>
+            </figure>
+            <figure class="scroll-fig wide">
+              <Image class="scroll-img-wide" src={dsButtons} alt="Design system button documentation showing anatomy, spacing, typography, states, and accessibility guidelines" loading="lazy" decoding="async" widths={[700,1000]} sizes="700px"/>
+              <figcaption>Button component documentation — anatomy, spacing, accessibility considerations, dos and don'ts, with coded examples</figcaption>
+            </figure>
+            <figure class="scroll-fig wide">
+              <Image class="scroll-img-wide" src={mobileFlows} alt="Figma prototype flow for RAA logbook mobile app showing connected screens" loading="lazy" decoding="async" widths={[700,1000]} sizes="700px"/>
+              <figcaption>RAA app prototype flow — logbook feature showing all connected screens from entry through to drive recording</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
 
-      <section class="ui-section">
-        <div class="two-col-content">
-
+      <section class="content-section">
+        <div class="section-content">
           <p class="section-kicker">Freelance</p>
-            <h2>End-to-end design and development for clients across retail, health, and hospitality.</h2>
-            <p>Running alongside full-time roles since 2004 — designing and building websites and web applications for small to large clients. Full ownership of each project: scoping, creative direction, design, front-end development, and delivery.</p>
-          <p class="section-kicker">Context</p>
-            <p>Freelance work covers a different register to enterprise product design — smaller teams, faster cycles, broader scope. Working on both over a long period sharpens judgment about when process is valuable and when it gets in the way.</p>
-          
-          </div>
-
-        <div class="scroll-section">
-          <p class="scroll-hint-label">Scroll to see more <span>→</span></p>
-          <div class="image-scroll-track-wrap">
-            <div class="image-scroll-track">
-              <figure class="scroll-fig">
-                <Image class="scroll-img small" src={freelance1a} alt="Freelance website design example" loading="lazy" decoding="async" widths={[420,600]} sizes="420px"/>
-                <figcaption>Retail ecommerce — full design and development</figcaption>
-              </figure>
-              <figure class="scroll-fig">
-                <Image class="scroll-img small" src={freelance1b} alt="Freelance website design example" loading="lazy" decoding="async" widths={[420,600]} sizes="420px"/>
-                <figcaption>Health services — responsive website design and CMS build</figcaption>
-              </figure>
-              <figure class="scroll-fig">
-                <Image class="scroll-img small" src={freelance2a} alt="Freelance website design example" loading="lazy" decoding="async" widths={[420,600]} sizes="420px"/>
-                <figcaption>Hospitality — branding, design, and development</figcaption>
-              </figure>
-              <figure class="scroll-fig">
-                <Image class="scroll-img small" src={freelance3a} alt="Freelance website design example" loading="lazy" decoding="async" widths={[420,600]} sizes="420px"/>
-                <figcaption>Agency client — creative direction and front-end delivery</figcaption>
-              </figure>
-            </div>
-          </div>
+          <h2>End-to-end design and development for clients across retail, health, and hospitality.</h2>
+          <p>Running alongside full-time roles since 2004 — designing and building websites and web applications for small to large clients. Full ownership of each project from scoping and creative direction through design, front-end development, and delivery.</p>
         </div>
       </section>
+      <div class="scroll-section">
+        <p class="scroll-hint-label">Scroll to see more <span>→</span></p>
+        <div class="image-scroll-track-wrap">
+          <div class="image-scroll-track">
+            <figure class="scroll-fig wide">
+              <Image class="scroll-img-wide" src={freelance1a} alt="PALI Footwear ecommerce website — 100% New Zealand wool footwear brand" loading="lazy" decoding="async" widths={[700,1000]} sizes="700px"/>
+              <figcaption>PALI Footwear — ecommerce design and development for an Australian wool footwear brand</figcaption>
+            </figure>
+            <figure class="scroll-fig wide">
+              <Image class="scroll-img-wide" src={freelance2a} alt="Chaircovers Over All hospitality ecommerce website" loading="lazy" decoding="async" widths={[700,1000]} sizes="700px"/>
+              <figcaption>Chaircovers Over All — hospitality brand design, ecommerce development, and product photography direction</figcaption>
+            </figure>
+            <figure class="scroll-fig wide">
+              <Image class="scroll-img-wide" src={freelance3a} alt="Bronwyn yoga and wellness website" loading="lazy" decoding="async" widths={[700,1000]} sizes="700px"/>
+              <figcaption>Bronwyn yoga — brand design, website design, and development for an independent yoga instructor</figcaption>
+            </figure>
+            <figure class="scroll-fig wide">
+              <Image class="scroll-img-wide" src={freelance4a} alt="Bass Coast Podiatry clinic website" loading="lazy" decoding="async" widths={[700,1000]} sizes="700px"/>
+              <figcaption>Bass Coast Podiatry — website design and development for a regional podiatry clinic</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
 
       <CaseStudyNav />
     </main>
@@ -186,40 +169,7 @@ import freelance3a from '../../assets/images/freelance-3a.png';
 </Layout>
 
 <style>
-.case-page{position:relative;width:min(calc(100% - 3rem),78rem);margin:0 auto;padding:1.25rem 0 5rem}
-.eyebrow{font-family:var(--font-mono);font-size:.82rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted-foreground);margin:0 0 1.25rem;display:flex;gap:.5rem;align-items:center}
-.breadcrumb-link{font-weight:600}.breadcrumb-separator{color:var(--muted-foreground)}
-h1,h2{margin:0;font-weight:800;letter-spacing:-.05em;color:var(--foreground)}
-.display-title{font-size:clamp(2rem,4.5vw,3.5rem);line-height:1.06;margin:1rem 0 1.5rem;max-width:28ch}
-.hero-text{font-size:1.08rem;line-height:1.7;margin:0 0 .5rem;max-width:42rem}
-.hero-subtext{font-size:1.05rem;line-height:1.65;color:var(--muted-foreground);font-style:italic;margin:.25rem 0 0;max-width:42rem}
-.case-hero{padding:5rem 0 2rem}
-.meta-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2rem;padding:1.5rem 0 .5rem;border-top:1px solid var(--border);margin-bottom:1rem}
-.meta-label{font-family:var(--font-mono);font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted-foreground);margin:0}
-.meta-value{margin:.35rem 0 0;font-size:1rem;font-weight:700}
-.section-kicker{font-family:var(--font-mono);font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted-foreground);margin:0 0 .75rem;display:block}
-
-.ui-section{padding:6rem 0;border-top:1px solid var(--border)}
-.two-col-content{max-width:44rem;margin-bottom:2rem}
-.two-col-content h2{font-size:clamp(1.3rem,2vw,1.7rem);margin:.5rem 0 1rem}
-.two-col-content p{font-size:.96rem;line-height:1.65;color:var(--muted-foreground);margin:0 0 .75rem}
-
-.scroll-section{padding:.5rem 0 0}
-.scroll-hint-label{font-family:var(--font-mono);font-size:.75rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--muted-foreground);margin:0 0 .75rem}
-.image-scroll-track-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 -1.5rem;padding:0 1.5rem 1rem}
-.image-scroll-track{display:flex;gap:1rem;width:max-content}
-.scroll-fig{margin:0;flex-shrink:0}
-.scroll-fig.wide{width:560px}
-.scroll-img{display:block;border-radius:1rem;border:1px solid var(--border);box-shadow:0 8px 20px rgba(23,23,23,.07)}
-.scroll-img{width:560px;height:340px;object-fit:cover;object-position:top center}
-.scroll-fig:not(.wide) .scroll-img{width:360px;height:240px}
-figcaption{font-size:.82rem;line-height:1.5;color:var(--muted-foreground);margin:.5rem 0 0;max-width:540px}
-
-@media(max-width:860px){
-  .meta-strip{grid-template-columns:1fr;gap:1rem}
-  .two-col-content{grid-template-columns:1fr}
-  .scroll-img{width:320px;height:200px}
-  .scroll-fig.wide{width:320px}
-  .scroll-fig.wide .scroll-img{width:320px}
-}
+.scroll-fig.wide { width: 560px; }
+.scroll-img-wide { width: 560px; height: 340px; object-fit: cover; object-position: top center; border-radius: 1rem; border: 1px solid var(--border); box-shadow: 0 8px 20px rgba(23,23,23,.07); display: block; }
+@media(max-width:860px) { .scroll-fig.wide { width: 320px; } .scroll-img-wide { width: 320px; height: 200px; } }
 </style>

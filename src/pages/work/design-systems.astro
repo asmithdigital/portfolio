@@ -3,108 +3,74 @@ import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
 import CaseStudyNav from '../../components/CaseStudyNav.astro';
-import ds2 from '../../assets/images/design-system-2.png';
-import ds1 from '../../assets/images/design-system-1.png';
-import figmaComponents from '../../assets/images/figma-component-library-button-example.png';
-import uofaStyleguide from '../../assets/images/uofa-styleguide.png';
+import '../../styles/case-study.css';
+
+import designSystem1 from '../../assets/images/design-system-1.png';
+import designSystem2 from '../../assets/images/design-system-2.png';
+import appDsAlerts from '../../assets/images/raa-app-ds-alerts.png';
+import dsButtons from '../../assets/images/raa-ds-buttons.png';
 ---
-<Layout title="Design Systems | Andrew Smith" description="Design systems as infrastructure — component libraries, token architecture, and documentation that enable teams to build consistently without designer intervention.">
+<Layout title="Design Systems | Andrew Smith" description="Design systems built so product and engineering teams can move faster without design as a bottleneck on standard patterns.">
   <a class="skip-link" href="#main-content">Skip to content</a>
   <div class="case-page">
     <SiteHeader />
     <main id="main-content">
+
       <section class="case-hero">
         <p class="eyebrow"><a class="breadcrumb-link" href="/portfolio/work">Work</a><span class="breadcrumb-separator">/</span><span>Design Systems</span></p>
         <h1 class="display-title">Design systems for consistency at scale.</h1>
-        <p class="hero-text">A design system changes what product, engineering, and design teams spend their time on. When components are documented and governed properly, engineers can build from a shared library without waiting for design review on every standard pattern. Designers write lighter specs and spend less time re-establishing patterns that already exist. The time that is freed up goes toward discovery, testing, and the work that actually requires judgment.</p>
-        <p class="hero-subtext">Built from scratch across two organisations.</p>
+        <p class="hero-text">When components are documented and governed properly, product and engineering teams can move faster without design as a bottleneck on standard patterns. Designers write lighter specs, testing increases, and the time that is freed up goes toward the discovery and validation work that actually moves product quality forward.</p>
+        <p class="hero-subtext">Two design systems built from scratch — one for the RAA web platform, one for the RAA native app.</p>
       </section>
+
       <section class="meta-strip">
-        <div class="meta-item"><p class="meta-label">Organisations</p><p class="meta-value">RAA, University of Adelaide</p></div>
-        <div class="meta-item"><p class="meta-label">Role</p><p class="meta-value">Senior UX Lead, UX Manager, Front-End Developer</p></div>
-        <div class="meta-item"><p class="meta-label">Tools</p><p class="meta-value">Figma, ZeroHeight, HTML/CSS/JS</p></div>
+        <div><p class="meta-label">Scope</p><p class="meta-value">Web platform and native app</p></div>
+        <div><p class="meta-label">Role</p><p class="meta-value">Senior UX Design Lead, UX Manager</p></div>
+        <div><p class="meta-label">Tools</p><p class="meta-value">Figma, ZeroHeight, design tokens</p></div>
       </section>
 
       <section class="lead-image-section">
-        <Image class="lead-image" src={ds2} alt="Component documentation showing anatomy, usage guidelines, design specs, changelog, and code tabs" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
+        <Image class="lead-image" src={designSystem2} alt="Component documentation showing anatomy, usage guidelines, and design specifications" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
       </section>
 
       <section class="summary-section">
-        <p class="section-kicker">What a Design System Actually Changes</p>
-        <h2>The goal is self-service — not designer sign-off on every small decision.</h2>
-        <div class="summary-main">
-          <p>The shift a mature design system enables is moving from a model where designers are the bottleneck to a model where product and engineering teams can find what they need, understand how to use it, and implement it correctly without asking. Specs become lighter because the patterns are already documented. Testing during delivery increases because there is more time available. Consistency improves not because designers are more vigilant but because the decisions are captured at the source.</p>
-          <p>As the system matured, the team noticed a clear shift — less time spent redefining things that already existed, more time available for usability testing and discovery work alongside product and engineering. The efficiency gain was not abstract. It showed up in what the team was able to do with its time.</p>
-          <p>Governance is what prevents that gain from eroding. Who can contribute new components, how contributions are reviewed, how the system evolves as products change — without a clear governance model, a design system slowly drifts back toward the inconsistency it was built to prevent. Governance is the senior-specific part of running a system rather than just building one.</p>
+        <p class="section-kicker">The Approach</p>
+        <h2>Built from the beginning, not retrofitted at the end.</h2>
+        <div class="summary-body">
+          <p>Both design systems were built from scratch rather than inherited. That distinction matters because the decisions made when a system is first established — about naming, structure, token architecture, and documentation — shape how the system behaves for years. A system designed with engineering adoption in mind from day one behaves differently to one that was cleaned up after the fact.</p>
+          <p>Components are documented with anatomy, spacing, typography, states, accessibility considerations, dos and don'ts, and coded examples. Governance means the system is maintained over time — new components are added deliberately, old ones are deprecated cleanly, and teams know where to look for the source of truth.</p>
         </div>
       </section>
 
-      <section class="editorial-section">
-        <div class="section-rail"><p class="section-kicker">Governance</p></div>
-        <div class="story-block">
-          <p>Governance covers three things: who can propose changes, how those changes are reviewed against accessibility standards and existing patterns before they are accepted, and how the system is communicated across product and engineering teams so they know what exists and when it changes.</p>
-          <p>In practice this meant a contribution process for new components, regular reviews with engineering leads to align on implementation, a changelog that engineering could reference without coming back to design, and a process for retiring patterns that had been superseded without breaking the products that still used them.</p>
-          <p>Without governance, the system grows in one direction and the products grow in another. With it, the system stays useful rather than becoming a reference that is technically maintained but practically ignored.</p>
+      <section class="content-section">
+        <div class="section-content">
+          <p class="section-kicker">Web Design System</p>
+          <h2>Governing the full RAA web platform.</h2>
+          <p>The RAA web design system covers all consumer-facing digital products — insurance, membership, travel, payments, identity management, and the public website. Built in Figma with a component library, design tokens, and documentation published to ZeroHeight for engineering adoption.</p>
+          <p>Accessibility standards are built into the system at the component level through the Vision Australia partnership — WCAG compliance is designed in from the start, not audited after delivery. Components include accessibility annotations alongside visual specs so engineers have what they need without a separate handover conversation.</p>
+        </div>
+        <div class="section-image">
+          <Image class="aside-img" src={designSystem1} alt="Design system component library showing button variants, form elements, and navigation patterns" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:1200px) 30vw, 480px"/>
         </div>
       </section>
 
-      <section class="editorial-section">
-        <div class="section-rail"><p class="section-kicker">Component Library</p></div>
-        <div class="story-block">
-          <p>The Figma component library holds every UI element used across web and mobile products, with full variant coverage across states, sizes, and contexts. Usage rules documented directly in the design file so designers have guidance without leaving the tool. Tokens connect the library to the codebase — a colour change at the token level propagates automatically to every component that references it.</p>
-          <p>AI assists with documentation — generating component specs, accessibility guidance, and usage notes from the design file, reducing the manual overhead of keeping documentation current with what was actually built.</p>
+      <section class="content-section">
+        <div class="section-content">
+          <p class="section-kicker">App Design System</p>
+          <h2>Native iOS and Android component governance.</h2>
+          <p>The RAA app design system covers the native iOS and Android application. Alert components, button variants, navigation patterns, and mobile-specific interactions governed through a documented Figma library with light and dark mode variants for every component.</p>
+          <p>The system was built to align with platform conventions — Material Design for Android, Apple Human Interface Guidelines for iOS — while maintaining RAA brand consistency. Components are built for engineering handover with variant properties, interaction states, and platform-specific guidance included.</p>
         </div>
-      </section>
-      <section class="supporting-image-section">
-        <Image class="supporting-image" src={figmaComponents} alt="Figma component library showing button variants across regular, secondary, and text styles with all interaction states" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
+        <div class="section-image">
+          <Image class="aside-img" src={appDsAlerts} alt="RAA app design system showing alert components in light and dark mode" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:1200px) 30vw, 480px"/>
+        </div>
       </section>
 
-      <section class="editorial-section">
-        <div class="section-rail"><p class="section-kicker">Documentation Platform</p></div>
-        <div class="story-block">
-          <p>Every component published with the information product managers and engineers need to use it correctly — overview, usage guidelines, design specs, changelog, and code examples, synced from the design file so documentation stays current with what actually shipped.</p>
-          <p>Self-service access means any team building on the system can find what they need without going through design. That is the point. The governance model keeps contributions consistent. The documentation makes adoption possible without hand-holding.</p>
-        </div>
-      </section>
-      <section class="supporting-image-section">
-        <Image class="supporting-image" src={ds1} alt="Design system documentation homepage showing foundations, components, and patterns categories" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
-      </section>
-
-      <section class="editorial-section">
-        <div class="section-rail"><p class="section-kicker">Built From Scratch</p></div>
-        <div class="story-block">
-          <p>Before working in a product organisation, the equivalent of a design system was built from scratch for a university — a custom JavaScript application documenting every HTML, CSS, and JavaScript pattern used across the institution. Built at the code level, not just designed in Figma. Every development team across the university built from this foundation.</p>
-          <p>Having built a design system in code changes how you think about it. The technical constraints are real, the maintenance cost is real, and the payoff is real. Conversations with engineering teams about adoption and governance are more grounded because the work has been done from that side too.</p>
-        </div>
-      </section>
-      <section class="supporting-image-section">
-        <Image class="supporting-image" src={uofaStyleguide} alt="Custom styleguide application showing component documentation with HTML, CSS, and JavaScript code examples" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
+      <section class="full-image-section">
+        <Image class="full-image" src={dsButtons} alt="Button component documentation showing anatomy, spacing, typography, states, accessibility guidelines, and coded examples" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
       </section>
 
       <CaseStudyNav />
     </main>
   </div>
 </Layout>
-<style>
-.case-page{position:relative;width:min(calc(100% - 3rem),78rem);margin:0 auto;padding:1.25rem 0 5rem}
-.eyebrow{font-family:var(--font-mono);font-size:.82rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted-foreground);margin:0 0 1.25rem;display:flex;gap:.5rem;align-items:center}
-.breadcrumb-link{font-weight:600}.breadcrumb-separator{color:var(--muted-foreground)}
-h1,h2{margin:0;font-weight:800;letter-spacing:-.05em;color:var(--foreground)}
-.display-title{font-size:clamp(2rem,4.5vw,3.5rem);line-height:1.06;margin:1rem 0 1.5rem;max-width:28ch}
-.hero-text,.story-block p,.summary-main p{font-size:1.08rem;line-height:1.7;margin:0 0 1rem}
-.hero-subtext{font-size:1.05rem;line-height:1.65;color:var(--muted-foreground);font-style:italic;margin:.25rem 0 0;max-width:42rem}
-.case-hero{padding:5rem 0 2rem}
-.meta-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2rem;padding:1.5rem 0 .5rem;border-top:1px solid var(--border)}
-.meta-label{font-family:var(--font-mono);font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted-foreground);margin:0}
-.meta-value{margin:.35rem 0 0;font-size:1.1rem;font-weight:700}
-.lead-image-section{padding:2rem 0 4rem}
-.lead-image,.supporting-image{width:100%;border:1px solid var(--border);border-radius:1.5rem;box-shadow:var(--shadow-large)}
-.supporting-image-section{padding:6rem 0 6rem;border-bottom:1px solid var(--border)}
-.summary-section{padding:0 0 6rem;border-bottom:1px solid var(--border)}
-.summary-section h2{margin-top:.75rem;font-size:clamp(1.5rem,2.5vw,2.2rem);max-width:32ch}
-.summary-main{margin-top:1.5rem;max-width:44rem}
-.section-kicker{font-family:var(--font-mono);font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted-foreground);margin:0 0 .5rem}
-.editorial-section{display:grid;grid-template-columns:14rem minmax(0,1fr);gap:2rem;padding:6rem 0;border-bottom:1px solid var(--border)}
-.story-block{max-width:44rem}
-@media(max-width:860px){.meta-strip{grid-template-columns:1fr;gap:1rem}.editorial-section{grid-template-columns:1fr}}
-</style>

@@ -3,15 +3,15 @@ import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
 import CaseStudyNav from '../../components/CaseStudyNav.astro';
+import '../../styles/case-study.css';
+
 import discoveryDelivery from '../../assets/images/product-management-discovery-delivery.png';
-import miroIdeationCritique from '../../assets/images/miro-ideation-critique-example.png';
 import waysOfWorking from '../../assets/images/way-of-working-2.png';
+import miroIdeationCritique from '../../assets/images/miro-ideation-critique-example.png';
 import miroIdeation from '../../assets/images/miro-ideation-example.png';
-import flowDiagram from '../../assets/images/flow-diagram-2.png';
 import figmaFlows from '../../assets/images/figma-myaccount-flows.png';
 import travelWireframes from '../../assets/images/travel-sd-wireframes.png';
 import mobileAppFlows from '../../assets/images/figma-mobile-app-screen-flows.png';
-import raaWires from '../../assets/images/raa-wires.png';
 import usertesting from '../../assets/images/usertesting-2.png';
 import figmaRenewals from '../../assets/images/figma-renewals-example.png';
 import myAccount from '../../assets/images/my-account.png';
@@ -19,13 +19,14 @@ import uxBenchmarking from '../../assets/images/ux-benchmarking.png';
 import journeyMap1 from '../../assets/images/journey-map-1.png';
 import orchestration from '../../assets/images/claude-orchestration-layer-diagram.png';
 ---
-<Layout title="UX & Product Process | Andrew Smith" description="How experience design works within the product delivery cycle — from early roadmap conversations through discovery, design, delivery, and measurement.">
+<Layout title="UX and Product Process | Andrew Smith" description="How experience design works within the product delivery cycle from early roadmap conversations through discovery, design, delivery, and measurement.">
   <a class="skip-link" href="#main-content">Skip to content</a>
   <div class="case-page">
     <SiteHeader />
     <main id="main-content">
+
       <section class="case-hero">
-        <p class="eyebrow"><a class="breadcrumb-link" href="/portfolio/work">Work</a><span class="breadcrumb-separator">/</span><span>UX & Product Process</span></p>
+        <p class="eyebrow"><a class="breadcrumb-link" href="/portfolio/work">Work</a><span class="breadcrumb-separator">/</span><span>UX and Product Process</span></p>
         <h1 class="display-title">How experience design works within the product delivery cycle.</h1>
         <p class="hero-text">The experience design team works as part of the product trio — alongside product management and engineering — from the earliest conversations about what is worth building through to measuring whether it worked. This is what that contribution looks like at each stage, and how I led the team through it as manager while contributing directly as a practitioner.</p>
         <p class="hero-subtext">Covering discovery, design, delivery, and measurement across multiple product squads simultaneously.</p>
@@ -33,135 +34,132 @@ import orchestration from '../../assets/images/claude-orchestration-layer-diagra
 
       <section class="lead-image-section">
         <Image class="lead-image" src={discoveryDelivery} alt="Dual-track agile diagram showing discovery track focusing on value, usability, feasibility, and viability alongside delivery track focusing on scalability, reliability, performance, and maintainability" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
-        <p class="diagram-caption">Discovery and delivery as parallel tracks — the model that shapes how experience design and product work together.</p>
       </section>
 
-      <section class="process-overview">
-        <div class="process-steps">
-          <div class="step"><span class="step-num">01</span><span class="step-label">Roadmap & Vision</span></div>
-          <div class="step-arrow">→</div>
-          <div class="step"><span class="step-num">02</span><span class="step-label">Analytics & Insights</span></div>
-          <div class="step-arrow">→</div>
-          <div class="step"><span class="step-num">03</span><span class="step-label">Discovery & Workshops</span></div>
-          <div class="step-arrow">→</div>
-          <div class="step"><span class="step-num">05</span><span class="step-label">Flow & IA</span></div>
-          <div class="step-arrow">→</div>
-          <div class="step"><span class="step-num">06</span><span class="step-label">Design & Test</span></div>
-          <div class="step-arrow">→</div>
-          <div class="step"><span class="step-num">07</span><span class="step-label">Delivery</span></div>
-          <div class="step-arrow">→</div>
-          <div class="step"><span class="step-num">08</span><span class="step-label">Measure</span></div>
-        </div>
-      </section>
-
-      <section class="process-section">
-        <div class="process-label">
-          <span class="step-tag">Operating Model</span>
+      <section class="content-section">
+        <div class="section-content">
+          <p class="section-kicker">Operating Model</p>
           <h2>Aligning the team's process to the product delivery cycle.</h2>
           <p>Before any piece of work begins, the team has a shared framework for how it moves through discovery and delivery. Three pathways: dual-track discovery for problems that need defining before any solution is considered, solution discovery for problems already understood, and existing components for work the design system already solves.</p>
           <p>This structure means design is always working ahead of delivery, not catching up to it. Product managers and engineering leads know what the team is working on and when it will feed into the squad. The stages below describe what happens at each point in that process.</p>
         </div>
-        <div class="process-images">
-          <Image class="process-img" src={waysOfWorking} alt="Ways of working framework with pathway decision panel open showing dual-track discovery, solution discovery, and existing components pathways" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
+        <div class="section-image">
+          <Image class="aside-img" src={waysOfWorking} alt="Ways of working framework with pathway decision panel open showing dual-track discovery, solution discovery, and existing components pathways" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:1200px) 30vw, 480px"/>
         </div>
       </section>
 
-      <section class="process-section">
-        <div class="process-label">
-          <span class="step-tag">01</span>
-          <h2>Roadmap & Vision Alignment</h2>
-          <p>Before any piece of design work begins, the team attends roadmap and vision discussions with product management and senior leadership. The goal is to understand what the business is trying to achieve, what product is prioritising and why, and where the experience design team can contribute ahead of squads picking up work.</p>
+      <section class="content-section">
+        <div class="section-content">
+          <p class="section-kicker">01 — Roadmap and Vision</p>
+          <h2>Roadmap alignment with product and senior leadership.</h2>
+          <p>Before any piece of design work begins, the team attends roadmap and vision discussions with product management and senior leadership. The goal is to understand what the business is trying to achieve, what product is prioritising and why, and where experience design can contribute ahead of squads picking up work.</p>
           <p>As manager, this is where I represented the team at the senior management level — working with the senior manager of product, service design, and engineering to align the team's discovery and delivery capacity with upcoming roadmap priorities across multiple product streams.</p>
         </div>
-        <div class="process-images">
-          <Image class="process-img" src={miroIdeationCritique} alt="FigJam discovery session showing problem framing, competitor analysis, and design options" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
+        <div class="section-image">
+          <Image class="aside-img" src={miroIdeationCritique} alt="FigJam discovery session showing problem framing, competitor analysis, and design options" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:1200px) 30vw, 480px"/>
         </div>
       </section>
 
-      <section class="process-section">
-        <div class="process-label">
-          <span class="step-tag">02</span>
-          <h2>Analytics & Insights Review</h2>
+      <section class="content-section">
+        <div class="section-content">
+          <p class="section-kicker">02 — Analytics and Insights</p>
+          <h2>Reviewing the data before scoping any discovery work.</h2>
           <p>The team reviews product analytics alongside the insights function and product managers before scoping any discovery work. Drop-off rates, conversion data, feature adoption, NPS and CSAT trends — understanding what the data is showing informs where discovery investment will have the most impact.</p>
-          <p>This is not a UX activity done in isolation. It is a shared review with product and insights to agree on what the data is telling us and where the gaps in understanding are. The <a href="/portfolio/work/journey-mapping">journey map</a> captures this alongside qualitative research, connecting quantitative evidence to specific stages of the experience.</p>
+          <p>This is not a UX activity done in isolation. It is a shared review with product and insights to agree on what the data is telling us and where the gaps in understanding are.</p>
         </div>
-        <div class="process-images">
-          <Image class="process-img" src={journeyMap1} alt="Journey explorer showing live metrics, analytics, and qualitative insights connected to each stage of the experience" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
-        </div>
-      </section>
-
-      <section class="process-section">
-        <div class="process-label">
-          <span class="step-tag">03 — 04</span>
-          <h2>Discovery, Workshops & Design Sprints</h2>
-          <p>Discovery is where the team moves from understanding what the data shows to understanding why. User research, competitor analysis, and customer feedback are synthesised to build a clear picture of the problem before any solution is considered. AI tools assist with synthesis, surfacing patterns across sessions faster and identifying knowledge gaps before they become problems in delivery.</p>
-          <p>The team facilitates workshops and design sprints with product managers, engineers, service designers, and business stakeholders to align on problems, generate options, and make decisions about direction. The goal is always to leave with a shared decision rather than a list of options to revisit later. Discovery runs continuously alongside delivery and findings feed back into planning conversations with product about what to prioritise next.</p>
-        </div>
-        <div class="process-images">
-          <Image class="process-img" src={miroIdeation} alt="Miro board showing current state analysis, annotated observations, and design options" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
+        <div class="section-image">
+          <Image class="aside-img" src={journeyMap1} alt="Journey explorer showing live analytics and metrics connected to each stage of the experience" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:1200px) 30vw, 480px"/>
         </div>
       </section>
 
-      <section class="process-section">
-        <div class="process-label">
-          <span class="step-tag">05</span>
-          <h2>Flow & Information Architecture</h2>
-          <p>Every path through the experience mapped before any screen is designed. Decision points, edge cases, and alternate flows documented alongside product managers and engineers so that requirements and design are aligned before development scope is committed.</p>
-          <p>A gap found in a flow diagram costs an afternoon to fix. The same gap found in a coded feature costs a sprint. Getting this right early is one of the clearest ways the design team adds value to the product delivery cycle.</p>
+      <section class="content-section">
+        <div class="section-content">
+          <p class="section-kicker">03 and 04 — Discovery and Workshops</p>
+          <h2>Understanding the problem before committing to a solution.</h2>
+          <p>Discovery is where the team moves from understanding what the data shows to understanding why. User research, competitor analysis, and customer feedback are synthesised to build a clear picture of the problem before any solution is considered. The team facilitates workshops and design sprints with product managers, engineers, service designers, and business stakeholders to align on problems and make decisions about direction.</p>
+          <p>Discovery runs continuously alongside delivery. Findings feed back into the journey map and into planning conversations with product about what to prioritise next.</p>
         </div>
-        <div class="process-images">
-          <Image class="process-img" src={figmaFlows} alt="Figma high-level user flow and information architecture" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:1200px) 30vw, 480px"/>
-        </div>
-      </section>
-
-      <section class="process-section">
-        <div class="process-label">
-          <span class="step-tag">06</span>
-          <h2>Design & Testing</h2>
-          <p>Wireframes before high fidelity. Usability testing before build. The <a href="/portfolio/work/design-systems">design system</a> handles the repeatable patterns so testing time focuses on the genuinely new interactions — the decisions that have not been made before and carry the most risk if they are wrong.</p>
-          <p>Finished designs include accessibility guidance, content notes, and edge case handling alongside the visual design. Engineers have what they need to build without interpretation. AI assists with spec generation and component documentation, reducing the manual overhead that would otherwise compete with design and testing time.</p>
-        </div>
-        <div class="process-images">
-          <Image class="process-img" src={myAccount} alt="Shipped product — authenticated member portal" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:1200px) 30vw, 480px"/>
-          <Image class="process-img" src={usertesting} alt="UserTesting session showing participant screen with tagged transcript" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:1200px) 30vw, 480px"/>
-          <Image class="process-img" src={travelWireframes} alt="Travel booking wireframes showing search, detail, payment, and confirmation screens" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:1200px) 30vw, 480px"/>
-          <Image class="process-img" src={mobileAppFlows} alt="Figma mobile app prototype flow showing RAA logbook screens" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:1200px) 30vw, 480px"/>
+        <div class="section-image">
+          <Image class="aside-img" src={miroIdeation} alt="Miro board showing current state analysis, annotated observations, and design options" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:1200px) 30vw, 480px"/>
         </div>
       </section>
 
-      <section class="process-section">
-        <div class="process-label">
-          <span class="step-tag">07</span>
-          <h2>Delivery & Agile Ceremonies</h2>
-          <p>The team works within Agile SCRUM delivery — sprint planning, backlog refinement, sprint reviews, and retrospectives. The designer's role in these ceremonies is to keep the squad aligned on what is being built, flag when implementation is drifting from the design intent, and contribute to scope decisions alongside the product manager and engineering lead.</p>
-          <p>As manager, I was responsible for the team's delivery cadence across multiple squads simultaneously — tracking progress, resolving blockers, and ensuring the ways of working between design and engineering were producing the right outcomes rather than just keeping the process moving.</p>
+      <section class="content-section">
+        <div class="section-content">
+          <p class="section-kicker">05 — Flow and Information Architecture</p>
+          <h2>Every path mapped before any screen is designed.</h2>
+          <p>Decision points, edge cases, and alternate flows documented alongside product managers and engineers so that requirements and design are aligned before development scope is committed. A gap found in a flow diagram costs an afternoon to fix. The same gap found in a coded feature costs a sprint.</p>
         </div>
-        <div class="process-images">
-          <Image class="process-img" src={figmaRenewals} alt="Figma canvas showing design screens across desktop and mobile" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
+        <div class="section-image">
+          <Image class="aside-img" src={figmaFlows} alt="Figma high-level user flow and information architecture showing connected screens" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:1200px) 30vw, 480px"/>
         </div>
       </section>
 
-      <section class="process-section">
-        <div class="process-label">
-          <span class="step-tag">08</span>
-          <h2>Measurement</h2>
-          <p>Shipping is where the hypothesis gets tested at scale. <a href="/portfolio/work/research-benchmarking">Benchmarking</a> runs at regular intervals after delivery — tracking effectiveness, efficiency, satisfaction, and desirability so the data tells a story about direction over time. Results feed back into the journey map and into the next planning cycle with product.</p>
+      <section class="content-section">
+        <div class="section-content">
+          <p class="section-kicker">06 — Design and Testing</p>
+          <h2>Wireframes before high fidelity. Testing before build.</h2>
+          <p>The design system handles repeatable patterns so testing time focuses on genuinely new interactions — the decisions that have not been made before and carry the most risk if they are wrong. Finished designs include accessibility guidance, content notes, and edge case handling alongside the visual design.</p>
+          <p>Usability testing runs across both discovery and delivery. Participants include people with assistive needs — screen readers, vision impairment, motor accessibility — included as standard criteria in testing recruitment, not as an afterthought.</p>
+        </div>
+      </section>
+      <div class="scroll-section">
+        <p class="scroll-hint-label">Scroll to see more <span>→</span></p>
+        <div class="image-scroll-track-wrap">
+          <div class="image-scroll-track">
+            <figure class="scroll-fig">
+              <Image class="scroll-img" src={myAccount} alt="Shipped product — authenticated member portal" loading="lazy" decoding="async" widths={[420,600]} sizes="420px"/>
+              <figcaption>Shipped product — My Account member portal</figcaption>
+            </figure>
+            <figure class="scroll-fig">
+              <Image class="scroll-img" src={usertesting} alt="UserTesting session showing participant screen with tagged transcript" loading="lazy" decoding="async" widths={[420,600]} sizes="420px"/>
+              <figcaption>Moderated usability testing session</figcaption>
+            </figure>
+            <figure class="scroll-fig">
+              <Image class="scroll-img" src={travelWireframes} alt="Travel booking wireframes showing search, detail, payment, and confirmation screens" loading="lazy" decoding="async" widths={[420,600]} sizes="420px"/>
+              <figcaption>Travel booking wireframes across key screens</figcaption>
+            </figure>
+            <figure class="scroll-fig">
+              <Image class="scroll-img" src={mobileAppFlows} alt="Figma mobile app prototype flow showing connected screens" loading="lazy" decoding="async" widths={[420,600]} sizes="420px"/>
+              <figcaption>Mobile app prototype flow — logbook feature</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <section class="content-section">
+        <div class="section-content">
+          <p class="section-kicker">07 — Delivery and Agile Ceremonies</p>
+          <h2>The designer's role within sprint delivery.</h2>
+          <p>The team works within Agile SCRUM delivery — sprint planning, backlog refinement, sprint reviews, and retrospectives. The designer's role is to keep the squad aligned on what is being built, flag when implementation is drifting from the design intent, and contribute to scope decisions alongside the product manager and engineering lead.</p>
+          <p>As manager, I was responsible for the team's delivery cadence across multiple squads simultaneously — tracking progress, resolving blockers, and ensuring the ways of working between design and engineering were producing the right outcomes.</p>
+        </div>
+        <div class="section-image">
+          <Image class="aside-img" src={figmaRenewals} alt="Figma canvas showing design screens across desktop and mobile ready for engineering handover" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:1200px) 30vw, 480px"/>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <div class="section-content">
+          <p class="section-kicker">08 — Measurement</p>
+          <h2>Closing the loop between delivery and the next decision.</h2>
+          <p>Shipping is where the hypothesis gets tested at scale. Benchmarking runs at regular intervals after delivery — tracking effectiveness, efficiency, satisfaction, and desirability so the data tells a story about direction over time. Results feed back into the journey map and into the next planning cycle with product.</p>
           <p>The loop closes here. What the measurement reveals becomes the input to the next round of analytics review and discovery planning. This is what makes design a continuous contribution to the product rather than a one-time delivery.</p>
         </div>
-        <div class="process-images">
-          <Image class="process-img" src={uxBenchmarking} alt="Usability benchmarking dashboard showing effectiveness, efficiency, satisfaction, and desirability metrics" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
+        <div class="section-image">
+          <Image class="aside-img" src={uxBenchmarking} alt="Usability benchmarking dashboard showing effectiveness, efficiency, satisfaction, and desirability metrics" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:1200px) 30vw, 480px"/>
         </div>
       </section>
 
-      <section class="process-section">
-        <div class="process-label">
-          <span class="step-tag">AI</span>
-          <h2>AI in the Process</h2>
+      <section class="content-section">
+        <div class="section-content">
+          <p class="section-kicker">AI in the Process</p>
+          <h2>Reducing overhead to increase capacity for judgment.</h2>
           <p>AI tools are now part of how the team works at multiple stages — from research synthesis and journey map generation in discovery, to spec documentation and accessibility checking in delivery. The goal is reducing the overhead that competes with the work that requires judgment, not replacing the judgment itself.</p>
-          <p>The orchestration layer built for the team connected the design system, journey maps, research repository, and live product data into a single queryable source — so knowledge was accessible across a distributed team without manual search across four tools. See the <a href="/portfolio/work/ai-tooling">AI Tooling</a> page for the full picture.</p>
+          <p>The orchestration layer connected the design system, journey maps, research repository, and live product data into a single queryable source — so knowledge was accessible across a distributed team without manual search across four tools. See the <a href="/portfolio/work/ai-tooling">AI Tooling</a> page for the full picture.</p>
         </div>
-        <div class="process-images">
-          <Image class="process-img" src={orchestration} alt="Experience Design operating model showing AI orchestration layer connecting all tools and knowledge sources" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:860px) 100vw, 60vw"/>
+        <div class="section-image">
+          <Image class="aside-img" src={orchestration} alt="Experience Design operating model showing AI orchestration layer connecting all tools and knowledge sources" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:1200px) 30vw, 480px"/>
         </div>
       </section>
 
@@ -169,35 +167,3 @@ import orchestration from '../../assets/images/claude-orchestration-layer-diagra
     </main>
   </div>
 </Layout>
-<style>
-.lead-image-section{padding:2rem 0 3rem}
-.lead-image{width:100%;border:1px solid var(--border);border-radius:1.5rem;box-shadow:0 16px 40px rgba(23,23,23,.08)}
-.diagram-caption{font-size:.85rem;color:var(--muted-foreground);font-style:italic;margin:.75rem 0 0;text-align:center}
-.case-page{position:relative;width:min(calc(100% - 3rem),78rem);margin:0 auto;padding:1.25rem 0 5rem}
-.eyebrow{font-family:var(--font-mono);font-size:.82rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted-foreground);margin:0 0 1.25rem;display:flex;gap:.5rem;align-items:center}
-.breadcrumb-link{font-weight:600}.breadcrumb-separator{color:var(--muted-foreground)}
-h1,h2{margin:0;font-weight:800;letter-spacing:-.05em;color:var(--foreground)}
-.display-title{font-size:clamp(2rem,4.5vw,3.5rem);line-height:1.06;margin:1rem 0 1.5rem;max-width:28ch}
-.hero-text{font-size:1.08rem;line-height:1.7;margin:0 0 .5rem;max-width:42rem}
-.hero-subtext{font-size:1.05rem;line-height:1.65;color:var(--muted-foreground);font-style:italic;margin:.25rem 0 0;max-width:42rem}
-.case-hero{padding:5rem 0 2rem}
-.process-overview{padding:4rem 0 4rem;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.process-steps{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem}
-.step{display:flex;flex-direction:column;align-items:center;gap:.25rem;padding:.75rem 1rem;border-radius:.5rem;background:var(--muted);min-width:5rem;text-align:center}
-.step-num{font-family:var(--font-mono);font-size:.7rem;font-weight:600;color:var(--muted-foreground)}
-.step-label{font-size:.85rem;font-weight:700}
-.step-arrow{color:var(--muted-foreground);font-size:1.2rem}
-.process-section{display:grid;grid-template-columns:42rem minmax(0,1fr);gap:3rem;padding:6rem 0;border-bottom:1px solid var(--border);align-items:start}
-.process-label{max-width:100%}
-.process-label h2{font-size:1.3rem;margin:.5rem 0;letter-spacing:-.02em}
-.process-label p{font-size:.96rem;line-height:1.65;color:var(--muted-foreground);margin:.75rem 0 0}
-.process-label a{color:var(--foreground);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--border)}
-.process-label a:hover{text-decoration-color:var(--foreground)}
-.step-tag{font-family:var(--font-mono);font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted-foreground)}
-.process-images{display:flex;flex-direction:column;gap:1rem}
-.process-img{width:100%;border-radius:1rem;border:1px solid var(--border);box-shadow:0 8px 20px rgba(23,23,23,.07)}
-.process-scroll-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0;padding:0 0 .75rem}
-.process-scroll-track{display:flex;gap:.75rem;width:max-content}
-.process-scroll-img{width:280px;height:180px;object-fit:cover;object-position:top;border-radius:.75rem;border:1px solid var(--border);box-shadow:0 4px 12px rgba(23,23,23,.07);flex-shrink:0}
-@media(max-width:860px){.meta-strip{grid-template-columns:1fr;gap:1rem}.process-section{grid-template-columns:1fr}.process-steps{gap:.35rem}.step{min-width:4rem;padding:.5rem .75rem}}
-</style>
