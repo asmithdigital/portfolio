@@ -6,7 +6,9 @@ import CaseStudyNav from '../../components/CaseStudyNav.astro';
 import journeyMap1 from '../../assets/images/journey-map-1.png';
 import journeyMap2 from '../../assets/images/journey-map-2.png';
 import raaJourney from '../../assets/images/raa-journey.png';
-import raaPersona from '../../assets/images/raa-persona.png';
+import raaPersona1 from '../../assets/images/raa-persona.png';
+import raaPersona2 from '../../assets/images/detailed-donald.png';
+import raaPersona3 from '../../assets/images/quick-quote-quinn.png';
 import journeyDirectory from '../../assets/images/raa-journey-directory.png';
 ---
 <Layout title="Journey Mapping | Andrew Smith" description="Journey mapping as a practice of shared visibility — connecting analytics, research, and team knowledge into a single reference that keeps decisions grounded in evidence.">
@@ -83,6 +85,23 @@ import journeyDirectory from '../../assets/images/raa-journey-directory.png';
       <section class="supporting-image-section">
         <Image class="supporting-image" src={raaPersona} alt="User persona with background, travel goals, research behaviour, likes, dislikes, and device usage" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
       </section>
+
+      <div class="image-scroll-track-wrap">
+        <div class="image-scroll-track">
+          <figure class="scroll-fig">
+            <Image class="scroll-img" src={raaPersona1} alt="RAA member persona showing background, travel goals, research behaviour, and device usage" loading="lazy" decoding="async" widths={[420,600]} sizes="420px"/>
+            <figcaption>Member persona — grounded in research and connected to analytics showing where members drop off in the experience</figcaption>
+          </figure>
+          <figure class="scroll-fig">
+            <Image class="scroll-img" src={raaPersona3} alt="Quick Quote Quinn persona showing goals, needs, pain points and expectations across the quote journey" loading="lazy" decoding="async" widths={[420,600]} sizes="420px"/>
+            <figcaption>Quick Quote Quinn — wants a fast competitive quote without jargon. Will compare insurers but trusts RAA. Drops off if questions are too many or too complex.</figcaption>
+          </figure>
+          <figure class="scroll-fig">
+            <Image class="scroll-img" src={raaPersona2} alt="Detailed Donald persona showing goals, needs, pain points and expectations for a confident considered purchase" loading="lazy" decoding="async" widths={[420,600]} sizes="420px"/>
+            <figcaption>Detailed Donald — confident but cautious. Wants clear cover inclusions, easy access to PDS, and painless member pricing. Needs help content for complex parts without it getting in the way.</figcaption>
+          </figure>
+        </div>
+      </div>
 
       <CaseStudyNav />
     </main>
