@@ -121,13 +121,11 @@ import orchestration from '../../assets/images/claude-orchestration-layer-diagra
           <p>Wireframes before high fidelity. Usability testing before build. The <a href="/portfolio/work/design-systems">design system</a> handles the repeatable patterns so testing time focuses on the genuinely new interactions — the decisions that have not been made before and carry the most risk if they are wrong.</p>
           <p>Finished designs include accessibility guidance, content notes, and edge case handling alongside the visual design. Engineers have what they need to build without interpretation. AI assists with spec generation and component documentation, reducing the manual overhead that would otherwise compete with design and testing time.</p>
         </div>
-        <div class="process-scroll-wrap">
-          <div class="process-scroll-track">
-            <Image class="process-scroll-img" src={myAccount} alt="Shipped product — authenticated member portal" loading="lazy" decoding="async" widths={[280,420]} sizes="280px"/>
-            <Image class="process-scroll-img" src={usertesting} alt="UserTesting session showing participant screen with tagged transcript" loading="lazy" decoding="async" widths={[280,420]} sizes="280px"/>
-            <Image class="process-scroll-img" src={travelWireframes} alt="Travel booking wireframes showing search, detail, payment, and confirmation screens" loading="lazy" decoding="async" widths={[280,420]} sizes="280px"/>
-            <Image class="process-scroll-img" src={mobileAppFlows} alt="Figma mobile app prototype flow showing RAA logbook screens" loading="lazy" decoding="async" widths={[280,420]} sizes="280px"/>
-          </div>
+        <div class="process-images">
+          <Image class="process-img" src={myAccount} alt="Shipped product — authenticated member portal" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:1200px) 30vw, 480px"/>
+          <Image class="process-img" src={usertesting} alt="UserTesting session showing participant screen with tagged transcript" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:1200px) 30vw, 480px"/>
+          <Image class="process-img" src={travelWireframes} alt="Travel booking wireframes showing search, detail, payment, and confirmation screens" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:1200px) 30vw, 480px"/>
+          <Image class="process-img" src={mobileAppFlows} alt="Figma mobile app prototype flow showing RAA logbook screens" loading="lazy" decoding="async" widths={[480,720]} sizes="(max-width:1200px) 30vw, 480px"/>
         </div>
       </section>
 
@@ -183,13 +181,13 @@ h1,h2{margin:0;font-weight:800;letter-spacing:-.05em;color:var(--foreground)}
 .hero-text{font-size:1.08rem;line-height:1.7;margin:0 0 .5rem;max-width:42rem}
 .hero-subtext{font-size:1.05rem;line-height:1.65;color:var(--muted-foreground);font-style:italic;margin:.25rem 0 0;max-width:42rem}
 .case-hero{padding:5rem 0 2rem}
-.process-overview{padding:2rem 0 3rem;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.process-overview{padding:4rem 0 4rem;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 .process-steps{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem}
 .step{display:flex;flex-direction:column;align-items:center;gap:.25rem;padding:.75rem 1rem;border-radius:.5rem;background:var(--muted);min-width:5rem;text-align:center}
 .step-num{font-family:var(--font-mono);font-size:.7rem;font-weight:600;color:var(--muted-foreground)}
 .step-label{font-size:.85rem;font-weight:700}
 .step-arrow{color:var(--muted-foreground);font-size:1.2rem}
-.process-section{display:grid;grid-template-columns:42rem minmax(0,1fr);gap:3rem;padding:3rem 0;border-bottom:1px solid var(--border);align-items:start}
+.process-section{display:grid;grid-template-columns:42rem minmax(0,1fr);gap:3rem;padding:6rem 0;border-bottom:1px solid var(--border);align-items:start}
 .process-label{max-width:100%}
 .process-label h2{font-size:1.3rem;margin:.5rem 0;letter-spacing:-.02em}
 .process-label p{font-size:.96rem;line-height:1.65;color:var(--muted-foreground);margin:.75rem 0 0}
