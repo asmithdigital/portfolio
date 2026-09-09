@@ -1,0 +1,393 @@
+---
+// Hidden course notes page
+// Access at /portfolio/work/designing-product-interaction
+// Not linked from the site — personal reference only
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Designing Product Interaction — Notes</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:15px;line-height:1.6;color:#1a1a1a;background:#f8f7f4}
+.layout{display:grid;grid-template-columns:240px 1fr;min-height:100vh}
+.sidebar{background:#1a1a1a;color:#e0ddd8;padding:2rem 1.5rem;position:sticky;top:0;height:100vh;overflow-y:auto}
+.sidebar h1{font-size:.9rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#fff;margin-bottom:.25rem}
+.sidebar .course-meta{font-size:.78rem;color:#666;margin-bottom:2rem}
+.sidebar nav a{display:block;padding:.4rem .75rem;border-radius:.4rem;color:#b0ada8;text-decoration:none;font-size:.83rem;margin-bottom:.1rem;transition:background .15s,color .15s}
+.sidebar nav a:hover,.sidebar nav a.active{background:#333;color:#fff}
+.nav-section{font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#555;margin:1.25rem 0 .4rem .75rem}
+.main{padding:3rem 4rem;max-width:800px}
+.page-header{margin-bottom:3rem}
+.page-header h1{font-size:2rem;font-weight:700;letter-spacing:-.03em;margin-bottom:.5rem}
+.page-header p{color:#666;font-size:.9rem}
+.section{padding:3rem 0;border-top:1px solid #e0ddd8}
+.section:first-of-type{border-top:none}
+.lesson{margin-bottom:2.5rem}
+.lesson h3{font-size:1rem;font-weight:700;margin-bottom:.5rem;color:#1a1a1a}
+.lesson p{color:#444;margin-bottom:.75rem;max-width:560px;font-size:.93rem}
+.lesson ul{margin:.5rem 0 .75rem 1.25rem;color:#444;font-size:.93rem}
+.lesson ul li{margin-bottom:.3rem}
+.placeholder{background:#e8e5e0;border-radius:.75rem;display:flex;align-items:center;justify-content:center;margin:1rem 0;border:2px dashed #c8c5c0}
+.placeholder.sm{height:180px}
+.placeholder.md{height:240px}
+.placeholder.lg{height:320px}
+.placeholder p{color:#999;font-size:.82rem;text-align:center;padding:1rem}
+.placeholder-label{font-size:.7rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#aaa;margin-bottom:.35rem}
+.scroll-placeholder{display:flex;gap:1rem;overflow-x:auto;padding:.5rem 0 1rem;margin:1rem 0}
+.scroll-placeholder .item{flex-shrink:0;width:300px;background:#e8e5e0;border-radius:.75rem;height:200px;display:flex;align-items:center;justify-content:center;border:2px dashed #c8c5c0}
+.scroll-placeholder .item p{color:#999;font-size:.78rem;text-align:center;padding:.75rem}
+.principle{background:#fff;border:1px solid #e0ddd8;border-radius:.75rem;padding:1rem 1.25rem;margin:.5rem 0;display:grid;grid-template-columns:140px 1fr;gap:1rem;align-items:start}
+.principle .name{font-weight:700;font-size:.9rem;color:#1a1a1a}
+.principle .desc{font-size:.88rem;color:#555;line-height:1.5}
+.section-label{font-family:monospace;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#888;margin-bottom:.75rem;display:block}
+.section-heading{font-size:1.3rem;font-weight:700;margin-bottom:.75rem;letter-spacing:-.02em}
+.how-to-add{background:#f0f8f0;border:1px solid #a0d0a0;border-radius:.5rem;padding:.75rem 1rem;font-size:.82rem;color:#2a4a2a;margin-top:.75rem}
+.how-to-add code{background:#d0ead0;padding:.1rem .3rem;border-radius:.2rem;font-family:monospace;font-size:.78rem}
+</style>
+</head>
+<body>
+<div class="layout">
+<div class="sidebar">
+  <h1>Course notes</h1>
+  <div class="course-meta">Designing Product Interaction<br>Diane Cronenwett — LinkedIn Learning<br>57 min · Released April 2025</div>
+  <nav>
+    <div class="nav-section">Section 1</div>
+    <a href="#s1">Introduction to Design Thinking</a>
+    <div class="nav-section">Section 2</div>
+    <a href="#s2">Product Definition and Frameworks</a>
+    <div class="nav-section">Section 3</div>
+    <a href="#s3">Uncovering Business Problems</a>
+    <div class="nav-section">Section 4</div>
+    <a href="#s4">Usability and Design Paradigms</a>
+    <div class="nav-section">Section 5</div>
+    <a href="#s5">UI Design and Prototyping</a>
+    <div class="nav-section">Key principles</div>
+    <a href="#principles">Psychology principles</a>
+    <a href="#ui-fundamentals">UI fundamentals</a>
+  </nav>
+</div>
+
+<div class="main">
+<div class="page-header">
+  <h1>Designing Product Interaction</h1>
+  <p>Personal course notes — not linked from the portfolio. Add screenshots as you go.</p>
+</div>
+
+<div class="section" id="s1">
+  <span class="section-label">Section 1</span>
+  <h2 class="section-heading">Introduction to Design Thinking</h2>
+
+  <div class="lesson">
+    <h3>Design thinking for problem solving</h3>
+    <p>Five stages from the Stanford d.school: empathise, define, ideate, prototype, test. Humans are at the centre. Problem statements have four parts: the problem, the persona, the outcome, and how to measure it. No solutions proposed in the problem statement — the process leads to conclusions without assumptions.</p>
+    <ul>
+      <li>Iterative — repeat as many times as needed</li>
+      <li>Applies to any problem involving humans, not just software</li>
+      <li>Problem statement format: problem + persona + outcome + measurement</li>
+    </ul>
+    <p class="placeholder-label">Screenshot placeholder — design thinking diagram</p>
+    <div class="placeholder md"><p>Add screenshot of the five-stage design thinking diagram here<br><br>Filename suggestion: design-thinking-five-stages.png</p></div>
+    <div class="how-to-add">To add: <code>mv ~/Desktop/design-thinking-five-stages.png ~/Documents/Code/portfolio/src/assets/images/</code> then import and use <code>&lt;Image class="full-image" src={...}&gt;</code></div>
+  </div>
+
+  <div class="lesson">
+    <h3>Case study: SaaS product</h3>
+    <p>Course uses an HR consultancy building a SaaS tool as the running example. Starts with an ambiguous brief — no clear direction. Design thinking is the tool for navigating from vague brief to product direction.</p>
+    <p>Key point: ambiguous problems are normal in product development. Design thinking connects user behaviour to product experience.</p>
+  </div>
+</div>
+
+<div class="section" id="s2">
+  <span class="section-label">Section 2</span>
+  <h2 class="section-heading">Product Definition, Ideation, and Frameworks</h2>
+
+  <div class="lesson">
+    <h3>Design thinking for product development</h3>
+    <p>Design fits in the first three phases of product delivery: discovery, define, design. Design works ahead of development — sometimes by a few sprints. Poor planning causes usability issues, poor metrics, and limited scalability.</p>
+    <p>In agile: design requirements established, design created, tested with users, then handed off as epics broken into stories.</p>
+    <p class="placeholder-label">Screenshot placeholder — design in agile diagram</p>
+    <div class="placeholder sm"><p>Add screenshot of design process in agile delivery here</p></div>
+  </div>
+
+  <div class="lesson">
+    <h3>Understand customer behaviors and goals</h3>
+    <p>Qualitative + quantitative data together give the full picture. Analytics shows what is happening. Interviews reveal why. Neither is enough alone.</p>
+    <ul>
+      <li>Survey first to segment roles</li>
+      <li>Interviews with representative sample from each role</li>
+      <li>Contextual inquiry to observe what people forget to articulate</li>
+      <li>Spend 20 minutes after each interview capturing key takeaways</li>
+    </ul>
+  </div>
+
+  <div class="lesson">
+    <h3>Identify and synthesize customer insights</h3>
+    <p>Affinity mapping: one insight per sticky note, cluster into themes, let themes emerge from the data rather than imposing them upfront. Physical or digital both work — Miro, FigJam, whiteboard.</p>
+    <p>If themes are not clear, go back and interview more people. Synthesis reveals research gaps as much as patterns.</p>
+    <p class="placeholder-label">Screenshot placeholder — affinity mapping example</p>
+    <div class="placeholder sm"><p>Add screenshot of affinity mapping from the course here</p></div>
+  </div>
+
+  <div class="lesson">
+    <h3>Develop customer personas</h3>
+    <p>Personas are research-based illustrative models. Standard components: name, occupation, goals, tasks, pain points, opportunities. Provisional personas work without research — best guesses supplemented by data.</p>
+    <p>Primary use: alignment. Gives the whole team a shared reference when making design and product decisions.</p>
+    <p class="placeholder-label">Screenshot placeholder — persona example</p>
+    <div class="placeholder sm"><p>Add screenshot of persona template from the course here</p></div>
+  </div>
+
+  <div class="lesson">
+    <h3>Visualize customer journey maps</h3>
+    <p>Journey maps capture: phases, activities, pain points, emotions, quotes, opportunities, metrics. Primary use: identifying gaps and pain points. Research-based, can be built as sticky notes or in Miro.</p>
+    <p>If information is missing, go back and talk to users. Journey maps can start as a team exercise and be made more visual over time.</p>
+    <p class="placeholder-label">Screenshot placeholder — journey map example</p>
+    <div class="placeholder md"><p>Add screenshot of journey map from the course here</p></div>
+  </div>
+</div>
+
+<div class="section" id="s3">
+  <span class="section-label">Section 3</span>
+  <h2 class="section-heading">Uncovering and Identifying Business Problems</h2>
+
+  <div class="lesson">
+    <h3>User centered product requirements</h3>
+    <p>Requirements derived from user research rather than business assumptions. User-centred approach uses iterative feedback from real users. Traditional project management is business-first and linear. User-centred requirements ensure people will actually want to use the product.</p>
+    <p>The research-to-requirement connection is direct: the recruiter's pain point about feedback coordination directly generates the requirement for feedback templates and reminders.</p>
+  </div>
+
+  <div class="lesson">
+    <h3>Ideation for user experience</h3>
+    <p>Divergent process first — generate as many ideas as possible without constraints, time-boxed to 15-20 minutes. Low fidelity sketches to move fast. Group ideation with dot voting. Then converge — pick strongest ideas and add detail.</p>
+    <p>Key principle: do not constrain yourself too early. Solutions emerge from challenging assumptions.</p>
+    <p class="placeholder-label">Screenshot placeholder — ideation sketches</p>
+    <div class="scroll-placeholder">
+      <div class="item"><p>Sketch 1<br>Add ideation sketches from course</p></div>
+      <div class="item"><p>Sketch 2<br>Dashboard layout ideation</p></div>
+      <div class="item"><p>Sketch 3<br>Alternative layout concept</p></div>
+    </div>
+  </div>
+
+  <div class="lesson">
+    <h3>Plan user flows</h3>
+    <p>User flows map every decision point and connection before screens are designed. Boxes and arrows. Shows how pages connect, what decisions users face, how personas interact with the same system.</p>
+    <p>Distinction from site maps: flows show decisions and logic. Site maps show pages and views without decisions. Both are needed.</p>
+    <p class="placeholder-label">Screenshot placeholder — user flow diagram</p>
+    <div class="placeholder sm"><p>Add screenshot of user flow from the course here</p></div>
+  </div>
+
+  <div class="lesson">
+    <h3>Gathering feedback</h3>
+    <p>Stay low fidelity as long as possible so feedback shapes the design before you invest in it. Sketches are enough to get meaningful reactions. Ask open-ended questions, avoid leading questions, let participants sketch their own ideas if the design is wrong.</p>
+    <p>Key: you just need enough to get reactions. Fail fast is the mechanism — get wrong answers early when they are cheap to fix.</p>
+  </div>
+</div>
+
+<div class="section" id="s4">
+  <span class="section-label">Section 4</span>
+  <h2 class="section-heading">Usability and Design Paradigms</h2>
+
+  <div class="lesson">
+    <h3>Create an information architecture</h3>
+    <p>Information architecture: how people find and move through a product — global navigation, page-level navigation, search, site maps. A good IA is invisible. When it works, users just move through the product without thinking about the structure.</p>
+    <p>Global navigation is accessible everywhere. Page-level navigation organises content within a defined area. Site map tracks all pages and views — different from a user flow.</p>
+    <p class="placeholder-label">Screenshot placeholder — IA diagram</p>
+    <div class="placeholder sm"><p>Add screenshot of site map / IA diagram from the course here</p></div>
+  </div>
+
+  <div class="lesson">
+    <h3>Cognitive load and Gestalt principles</h3>
+    <p>Cognitive load: the mental effort required to process a page. Too many steps, too much content, poor layout all increase cognitive load. Gestalt principles are how the brain naturally organises visual information — design with them, not against them.</p>
+
+    <div class="principle">
+      <span class="name">Proximity</span>
+      <span class="desc">Elements close together are perceived as related. White space is the active use of this — creates grouping without visible borders.</span>
+    </div>
+    <div class="principle">
+      <span class="name">Similarity</span>
+      <span class="desc">Elements that look alike are perceived as functioning alike. Consistent colour, shape, size signal relationships.</span>
+    </div>
+    <div class="principle">
+      <span class="name">Closure</span>
+      <span class="desc">The brain completes incomplete shapes. A line graph does not need to be fully solid to read as a continuous line.</span>
+    </div>
+    <div class="principle">
+      <span class="name">Enclosure</span>
+      <span class="desc">A bordered or bounded area is perceived as a group. Cards and containers work because of this.</span>
+    </div>
+
+    <p class="placeholder-label" style="margin-top:1rem">Screenshot placeholder — Gestalt principles diagram</p>
+    <div class="placeholder md"><p>Add screenshot of Gestalt principles diagrams from the course here<br><br>The course shows each principle visually — proximity, similarity, closure, enclosure</p></div>
+  </div>
+
+  <div class="lesson">
+    <h3>Usability factors in the user experience</h3>
+    <p>Usability: ease and effectiveness of achieving goals. Four factors:</p>
+    <div class="principle">
+      <span class="name">Design patterns</span>
+      <span class="desc">Repeatable solutions to common problems. Reduce cognitive load because users already know them. Must suit the specific context.</span>
+    </div>
+    <div class="principle">
+      <span class="name">Information architecture</span>
+      <span class="desc">Content labelling, page structure, organisation. Poor IA makes things unfindable regardless of visual design quality.</span>
+    </div>
+    <div class="principle">
+      <span class="name">Flow</span>
+      <span class="desc">Logical sequence of steps. If order does not match user expectations, usability suffers even with well-designed individual screens.</span>
+    </div>
+    <div class="principle">
+      <span class="name">Visual design</span>
+      <span class="desc">Colour, typography, iconography, layout. Affects both desirability and usability. How something looks influences whether it feels usable.</span>
+    </div>
+    <p style="margin-top:.75rem;font-size:.88rem;color:#666">Measurement methods: heuristic evaluations, surveys, formal usability testing.</p>
+  </div>
+
+  <div class="lesson">
+    <h3>Fitts's law, affordance, and guiding principles</h3>
+    <p><strong>Fitts's Law:</strong> time to reach a target depends on its size and distance. Interactive elements must be large enough to tap or click accurately — especially on mobile.</p>
+
+    <div class="principle">
+      <span class="name">Affordance</span>
+      <span class="desc">Shape or appearance suggests how something should be used. Shadows and gradients on buttons signal they are pressable.</span>
+    </div>
+    <div class="principle">
+      <span class="name">Consistency</span>
+      <span class="desc">Same patterns, fonts, colours, iconography throughout. Users learn the system once and apply that knowledge everywhere. Core argument for design systems.</span>
+    </div>
+    <div class="principle">
+      <span class="name">Mental models</span>
+      <span class="desc">Users bring existing expectations from other products. The shopping cart is the classic example. Match existing mental models for immediate intuitiveness.</span>
+    </div>
+    <div class="principle">
+      <span class="name">Feedback</span>
+      <span class="desc">System responds to every action — loading indicators, hover states, haptic responses. Users need to know their action was received.</span>
+    </div>
+    <div class="principle">
+      <span class="name">Error prevention</span>
+      <span class="desc">Design so errors are unlikely. When they occur, users can reverse them without damage.</span>
+    </div>
+
+    <p class="placeholder-label" style="margin-top:1rem">Screenshot placeholder — Fitts's law diagram</p>
+    <div class="placeholder sm"><p>Add screenshot of Fitts's law and affordance diagrams from the course here</p></div>
+  </div>
+</div>
+
+<div class="section" id="s5">
+  <span class="section-label">Section 5</span>
+  <h2 class="section-heading">User Interface Design and Prototyping</h2>
+
+  <div class="lesson">
+    <h3>Fundamentals of user interface design</h3>
+    <p>Visual hierarchy established through position, size, weight, and colour. Important things go first, top to bottom. Without hierarchy, users cannot tell what to look at first.</p>
+    <div class="principle">
+      <span class="name">Typography</span>
+      <span class="desc">Size and weight create reading order. Same weight across a page makes everything equally important — nothing stands out.</span>
+    </div>
+    <div class="principle">
+      <span class="name">Colour</span>
+      <span class="desc">Use to draw focus or de-emphasise. Never colour alone for meaning — support with text and icons. Too much colour increases cognitive load.</span>
+    </div>
+    <div class="principle">
+      <span class="name">Layout and grid</span>
+      <span class="desc">12-column grid is the standard for web. White space at grid level separates columns. White space within modules separates elements inside them.</span>
+    </div>
+    <div class="principle">
+      <span class="name">White space</span>
+      <span class="desc">Not empty space — active design element. Reinforces proximity and grouping. Makes relationships between elements legible.</span>
+    </div>
+
+    <p class="placeholder-label" style="margin-top:1rem">Screenshot placeholder — visual hierarchy examples</p>
+    <div class="scroll-placeholder">
+      <div class="item"><p>Position hierarchy example</p></div>
+      <div class="item"><p>Size hierarchy example</p></div>
+      <div class="item"><p>Typography hierarchy example</p></div>
+      <div class="item"><p>Colour hierarchy example</p></div>
+    </div>
+  </div>
+
+  <div class="lesson">
+    <h3>User interface components and elements</h3>
+    <p>UI components — buttons, forms, radio buttons, sliders, drawers — are the building blocks of interfaces. Design systems collect these with documentation covering what they are, when to use them, when not to, error states, anatomy, and context guidance.</p>
+    <p>Components allow code reuse and visual consistency simultaneously. A Figma component maps to a coded component in engineering — shared source of truth.</p>
+    <p class="placeholder-label">Screenshot placeholder — design system component example</p>
+    <div class="placeholder sm"><p>Add screenshot of Microsoft Fluent 2 component documentation from the course here</p></div>
+  </div>
+
+  <div class="lesson">
+    <h3>Low fidelity design with Figma</h3>
+    <p>Paper Wireframe Kit from Figma Community — intentionally low fidelity so people are not distracted by visual elements. Work loosely, not pixel-perfect. Goal at this stage: get the flow and navigation structure right before layout decisions are made.</p>
+    <p>Navigation structure first, content second. Start with a community wireframe kit so you are not building from scratch at the low fidelity stage.</p>
+    <p class="placeholder-label">Screenshot placeholder — low fidelity wireframe</p>
+    <div class="placeholder md"><p>Add screenshot of the paper wireframe kit in Figma from the course here</p></div>
+  </div>
+
+  <div class="lesson">
+    <h3>Interactive prototyping with Figma</h3>
+    <p>Connect screens with triggers and animations. Smart Animate: detects matching layers between frames, animates the differences — reinforces the feedback principle. The user sees that their action caused a reaction.</p>
+    <p>Four screens with a few connected interactions is enough to test with users. A prototype does not need to be fully built to be testable.</p>
+    <p class="placeholder-label">Screenshot placeholder — Figma prototype connections</p>
+    <div class="placeholder sm"><p>Add screenshot of Figma prototype mode showing screen connections here</p></div>
+  </div>
+</div>
+
+<div class="section" id="principles">
+  <span class="section-label">Quick reference</span>
+  <h2 class="section-heading">Psychology principles summary</h2>
+
+  <div class="principle"><span class="name">Hick's Law</span><span class="desc">More choices = longer to decide. Reduce options at key decision points.</span></div>
+  <div class="principle"><span class="name">Fitts's Law</span><span class="desc">Target acquisition time depends on size and distance. Make interactive elements large enough to hit.</span></div>
+  <div class="principle"><span class="name">Miller's Law</span><span class="desc">Working memory holds 7 ± 2 items. Chunk information into groups of 5–9.</span></div>
+  <div class="principle"><span class="name">Jakob's Law</span><span class="desc">Users spend most time on other sites. Design to meet existing expectations.</span></div>
+  <div class="principle"><span class="name">Cognitive Load</span><span class="desc">Mental effort has a limit. Good design reduces extraneous load so users focus on the actual task.</span></div>
+  <div class="principle"><span class="name">Proximity</span><span class="desc">Elements close together are perceived as related. White space creates grouping without borders.</span></div>
+  <div class="principle"><span class="name">Similarity</span><span class="desc">Elements that look alike are perceived as functioning alike.</span></div>
+  <div class="principle"><span class="name">Closure</span><span class="desc">The brain completes incomplete shapes.</span></div>
+  <div class="principle"><span class="name">Enclosure</span><span class="desc">Bounded areas are perceived as groups. Cards work because of this.</span></div>
+  <div class="principle"><span class="name">Von Restorff Effect</span><span class="desc">The different element is most remembered. Primary CTA buttons use a different colour for this reason.</span></div>
+  <div class="principle"><span class="name">Zeigarnik Effect</span><span class="desc">Incomplete tasks are remembered better. Progress bars create tension that motivates completion.</span></div>
+  <div class="principle"><span class="name">Peak-End Rule</span><span class="desc">Experiences are judged by their peak and their end. The confirmation screen matters as much as the form.</span></div>
+  <div class="principle"><span class="name">Affordance</span><span class="desc">Appearance suggests function. Shadows and gradients on buttons signal they are pressable.</span></div>
+  <div class="principle"><span class="name">Aesthetic-Usability</span><span class="desc">Attractive interfaces are perceived as easier to use, even when they are not.</span></div>
+</div>
+
+<div class="section" id="ui-fundamentals">
+  <span class="section-label">Quick reference</span>
+  <h2 class="section-heading">UI fundamentals summary</h2>
+  <div class="principle"><span class="name">Visual hierarchy</span><span class="desc">Position, size, weight, colour. Important things go first. Without hierarchy, nothing stands out.</span></div>
+  <div class="principle"><span class="name">Typography</span><span class="desc">Size and weight create reading order. Bold and size differences create the sequence.</span></div>
+  <div class="principle"><span class="name">Colour</span><span class="desc">Draw focus or de-emphasise. Never colour alone. Support with text and icons for accessibility.</span></div>
+  <div class="principle"><span class="name">Grid</span><span class="desc">12-column grid standard for web. Align elements to the grid. White space separates columns.</span></div>
+  <div class="principle"><span class="name">White space</span><span class="desc">Active design element, not empty space. Reinforces grouping, reduces cognitive load.</span></div>
+  <div class="principle"><span class="name">Design patterns</span><span class="desc">Repeatable solutions to common problems. Reduce cognitive load through familiarity.</span></div>
+  <div class="principle"><span class="name">Consistency</span><span class="desc">Same patterns throughout. Users learn once and apply everywhere. Core argument for design systems.</span></div>
+  <div class="principle"><span class="name">Feedback</span><span class="desc">Every action gets a response — loading states, hover states, confirmations.</span></div>
+</div>
+
+</div>
+</div>
+
+<script>
+const links = document.querySelectorAll('.sidebar nav a');
+const sections = document.querySelectorAll('.section[id]');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      links.forEach(l => l.classList.remove('active'));
+      const link = document.querySelector(`.sidebar nav a[href="#${e.target.id}"]`);
+      if (link) link.classList.add('active');
+    }
+  });
+}, { rootMargin: '-10% 0px -75% 0px' });
+sections.forEach(s => observer.observe(s));
+links.forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const id = link.getAttribute('href').slice(1);
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+</script>
+</body>
+</html>
