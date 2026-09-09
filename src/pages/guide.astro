@@ -1,6 +1,5 @@
 ---
-// Hidden site guide — access at /portfolio/guide
-// Not linked from anywhere in the site
+export const prerender = true;
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -48,7 +47,6 @@ pre code{background:none;padding:0;color:inherit}
     <div class="nav-section">Page types</div>
     <a href="#homepage">Homepage cards</a>
     <a href="#case-study">Case study pages</a>
-    <a href="#about">About page</a>
     <div class="nav-section">Layout patterns</div>
     <a href="#content-section">Content section</a>
     <a href="#scroll-gallery">Scroll gallery</a>
@@ -68,119 +66,76 @@ pre code{background:none;padding:0;color:inherit}
     <a href="#terminal">Terminal commands</a>
   </nav>
 </div>
-
 <div class="main">
-
 <h2 id="structure">Folder structure</h2>
 <p>Everything that matters lives in <code>src/</code>.</p>
 <pre><code>portfolio/
 ├── src/
-│   ├── assets/
-│   │   └── images/           ← ALL images go here
+│   ├── assets/images/        ← ALL images go here
 │   ├── components/
-│   │   ├── SiteHeader.astro  ← top navigation
-│   │   └── CaseStudyNav.astro ← prev/next links
+│   │   ├── SiteHeader.astro
+│   │   └── CaseStudyNav.astro
 │   ├── data/
 │   │   └── projects.ts       ← homepage card data
-│   ├── layouts/
-│   │   └── Layout.astro      ← HTML wrapper for every page
 │   ├── pages/
 │   │   ├── index.astro       ← homepage
-│   │   ├── about.astro       ← about page
-│   │   ├── guide.astro       ← this guide (hidden)
-│   │   └── work/
-│   │       ├── ui-design.astro
-│   │       ├── workshops.astro
-│   │       ├── ux-process.astro
-│   │       ├── journey-mapping.astro
-│   │       ├── design-systems.astro
-│   │       ├── research-benchmarking.astro
-│   │       └── ai-tooling.astro
+│   │   ├── about.astro
+│   │   ├── guide.astro       ← this page (hidden)
+│   │   └── work/             ← case study pages
 │   └── styles/
-│       └── case-study.css    ← shared styles for all case study pages
-├── public/                   ← static files (favicon etc)
-└── astro.config.mjs          ← site config</code></pre>
+│       └── case-study.css    ← shared styles</code></pre>
 
 <h2 id="deploy">How to deploy</h2>
-<p>Make your changes, then run this in Terminal:</p>
-<pre><code>cd ~/Documents/Code/portfolio && git add -A && git commit -m "describe what you changed" && git push origin main</code></pre>
-<p>GitHub Actions builds and deploys automatically. Live in about 2 minutes. Check progress at github.com/asmithdigital/portfolio under the Actions tab.</p>
-
-<div class="warn"><strong>Important:</strong> Two images only exist on your Desktop, not in the repo. Copy them before any deploy:<br><br>
+<p>Make changes, then run:</p>
+<pre><code>cd ~/Documents/Code/portfolio && git add -A && git commit -m "describe change" && git push origin main</code></pre>
+<div class="warn"><strong>Before every deploy</strong> — copy persona images if they are on your Desktop:<br><br>
 <code>cp ~/Desktop/quick-quote-quinn.png ~/Desktop/detailed-donald.png ~/Documents/Code/portfolio/src/assets/images/</code></div>
 
 <h2 id="images">Adding images</h2>
-<h3>Step 1 — Move the image</h3>
+<h3>Step 1 — Move the file</h3>
 <pre><code>mv ~/Desktop/my-image.png ~/Documents/Code/portfolio/src/assets/images/</code></pre>
-<p>Use lowercase with hyphens: <code>my-image.png</code> not <code>My Image.png</code></p>
-
-<h3>Step 2 — Import it in the page file</h3>
-<p>Open the <code>.astro</code> file. Between the <code>---</code> lines at the top, add:</p>
+<h3>Step 2 — Import in the page file</h3>
 <pre><code>import myImage from '../../assets/images/my-image.png';</code></pre>
-
-<h3>Step 3 — Use it in HTML</h3>
+<h3>Step 3 — Use in HTML</h3>
 <pre><code>&lt;Image class="aside-img" src={myImage} alt="Describe the image"
   loading="lazy" decoding="async"
   widths={[480,720]} sizes="(max-width:1200px) 30vw, 480px"/&gt;</code></pre>
-
 <h3>Step 4 — Push</h3>
 <pre><code>cd ~/Documents/Code/portfolio && git add -A && git commit -m "Add image" && git push origin main</code></pre>
 
 <h2 id="homepage">Homepage cards</h2>
-<p>Cards are defined in <code>src/data/projects.ts</code>. Each card object has these fields:</p>
+<p>Defined in <code>src/data/projects.ts</code>. Each object has:</p>
 <pre><code>{
-  name: 'UI Design',               // short label on card
-  title: 'UI design across...',    // larger heading
-  description: 'End-to-end...',    // paragraph text
-  background: 'lime',              // lime | cyan | lavender | mint
-  href: '/portfolio/work/ui-design', // page the card links to
-  image: raaWebsiteImage,          // imported image variable
+  name: 'UI Design',
+  title: 'UI design across...',
+  description: 'One or two sentences.',
+  background: 'lime',  // lime | cyan | lavender | mint
+  href: '/portfolio/work/ui-design',
+  image: myImage,
   alt: 'Describe the image',
 }</code></pre>
-<div class="tip">Card order in the array = order on the homepage. Move entries up or down to reorder.</div>
+<div class="tip">Card order in the array = order on the homepage.</div>
 
 <h2 id="case-study">Case study pages</h2>
-<p>Every case study page follows the same structure. Copy an existing page and edit it:</p>
+<p>Copy an existing page and edit it. Every page starts with:</p>
 <pre><code>---
 import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
 import CaseStudyNav from '../../components/CaseStudyNav.astro';
 import '../../styles/case-study.css';
-
 import myImage from '../../assets/images/my-image.png';
----
-&lt;Layout title="Page Title | Andrew Smith" description="..."&gt;
-  &lt;a class="skip-link" href="#main-content"&gt;Skip to content&lt;/a&gt;
-  &lt;div class="case-page"&gt;
-    &lt;SiteHeader /&gt;
-    &lt;main id="main-content"&gt;
-
-      &lt;section class="case-hero"&gt;
-        &lt;p class="eyebrow"&gt;...breadcrumb...&lt;/p&gt;
-        &lt;h1 class="display-title"&gt;Page heading&lt;/h1&gt;
-        &lt;p class="hero-text"&gt;Intro paragraph&lt;/p&gt;
-      &lt;/section&gt;
-
-      &lt;!-- add content sections here --&gt;
-
-      &lt;CaseStudyNav /&gt;
-    &lt;/main&gt;
-  &lt;/div&gt;
-&lt;/Layout&gt;</code></pre>
-
-<h2 id="about">About page</h2>
-<p>At <code>src/pages/about.astro</code>. Edit text directly. Has its own styles at the bottom of the file — does not use <code>case-study.css</code>.</p>
+---</code></pre>
 
 <h2 id="content-section">Layout: Content section</h2>
-<p>Two columns — content left (42rem), image right (fills remaining space). Divider line above.</p>
+<p>Two columns — content left (42rem), image right.</p>
 <div class="pattern-box">
-<div class="label">With image on the right</div>
+<div class="label">With image</div>
 <pre><code>&lt;section class="content-section"&gt;
   &lt;div class="section-content"&gt;
-    &lt;p class="section-kicker"&gt;Small caps label&lt;/p&gt;
-    &lt;h2&gt;Section heading&lt;/h2&gt;
-    &lt;p&gt;Paragraph text.&lt;/p&gt;
+    &lt;p class="section-kicker"&gt;Label&lt;/p&gt;
+    &lt;h2&gt;Heading&lt;/h2&gt;
+    &lt;p&gt;Text here.&lt;/p&gt;
   &lt;/div&gt;
   &lt;div class="section-image"&gt;
     &lt;Image class="aside-img" src={myImage} alt="..."
@@ -190,7 +145,7 @@ import myImage from '../../assets/images/my-image.png';
 &lt;/section&gt;</code></pre>
 </div>
 <div class="pattern-box">
-<div class="label">Text only — no image</div>
+<div class="label">Text only</div>
 <pre><code>&lt;section class="content-section"&gt;
   &lt;div class="section-content"&gt;
     &lt;p class="section-kicker"&gt;Label&lt;/p&gt;
@@ -201,9 +156,8 @@ import myImage from '../../assets/images/my-image.png';
 </div>
 
 <h2 id="scroll-gallery">Layout: Scroll gallery</h2>
-<p>Horizontal scrolling image gallery. Sits below a content-section or on its own.</p>
 <div class="pattern-box">
-<div class="label">Standard size — 380x255px (workshops, process pages)</div>
+<div class="label">Standard — 380x255px</div>
 <pre><code>&lt;div class="scroll-section"&gt;
   &lt;p class="scroll-hint-label"&gt;Scroll to see more &lt;span&gt;→&lt;/span&gt;&lt;/p&gt;
   &lt;div class="image-scroll-track-wrap"&gt;
@@ -213,17 +167,12 @@ import myImage from '../../assets/images/my-image.png';
           loading="lazy" decoding="async" widths={[420,600]} sizes="420px"/&gt;
         &lt;figcaption&gt;Caption&lt;/figcaption&gt;
       &lt;/figure&gt;
-      &lt;figure class="scroll-fig"&gt;
-        &lt;Image class="scroll-img" src={img2} alt="..."
-          loading="lazy" decoding="async" widths={[420,600]} sizes="420px"/&gt;
-        &lt;figcaption&gt;Caption&lt;/figcaption&gt;
-      &lt;/figure&gt;
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
 </div>
 <div class="pattern-box">
-<div class="label">Large size — 560x387px (personas, UI screenshots)</div>
+<div class="label">Large — 560x387px (personas, UI screenshots)</div>
 <pre><code>&lt;figure class="scroll-fig large"&gt;
   &lt;Image class="scroll-img large" src={img} alt="..."
     loading="lazy" decoding="async" widths={[600,900]} sizes="600px"/&gt;
@@ -232,7 +181,6 @@ import myImage from '../../assets/images/my-image.png';
 </div>
 
 <h2 id="full-image">Layout: Full-width image</h2>
-<p>Single large image spanning full content width. Has a border below by default.</p>
 <div class="pattern-box">
 <pre><code>&lt;section class="full-image-section"&gt;
   &lt;Image class="full-image" src={myImage} alt="..."
@@ -243,7 +191,7 @@ import myImage from '../../assets/images/my-image.png';
 <div class="tip">Add <code>no-border</code> to remove the bottom line: <code>class="full-image-section no-border"</code></div>
 
 <h2 id="lead-image">Layout: Lead image</h2>
-<p>Large image at the very top of a page before the first content section. No border below.</p>
+<p>Large image at the very top of a page, no border below.</p>
 <div class="pattern-box">
 <pre><code>&lt;section class="lead-image-section"&gt;
   &lt;Image class="lead-image" src={myImage} alt="..."
@@ -253,157 +201,110 @@ import myImage from '../../assets/images/my-image.png';
 </div>
 
 <h2 id="summary-section">Layout: Summary section</h2>
-<p>Wide text block for an opening narrative. Wider than a content-section. Has border below.</p>
+<p>Wide text block for opening narrative.</p>
 <div class="pattern-box">
 <pre><code>&lt;section class="summary-section"&gt;
   &lt;p class="section-kicker"&gt;Label&lt;/p&gt;
   &lt;h2&gt;Heading&lt;/h2&gt;
   &lt;div class="summary-body"&gt;
-    &lt;p&gt;First paragraph.&lt;/p&gt;
-    &lt;p&gt;Second paragraph. Can include &lt;a href="/portfolio/work/other-page"&gt;links&lt;/a&gt;.&lt;/p&gt;
+    &lt;p&gt;Paragraph.&lt;/p&gt;
   &lt;/div&gt;
 &lt;/section&gt;</code></pre>
 </div>
 
 <h2 id="site-header">Site header</h2>
-<p>Top navigation is in <code>src/components/SiteHeader.astro</code>. Edit nav links there. Every page includes it with <code>&lt;SiteHeader /&gt;</code>.</p>
+<p>Edit nav links in <code>src/components/SiteHeader.astro</code>. Every page uses <code>&lt;SiteHeader /&gt;</code>.</p>
 
 <h2 id="case-nav">Case study nav</h2>
-<p>The prev/next links at the bottom of each case study are in <code>src/components/CaseStudyNav.astro</code>. When you add a new page, add it to the pages array there:</p>
+<p>Add new pages to the array in <code>src/components/CaseStudyNav.astro</code>:</p>
 <pre><code>const pages = [
   { href: '/portfolio/work/ui-design', label: 'UI Design' },
-  { href: '/portfolio/work/workshops', label: 'Workshop Facilitation' },
-  { href: '/portfolio/work/my-new-page', label: 'My New Page' }, // add here
+  { href: '/portfolio/work/my-new-page', label: 'My New Page' },
 ];</code></pre>
 
 <h2 id="shared-css">Shared CSS</h2>
-<p>All shared layout classes are in <code>src/styles/case-study.css</code>. Every case study page imports it:</p>
+<p>All shared layout classes are in <code>src/styles/case-study.css</code>. Import it in every case study page:</p>
 <pre><code>import '../../styles/case-study.css';</code></pre>
-<p>Page-specific styles go in a <code>&lt;style&gt;</code> block at the bottom of that page's file only.</p>
+<p>Page-specific styles go in a <code>&lt;style&gt;</code> block at the bottom of that page only.</p>
 
 <h2 id="new-page">Creating a new page</h2>
-<p>1. Copy an existing page as a starting point:</p>
 <pre><code>cp ~/Documents/Code/portfolio/src/pages/work/workshops.astro \
-   ~/Documents/Code/portfolio/src/pages/work/my-new-page.astro</code></pre>
-<p>2. Edit the imports, title, description, and content in the new file</p>
-<p>3. Add it to <code>CaseStudyNav.astro</code></p>
-<p>4. Add a card for it in <code>src/data/projects.ts</code></p>
-<p>5. Push to GitHub</p>
-<div class="tip">The URL will be <code>/portfolio/work/my-new-page</code> — matching the filename.</div>
+   ~/Documents/Code/portfolio/src/pages/work/new-page.astro</code></pre>
+<p>Then: edit content, add to CaseStudyNav, add card to projects.ts, push.</p>
+<div class="tip">URL = <code>/portfolio/work/new-page</code> matching the filename.</div>
 
 <h2 id="new-card">Adding a homepage card</h2>
 <pre><code>// src/data/projects.ts
+import myImage from '../assets/images/my-banner.png';
 
-// 1. Import the banner image at the top of the file
-import myBannerImage from '../assets/images/my-banner.png';
-
-// 2. Add to the projects array
 {
   name: 'Short name',
-  title: 'Longer card heading here.',
+  title: 'Card heading.',
   description: 'One or two sentences.',
-  background: 'cyan',  // lime | cyan | lavender | mint
-  href: '/portfolio/work/my-new-page',
-  image: myBannerImage,
+  background: 'cyan',
+  href: '/portfolio/work/new-page',
+  image: myImage,
   alt: 'Describe the image',
 },</code></pre>
 
-<h2 id="edit-content">Editing existing content</h2>
+<h2 id="edit-content">Editing content</h2>
 <h3>Change text</h3>
-<p>Open the <code>.astro</code> file, edit text inside <code>&lt;p&gt;</code> and <code>&lt;h2&gt;</code> tags directly.</p>
-<h3>Change a section label</h3>
-<p>Edit text inside <code>&lt;p class="section-kicker"&gt;</code></p>
+<p>Edit text inside <code>&lt;p&gt;</code> and <code>&lt;h2&gt;</code> tags directly in the <code>.astro</code> file.</p>
 <h3>Swap an image</h3>
-<p>Add the new image to <code>src/assets/images/</code>, update the import line at the top of the file. The HTML does not need to change — it references the variable name.</p>
+<p>Add new image to <code>src/assets/images/</code>, update the import line. HTML does not change.</p>
 <h3>Reorder homepage cards</h3>
-<p>Reorder the objects in the <code>projects</code> array in <code>src/data/projects.ts</code>.</p>
-<h3>Add a caption to an image</h3>
-<pre><code>&lt;figure&gt;
-  &lt;Image class="aside-img" src={myImage} alt="..."/&gt;
-  &lt;figcaption&gt;Caption text&lt;/figcaption&gt;
-&lt;/figure&gt;</code></pre>
+<p>Reorder objects in the <code>projects</code> array in <code>src/data/projects.ts</code>.</p>
 
 <h2 id="css-classes">All CSS classes</h2>
 <h4>Page wrapper</h4>
-<p><code>case-page</code> — outer wrapper, sets max width and margins</p>
+<p><code>case-page</code> — outer wrapper</p>
 <h4>Hero</h4>
-<p><code>case-hero</code> — top section with breadcrumb, title, intro</p>
-<p><code>display-title</code> — large h1</p>
-<p><code>hero-text</code> — intro paragraph</p>
-<p><code>hero-subtext</code> — italic supporting line</p>
+<p><code>case-hero</code> · <code>display-title</code> · <code>hero-text</code> · <code>hero-subtext</code></p>
 <h4>Meta strip</h4>
-<p><code>meta-strip</code> — three-column grid (Scope, Role, Tools)</p>
-<p><code>meta-label</code> — small caps label</p>
-<p><code>meta-value</code> — bold value</p>
+<p><code>meta-strip</code> · <code>meta-label</code> · <code>meta-value</code></p>
 <h4>Labels</h4>
 <p><code>section-kicker</code> — small caps label above a heading</p>
 <h4>Content sections</h4>
-<p><code>content-section</code> — two-column: 42rem content left, image right</p>
-<p><code>content-section no-border</code> — no top border</p>
-<p><code>section-content</code> — left column</p>
-<p><code>section-image</code> — right column</p>
-<p><code>aside-img</code> — right-column image</p>
+<p><code>content-section</code> · <code>content-section no-border</code> · <code>section-content</code> · <code>section-image</code> · <code>aside-img</code></p>
 <h4>Full-width images</h4>
-<p><code>full-image-section</code> — wrapper with bottom border</p>
-<p><code>full-image-section no-border</code> — no bottom border</p>
-<p><code>full-image</code> — image class</p>
-<p><code>lead-image-section</code> — hero image at top of page</p>
-<p><code>lead-image</code> — lead image class</p>
+<p><code>full-image-section</code> · <code>full-image-section no-border</code> · <code>full-image</code> · <code>lead-image-section</code> · <code>lead-image</code></p>
 <h4>Scroll galleries</h4>
-<p><code>scroll-section</code> — wrapper</p>
-<p><code>scroll-hint-label</code> — "Scroll to see more →"</p>
-<p><code>image-scroll-track-wrap</code> — overflow container</p>
-<p><code>image-scroll-track</code> — flex row</p>
-<p><code>scroll-fig</code> — figure (380px wide)</p>
-<p><code>scroll-fig large</code> — figure (560px wide)</p>
-<p><code>scroll-img</code> — image (380x255px)</p>
-<p><code>scroll-img large</code> — image (560x387px)</p>
+<p><code>scroll-section</code> · <code>scroll-hint-label</code> · <code>image-scroll-track-wrap</code> · <code>image-scroll-track</code></p>
+<p><code>scroll-fig</code> (380px) · <code>scroll-fig large</code> (560px) · <code>scroll-img</code> · <code>scroll-img large</code></p>
 <h4>Summary</h4>
-<p><code>summary-section</code> — wide text block</p>
-<p><code>summary-body</code> — text inside summary</p>
+<p><code>summary-section</code> · <code>summary-body</code></p>
 
 <h2 id="terminal">Terminal commands</h2>
 <h3>Move image from Desktop</h3>
 <pre><code>mv ~/Desktop/image.png ~/Documents/Code/portfolio/src/assets/images/</code></pre>
 <h3>Move multiple images</h3>
 <pre><code>mv ~/Desktop/*.png ~/Documents/Code/portfolio/src/assets/images/</code></pre>
-<h3>Copy persona images before deploy</h3>
-<pre><code>cp ~/Desktop/quick-quote-quinn.png ~/Desktop/detailed-donald.png \
-   ~/Documents/Code/portfolio/src/assets/images/</code></pre>
-<h3>Test locally before pushing</h3>
-<pre><code>cd ~/Documents/Code/portfolio && npm run dev</code></pre>
-<p>Open <code>http://localhost:4321/portfolio</code> in your browser.</p>
 <h3>Push to GitHub</h3>
 <pre><code>cd ~/Documents/Code/portfolio && git add -A && git commit -m "describe change" && git push origin main</code></pre>
-<h3>Copy a page as a starting point</h3>
+<h3>Copy a page as starting point</h3>
 <pre><code>cp ~/Documents/Code/portfolio/src/pages/work/workshops.astro \
    ~/Documents/Code/portfolio/src/pages/work/new-page.astro</code></pre>
 <h3>Check what has changed</h3>
 <pre><code>cd ~/Documents/Code/portfolio && git status</code></pre>
-
 </div>
 </div>
-
 <script>
 const links = document.querySelectorAll('.sidebar nav a');
 const headings = document.querySelectorAll('.main h2[id]');
-const observer = new IntersectionObserver(entries => {
+const obs = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) {
       links.forEach(l => l.classList.remove('active'));
-      const link = document.querySelector(`.sidebar nav a[href="#${e.target.id}"]`);
-      if (link) link.classList.add('active');
+      const l = document.querySelector(`.sidebar nav a[href="#${e.target.id}"]`);
+      if (l) l.classList.add('active');
     }
   });
 }, { rootMargin: '-10% 0px -75% 0px' });
-headings.forEach(h => observer.observe(h));
-links.forEach(link => {
-  link.addEventListener('click', e => {
-    e.preventDefault();
-    const id = link.getAttribute('href').slice(1);
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
-});
+headings.forEach(h => obs.observe(h));
+links.forEach(l => l.addEventListener('click', e => {
+  e.preventDefault();
+  document.getElementById(l.getAttribute('href').slice(1))?.scrollIntoView({ behavior: 'smooth' });
+}));
 </script>
 </body>
 </html>
