@@ -4,12 +4,13 @@ import Layout from '../../layouts/Layout.astro';
 <Layout title="Designing Product Interaction — Notes" description="Personal course notes">
   <style>
     .dn-layout{display:grid;grid-template-columns:240px 1fr;min-height:100vh}
-    .dn-sidebar{background:#1a1a1a;color:#e0ddd8;padding:2rem 1.5rem;position:sticky;top:0;height:100vh;overflow-y:auto}
-    .dn-sidebar h1{font-size:.9rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#fff;margin-bottom:.25rem}
-    .dn-meta{font-size:.78rem;color:#666;margin-bottom:2rem}
-    .dn-sidebar nav a{display:block;padding:.4rem .75rem;border-radius:.4rem;color:#b0ada8;text-decoration:none;font-size:.82rem;margin-bottom:.1rem;transition:background .15s,color .15s}
-    .dn-sidebar nav a:hover,.dn-sidebar nav a.active{background:#333;color:#fff}
-    .dn-nav-section{font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#555;margin:1.25rem 0 .4rem .75rem}
+    .dn-sidebar{background:#faf9f7;padding:2rem 1.5rem;position:sticky;top:0;height:100vh;overflow-y:auto;border-right:1px solid #e8e5e0}
+    .dn-sidebar h1{font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#888;margin-bottom:.25rem}
+    .dn-meta{font-size:.78rem;color:#aaa;margin-bottom:2rem}
+    .dn-sidebar nav a{display:block;padding:.35rem .75rem;border-radius:.4rem;color:#666;text-decoration:none;font-size:.82rem;margin-bottom:.1rem;transition:background .15s,color .15s}
+    .dn-sidebar nav a:hover{background:#f0ede8;color:#1a1a1a}
+    .dn-sidebar nav a.active{background:#1a1a1a;color:#fff}
+    .dn-nav-section{font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#bbb;margin:1.25rem 0 .4rem .75rem}
     .dn-main{padding:3rem 4rem;max-width:800px}
     .dn-header{margin-bottom:3rem}
     .dn-header h1{font-size:2rem;font-weight:700;letter-spacing:-.03em;margin-bottom:.5rem}

@@ -2,373 +2,758 @@
 import Layout from '../../layouts/Layout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
 ---
-<Layout title="Product Management Reference — Andrew Smith" description="Personal PM study reference">
-  <style>
-    .pm-layout{display:grid;grid-template-columns:240px 1fr;min-height:100vh}
-    .pm-sidebar{background:#1a1a1a;color:#e0ddd8;padding:2rem 1.5rem;position:sticky;top:0;height:100vh;overflow-y:auto}
-    .pm-sidebar h1{font-size:.9rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#fff;margin-bottom:.25rem}
-    .pm-sidebar .meta{font-size:.78rem;color:#666;margin-bottom:2rem}
-    .pm-sidebar nav a{display:block;padding:.4rem .75rem;border-radius:.4rem;color:#b0ada8;text-decoration:none;font-size:.82rem;margin-bottom:.1rem;transition:background .15s,color .15s}
-    .pm-sidebar nav a:hover,.pm-sidebar nav a.active{background:#333;color:#fff}
-    .pm-nav-section{font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#555;margin:1.25rem 0 .4rem .75rem}
-    .pm-main{padding:3rem 4rem;max-width:820px}
-    .pm-header{margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid #e0ddd8}
-    .pm-header h1{font-size:2rem;font-weight:700;letter-spacing:-.03em;margin-bottom:.5rem}
-    .pm-header p{color:#666;font-size:.9rem;max-width:500px}
-    .pm-section{padding:2.5rem 0;border-top:1px solid #e0ddd8}
-    .pm-section h2{font-size:1.2rem;font-weight:700;margin-bottom:1.25rem;letter-spacing:-.01em}
-    .pm-section h3{font-size:.95rem;font-weight:700;margin:1.5rem 0 .5rem;color:#333}
-    .pm-section p{color:#444;margin-bottom:.75rem;max-width:600px;font-size:.93rem}
-    .pm-section ul,.pm-section ol{margin:.5rem 0 1rem 1.25rem;color:#444;font-size:.93rem;max-width:600px}
-    .pm-section ul li,.pm-section ol li{margin-bottom:.35rem}
-    .pm-kicker{font-family:monospace;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#888;display:block;margin-bottom:.6rem}
-    .pm-table{width:100%;border-collapse:collapse;margin:1rem 0 1.5rem;font-size:.88rem}
-    .pm-table th{background:#f0ede8;text-align:left;padding:.5rem .75rem;font-weight:700;border-bottom:2px solid #e0ddd8}
-    .pm-table td{padding:.5rem .75rem;border-bottom:1px solid #f0ede8;color:#444;vertical-align:top}
-    .pm-table tr:last-child td{border-bottom:none}
-    .pm-card{background:#fff;border:1px solid #e0ddd8;border-radius:.75rem;padding:1rem 1.25rem;margin:.4rem 0}
-    .pm-card .name{font-weight:700;font-size:.9rem;margin-bottom:.25rem}
-    .pm-card .desc{font-size:.86rem;color:#555;line-height:1.5}
-    .pm-fw{background:#f8f7f4;border:1px solid #e0ddd8;border-radius:.75rem;padding:1.25rem 1.5rem;margin:1rem 0}
-    .pm-fw-title{font-weight:700;font-size:.88rem;margin-bottom:.75rem;text-transform:uppercase;letter-spacing:.04em;color:#555}
-    .pm-fw-row{display:grid;grid-template-columns:80px 1fr;gap:.5rem;padding:.4rem 0;border-bottom:1px solid #e0ddd8;font-size:.88rem}
-    .pm-fw-row:last-child{border-bottom:none}
-    .pm-fw-row .key{font-weight:700;color:#1a1a1a}
-    .pm-fw-row .val{color:#555}
-    .pm-gl td:first-child{font-weight:700;font-size:.85rem;white-space:nowrap;color:#1a1a1a}
-  </style>
-  <div class="pm-layout">
-    <div class="pm-sidebar">
-      <h1>PM Reference</h1>
-      <div class="meta">Product Management Fundamentals<br>Udemy — 16 modules</div>
-      <nav>
-        <div class="pm-nav-section">Foundations</div>
-        <a href="#s1">What is PM?</a>
-        <a href="#s2">Product Development</a>
-        <a href="#s3">Ideas and User Needs</a>
-        <a href="#s4">Competitive Analysis</a>
-        <div class="pm-nav-section">Discovery</div>
-        <a href="#s5">Customer Development</a>
-        <a href="#s6">MVPs and Experiments</a>
-        <a href="#s7">Conceptualising Solutions</a>
-        <div class="pm-nav-section">Delivery</div>
-        <a href="#s8">Metrics</a>
-        <a href="#s9">Building the Product</a>
-        <a href="#s10">Working with People</a>
-        <a href="#s11">Technology</a>
-        <div class="pm-nav-section">Career</div>
-        <a href="#s12">Preparing for PM</a>
-        <a href="#s13">Finding a Job</a>
-        <a href="#s14">Getting the Job</a>
-        <a href="#s15">Starting the Role</a>
-        <div class="pm-nav-section">Reference</div>
-        <a href="#glossary">Glossary</a>
-      </nav>
-    </div>
-    <div class="pm-main">
-      <div class="pm-header">
-        <h1>Product Management</h1>
-        <p>Personal reference guide compiled from a 16-module Udemy course. Use as a pre-interview refresher or study reference.</p>
-      </div>
+<Layout title="Product Management — Study Guide" description="Personal PM study reference">
+<SiteHeader />
+<style>
+  .study-wrap {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    min-height: 100vh;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .study-nav {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    padding: 2.5rem 1.5rem;
+    border-right: 1px solid #e8e5e0;
+    background: #faf9f7;
+  }
+  .study-nav h2 {
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: #888;
+    margin: 1.5rem 0 .5rem;
+  }
+  .study-nav h2:first-child { margin-top: 0; }
+  .study-nav a {
+    display: block;
+    padding: .35rem .75rem;
+    border-radius: .4rem;
+    color: #666;
+    text-decoration: none;
+    font-size: .85rem;
+    line-height: 1.4;
+    margin-bottom: .1rem;
+    transition: background .15s, color .15s;
+  }
+  .study-nav a:hover { background: #f0ede8; color: #1a1a1a; }
+  .study-nav a.active { background: #1a1a1a; color: #fff; }
+  .study-content { padding: 4rem 5rem; max-width: 800px; }
+  .study-page-title { font-size: 2.5rem; font-weight: 800; letter-spacing: -.04em; line-height: 1.1; margin-bottom: 1rem; color: #1a1a1a; }
+  .study-page-intro { font-size: 1.05rem; line-height: 1.75; color: #555; max-width: 560px; margin-bottom: 3rem; padding-bottom: 3rem; border-bottom: 1px solid #e8e5e0; }
+  .module { padding: 3rem 0; border-top: 1px solid #e8e5e0; }
+  .module-number { font-family: monospace; font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #aaa; display: block; margin-bottom: .5rem; }
+  .module-title { font-size: 1.6rem; font-weight: 700; letter-spacing: -.02em; margin-bottom: 1rem; color: #1a1a1a; }
+  .module-overview { font-size: 1rem; line-height: 1.75; color: #444; max-width: 640px; margin-bottom: 2rem; padding: 1.25rem 1.5rem; background: #f8f7f4; border-left: 3px solid #1a1a1a; border-radius: 0 .5rem .5rem 0; }
+  .sub-section { margin-bottom: 2.5rem; }
+  .sub-section h3 { font-size: 1.05rem; font-weight: 700; color: #1a1a1a; margin-bottom: .75rem; padding-bottom: .5rem; border-bottom: 1px solid #f0ede8; }
+  .sub-section p { font-size: .97rem; line-height: 1.75; color: #444; margin-bottom: .9rem; max-width: 640px; }
+  .sub-section ul, .sub-section ol { margin: .5rem 0 1rem 1.25rem; color: #444; font-size: .97rem; max-width: 640px; }
+  .sub-section li { margin-bottom: .5rem; line-height: 1.6; }
+  .howto { background: #f0f8f0; border: 1px solid #b8ddb8; border-radius: .75rem; padding: 1.25rem 1.5rem; margin: 1.25rem 0; }
+  .howto-label { font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #2a7a2a; margin-bottom: .75rem; display: block; }
+  .howto p { font-size: .95rem; line-height: 1.7; color: #2a4a2a; margin-bottom: .6rem; }
+  .howto ul, .howto ol { margin: .25rem 0 .5rem 1.1rem; color: #2a4a2a; font-size: .95rem; }
+  .howto li { margin-bottom: .35rem; line-height: 1.6; }
+  .interview-tip { background: #fff8e8; border: 1px solid #ddc878; border-radius: .75rem; padding: 1.25rem 1.5rem; margin: 1.25rem 0; }
+  .interview-tip-label { font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #8a6a00; margin-bottom: .75rem; display: block; }
+  .interview-tip p { font-size: .95rem; line-height: 1.7; color: #5a4010; margin-bottom: .5rem; }
+  .interview-tip p:last-child { margin-bottom: 0; }
+  .fw-table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: .93rem; }
+  .fw-table th { background: #f0ede8; text-align: left; padding: .6rem .9rem; font-weight: 700; border-bottom: 2px solid #e0ddd8; color: #1a1a1a; }
+  .fw-table td { padding: .6rem .9rem; border-bottom: 1px solid #f0ede8; color: #444; vertical-align: top; line-height: 1.5; }
+  .fw-table tr:last-child td { border-bottom: none; }
+  .fw-table td:first-child { font-weight: 600; color: #1a1a1a; }
+  .fw-block { background: #fff; border: 1px solid #e0ddd8; border-radius: .75rem; overflow: hidden; margin: 1rem 0 1.5rem; }
+  .fw-block-title { background: #f0ede8; padding: .75rem 1.1rem; font-size: .8rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: #555; border-bottom: 1px solid #e0ddd8; }
+  .fw-row { display: grid; grid-template-columns: 110px 1fr; gap: 1rem; padding: .75rem 1.1rem; border-bottom: 1px solid #f0ede8; align-items: start; font-size: .93rem; }
+  .fw-row:last-child { border-bottom: none; }
+  .fw-row .fw-key { font-weight: 700; color: #1a1a1a; }
+  .fw-row .fw-val { color: #444; line-height: 1.5; }
+  .concept { background: #fff; border: 1px solid #e0ddd8; border-radius: .75rem; padding: 1.1rem 1.25rem; margin: .5rem 0; }
+  .concept-name { font-weight: 700; font-size: .97rem; margin-bottom: .3rem; color: #1a1a1a; }
+  .concept-desc { font-size: .93rem; color: #555; line-height: 1.6; }
+  @media (max-width: 900px) {
+    .study-wrap { grid-template-columns: 1fr; }
+    .study-nav { position: static; height: auto; border-right: none; border-bottom: 1px solid #e8e5e0; }
+    .study-content { padding: 2rem 1.5rem; }
+  }
+</style>
 
-      <div class="pm-section" id="s1">
-        <span class="pm-kicker">Module 1</span>
-        <h2>What Is Product Management?</h2>
-        <p>A PM is a <strong>communications hub</strong> — not a people manager. They pull input from engineering, design, sales, support, leadership, and users, and turn it into a coherent plan. Accountable for whether the product succeeds, even without direct authority over the people building it.</p>
-        <h3>Core PM functions</h3>
-        <div class="pm-card"><div class="name">Prioritiser</div><div class="desc">Deciding what gets built next, and what does not.</div></div>
-        <div class="pm-card"><div class="name">Researcher</div><div class="desc">Understanding users, competitors, and data.</div></div>
-        <div class="pm-card"><div class="name">Presenter</div><div class="desc">Communicating plans and rationale to different audiences.</div></div>
-        <div class="pm-card"><div class="name">Owner of outcomes</div><div class="desc">Accountable for the product's success even without direct authority.</div></div>
-        <h3>Three types of PM</h3>
-        <table class="pm-table">
-          <tr><th>Type</th><th>Who you build for</th><th>Key characteristics</th></tr>
-          <tr><td>Internal PM</td><td>Other teams inside your company</td><td>Lower risk, deep tech knowledge, great first PM role</td></tr>
-          <tr><td>B2B / SaaS PM</td><td>Other companies</td><td>Revenue-driven, client deadlines, close sales collaboration</td></tr>
-          <tr><td>B2C PM</td><td>General public</td><td>Large user bases, high uncertainty, heavy testing and data reliance</td></tr>
-        </table>
-        <h3>PM vs. Project Manager</h3>
-        <p>A <strong>Product Manager</strong> is responsible for a goal measured by metrics. A <strong>Project Manager</strong> is responsible for delivering a defined project against a fixed timeline, with the "what" already decided. Good PMs still need project management skill, but their real job is defining the right goal, not just hitting a deadline.</p>
-      </div>
+<div class="study-wrap">
+  <nav class="study-nav">
+    <h2>Foundations</h2>
+    <a href="#s1">1. What is PM?</a>
+    <a href="#s2">2. Product Development</a>
+    <a href="#s3">3. Ideas and User Needs</a>
+    <a href="#s4">4. Competitive Analysis</a>
+    <h2>Discovery</h2>
+    <a href="#s5">5. Customer Development</a>
+    <a href="#s6">6. MVPs and Experiments</a>
+    <a href="#s7">7. Conceptualising Solutions</a>
+    <h2>Delivery</h2>
+    <a href="#s8">8. Metrics</a>
+    <a href="#s9">9. Building the Product</a>
+    <a href="#s10">10. Working with People</a>
+    <a href="#s11">11. Technology</a>
+    <h2>Career</h2>
+    <a href="#s12">12. Preparing for PM</a>
+    <a href="#s13">13. Finding a Job</a>
+    <a href="#s14">14. Getting the Job</a>
+    <a href="#s15">15. First 90 Days</a>
+    <h2>Reference</h2>
+    <a href="#glossary">Glossary</a>
+  </nav>
 
-      <div class="pm-section" id="s2">
-        <span class="pm-kicker">Module 2</span>
-        <h2>Product Development Fundamentals</h2>
-        <h3>Product lifecycle — 4 phases</h3>
-        <table class="pm-table">
-          <tr><th>Phase</th><th>What is happening</th></tr>
-          <tr><td>Introduction</td><td>Just launched, little competition, usually losing money</td></tr>
-          <tr><td>Growth</td><td>Market acceptance, rising sales, few competitors, active improvement</td></tr>
-          <tr><td>Maturity</td><td>Sales peak, competitors flood in, harder to differentiate</td></tr>
-          <tr><td>Decline</td><td>Market saturates, sales fall, product may be phased out</td></tr>
-        </table>
-        <h3>Development philosophies</h3>
-        <div class="pm-card"><div class="name">Lean</div><div class="desc">Ruthlessly cut unnecessary work until you are certain it is needed. Do not build until you have validated interest.</div></div>
-        <div class="pm-card"><div class="name">Agile</div><div class="desc">Break work into small batches, ship one at a time, adapt based on feedback rather than planning everything upfront.</div></div>
-        <div class="pm-card"><div class="name">Waterfall</div><div class="desc">Plan and build all features together in one long sequential pass. Right when a product cannot function with partial capability.</div></div>
-        <h3>Scrum vs Kanban</h3>
-        <p><strong>Scrum</strong> uses fixed-length sprints (typically 2 weeks) with sprint planning, daily standups, and retrospectives. <strong>Kanban</strong> is looser — cards move across columns with no fixed sprint cycle. More flexible but harder to forecast velocity.</p>
-      </div>
+  <div class="study-content">
+    <h1 class="study-page-title">Product Management</h1>
+    <p class="study-page-intro">A personal study guide from a 16-module Udemy course. Written to be read, re-read, and memorised — not skimmed. Each module covers the what, the why, the how, and what to say in an interview.</p>
 
-      <div class="pm-section" id="s3">
-        <span class="pm-kicker">Module 3</span>
-        <h2>Ideas and User Needs</h2>
-        <h3>Where PM ideas come from — E.M.U.C.</h3>
-        <div class="pm-fw">
-          <div class="pm-fw-row"><span class="key">E</span><span class="val">Employees — coworkers, management, yourself</span></div>
-          <div class="pm-fw-row"><span class="key">M</span><span class="val">Metrics — problems surfaced by usage data</span></div>
-          <div class="pm-fw-row"><span class="key">U</span><span class="val">Users — direct feedback via forums, email, social media</span></div>
-          <div class="pm-fw-row"><span class="key">C</span><span class="val">Clients — mainly relevant for B2B PMs</span></div>
+    <div class="module" id="s1">
+      <span class="module-number">Module 1</span>
+      <h2 class="module-title">What Is Product Management?</h2>
+      <p class="module-overview">Product management is one of the most misunderstood roles in tech because the job looks completely different depending on the company. But the core stays constant: a PM decides what gets built, in what order, and why — and is then accountable for whether the product succeeds in the market. What makes this hard is that PMs rarely have direct authority over anyone. They lead through influence, evidence, and communication.</p>
+
+      <div class="sub-section">
+        <h3>The PM is a communications hub, not a boss</h3>
+        <p>Nobody reports to a PM. Instead, a PM sits at the intersection of engineering, design, sales, support, marketing, and leadership — pulling information from all of them, making sense of it, and turning it into a coherent plan. The job has been described as "CEO of the product" but that analogy only works up to a point. CEOs have authority. PMs have to earn alignment through every interaction.</p>
+        <p>This means the most important skills are not technical — they are communication, prioritisation, and the ability to make good decisions under uncertainty without all the information you would want. Every day involves incomplete data, competing opinions, and limited resources. A PM's job is to make a call anyway, and to document why.</p>
+        <div class="interview-tip">
+          <span class="interview-tip-label">In an interview</span>
+          <p>When asked what a PM does, do not say "I make sure the team builds the right thing." Say: "A PM is accountable for the product's success without having direct authority over the people building it. That means defining the right problems to solve, making evidence-based prioritisation decisions, and communicating clearly enough that engineering, design, and the business are all aligned on why we are building what we are building."</p>
         </div>
-        <p>The PM is not "the idea person." Their real job is gathering ideas from everywhere and deciding what to build and when.</p>
-        <h3>Getting to the real need</h3>
-        <p>People ask for a solution they have imagined, not what they actually need. Technique: <strong>ask "Why?" three times</strong> until you reach the real pain point. The PM mindset: find a solution to a real problem, not fit the problem to a pre-chosen solution.</p>
-        <h3>Users vs. customers</h3>
-        <p>The customer pays. The user uses it. Customers give feedback about desired features. Users give feedback about usability and friction. You need both feedback streams.</p>
       </div>
 
-      <div class="pm-section" id="s4">
-        <span class="pm-kicker">Module 4</span>
-        <h2>Competitive and Market Analysis</h2>
+      <div class="sub-section">
+        <h3>Four things a PM does</h3>
+        <div class="concept"><div class="concept-name">Prioritise</div><div class="concept-desc">Decide what gets built next and — equally important — what does not. Anyone can build a long list. The skill is in the cuts. Every item you say yes to is an implicit no to everything else in the backlog.</div></div>
+        <div class="concept"><div class="concept-name">Research</div><div class="concept-desc">Understand users, competitors, and data. This is ongoing, not a one-time project phase. Good PMs are always gathering signal from every available source — support tickets, analytics anomalies, competitor launches, industry news.</div></div>
+        <div class="concept"><div class="concept-name">Present and communicate</div><div class="concept-desc">Translate between audiences constantly. What engineering needs to hear differs from what a CEO needs. A PM who can only communicate in one register cannot do the job fully. Learn to adjust depth, framing, and format by audience.</div></div>
+        <div class="concept"><div class="concept-name">Own outcomes</div><div class="concept-desc">The PM is accountable for whether the product succeeds even when they did not build it personally. This is what separates PM from project management — a project manager delivers a defined project, a PM is responsible for whether that project worked.</div></div>
+      </div>
+
+      <div class="sub-section">
+        <h3>Three types of PM</h3>
+        <table class="fw-table">
+          <tr><th>Type</th><th>Who you build for</th><th>What the job is really like</th></tr>
+          <tr><td>Internal PM</td><td>Other teams inside your company</td><td>Lower stakes, smaller user base, deep tech stack exposure. The best first PM role — you learn the discipline without the pressure of a public product launch. Internal stakeholders are your primary feedback source.</td></tr>
+          <tr><td>B2B / SaaS PM</td><td>Other businesses (clients)</td><td>Small number of high-value users. Decisions often driven by revenue impact or client contract terms. Works closely with sales and account management. Risk: building for one loud client rather than the broader user base.</td></tr>
+          <tr><td>B2C PM</td><td>The general public</td><td>Largest user bases, highest uncertainty. Heavy reliance on data and testing. Requires strong vision and comfort with ambiguity. The most celebrated PM roles are B2C, but also the hardest entry point.</td></tr>
+        </table>
+      </div>
+
+      <div class="sub-section">
+        <h3>PM vs. Project Manager — know this cold</h3>
+        <table class="fw-table">
+          <tr><th></th><th>Product Manager</th><th>Project Manager</th></tr>
+          <tr><td>Responsible for</td><td>A goal — defined by metrics and outcomes</td><td>A delivery — defined by timeline and budget</td></tr>
+          <tr><td>The "what" is</td><td>Theirs to define</td><td>Already decided by someone else</td></tr>
+          <tr><td>Success means</td><td>The product moves the right metric</td><td>The project ships on time and on budget</td></tr>
+        </table>
+        <p>The nuance: every good PM still needs project management skill, because someone has to keep delivery on track. But a PM who only manages delivery without doing discovery and prioritisation is project management with a fancier title.</p>
+      </div>
+    </div>
+
+    <div class="module" id="s2">
+      <span class="module-number">Module 2</span>
+      <h2 class="module-title">Product Development Fundamentals</h2>
+      <p class="module-overview">Before you can manage a product well, you need to understand the lifecycle of products in the market and the different philosophies for how to build them. These mental models explain why different companies build the way they do — and why a startup moves differently from an established enterprise.</p>
+
+      <div class="sub-section">
+        <h3>The product lifecycle — four market phases</h3>
+        <table class="fw-table">
+          <tr><th>Phase</th><th>What is happening</th><th>PM implication</th></tr>
+          <tr><td>Introduction</td><td>Just launched. Little or no competition. Usually losing money because costs outrun revenue.</td><td>Focus entirely on finding product-market fit. Speed of learning matters more than efficiency. Every assumption is unvalidated.</td></tr>
+          <tr><td>Growth</td><td>Market acceptance happening. Sales rising. Relatively few competitors. Active improvement cycle.</td><td>Scale what is working. Invest in retention. Watch for early competitors emerging. The roadmap starts to matter more here.</td></tr>
+          <tr><td>Maturity</td><td>Sales peak. Competitors flood in. Differentiation is harder. The market is crowded.</td><td>Defend your position. Focus on segments you serve best. Innovation becomes more incremental. Cost discipline matters more.</td></tr>
+          <tr><td>Decline</td><td>Market saturates. Sales fall. Technology shifts may make the product obsolete.</td><td>Decide between sustaining, milking (harvest cash while reducing investment), or sunsetting (graceful wind-down rather than abrupt cutoff).</td></tr>
+        </table>
+        <p>A practical tool for gauging lifecycle stage: Google Trends. Search interest trajectory gives a rough but real signal of whether a market is growing, peaking, or declining.</p>
+      </div>
+
+      <div class="sub-section">
+        <h3>Development philosophies</h3>
+        <div class="concept"><div class="concept-name">Lean</div><div class="concept-desc">Cut everything that is not yet proven to be necessary. Classic example: if you want to build a food-delivery app, lean thinking says you should do deliveries yourself first — on a bike, taking orders by phone — before building a platform. Only build once you have validated that people actually want the service. Core principle: do not build until you have validated interest.</div></div>
+        <div class="concept"><div class="concept-name">Agile</div><div class="concept-desc">Lean thinking applied to software development. Break work into small batches, ship iteratively, and adapt based on what you learn rather than trying to plan everything upfront. A music app using Agile builds the two to five most important features first, ships them, learns from usage, and decides what to build next. The key word is iterative.</div></div>
+        <div class="concept"><div class="concept-name">Waterfall</div><div class="concept-desc">Plan and specify all features completely before development starts, then build everything in one long sequential pass. Appropriate when a product cannot function in a partial state — operating systems, automotive engine control systems, skyscraper construction. When intermediate states are not usable or are unsafe, Waterfall is the right model. Not wrong — just suited to specific contexts.</div></div>
+      </div>
+
+      <div class="sub-section">
+        <h3>Scrum vs. Kanban</h3>
+        <div class="howto">
+          <span class="howto-label">How Scrum works</span>
+          <p>Fixed-length iterations called sprints — typically two weeks. Four ceremonies:</p>
+          <ul>
+            <li><strong>Sprint planning</strong> — pull top-priority items from the product backlog into a sprint backlog; discuss implementation</li>
+            <li><strong>Daily standup</strong> — brief standing meeting: what did I do yesterday, what am I doing today, is anything blocking me</li>
+            <li><strong>Sprint execution</strong> — team works tickets from To Do through In Progress to Done. Anything unfinished rolls into the next sprint</li>
+            <li><strong>Sprint retrospective</strong> — what went well, what did not, what to try differently next sprint</li>
+          </ul>
+          <p>Scrum gives a predictable rhythm and a clear way to measure velocity over time. The discipline of the sprint creates natural checkpoints for re-prioritisation.</p>
+        </div>
+        <div class="howto">
+          <span class="howto-label">How Kanban works</span>
+          <p>Cards move across board columns — To Do, In Progress, Done — with no fixed sprint cycle and no prescribed meeting cadence. One ongoing product backlog rather than a separate sprint backlog. Teams pull items when they have capacity.</p>
+          <p>More flexible, often used for support or operations work where volume is unpredictable. Trade-off: harder to forecast delivery timelines because there is no fixed cadence to measure velocity against.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="module" id="s3">
+      <span class="module-number">Module 3</span>
+      <h2 class="module-title">Ideas and User Needs</h2>
+      <p class="module-overview">The PM is not the person who has all the ideas. This is one of the most important things to understand about the role. The PM gathers ideas from everywhere, evaluates them rigorously, and decides which are worth building. The skill is in the filtering and the decision-making, not in generating the ideas themselves.</p>
+
+      <div class="sub-section">
+        <h3>Where PM ideas come from — E.M.U.C.</h3>
+        <div class="fw-block">
+          <div class="fw-block-title">E.M.U.C. — Four sources of PM ideas</div>
+          <div class="fw-row"><span class="fw-key">Employees</span><span class="fw-val">Coworkers, management, yourself. Engineers notice technical debt that creates user problems. Support teams hear complaints daily. Sales teams hear what competitors are offering. Internal ideas are often the most actionable because they come with context.</span></div>
+          <div class="fw-row"><span class="fw-key">Metrics</span><span class="fw-val">Problems and inefficiencies surfaced by usage data. A drop in conversion, a spike in errors, a feature nobody uses — these are ideas waiting to be investigated. Data does not tell you what to build, but it tells you where to look.</span></div>
+          <div class="fw-row"><span class="fw-key">Users</span><span class="fw-val">Direct feedback via forums, support tickets, email, social media, app store reviews, and user interviews. Primary source material — what real people say about their actual experience.</span></div>
+          <div class="fw-row"><span class="fw-key">Clients</span><span class="fw-val">Mainly relevant for B2B PMs. The organisations paying for the product have specific needs that may differ from end-user needs. Balance client requests against what is right for the product's long-term direction.</span></div>
+        </div>
+      </div>
+
+      <div class="sub-section">
+        <h3>Getting to the real need — ask "Why?" three times</h3>
+        <p>When someone makes a feature request, they are almost always describing a solution they have imagined rather than the underlying problem. Your job is to understand the problem before evaluating any solution.</p>
+        <div class="howto">
+          <span class="howto-label">The technique in practice</span>
+          <p>User asks for "a download button on the reports page."</p>
+          <ul>
+            <li>Why do you want a download button? "So I can share the report with my manager."</li>
+            <li>Why do you need to share it that way? "My manager does not have access to the system."</li>
+            <li>Why does your manager not have access? "We only have five licences and they are all used by the team."</li>
+          </ul>
+          <p>The real problem is licence allocation, not the absence of a download button. A download button is one solution. Sharing permissions, PDF export, or a read-only viewer role might be better. You only know that because you asked why.</p>
+        </div>
+        <p>The PM mindset: find a solution to a real problem, not fit a problem to a pre-chosen solution. Before building anything requested of you, ask: is this solving an actual underlying problem, and could this solution have unintended side effects?</p>
+      </div>
+
+      <div class="sub-section">
+        <h3>Users vs. customers — different feedback for different purposes</h3>
+        <p>The customer pays. The user uses it. In B2C they are usually the same person. In B2B they are often different people — and they give you fundamentally different types of feedback.</p>
+        <ul>
+          <li><strong>Customers (buyers)</strong> give feedback about features they want — the big-picture capabilities they need. They are thinking about the purchasing decision and renewal.</li>
+          <li><strong>Users</strong> give feedback about the friction they hit while actually doing their work — the specific moments where the product gets in their way.</li>
+        </ul>
+        <p>Over-indexing on customer feedback while under-investing in user experience creates products that get purchased but not used. You need both streams.</p>
+      </div>
+    </div>
+
+    <div class="module" id="s4">
+      <span class="module-number">Module 4</span>
+      <h2 class="module-title">Competitive and Market Analysis</h2>
+      <p class="module-overview">Understanding your competitive landscape is not a one-time research exercise. It is a standing habit. A PM who does not know what competitors are shipping, how they are positioning, and what customers are saying about them is making product decisions with a significant blind spot.</p>
+
+      <div class="sub-section">
         <h3>Four types of competitors</h3>
-        <table class="pm-table">
+        <table class="fw-table">
           <tr><th>Type</th><th>Definition</th><th>How to respond</th></tr>
-          <tr><td>Direct</td><td>Same target customer, same problem</td><td>Be genuinely competitive</td></tr>
-          <tr><td>Indirect</td><td>Same problem, different approach</td><td>Do not lose too much share</td></tr>
-          <tr><td>Potential</td><td>Same target customer, different problem</td><td>Make sure they cannot easily expand into your space</td></tr>
-          <tr><td>Substitute</td><td>Solves same core problem, very differently</td><td>Be at least as good</td></tr>
+          <tr><td>Direct</td><td>Same target customer, same problem. Customers explicitly choose between you.</td><td>Be genuinely competitive. Track feature parity, pricing, and positioning closely. Have a clear and defensible reason someone should choose you.</td></tr>
+          <tr><td>Indirect</td><td>Same problem, different approach, overlapping but not identical customer.</td><td>Do not lose too much share. Monitor closely — indirect competitors often become direct as they expand product scope.</td></tr>
+          <tr><td>Potential</td><td>Same target customer, different problem currently.</td><td>Make sure they cannot easily enter your space. If they already have your customer's trust, expanding is low-friction for them.</td></tr>
+          <tr><td>Substitute</td><td>Solves same core problem, very differently positioned.</td><td>Be at least as good at solving the core problem. Substitutes steal customers who decide your category is not worth the switching cost.</td></tr>
         </table>
-        <h3>Five criteria for evaluating a competitor</h3>
+      </div>
+
+      <div class="sub-section">
+        <h3>Five criteria for evaluating any competitor</h3>
         <ol>
-          <li>Product core — who is building it and how good is their team?</li>
-          <li>User base size — bigger bases mean easier press and faster iteration</li>
-          <li>Design quality — how strong is their product craft?</li>
-          <li>Brand — strong brands command loyalty and can charge more</li>
-          <li>Speed — how fast can they ship changes?</li>
+          <li><strong>Product core</strong> — who is building it and how strong is their team? Weak product leadership makes a competitor less threatening even with resources.</li>
+          <li><strong>User base size</strong> — larger bases mean easier press, better partnership leverage, and faster iteration loops. A large install base is a moat even when product quality is lower.</li>
+          <li><strong>Design quality</strong> — how strong is their product craft? A competitor who ships well-designed, usable products is more threatening than one who ships feature-dense but unusable ones.</li>
+          <li><strong>Brand</strong> — strong brands command loyalty, charge more, and get more benefit of the doubt when things go wrong. Slow to build, very hard to erode once established.</li>
+          <li><strong>Speed</strong> — how fast can they ship? Larger companies tend to slow over time. A well-funded startup with a small focused team can outship a large incumbent even on much smaller budgets.</li>
         </ol>
       </div>
 
-      <div class="pm-section" id="s5">
-        <span class="pm-kicker">Module 5</span>
-        <h2>Customer Development</h2>
-        <p>A framework for maintaining a continuous, iterative feedback loop with customers. Used for risk mitigation and opportunity recognition.</p>
+      <div class="sub-section">
+        <h3>Finding unknown competitors — three search techniques</h3>
+        <ul>
+          <li><strong>Channel the user's complaint language</strong> — search the exact phrases a frustrated user would type about the problem you solve. This surfaces companies using similar language and individual complaints that lead to competitor mentions.</li>
+          <li><strong>Site-restricted forum searches</strong> — search Reddit or Quora using your product's plain-language description. Real people asking for recommendations will name competitors you have never heard of.</li>
+          <li><strong>Exact-phrase search</strong> — put quotation marks around how you would pitch your own product. Anyone ranking for the same language is competing for the same customer.</li>
+        </ul>
+      </div>
+
+      <div class="sub-section">
+        <h3>Monitoring competitors as a standing habit</h3>
+        <p>Track three types of competitor events on an ongoing basis:</p>
+        <ul>
+          <li><strong>Funding rounds</strong> — more capital means more hiring, marketing, and shipping speed. Track via Crunchbase. A large raise is worth taking seriously as a signal they are about to accelerate.</li>
+          <li><strong>Acquisitions</strong> — can strengthen a competitor's team and product capabilities overnight.</li>
+          <li><strong>Feature launches</strong> — track via social listening tools and competitor blog subscriptions. Never be surprised by a competitor's launch.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="module" id="s5">
+      <span class="module-number">Module 5</span>
+      <h2 class="module-title">Customer Development</h2>
+      <p class="module-overview">Customer development is a structured approach to maintaining a continuous feedback loop with your customers so you can form hypotheses, test them, and adapt. Formalised by Steve Blank. The core idea: you do not really know what customers want until you talk to them — and even then, what they say they want and what they will actually use are different things. Interviews reduce the gap between assumption and reality.</p>
+
+      <div class="sub-section">
         <h3>Four types of customer interviews</h3>
-        <div class="pm-card"><div class="name">Exploratory</div><div class="desc">Open-ended discovery — understand their world before any solution is proposed.</div></div>
-        <div class="pm-card"><div class="name">Validation</div><div class="desc">Test a specific hypothesis — does your solution match their real need?</div></div>
-        <div class="pm-card"><div class="name">Satisfaction</div><div class="desc">Check how existing users feel about the current product.</div></div>
-        <div class="pm-card"><div class="name">Efficiency</div><div class="desc">Watch them use the product and observe where friction occurs.</div></div>
+        <div class="concept"><div class="concept-name">Exploratory</div><div class="concept-desc">Open-ended discovery. No solution has been proposed yet. You are learning about the customer's world, their daily work, their frustrations, and their goals. The output is richer context before you begin to ideate. These come first.</div></div>
+        <div class="concept"><div class="concept-name">Validation</div><div class="concept-desc">Testing a specific hypothesis. You have a proposed direction and are asking: does this actually solve the problem? You may show a concept or prototype, watching for genuine excitement versus polite positivity. These come after you have formed a hypothesis.</div></div>
+        <div class="concept"><div class="concept-name">Satisfaction</div><div class="concept-desc">Checking how existing users feel about the current product. What is working? What frustrates them? What do they wish was different? Most useful when you have a live product and are deciding where to invest next.</div></div>
+        <div class="concept"><div class="concept-name">Efficiency</div><div class="concept-desc">Watching users actually use the product and observing where friction occurs. Unlike other types which rely on what people say, efficiency interviews capture what people do — which is often different. The gap between self-reported and actual behaviour is where the most useful insights live.</div></div>
+      </div>
+
+      <div class="sub-section">
         <h3>Running the interview correctly</h3>
-        <p>The topic is their problem, not your solution. Do not pitch. Do not inject your own opinions. Let the conversation go off-script — that is often where new ideas emerge. Universal prompt: "That is interesting — tell me more."</p>
-        <h3>The data diet</h3>
-        <p>Interviews are one source. Triangulate across: internal feedback, user-test data, online feedback, analytics, industry news, market trends, and competitor-watching. Never make a major call from a single source.</p>
+        <p>The most important rule: <strong>the topic is their problem, not your solution.</strong> This is harder than it sounds because you almost certainly want to tell them about your idea. Resist it.</p>
+        <div class="howto">
+          <span class="howto-label">The rules of a good customer interview</span>
+          <ul>
+            <li><strong>Do not pitch your solution</strong> — customers cannot always tell you what they want, but they cannot hide what they need. Your job is to uncover the need.</li>
+            <li><strong>Do not inject your own opinions</strong> — even body language counts. Nodding enthusiastically when they confirm your hypothesis biases the interview.</li>
+            <li><strong>Let the conversation go off-script</strong> — the most valuable insights often come from tangents. If they start discussing a related frustration you had not anticipated, follow it.</li>
+            <li><strong>Create psychological safety</strong> — avoid questions that make them feel judged. They should feel like they can say "this is terrible" without it being awkward.</li>
+            <li><strong>Universal prompt when stuck</strong> — "That is interesting — tell me more." Works in every interview type without leading the witness.</li>
+          </ul>
+        </div>
+        <p>Leave every interview understanding: who this customer is, what their habits are, and when, where, and why they would need your product.</p>
       </div>
 
-      <div class="pm-section" id="s6">
-        <span class="pm-kicker">Module 6</span>
-        <h2>Designing and Running Experiments (MVPs)</h2>
-        <p>MVP = Minimum Viable Product — the version that lets a team collect the maximum validated learning for the least effort. The point is not to build a small product — it is to run a scientific experiment as cheaply as possible. Guiding mantra: <strong>fail fast.</strong></p>
-        <h3>Seven-step MVP process</h3>
+      <div class="sub-section">
+        <h3>The data diet — interviews are one source, not the only source</h3>
+        <p>Interviews have two hard limits: they do not scale, and they are qualitative. A well-rounded PM triangulates across:</p>
+        <ul>
+          <li>Internal feedback from support and sales teams</li>
+          <li>User-test data and usability study findings</li>
+          <li>Online and social feedback — app store reviews, forum posts</li>
+          <li>Product analytics — usage patterns, drop-off rates, feature adoption</li>
+          <li>Industry news and analyst reports</li>
+          <li>Competitor watching — what are they shipping and what are customers saying about it?</li>
+        </ul>
+        <p>Never make a major product decision based on a single data source. Interviews tell you the why. Analytics tell you the what. You need both.</p>
+      </div>
+    </div>
+
+    <div class="module" id="s6">
+      <span class="module-number">Module 6</span>
+      <h2 class="module-title">Designing and Running Experiments — MVPs</h2>
+      <p class="module-overview">An MVP is not a small version of your product. That is the most common misconception. An MVP is the smallest experiment you can run to collect the maximum amount of validated learning about whether your assumption is correct. The goal is not to build something — it is to learn something, as cheaply as possible. Eric Ries introduced this in The Lean Startup. The guiding mantra: fail fast.</p>
+
+      <div class="sub-section">
+        <h3>The seven-step MVP process</h3>
+        <div class="howto">
+          <span class="howto-label">Step by step</span>
+          <ol>
+            <li><strong>Define your problem and solution hypothesis</strong> — what do you believe is true about the problem and the solution you are considering?</li>
+            <li><strong>Identify your assumptions</strong> — list everything that must be true for your idea to work. Frame each as: "In order for this to succeed, the following must be true..."</li>
+            <li><strong>Find the riskiest assumption</strong> — the one whose failure would sink the whole idea. Most often this is: "the customer actually has this problem."</li>
+            <li><strong>Build a specific, testable hypothesis</strong> around that riskiest assumption</li>
+            <li><strong>Establish your Minimum Criteria for Success (MCS)</strong> — the pre-defined bar that turns an ambiguous result into an actionable decision</li>
+            <li><strong>Execute the experiment</strong> — run it cleanly, do not change variables mid-experiment</li>
+            <li><strong>Evaluate and learn</strong> — compare result against MCS: proven, disproven, or needs another iteration?</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="sub-section">
+        <h3>Prioritising assumptions — the risk/difficulty matrix</h3>
+        <p>Plot each assumption on two axes: how risky (how badly would this sink the idea if false?) and how hard to test. Test in this order:</p>
         <ol>
-          <li>Define your problem and solution hypothesis</li>
-          <li>Identify assumptions and find the riskiest one</li>
-          <li>Build a specific, testable hypothesis around that assumption</li>
-          <li>Establish your Minimum Criteria for Success (MCS)</li>
-          <li>Choose which MVP type and strategy to run</li>
-          <li>Execute the experiment</li>
-          <li>Evaluate and learn from the results</li>
+          <li>High risk / Low difficulty — test first. Cheap to test and could invalidate the whole idea.</li>
+          <li>High risk / High difficulty — test next. They matter enough to invest in.</li>
+          <li>Low risk / Low difficulty — test if time allows.</li>
+          <li>Low risk / High difficulty — generally skip.</li>
         </ol>
-        <h3>Risk and difficulty — what to test first</h3>
-        <p>Plot assumptions on two axes: how risky and how hard to test. Test High risk / Low difficulty first. Then High risk / High difficulty. Low risk / Low difficulty if time allows. Low risk / High difficulty — generally skip.</p>
+      </div>
+
+      <div class="sub-section">
+        <h3>Writing a hypothesis — three levels of rigour</h3>
+        <ul>
+          <li><strong>Basic:</strong> "We believe [target group] will [action] because [reason]."</li>
+          <li><strong>Iterating on existing product:</strong> "If we [action], we believe [subject] will [outcome] because [reason]."</li>
+          <li><strong>Most rigorous:</strong> "We believe [subject] has a [problem] because [reason]. If we [action], this [metric] will improve by [amount] within [timeframe]."</li>
+        </ul>
+        <p>The more specific before the experiment, the more honest the evaluation of results will be after it.</p>
+      </div>
+
+      <div class="sub-section">
         <h3>Types of MVPs</h3>
-        <table class="pm-table">
-          <tr><th>Type</th><th>How it works</th></tr>
-          <tr><td>Email MVP</td><td>Pitch a fictional feature via email and gauge reaction</td></tr>
-          <tr><td>Shadow button</td><td>Button that appears to link to a new feature — measure clicks</td></tr>
-          <tr><td>404 / coming soon</td><td>Feature appears live but leads to a waitlist page</td></tr>
-          <tr><td>Explainer video</td><td>Tutorial video depicting a not-yet-real feature</td></tr>
-          <tr><td>Fake landing page</td><td>Single page pitching benefits, measure conversion</td></tr>
-          <tr><td>Concierge service</td><td>Manually deliver the outcome by hand for a small group</td></tr>
-          <tr><td>Piecemeal MVP</td><td>Stitch together existing off-the-shelf tools to fake functionality</td></tr>
-          <tr><td>Wizard of Oz</td><td>Looks automated to users, but humans perform the steps behind the scenes</td></tr>
+        <table class="fw-table">
+          <tr><th>Type</th><th>How it works</th><th>Best for / notes</th></tr>
+          <tr><td>Email MVP</td><td>Pitch a fictional or upcoming feature via email; gauge reaction via clicks, replies, sign-ups</td><td>Fast, cheap, testable with a targeted segment. Pair with a landing page for best results.</td></tr>
+          <tr><td>Shadow button</td><td>Add a button that appears to link to a feature. Measure clicks. The feature does not exist.</td><td>Quick raw interest signal. Always show a "thanks for your interest" message — never leave users confused.</td></tr>
+          <tr><td>404 / coming soon</td><td>Feature appears in navigation but leads to a waitlist or error page</td><td>Works well when you have an existing product. Amazon uses this frequently.</td></tr>
+          <tr><td>Explainer video</td><td>Tutorial or sales video depicting the feature before it exists</td><td>Dropbox's pre-launch video drove 70,000 sign-ups before the product existed. Works for complex ideas hard to convey with text.</td></tr>
+          <tr><td>Fake landing page</td><td>Single page pitching benefits with a call to action; measure conversion rate</td><td>Testing demand for an entirely new offering. Conversion rate against a baseline gives you a real signal.</td></tr>
+          <tr><td>Concierge service</td><td>Manually deliver the outcome by hand, one customer at a time, no automation</td><td>Deep qualitative learning. Cheap in money, expensive in your time. Worth it when insight outweighs efficiency.</td></tr>
+          <tr><td>Piecemeal MVP</td><td>Stitch together existing tools to fake the functionality (Zapier, IFTTT, no-code tools)</td><td>Validate a workflow without custom engineering. Fast to assemble.</td></tr>
+          <tr><td>Wizard of Oz</td><td>Looks automated to the user; humans manually perform the steps behind the scenes</td><td>Zappos proved the model before building any infrastructure. Test service models before investing in automation.</td></tr>
         </table>
       </div>
+    </div>
 
-      <div class="pm-section" id="s7">
-        <span class="pm-kicker">Module 7</span>
-        <h2>Conceptualising the Solution</h2>
-        <table class="pm-table">
-          <tr><th>Stage</th><th>What it is</th><th>Fidelity</th></tr>
-          <tr><td>Wireframe</td><td>Rough structural layout — where content blocks go</td><td>Low</td></tr>
-          <tr><td>Mockup</td><td>Static visual design with real colours and detail</td><td>Medium-high</td></tr>
-          <tr><td>Prototype</td><td>Clickable and interactive — reveals usability issues in the flow</td><td>High</td></tr>
+    <div class="module" id="s7">
+      <span class="module-number">Module 7</span>
+      <h2 class="module-title">Conceptualising the Solution</h2>
+      <p class="module-overview">Once you have validated a problem worth solving, you need to make solution concepts concrete enough for others to react to. This is where PMs work most closely with designers — but on small teams, PMs often need to produce rough concepts before a designer is involved. Key discipline: function before form. You are validating structure and flow, not aesthetics.</p>
+
+      <div class="sub-section">
+        <h3>Wireframes, mockups, and prototypes</h3>
+        <table class="fw-table">
+          <tr><th>Stage</th><th>What it is</th><th>Fidelity</th><th>When to use it</th></tr>
+          <tr><td>Wireframe</td><td>Rough structural layout — where content blocks go, boxes and labels, no visual design</td><td>Low</td><td>Earliest stage. Validates page structure and information hierarchy before any design investment.</td></tr>
+          <tr><td>Mockup</td><td>Static visual design with real colours, typography, and detail. Looks designed but not interactive.</td><td>Medium-high (visual)</td><td>After structure is validated. Gets feedback on visual design direction.</td></tr>
+          <tr><td>Prototype</td><td>Clickable and interactive. Simulates how the product works well enough to reveal usability issues in the flow.</td><td>High (interaction)</td><td>Before development begins. Tests interaction patterns and user flows with real people.</td></tr>
         </table>
-        <p>Guiding principle at the wireframe stage: <strong>function over form.</strong> You are validating structure and flow, not aesthetics.</p>
+        <p>Fix structural problems at the wireframe stage. Fix visual problems at the mockup stage. Fix interaction problems at the prototype stage. Each is cheaper to change than what comes after.</p>
       </div>
 
-      <div class="pm-section" id="s8">
-        <span class="pm-kicker">Module 8</span>
-        <h2>Metrics: Defining Success and Measuring Results</h2>
+      <div class="sub-section">
+        <h3>How to start sketching on paper</h3>
+        <div class="howto">
+          <span class="howto-label">Five-step pen-and-paper wireframing method</span>
+          <ol>
+            <li>Draw a browser or app frame — a rectangle representing the screen boundary</li>
+            <li>Add the logo and navigation — establish the global chrome before worrying about content</li>
+            <li>Ask: what is the point of this page? What should users be able to do here?</li>
+            <li>Sketch every function the page needs — search, filtering, a primary action, secondary actions, feedback states</li>
+            <li>Look at comparable products you respect — not to copy, but to see how others have solved similar structural problems</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="module" id="s8">
+      <span class="module-number">Module 8</span>
+      <h2 class="module-title">Metrics: Defining Success and Measuring Results</h2>
+      <p class="module-overview">Product management is ultimately about moving numbers. Every major product decision you make should be connected to a metric you expect it to move, and after the fact you should be able to say whether it moved. This is what separates a PM who is doing the job from one who is just shipping features and hoping. As Peter Drucker put it: what gets measured gets managed.</p>
+
+      <div class="sub-section">
         <h3>What makes a metric good</h3>
         <ol>
-          <li>Understandable — everyone on the team can grasp what it means</li>
-          <li>A rate or ratio — not just a raw count</li>
-          <li>Correlated with the outcome you actually care about</li>
-          <li>Changeable — something your team's actions can plausibly move</li>
+          <li><strong>Understandable</strong> — everyone on the team can instantly grasp what it means and why it matters. If you have to explain it every time you mention it, it is not a good reporting metric.</li>
+          <li><strong>A rate or ratio, not a raw count</strong> — raw counts are easy to game or misread. "We have 10,000 users" tells you less than "35% of users who sign up make a second purchase within 30 days." Rates reveal actual behaviour.</li>
+          <li><strong>Correlated with the outcome you actually care about</strong> — if you are optimising a metric that does not connect to user or business value, you improve the metric while the product stagnates. Watch for vanity metrics.</li>
+          <li><strong>Changeable</strong> — something your team's actions can plausibly move. Tracking a metric you have no ability to influence wastes attention.</li>
         </ol>
+      </div>
+
+      <div class="sub-section">
         <h3>The HEART framework</h3>
-        <div class="pm-fw">
-          <div class="pm-fw-title">For each dimension define: Goal, Signal, Metric</div>
-          <div class="pm-fw-row"><span class="key">H</span><span class="val">Happiness — how happy is the user?</span></div>
-          <div class="pm-fw-row"><span class="key">E</span><span class="val">Engagement — how engaged are they in the short term?</span></div>
-          <div class="pm-fw-row"><span class="key">A</span><span class="val">Adoption — how many interested people have actually tried the product?</span></div>
-          <div class="pm-fw-row"><span class="key">R</span><span class="val">Retention — how many keep coming back long term?</span></div>
-          <div class="pm-fw-row"><span class="key">T</span><span class="val">Task success — how well can users complete the most valuable task?</span></div>
+        <p>Developed by Kerry Rodden at Google. Gives you a structured way to think about product health across five dimensions. Designed for ongoing reporting, not one-time research.</p>
+        <div class="fw-block">
+          <div class="fw-block-title">HEART — for each dimension define: Goal → Signal → Metric</div>
+          <div class="fw-row"><span class="fw-key">H — Happiness</span><span class="fw-val">How satisfied are users? Measured via NPS, app store ratings, satisfaction surveys. Hard to measure accurately but important — emotional response affects retention and referral.</span></div>
+          <div class="fw-row"><span class="fw-key">E — Engagement</span><span class="fw-val">How often and deeply are users interacting in the short term? Highly product-specific — meaningful engagement for a daily app differs from a quarterly tool. Define this specifically for your product.</span></div>
+          <div class="fw-row"><span class="fw-key">A — Adoption</span><span class="fw-val">How many of the people who could use the product are actually using it? Measures the gap between potential and actual user base. Low adoption despite high interest usually signals an onboarding or discovery problem.</span></div>
+          <div class="fw-row"><span class="fw-key">R — Retention</span><span class="fw-val">How many users keep coming back over time? The difference between retained users (consistently returning) and resurrected users (came back after being inactive) matters — resurrection is more expensive than retention.</span></div>
+          <div class="fw-row"><span class="fw-key">T — Task success</span><span class="fw-val">How well can users complete the most valuable task the product is meant to support? Measured by completion rates, error rates, time-on-task. The most direct measure of whether the product works.</span></div>
         </div>
+        <div class="interview-tip">
+          <span class="interview-tip-label">In an interview — how to measure success for a new feature</span>
+          <p>"I would start by defining which HEART dimensions matter most for this feature. For a feature intended to drive repeat usage, Retention and Task success are most relevant. I would define a goal for each, the signal I would measure to track progress toward that goal, and the specific metric I would report on over time. I would also set a pre-defined threshold for what success looks like before we launch, so the evaluation is honest rather than rationalised after the fact."</p>
+        </div>
+      </div>
+
+      <div class="sub-section">
         <h3>The AARRR / Pirate Metrics framework</h3>
-        <div class="pm-fw">
-          <div class="pm-fw-row"><span class="key">A</span><span class="val">Acquisition — how are users finding you?</span></div>
-          <div class="pm-fw-row"><span class="key">A</span><span class="val">Activation — are they signing up and meaningfully engaging?</span></div>
-          <div class="pm-fw-row"><span class="key">R</span><span class="val">Retention — are they coming back?</span></div>
-          <div class="pm-fw-row"><span class="key">R</span><span class="val">Referral — are they happy enough to tell others?</span></div>
-          <div class="pm-fw-row"><span class="key">R</span><span class="val">Revenue — are you making money from them?</span></div>
+        <p>Coined by Dave McClure. Describes the customer journey as a funnel. Especially common in SaaS and startup contexts. The name comes from the initials sounding like what a pirate says.</p>
+        <div class="fw-block">
+          <div class="fw-block-title">AARRR — five stages of the customer funnel</div>
+          <div class="fw-row"><span class="fw-key">Acquisition</span><span class="fw-val">How are users finding you? Which channels are driving traffic and sign-ups? Cost per acquisition by channel. Top of the funnel.</span></div>
+          <div class="fw-row"><span class="fw-key">Activation</span><span class="fw-val">Are they having a meaningful first experience? Activation means they have taken the specific action that predicts future engagement — not just created an account, but done something that shows they "got it."</span></div>
+          <div class="fw-row"><span class="fw-key">Retention</span><span class="fw-val">Are they coming back? Where most products leak. High acquisition and activation but low retention means you are filling a leaky bucket — replacing users as fast as you lose them.</span></div>
+          <div class="fw-row"><span class="fw-key">Referral</span><span class="fw-val">Are happy users telling others? The most efficient growth channel because it is essentially free. NPS is the most common proxy for referral potential.</span></div>
+          <div class="fw-row"><span class="fw-key">Revenue</span><span class="fw-val">Are you making money from them? Lifetime value (LTV), cost per acquisition (CAC), monthly recurring revenue (MRR), and annual recurring revenue (ARR).</span></div>
         </div>
-      </div>
-
-      <div class="pm-section" id="s9">
-        <span class="pm-kicker">Module 9</span>
-        <h2>Building the Product</h2>
-        <h3>Epics and user stories</h3>
-        <p>An <strong>epic</strong> is a grouping of features representing a larger initiative — typically anything taking longer than a single sprint. A <strong>user story</strong> is a single unit of buildable functionality: "As a [user], I want [something], so that [outcome]." Acceptance criteria define when a story is done.</p>
-        <h3>Prioritisation methods</h3>
-        <div class="pm-card"><div class="name">Assumption testing</div><div class="desc">Score each item's riskiness (1–10) and importance (1–10), sum them, sort descending. Test riskiest and most important first.</div></div>
-        <div class="pm-card"><div class="name">BUC method</div><div class="desc">Score Business benefit, User benefit, and Cost (each 1–10). Sum the two benefit scores, subtract cost, sort descending.</div></div>
-        <div class="pm-card"><div class="name">MoSCoW method</div><div class="desc">Bucket each item as Must / Should / Could / Would not this time. Always clear the Musts first.</div></div>
-        <h3>Roadmapping</h3>
-        <p>Roadmaps are always somewhat inaccurate but valuable as directional guides. An alternative: bucket work into Near-term / Mid-term / Long-term priority tiers rather than fixed dates.</p>
-      </div>
-
-      <div class="pm-section" id="s10">
-        <span class="pm-kicker">Module 10</span>
-        <h2>Working with People and Stakeholders</h2>
-        <h3>Working with engineers</h3>
-        <ul>
-          <li>Treat spec quality as your responsibility — ambiguous requirements are on the PM</li>
-          <li>Have a point of view on where a feature is headed longer-term</li>
-          <li>Do the groundwork yourself where possible — checking logs, pulling data</li>
-          <li>Take technical debt seriously</li>
-          <li>Invite their ideas — do not hand down fully-baked specs with zero room for input</li>
-        </ul>
-        <h3>Working with designers</h3>
-        <ul>
-          <li>Give designers real creative latitude — do not dictate the visual solution</li>
-          <li>Ask for their actual product opinions, not just execution</li>
-          <li>Always lead with the user problem and let solutions come second</li>
-        </ul>
-        <h3>Working with executives</h3>
-        <ul>
-          <li>Be brief — two bullet points beat two paragraphs</li>
-          <li>Frame everything in terms of business impact — revenue, metrics, risk</li>
-          <li>Always explain why you landed on a solution, not just what it is</li>
-        </ul>
-      </div>
-
-      <div class="pm-section" id="s11">
-        <span class="pm-kicker">Module 11</span>
-        <h2>Technology for Product Managers</h2>
-        <p>You do not need to code, but understanding how common technologies work gives you: a realistic sense of what is buildable, credibility with engineers, and an understanding of the real implications of decisions.</p>
-        <div class="pm-card"><div class="name">Front end</div><div class="desc">Everything the user sees and interacts with. HTML (structure), CSS (styling), JavaScript (interactivity).</div></div>
-        <div class="pm-card"><div class="name">Back end</div><div class="desc">Servers, databases, and the logic away from the user's screen.</div></div>
-        <div class="pm-card"><div class="name">API</div><div class="desc">A messenger that takes a request, tells the underlying system what is being asked for, and returns the result. Public APIs let outside developers pull data. Private APIs are internal only.</div></div>
-        <div class="pm-card"><div class="name">Tech stack</div><div class="desc">The complete set of technologies — front end through back end — that make up a given app.</div></div>
-        <p style="margin-top:1rem">Learning basic SQL lets a PM pull their own data from a company's database without waiting on an engineer.</p>
-      </div>
-
-      <div class="pm-section" id="s12">
-        <span class="pm-kicker">Module 12</span>
-        <h2>Preparing Yourself for the PM Job</h2>
-        <p>There is no PM degree. Demonstrate the mindset through existing experience. Reflect on any past instance where you:</p>
-        <ol>
-          <li>Had to prioritise among multiple competing tasks</li>
-          <li>Talked with users of a product or internal tool</li>
-          <li>Gave feedback or reported bugs on any product</li>
-          <li>Interacted with a product team — helping gather data or giving feedback</li>
-          <li>Coordinated with multiple teams on something</li>
-          <li>Improved the efficiency of an existing process</li>
-        </ol>
-      </div>
-
-      <div class="pm-section" id="s13">
-        <span class="pm-kicker">Module 13</span>
-        <h2>Looking for a Job in Product Management</h2>
-        <ol>
-          <li>Inside your own company first — lowest-friction path</li>
-          <li>Networking — meet people in PM through local events for referrals</li>
-          <li>Job boards and PM-focused newsletters</li>
-        </ol>
-        <p>Vet the opportunity: does the company actually understand what a PM does? Research the existing product leadership — working under someone with genuine experience accelerates your own learning substantially.</p>
-      </div>
-
-      <div class="pm-section" id="s14">
-        <span class="pm-kicker">Module 14</span>
-        <h2>Getting the Job</h2>
-        <h3>Resumes</h3>
-        <p>Reframe existing experience in PM-relevant terms and quantify everything. Weak: "I managed marketing campaigns." Strong: "Increased the number of simultaneous campaigns managed by 20% over the course of the year."</p>
-        <h3>Answering PM interview questions</h3>
-        <ul>
-          <li>There is rarely a single correct answer — the interviewer is evaluating your reasoning process</li>
-          <li>Always show your work: how you arrived at a conclusion, why, and what alternatives you considered</li>
-          <li>Before answering a case question, ask clarifying questions</li>
-          <li>Treat every interview as practice for the next one</li>
-        </ul>
-        <h3>Standing out: build a demonstration project</h3>
-        <p>Research the company's product, market, and competitors independently. Put together a mini "how I would approach this" project — wireframes, hypothetical A/B tests, competitive analysis. Send it as a thank-you follow-up. This demonstrates initiative most candidates never take the time to show.</p>
-      </div>
-
-      <div class="pm-section" id="s15">
-        <span class="pm-kicker">Module 15</span>
-        <h2>After You Have Got the Job</h2>
-        <ol>
-          <li>Schedule 1:1s with each team member — understand their goals and current challenges</li>
-          <li>Meet the lead engineer — get a walkthrough of the technologies and biggest technical challenges</li>
-          <li>Start talking to actual users — build direct understanding of what matters to them</li>
-          <li>Read everything internal you can access — past epics, release notes, sales decks</li>
-          <li>Study the existing metrics — what is tracked and what the team plans to track next</li>
-          <li>Meet with your manager — clarify expectations and understand their goals and pain points</li>
-        </ol>
-      </div>
-
-      <div class="pm-section" id="glossary">
-        <span class="pm-kicker">Quick reference</span>
-        <h2>Glossary</h2>
-        <table class="pm-table pm-gl">
-          <tr><td>MVP</td><td>Minimum Viable Product — smallest experiment that yields validated learning at least cost</td></tr>
-          <tr><td>MCS</td><td>Minimum Criteria for Success — the pre-set bar an experiment must clear</td></tr>
-          <tr><td>KPI</td><td>Key Performance Indicator — a metric used to judge success</td></tr>
-          <tr><td>Epic</td><td>A grouping of features or work larger than one sprint</td></tr>
-          <tr><td>User story</td><td>A single unit of buildable functionality: "As a X, I want Y, so that Z"</td></tr>
-          <tr><td>Acceptance criteria</td><td>The specific conditions that define a story as done</td></tr>
-          <tr><td>Sprint</td><td>A fixed-length (often 2-week) development iteration in Scrum</td></tr>
-          <tr><td>Velocity</td><td>Story points completed per sprint</td></tr>
-          <tr><td>Story points</td><td>Relative difficulty rating for a piece of work</td></tr>
-          <tr><td>HEART</td><td>Happiness, Engagement, Adoption, Retention, Task success — a metrics framework</td></tr>
-          <tr><td>AARRR</td><td>Acquisition, Activation, Retention, Referral, Revenue — the pirate metrics funnel</td></tr>
-          <tr><td>Feature table</td><td>Comparison matrix of your product vs. competitors across key dimensions</td></tr>
-          <tr><td>Jobs-to-be-done</td><td>Thinking about products in terms of the underlying job customers hire them to do</td></tr>
-          <tr><td>Tech stack</td><td>The full set of technologies used to build a product</td></tr>
-          <tr><td>API</td><td>Application Programming Interface — lets software request data from another system</td></tr>
-          <tr><td>Technical debt</td><td>Shortcuts taken during development that will cost more time to fix later</td></tr>
-          <tr><td>E.M.U.C.</td><td>Employees, Metrics, Users, Clients — four sources of PM ideas</td></tr>
-          <tr><td>MoSCoW</td><td>Must / Should / Could / Would not — a prioritisation bucketing method</td></tr>
-          <tr><td>BUC</td><td>Business benefit, User benefit, Cost — a prioritisation scoring method</td></tr>
-        </table>
+        <p>AARRR is most useful for identifying where your biggest problem is. Strong acquisition but weak retention means a product problem, not a marketing problem. Strong retention but weak acquisition means a distribution problem, not a product problem. The data tells you where to invest.</p>
       </div>
     </div>
+
+    <div class="module" id="s9">
+      <span class="module-number">Module 9</span>
+      <h2 class="module-title">Building the Product</h2>
+      <p class="module-overview">Once you have validated a direction and have enough confidence to build, the PM's job shifts to delivery management. This does not mean becoming a project manager — it means ensuring the process is organised well enough that the team can build efficiently and what gets built matches what was designed and validated.</p>
+
+      <div class="sub-section">
+        <h3>Epics and user stories</h3>
+        <p>An <strong>epic</strong> is a grouping of features that together represent a larger initiative — typically anything taking longer than a single sprint. Not every epic results in a user-visible feature — some are internal or infrastructure work. An <strong>user story</strong> is a single unit of buildable functionality framed from the user's perspective: "As a [user type], I want [capability], so that [outcome]."</p>
+        <p><strong>Acceptance criteria</strong> are the specific conditions that define a story as done. Written before development starts. The contract between PM and engineering. Without them, "done" is whatever the engineer thought you wanted.</p>
+      </div>
+
+      <div class="sub-section">
+        <h3>Epic spec structure</h3>
+        <div class="howto">
+          <span class="howto-label">Four sections of an epic spec sheet</span>
+          <ol>
+            <li><strong>Introduction</strong> — summary of the feature and purpose, which metrics it targets, links to related documentation, marketing or legal notes, early wireframes</li>
+            <li><strong>Product requirements</strong> — what the feature must do, functionally, from the user's perspective. Not technical implementation — what it does and what constraints it operates under.</li>
+            <li><strong>Design requirements</strong> — filled collaboratively with a designer. Wireframes, mockups, interaction specifications.</li>
+            <li><strong>Engineering requirements</strong> — filled by engineers after discussion. Technical implementation approach, dependencies, estimated effort, technical constraints the PM should know about.</li>
+          </ol>
+          <p>PM owns sections one and two. Designers own three. Engineers own four. But all are written collaboratively — the boundaries are about accountability, not exclusion.</p>
+        </div>
+      </div>
+
+      <div class="sub-section">
+        <h3>Prioritisation methods</h3>
+        <div class="concept"><div class="concept-name">Assumption testing</div><div class="concept-desc">Score each item on riskiness (1–10) and importance (1–10). Sum them and sort descending. Test riskiest and most important first. Most useful in early product stages when you are still validating fundamentals.</div></div>
+        <div class="concept"><div class="concept-name">BUC method</div><div class="concept-desc">Score Business benefit, User benefit, and Cost (each 1–10). Priority score = Business benefit + User benefit − Cost. Sort descending. High value to business and users but low cost to build should come first.</div></div>
+        <div class="concept"><div class="concept-name">MoSCoW method</div><div class="concept-desc">Bucket every item as Must / Should / Could / Would not. Always clear Musts before Shoulds, Shoulds before Coulds. Most useful for release planning when you have a fixed deadline and need to make scope decisions.</div></div>
+        <div class="interview-tip">
+          <span class="interview-tip-label">In an interview — how do you prioritise?</span>
+          <p>"I start by understanding the goal of the current sprint or release — what specific metric are we trying to move? Then I score candidate items against that goal by likely impact and cost. I also look at what assumptions we are still carrying that could undermine the plan, and I try to surface and test those early rather than building on top of unvalidated assumptions. When there is disagreement, I try to reframe the conversation around shared evidence rather than competing preferences."</p>
+        </div>
+      </div>
+
+      <div class="sub-section">
+        <h3>Story points and velocity</h3>
+        <p>Story points are a relative difficulty rating — not hours, but a team-consistent scale where a five-point story is twice as complex as a two-and-a-half-point story. Velocity is the total story points a team completes in a sprint. Tracking velocity over multiple sprints creates a reliable baseline for planning — after six sprints, you know approximately how much work your team can handle per sprint.</p>
+      </div>
+
+      <div class="sub-section">
+        <h3>Roadmapping — honest about what roadmaps can do</h3>
+        <p>Roadmaps are near-universally somewhat inaccurate. Software timelines shift, priorities change, unexpected problems arise. The value of roadmaps is directional alignment, not precision. An alternative many experienced PMs prefer: bucket work into Near-term / Mid-term / Long-term priority tiers rather than fixed dates. Keeps everyone aligned without over-promising timelines that will shift.</p>
+      </div>
+    </div>
+
+    <div class="module" id="s10">
+      <span class="module-number">Module 10</span>
+      <h2 class="module-title">Working with People and Stakeholders</h2>
+      <p class="module-overview">The PM is the team's communications hub. The quality of your relationships with engineers, designers, and executives is directly correlated with the quality of what gets built. A PM who produces great strategy but cannot get engineering to care about it will not ship good products. This is not soft skills as an afterthought — it is the primary mechanism through which product work happens.</p>
+
+      <div class="sub-section">
+        <h3>Working with engineers</h3>
+        <div class="howto">
+          <span class="howto-label">How to build a strong relationship with engineering</span>
+          <ul>
+            <li><strong>Treat spec quality as your responsibility</strong> — if something goes wrong because of ambiguous requirements, that is on the PM. Write precise acceptance criteria. Ambiguity in a spec becomes a bug in the product.</li>
+            <li><strong>Have a point of view on the longer-term direction</strong> — engineers think about architecture. If you describe only the next increment without context for the longer-term direction, they may make architectural decisions that make the future state much harder to reach.</li>
+            <li><strong>Do the groundwork yourself where possible</strong> — checking logs, pulling basic data, investigating an anomaly before asking an engineer to investigate it. Engineers resent being used as data-retrieval services. Learning basic SQL is one of the most practical things a PM can do.</li>
+            <li><strong>Take technical debt seriously</strong> — engineers are aware of shortcuts that will cost more time later. Dismissing their concerns erodes trust and leads to slower shipping as the codebase degrades.</li>
+            <li><strong>Invite their input on the how</strong> — do not hand down fully-baked specs with zero room for engineering perspective. The best product decisions happen when PM, design, and engineering collaborate on the solution, not when PM specifies and engineering executes.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="sub-section">
+        <h3>Working with designers</h3>
+        <ul>
+          <li><strong>Give designers real creative latitude</strong> — do not come with a pre-formed solution. Say "users need to complete this task without losing their place" not "I need a modal with a form." Let them solve the problem.</li>
+          <li><strong>Ask for their actual product opinions</strong> — designers interact with the product at a level of detail that reveals problems PMs often miss. Their opinions about what is wrong are valuable data.</li>
+          <li><strong>Always lead with the user problem</strong> — let solutions come second. The output is almost always better when designers arrive at solutions rather than being handed specifications to execute.</li>
+          <li><strong>Share all relevant data with them</strong> — analytics, research findings, competitor benchmarking. A designer working from an incomplete brief makes worse decisions.</li>
+        </ul>
+      </div>
+
+      <div class="sub-section">
+        <h3>Working with executives</h3>
+        <ul>
+          <li><strong>Be brief</strong> — two bullet points beat two paragraphs. Executive time is genuinely scarce. If you cannot explain the key point in one minute, you do not understand it well enough yet.</li>
+          <li><strong>Frame in terms of business impact</strong> — revenue, metrics, risk, competitive position. Not implementation detail, not technical approach, not design rationale.</li>
+          <li><strong>Adapt to their communication style</strong> — some want dashboards, some want narrative memos, some want a five-minute verbal summary. Find out which one works and use it every time.</li>
+          <li><strong>Always explain why, not just what</strong> — executives who understand your reasoning trust your future decisions. Those who only see outputs constantly relitigate decisions.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="module" id="s11">
+      <span class="module-number">Module 11</span>
+      <h2 class="module-title">Technology for Product Managers</h2>
+      <p class="module-overview">You do not need to code to be a great PM. But you need to understand how technology works well enough to have informed conversations with engineers, assess the feasibility of product ideas, and understand the implications of technical decisions. A PM who cannot discuss the tech stack with credibility loses influence with the engineering team over time.</p>
+
+      <div class="sub-section">
+        <h3>Front end, back end, and tech stacks</h3>
+        <div class="concept"><div class="concept-name">Front end</div><div class="concept-desc">Everything the user directly sees and interacts with. Three core languages: HTML (structure and content), CSS (visual styling — colours, fonts, spacing), and JavaScript (interactivity — what happens when you click something, form validation, dynamic content).</div></div>
+        <div class="concept"><div class="concept-name">Back end</div><div class="concept-desc">Servers, databases, and the logic away from the user's screen. When you submit a form, the back end receives it, processes it, stores it in a database, and sends back a response. Common technologies: MySQL (relational database), Amazon Web Services (cloud infrastructure).</div></div>
+        <div class="concept"><div class="concept-name">Tech stack</div><div class="concept-desc">The full set of technologies — front end through back end — used to build a product. Knowing your company's tech stack helps you understand what is easy to build, what is hard, and what requires significant investment.</div></div>
+      </div>
+
+      <div class="sub-section">
+        <h3>APIs — the connective tissue of modern software</h3>
+        <p>An API (Application Programming Interface) acts as a messenger: it takes a request from one system, tells another system what is being asked for, and returns the result. APIs are how modern software is built — rather than building everything from scratch, systems communicate with each other through APIs.</p>
+        <ul>
+          <li><strong>Public APIs</strong> let outside developers pull data from a company's services</li>
+          <li><strong>Private APIs</strong> are internal-only — the same company's different products talking to each other</li>
+        </ul>
+        <p>Important PM implications: APIs have rate limits, they can fail (build fallback behaviour), and integrating with a third-party API creates a dependency. If that API changes or goes down, your product is affected.</p>
+      </div>
+
+      <div class="sub-section">
+        <h3>Technical skills worth developing</h3>
+        <ul>
+          <li><strong>Basic SQL</strong> — lets you pull your own data from a company's database without waiting on an engineer. Even knowing enough to write a simple SELECT query makes you more self-sufficient and credible with engineering teams.</li>
+          <li><strong>Version control basics</strong> — knowing what Git is, how branches and pull requests work, makes you a more effective collaborator with engineering even if you never write code yourself.</li>
+          <li><strong>Relational vs. non-relational databases</strong> — relational databases (MySQL, PostgreSQL) store data in structured tables with relationships. Non-relational (MongoDB) store data more flexibly. The choice affects what kinds of queries are fast and what data structures are natural.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="module" id="s12">
+      <span class="module-number">Module 12</span>
+      <h2 class="module-title">Preparing Yourself for the PM Job</h2>
+      <p class="module-overview">There is no university major in product management. People enter the role from engineering, design, business analysis, marketing, customer success, and every adjacent discipline. What matters is not where you come from — it is whether you can demonstrate the mindset and skills the role requires. That demonstration starts before you have the title.</p>
+
+      <div class="sub-section">
+        <h3>Turning existing experience into PM experience</h3>
+        <p>Reflect on any past instance where you did the following — these are all PM-relevant even without a PM title:</p>
+        <ol>
+          <li>Had to prioritise among multiple competing tasks, alone or with a team</li>
+          <li>Talked with users or customers of a product or internal tool, even informally</li>
+          <li>Gave feedback or reported bugs on any product — internal or external</li>
+          <li>Interacted with a product team — helping gather data or giving input on direction</li>
+          <li>Coordinated work across multiple teams toward a shared outcome</li>
+          <li>Improved the efficiency of an existing process — identified a problem, proposed a solution, implemented it</li>
+        </ol>
+        <p>Any of these can become a resume bullet and interview talking point. The key is framing the experience in terms of outcomes and impact, not just activities.</p>
+      </div>
+
+      <div class="sub-section">
+        <h3>Building a portfolio via a side project</h3>
+        <p>If your current job offers nothing PM-adjacent, a self-directed side project is the standard alternative path. Document a genuine PM-style process: identify a user problem, generate and prototype a solution, and articulate how you would change an existing product to better serve its users. Strong formats: design a feature improvement for a product you use regularly, conduct five user interviews about a specific frustration and write up your findings and proposed solutions, or build a rough prototype of a product idea and test it with real potential users.</p>
+      </div>
+    </div>
+
+    <div class="module" id="s13">
+      <span class="module-number">Module 13</span>
+      <h2 class="module-title">Looking for a Job in Product Management</h2>
+
+      <div class="sub-section">
+        <h3>Where to look — in order of effectiveness</h3>
+        <ol>
+          <li><strong>Inside your own company first</strong> — lowest-friction path. If a PM team exists internally, express interest, learn what they are working on, and volunteer for relevant tasks. An internal transfer requires no one to take a risk on an unknown quantity — you are already known.</li>
+          <li><strong>Networking</strong> — meet people already in product management through meetups, industry events, or LinkedIn. Referrals dramatically increase your chance of an interview because they carry implicit credibility.</li>
+          <li><strong>Job boards and communities</strong> — startup-focused boards, tech community "who's hiring" threads, PM-focused newsletters with job postings alongside content.</li>
+        </ol>
+      </div>
+
+      <div class="sub-section">
+        <h3>Vetting the opportunity before investing in applying</h3>
+        <ol>
+          <li><strong>Does the company actually understand what a PM does?</strong> Some organisations conflate product and project management. If the job description is mostly "managing timelines" and "coordinating deliverables" without mention of user research, prioritisation, or product strategy, you may be looking at project management with a fancier title.</li>
+          <li><strong>Research the existing product team and leadership</strong> — look at their LinkedIn, blog posts, talks. Working under someone with genuine product experience accelerates your development substantially. Working under someone who does not understand the discipline is a slow way to stagnate.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="module" id="s14">
+      <span class="module-number">Module 14</span>
+      <h2 class="module-title">Getting the Job</h2>
+
+      <div class="sub-section">
+        <h3>Resumes — quantify everything</h3>
+        <p>Product management is about moving metrics. Your resume language should reflect that. The most important principle: quantify everything you possibly can.</p>
+        <table class="fw-table">
+          <tr><th>Weak</th><th>Strong</th></tr>
+          <tr><td>"I managed marketing campaigns."</td><td>"Increased the number of simultaneous campaigns managed by 20% over the course of the year."</td></tr>
+          <tr><td>"I worked with the development team to improve the website."</td><td>"Led a cross-functional team to reduce page load time by 40%, improving conversion rate by 12%."</td></tr>
+          <tr><td>"I gathered customer feedback and used it to guide decisions."</td><td>"Conducted 30 user interviews across three customer segments, identifying a retention problem that led to a feature change reducing monthly churn by 15%."</td></tr>
+        </table>
+      </div>
+
+      <div class="sub-section">
+        <h3>PM interviews — demonstrating structured thinking</h3>
+        <div class="howto">
+          <span class="howto-label">How to approach PM interview questions</span>
+          <ul>
+            <li><strong>Ask clarifying questions first</strong> — jumping straight to an answer without probing for context is a common and visible mistake. "Before I answer, can I ask a few clarifying questions?" signals exactly the right instinct.</li>
+            <li><strong>There is rarely a single correct answer</strong> — the interviewer is evaluating your reasoning process, not your conclusion. Show your thinking, not just your answer.</li>
+            <li><strong>Always show your work</strong> — how you arrived at a conclusion, why you discarded other options, and what you would want to learn more about before committing.</li>
+            <li><strong>Treat every interview as practice</strong> — note the questions you got, review the ones you fumbled, prepare better answers before the next one.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="sub-section">
+        <h3>The demonstration project — the insider tip that almost no candidates use</h3>
+        <div class="howto">
+          <span class="howto-label">How to build a PM demonstration project</span>
+          <ol>
+            <li>During the interview process, ask genuine questions about why they are hiring, what the role would actually work on, their market and customers, and technical context</li>
+            <li>Independently research the company's product — use it, read reviews, look at competitors, talk to potential users if you can</li>
+            <li>Identify a specific opportunity: a user problem, a metric you think could be improved, a competitor advantage not being addressed</li>
+            <li>Put together a short document covering: your research, your proposed approach, relevant technical constraints, rough wireframes, a hypothetical A/B test design, competitive analysis, and any customer feedback you gathered</li>
+            <li>Send it as a thank-you follow-up after an interview</li>
+          </ol>
+          <p>This demonstrates initiative, customer empathy, analytical thinking, and communication skills — the four things every PM interview is actually trying to evaluate. Most candidates never do it. The ones who do are remembered.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="module" id="s15">
+      <span class="module-number">Module 15</span>
+      <h2 class="module-title">After You Have Got the Job — The First 90 Days</h2>
+      <p class="module-overview">The first few months in a new PM role are the most important. You are in listening mode, building credibility by understanding before you act. The biggest mistake new PMs make is arriving with answers before they understand the questions. Your job in the first 90 days is to learn, not to prove you already know everything.</p>
+
+      <div class="sub-section">
+        <h3>Six things to do in your first month</h3>
+        <div class="howto">
+          <span class="howto-label">First 30 days playbook</span>
+          <ol>
+            <li><strong>Schedule a 1:1 with each team member</strong> — understand their individual goals, current frustrations, and what they think the most important problems are. Keep detailed notes. Patterns across these conversations tell you a lot about team health and the product.</li>
+            <li><strong>Meet the lead engineer and get a full technical walkthrough</strong> — understand what technologies are in use, where the biggest technical debt is, and what engineering considers the most important problems. Their perspective is invaluable and often underrepresented in product planning.</li>
+            <li><strong>Start talking to actual users as quickly as possible</strong> — book five to ten customer interviews in your first month. Consider shadowing customer support for a few hours — you will learn more about real user pain points in an afternoon than in weeks of reading documentation.</li>
+            <li><strong>Read everything internal you can access</strong> — past epics, release notes, sales decks, internal presentations. The institutional knowledge in documents is usually richer than what you will be briefed on in onboarding.</li>
+            <li><strong>Study the existing metrics</strong> — what is currently tracked, what the team plans to track next, and where there are gaps in measurement. Understanding the measurement infrastructure tells you what the team values and where they are flying blind.</li>
+            <li><strong>Meet with your manager and align on expectations</strong> — what does success look like at 30, 60, and 90 days? What are their biggest priorities? Clarify early rather than assuming.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="module" id="glossary">
+      <span class="module-number">Quick reference</span>
+      <h2 class="module-title">Glossary</h2>
+      <table class="fw-table">
+        <tr><td>MVP</td><td>Minimum Viable Product — the smallest experiment that yields validated learning about whether an assumption is correct. Not a small product. An experiment designed to produce learning at minimum cost.</td></tr>
+        <tr><td>MCS</td><td>Minimum Criteria for Success — the pre-defined bar an experiment must clear to be deemed a success. Set before the experiment, not after seeing the results.</td></tr>
+        <tr><td>KPI</td><td>Key Performance Indicator — a metric used to judge whether the product or initiative is succeeding. Good KPIs are understandable, are rates or ratios, correlate with actual outcomes, and can be moved by your team's actions.</td></tr>
+        <tr><td>Epic</td><td>A grouping of features that together represent a larger initiative — anything taking longer than a single sprint to complete.</td></tr>
+        <tr><td>User story</td><td>"As a [user type], I want [capability], so that [outcome]." The basic unit of agile delivery planning.</td></tr>
+        <tr><td>Acceptance criteria</td><td>The specific conditions that define a user story as done. The contract between PM and engineering written before development starts.</td></tr>
+        <tr><td>Sprint</td><td>A fixed-length development iteration — typically two weeks — used in Scrum.</td></tr>
+        <tr><td>Velocity</td><td>Total story points a team completes in a sprint. Used to forecast how much work can be done in future sprints.</td></tr>
+        <tr><td>Story points</td><td>A relative difficulty rating system. Team-consistent — a five-point story is twice as complex as a two-and-a-half-point story, even if no one can say exactly how many hours either will take.</td></tr>
+        <tr><td>HEART</td><td>Happiness, Engagement, Adoption, Retention, Task success — a framework for measuring product health across five dimensions.</td></tr>
+        <tr><td>AARRR</td><td>Acquisition, Activation, Retention, Referral, Revenue — the pirate metrics funnel describing the customer journey from first contact to revenue.</td></tr>
+        <tr><td>Feature table</td><td>A comparison matrix of your product versus competitors across key dimensions. Forces explicit reasoning about differentiation.</td></tr>
+        <tr><td>Jobs-to-be-done</td><td>A framework for thinking about products in terms of the underlying job customers hire them to do — not demographics. Introduced by Clay Christensen.</td></tr>
+        <tr><td>Tech stack</td><td>The complete set of technologies — front end through back end — used to build a product.</td></tr>
+        <tr><td>API</td><td>Application Programming Interface — a messenger system that lets one piece of software request and receive data from another.</td></tr>
+        <tr><td>Technical debt</td><td>Shortcuts made during development that will cost more time to fix later. Engineers track this carefully; accumulated debt slows future development.</td></tr>
+        <tr><td>E.M.U.C.</td><td>Employees, Metrics, Users, Clients — the four sources of ideas a PM draws from.</td></tr>
+        <tr><td>MoSCoW</td><td>Must / Should / Could / Would not — a prioritisation method for bucketing backlog items by urgency and importance.</td></tr>
+        <tr><td>BUC method</td><td>Business benefit + User benefit − Cost — a scoring method for prioritising backlog items across three dimensions.</td></tr>
+        <tr><td>TAM</td><td>Total Addressable Market — the total revenue opportunity if you captured 100% of the market. Used in top-down market sizing.</td></tr>
+        <tr><td>LTV</td><td>Lifetime Value — total revenue a customer generates over the entire duration of their relationship with your product.</td></tr>
+        <tr><td>CAC</td><td>Customer Acquisition Cost — the average cost of acquiring one new customer. Should be significantly lower than LTV for a sustainable business.</td></tr>
+        <tr><td>MRR / ARR</td><td>Monthly / Annual Recurring Revenue — predictable revenue from subscription customers. Core SaaS metrics.</td></tr>
+      </table>
+    </div>
+
   </div>
-  <script>
-    const links=document.querySelectorAll('.pm-sidebar nav a');
-    const sections=document.querySelectorAll('.pm-section[id]');
-    const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.remove('active'));const l=document.querySelector(`.pm-sidebar nav a[href="#${e.target.id}"]`);if(l)l.classList.add('active');}});},{rootMargin:'-10% 0px -75% 0px'});
-    sections.forEach(s=>obs.observe(s));
-    links.forEach(l=>l.addEventListener('click',e=>{e.preventDefault();document.getElementById(l.getAttribute('href').slice(1))?.scrollIntoView({behavior:'smooth'});}));
-  </script>
+</div>
+
+<script>
+  const links = document.querySelectorAll('.study-nav a');
+  const modules = document.querySelectorAll('.module[id]');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(l => l.classList.remove('active'));
+        const l = document.querySelector(`.study-nav a[href="#${e.target.id}"]`);
+        if (l) l.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-10% 0px -75% 0px' });
+  modules.forEach(m => obs.observe(m));
+  links.forEach(l => l.addEventListener('click', e => {
+    e.preventDefault();
+    document.getElementById(l.getAttribute('href').slice(1))?.scrollIntoView({ behavior: 'smooth' });
+  }));
+</script>
 </Layout>

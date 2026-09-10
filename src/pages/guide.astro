@@ -5,12 +5,13 @@ import SiteHeader from '../components/SiteHeader.astro';
 <Layout title="Site Guide — Andrew Smith" description="Site editing reference">
   <style>
     .guide-layout{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
-    .guide-sidebar{background:#1a1a1a;color:#e0ddd8;padding:2rem 1.5rem;position:sticky;top:0;height:100vh;overflow-y:auto}
-    .guide-sidebar h1{font-size:1rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#fff;margin-bottom:.5rem}
-    .guide-sidebar p{font-size:.8rem;color:#888;margin-bottom:2rem}
-    .guide-sidebar nav a{display:block;padding:.4rem .75rem;border-radius:.4rem;color:#b0ada8;text-decoration:none;font-size:.85rem;margin-bottom:.15rem;transition:background .15s,color .15s}
-    .guide-sidebar nav a:hover,.guide-sidebar nav a.active{background:#333;color:#fff}
-    .nav-section{font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#555;margin:1.5rem 0 .5rem .75rem}
+    .guide-sidebar{background:#faf9f7;padding:2rem 1.5rem;position:sticky;top:0;height:100vh;overflow-y:auto;border-right:1px solid #e8e5e0}
+    .guide-sidebar h1{font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#888;margin-bottom:.5rem}
+    .guide-sidebar p{font-size:.8rem;color:#aaa;margin-bottom:2rem}
+    .guide-sidebar nav a{display:block;padding:.35rem .75rem;border-radius:.4rem;color:#666;text-decoration:none;font-size:.85rem;margin-bottom:.1rem;transition:background .15s,color .15s}
+    .guide-sidebar nav a:hover{background:#f0ede8;color:#1a1a1a}
+    .guide-sidebar nav a.active{background:#1a1a1a;color:#fff}
+    .nav-section{font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#bbb;margin:1.25rem 0 .4rem .75rem}
     .guide-main{padding:3rem 4rem;max-width:860px}
     .guide-main h2{font-size:1.5rem;font-weight:700;margin:0 0 .5rem;padding-top:3rem;border-top:1px solid #e0ddd8}
     .guide-main h2:first-child{border-top:none;padding-top:0}
