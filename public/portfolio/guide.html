@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Site Guide — Andrew Smith Portfolio</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:15px;line-height:1.6;color:#1a1a1a;background:#f8f7f4}
+.layout{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
+.sidebar{background:#1a1a1a;color:#e0ddd8;padding:2rem 1.5rem;position:sticky;top:0;height:100vh;overflow-y:auto}
+.sidebar h1{font-size:1rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#fff;margin-bottom:.5rem}
+.sidebar p{font-size:.8rem;color:#888;margin-bottom:2rem}
+.sidebar nav a{display:block;padding:.4rem .75rem;border-radius:.4rem;color:#b0ada8;text-decoration:none;font-size:.85rem;margin-bottom:.15rem;transition:background .15s,color .15s}
+.sidebar nav a:hover,.sidebar nav a.active{background:#333;color:#fff}
+.nav-section{font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#555;margin:1.5rem 0 .5rem .75rem}
+.main{padding:3rem 4rem;max-width:860px}
+.main h2{font-size:1.5rem;font-weight:700;margin:0 0 .5rem;padding-top:3rem;border-top:1px solid #e0ddd8}
+.main h2:first-child{border-top:none;padding-top:0}
+.main h3{font-size:1rem;font-weight:700;margin:2rem 0 .5rem;color:#333}
+.main p,.main ul{margin:.5rem 0 1rem;color:#444;max-width:640px}
+.main ul{margin-left:1.25rem}
+.main ul li{margin-bottom:.35rem}
+code{font-family:'SF Mono',Monaco,monospace;font-size:.82rem;background:#f0ede8;padding:.15rem .4rem;border-radius:.3rem;color:#c0392b}
+pre{background:#1a1a1a;color:#e0ddd8;padding:1.25rem 1.5rem;border-radius:.75rem;overflow-x:auto;margin:1rem 0 1.5rem;font-size:.82rem;line-height:1.6}
+pre code{background:none;padding:0;color:inherit}
+.tip{background:#f0f8f0;border-left:3px solid #2a7a2a;padding:.75rem 1rem;border-radius:0 .5rem .5rem 0;margin:1rem 0;font-size:.88rem;color:#2a4a2a}
+.warn{background:#fff8e8;border-left:3px solid #c08020;padding:.75rem 1rem;border-radius:0 .5rem .5rem 0;margin:1rem 0;font-size:.88rem;color:#5a4010}
+.pattern-box{background:#fff;border:1px solid #e0ddd8;border-radius:.75rem;padding:1.25rem 1.5rem;margin:1rem 0 1.5rem}
+.pattern-box .label{font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#888;margin-bottom:.75rem}
+</style>
+</head>
+<body>
+<div class="layout">
+<div class="sidebar">
+  <h1>Site guide</h1>
+  <p>asmithdigital.github.io/portfolio</p>
+  <nav>
+    <div class="nav-section">Overview</div>
+    <a href="#structure">Folder structure</a>
+    <a href="#deploy">How to deploy</a>
+    <a href="#images">Adding images</a>
+    <div class="nav-section">Page types</div>
+    <a href="#homepage">Homepage cards</a>
+    <a href="#case-study">Case study pages</a>
+    <div class="nav-section">Layout patterns</div>
+    <a href="#content-section">Content section</a>
+    <a href="#scroll-gallery">Scroll gallery</a>
+    <a href="#full-image">Full-width image</a>
+    <a href="#lead-image">Lead image</a>
+    <a href="#summary-section">Summary section</a>
+    <div class="nav-section">Components</div>
+    <a href="#site-header">Site header</a>
+    <a href="#case-nav">Case study nav</a>
+    <a href="#shared-css">Shared CSS</a>
+    <div class="nav-section">Creating content</div>
+    <a href="#new-page">New page</a>
+    <a href="#new-card">New homepage card</a>
+    <a href="#edit-content">Editing content</a>
+    <div class="nav-section">Reference</div>
+    <a href="#css-classes">All CSS classes</a>
+    <a href="#terminal">Terminal commands</a>
+  </nav>
+</div>
+<div class="main">
+<h2 id="structure">Folder structure</h2>
+<p>Everything that matters lives in <code>src/</code>. Hidden pages live in <code>public/portfolio/</code> and are served as plain HTML.</p>
+<pre><code>portfolio/
+├── src/
+│   ├── assets/images/        ← ALL images go here
+│   ├── components/
+│   │   ├── SiteHeader.astro
+│   │   └── CaseStudyNav.astro
+│   ├── data/
+│   │   └── projects.ts       ← homepage card data
+│   ├── pages/
+│   │   ├── index.astro       ← homepage
+│   │   ├── about.astro
+│   │   └── work/             ← case study pages
+│   └── styles/
+│       └── case-study.css    ← shared styles
+└── public/
+    └── portfolio/            ← hidden HTML pages (no Astro processing)
+        ├── guide.html        ← this page
+        └── work/
+            ├── designing-product-interaction.html
+            └── product-management.html</code></pre>
+
+<h2 id="deploy">How to deploy</h2>
+<p>Make changes, then run:</p>
+<pre><code>cd ~/Documents/Code/portfolio && git add -A && git commit -m "describe change" && git push origin main</code></pre>
+<div class="warn"><strong>Persona images:</strong> If you have new versions on your Desktop, copy them first:<br><br>
+<code>cp ~/Desktop/quick-quote-quinn.png ~/Desktop/detailed-donald.png ~/Documents/Code/portfolio/src/assets/images/</code></div>
+
+<h2 id="images">Adding images</h2>
+<h3>Step 1 — Move the file</h3>
+<pre><code>mv ~/Desktop/my-image.png ~/Documents/Code/portfolio/src/assets/images/</code></pre>
+<h3>Step 2 — Import in the page file</h3>
+<pre><code>import myImage from '../../assets/images/my-image.png';</code></pre>
+<h3>Step 3 — Use in HTML</h3>
+<pre><code>&lt;Image class="aside-img" src={myImage} alt="Describe the image"
+  loading="lazy" decoding="async"
+  widths={[480,720]} sizes="(max-width:1200px) 30vw, 480px"/&gt;</code></pre>
+<h3>Step 4 — Push</h3>
+<pre><code>cd ~/Documents/Code/portfolio && git add -A && git commit -m "Add image" && git push origin main</code></pre>
+
+<h2 id="homepage">Homepage cards</h2>
+<p>Defined in <code>src/data/projects.ts</code>. Each object has:</p>
+<pre><code>{
+  name: 'UI Design',
+  title: 'UI design across...',
+  description: 'One or two sentences.',
+  background: 'lime',  // lime | cyan | lavender | mint
+  href: '/portfolio/work/ui-design',
+  image: myImage,
+  alt: 'Describe the image',
+}</code></pre>
+<div class="tip">Card order in the array = order on the homepage.</div>
+
+<h2 id="case-study">Case study pages</h2>
+<p>Copy an existing page and edit it. Every page starts with:</p>
+<pre><code>---
+import { Image } from 'astro:assets';
+import Layout from '../../layouts/Layout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import CaseStudyNav from '../../components/CaseStudyNav.astro';
+import '../../styles/case-study.css';
+import myImage from '../../assets/images/my-image.png';
+---</code></pre>
+
+<h2 id="content-section">Layout: Content section</h2>
+<p>Two columns — content left (42rem), image right.</p>
+<div class="pattern-box">
+<div class="label">With image on the right</div>
+<pre><code>&lt;section class="content-section"&gt;
+  &lt;div class="section-content"&gt;
+    &lt;p class="section-kicker"&gt;Label&lt;/p&gt;
+    &lt;h2&gt;Heading&lt;/h2&gt;
+    &lt;p&gt;Text here.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="section-image"&gt;
+    &lt;Image class="aside-img" src={myImage} alt="..."
+      loading="lazy" decoding="async"
+      widths={[480,720]} sizes="(max-width:1200px) 30vw, 480px"/&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+</div>
+<div class="pattern-box">
+<div class="label">Text only — no image</div>
+<pre><code>&lt;section class="content-section"&gt;
+  &lt;div class="section-content"&gt;
+    &lt;p class="section-kicker"&gt;Label&lt;/p&gt;
+    &lt;h2&gt;Heading&lt;/h2&gt;
+    &lt;p&gt;Text here.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+</div>
+
+<h2 id="scroll-gallery">Layout: Scroll gallery</h2>
+<div class="pattern-box">
+<div class="label">Standard — 380x255px</div>
+<pre><code>&lt;div class="scroll-section"&gt;
+  &lt;p class="scroll-hint-label"&gt;Scroll to see more &lt;span&gt;→&lt;/span&gt;&lt;/p&gt;
+  &lt;div class="image-scroll-track-wrap"&gt;
+    &lt;div class="image-scroll-track"&gt;
+      &lt;figure class="scroll-fig"&gt;
+        &lt;Image class="scroll-img" src={img} alt="..."
+          loading="lazy" decoding="async" widths={[420,600]} sizes="420px"/&gt;
+        &lt;figcaption&gt;Caption&lt;/figcaption&gt;
+      &lt;/figure&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+</div>
+<div class="pattern-box">
+<div class="label">Large — 560x387px (personas, UI screenshots)</div>
+<pre><code>&lt;figure class="scroll-fig large"&gt;
+  &lt;Image class="scroll-img large" src={img} alt="..."
+    loading="lazy" decoding="async" widths={[600,900]} sizes="600px"/&gt;
+  &lt;figcaption&gt;Caption&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+</div>
+
+<h2 id="full-image">Layout: Full-width image</h2>
+<div class="pattern-box">
+<pre><code>&lt;section class="full-image-section"&gt;
+  &lt;Image class="full-image" src={myImage} alt="..."
+    loading="lazy" decoding="async"
+    widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/&gt;
+&lt;/section&gt;</code></pre>
+</div>
+<div class="tip">Add <code>no-border</code> to remove the bottom line.</div>
+
+<h2 id="lead-image">Layout: Lead image</h2>
+<div class="pattern-box">
+<pre><code>&lt;section class="lead-image-section"&gt;
+  &lt;Image class="lead-image" src={myImage} alt="..."
+    decoding="async"
+    widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/&gt;
+&lt;/section&gt;</code></pre>
+</div>
+
+<h2 id="summary-section">Layout: Summary section</h2>
+<div class="pattern-box">
+<pre><code>&lt;section class="summary-section"&gt;
+  &lt;p class="section-kicker"&gt;Label&lt;/p&gt;
+  &lt;h2&gt;Heading&lt;/h2&gt;
+  &lt;div class="summary-body"&gt;
+    &lt;p&gt;Paragraph.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+</div>
+
+<h2 id="site-header">Site header</h2>
+<p>Edit nav links in <code>src/components/SiteHeader.astro</code>. Every page uses <code>&lt;SiteHeader /&gt;</code>.</p>
+
+<h2 id="case-nav">Case study nav</h2>
+<p>Add new pages to <code>src/components/CaseStudyNav.astro</code>:</p>
+<pre><code>const pages = [
+  { href: '/portfolio/work/ui-design', label: 'UI Design' },
+  { href: '/portfolio/work/my-new-page', label: 'My New Page' },
+];</code></pre>
+
+<h2 id="shared-css">Shared CSS</h2>
+<p>All shared layout classes are in <code>src/styles/case-study.css</code>. Import in every case study page:</p>
+<pre><code>import '../../styles/case-study.css';</code></pre>
+
+<h2 id="new-page">Creating a new page</h2>
+<pre><code>cp ~/Documents/Code/portfolio/src/pages/work/workshops.astro \
+   ~/Documents/Code/portfolio/src/pages/work/new-page.astro</code></pre>
+<p>Then: edit content, add to CaseStudyNav, add card to projects.ts, push.</p>
+
+<h2 id="new-card">Adding a homepage card</h2>
+<pre><code>// src/data/projects.ts
+import myImage from '../assets/images/my-banner.png';
+{
+  name: 'Short name',
+  title: 'Card heading.',
+  description: 'One or two sentences.',
+  background: 'cyan',
+  href: '/portfolio/work/new-page',
+  image: myImage,
+  alt: 'Describe the image',
+},</code></pre>
+
+<h2 id="edit-content">Editing existing content</h2>
+<h3>Change text</h3>
+<p>Edit text inside <code>&lt;p&gt;</code> and <code>&lt;h2&gt;</code> tags directly in the <code>.astro</code> file.</p>
+<h3>Swap an image</h3>
+<p>Add new image to <code>src/assets/images/</code>, update the import line. HTML does not change.</p>
+<h3>Reorder homepage cards</h3>
+<p>Reorder objects in the <code>projects</code> array in <code>src/data/projects.ts</code>.</p>
+
+<h2 id="css-classes">All CSS classes</h2>
+<p><code>case-page</code> — outer wrapper</p>
+<p><code>case-hero</code> · <code>display-title</code> · <code>hero-text</code> · <code>hero-subtext</code> — hero section</p>
+<p><code>meta-strip</code> · <code>meta-label</code> · <code>meta-value</code> — Scope/Role/Tools strip</p>
+<p><code>section-kicker</code> — small caps label above a heading</p>
+<p><code>content-section</code> · <code>content-section no-border</code> · <code>section-content</code> · <code>section-image</code> · <code>aside-img</code></p>
+<p><code>full-image-section</code> · <code>full-image-section no-border</code> · <code>full-image</code></p>
+<p><code>lead-image-section</code> · <code>lead-image</code></p>
+<p><code>scroll-section</code> · <code>scroll-hint-label</code> · <code>image-scroll-track-wrap</code> · <code>image-scroll-track</code></p>
+<p><code>scroll-fig</code> (380px) · <code>scroll-fig large</code> (560px) · <code>scroll-img</code> · <code>scroll-img large</code></p>
+<p><code>summary-section</code> · <code>summary-body</code></p>
+
+<h2 id="terminal">Terminal commands</h2>
+<pre><code># Move image from Desktop
+mv ~/Desktop/image.png ~/Documents/Code/portfolio/src/assets/images/
+
+# Move multiple images
+mv ~/Desktop/*.png ~/Documents/Code/portfolio/src/assets/images/
+
+# Push to GitHub
+cd ~/Documents/Code/portfolio && git add -A && git commit -m "describe change" && git push origin main
+
+# Copy a page as starting point
+cp ~/Documents/Code/portfolio/src/pages/work/workshops.astro \
+   ~/Documents/Code/portfolio/src/pages/work/new-page.astro
+
+# Check what has changed
+cd ~/Documents/Code/portfolio && git status</code></pre>
+</div>
+</div>
+<script>
+const links=document.querySelectorAll('.sidebar nav a');
+const headings=document.querySelectorAll('.main h2[id]');
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.remove('active'));const l=document.querySelector(`.sidebar nav a[href="#${e.target.id}"]`);if(l)l.classList.add('active');}});},{rootMargin:'-10% 0px -75% 0px'});
+headings.forEach(h=>obs.observe(h));
+links.forEach(l=>l.addEventListener('click',e=>{e.preventDefault();document.getElementById(l.getAttribute('href').slice(1))?.scrollIntoView({behavior:'smooth'});}));
+</script>
+</body>
+</html>
