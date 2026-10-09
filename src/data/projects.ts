@@ -21,14 +21,14 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    name: 'UI Design',
-    title: 'UI design across digital products.',
-    description: 'End-to-end UI design across travel, insurance, payments, identity management, and mobile — from the public website to the authenticated member portal.',
-    background: 'lime',
+    name: 'UX & Product Process',
+    title: 'How experience design works within the product delivery cycle.',
+    description: 'From early roadmap conversations and analytics review through discovery, design, testing, and delivery.',
+    background: 'lavender',
     variant: 'desktop',
-    href: '/portfolio/work/ui-design',
-    image: raaWebsiteImage,
-    alt: 'RAA website homepage showing insurance, membership, motor, home, and travel navigation',
+    href: '/portfolio/work/ux-process',
+    image: miroIdeationCritiqueImage,
+    alt: 'Discovery and delivery dual-track diagram',
     imageClass: 'project-preview-image',
   },
   {
@@ -40,17 +40,6 @@ export const projects: Project[] = [
     href: '/portfolio/work/workshops',
     image: workshopsImage,
     alt: 'Team doing affinity mapping with sticky notes during a design sprint',
-    imageClass: 'project-preview-image',
-  },
-  {
-    name: 'UX & Product Process',
-    title: 'How experience design works within the product delivery cycle.',
-    description: 'From early roadmap conversations and analytics review through discovery, design, testing, and delivery.',
-    background: 'lavender',
-    variant: 'desktop',
-    href: '/portfolio/work/ux-process',
-    image: miroIdeationCritiqueImage,
-    alt: 'Discovery and delivery dual-track diagram',
     imageClass: 'project-preview-image',
   },
   {
@@ -95,6 +84,17 @@ export const projects: Project[] = [
     href: '/portfolio/work/ai-tooling',
     image: claudeOrchestrationImage,
     alt: 'AI orchestration layer diagram',
+    imageClass: 'project-preview-image',
+  },
+  {
+    name: 'Working with UI design teams',
+    title: 'Working with UI design teams across digital products.',
+    description: 'As senior UX lead, working with UI design leads and external vendors across travel, insurance, payments, identity management, and mobile — rapid low-fidelity prototypes built within the design system, tested, and iterated.',
+    background: 'lime',
+    variant: 'desktop',
+    href: '/portfolio/work/ui-design',
+    image: raaWebsiteImage,
+    alt: 'RAA website homepage showing insurance, membership, motor, home, and travel navigation',
     imageClass: 'project-preview-image',
   },
 ];

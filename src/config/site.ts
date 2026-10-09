@@ -47,7 +47,7 @@ export const siteConfig: SiteConfig = {
 		{ href: '/portfolio/resume', label: 'Resume' },
 	],
 	extraPages: [
-		{ href: '/portfolio/work/ui-design', label: 'UI Design' },
+		{ href: '/portfolio/work/ui-design', label: 'Working with UI design teams' },
 		{ href: '/portfolio/work/journey-mapping', label: 'Journey Mapping' },
 		{ href: '/portfolio/work/research-testing', label: 'Research' },
 		{ href: '/portfolio/work/design-systems', label: 'Design Systems' },
