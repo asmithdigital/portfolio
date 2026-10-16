@@ -1,0 +1,30 @@
+---
+/**
+ * Page shell for the home page: skip link, site header, main landmark
+ * and contact block.
+ */
+import Layout from '../../layouts/Layout.astro';
+import DraftHeader from './DraftHeader.astro';
+import DraftContact from './DraftContact.astro';
+import '../../styles/case-study.css';
+import '../../styles/draft.css';
+
+interface Props {
+	title: string;
+	description: string;
+}
+
+const { title, description } = Astro.props;
+
+---
+
+<Layout title={title} description={description} showFooterCta={false}>
+	<a class="skip-link" href="#main-content">Skip to content</a>
+	<div class="case-page draft-page">
+		<DraftHeader />
+		<main id="main-content">
+			<slot />
+		</main>
+		<DraftContact />
+	</div>
+</Layout>

@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import SiteHeader from '../components/SiteHeader.astro';
+import DraftHeader from '../components/draft/DraftHeader.astro';
+import DraftContact from '../components/draft/DraftContact.astro';
+import '../styles/draft.css';
 ---
 
 <Layout
@@ -12,7 +14,7 @@ import SiteHeader from '../components/SiteHeader.astro';
 	<a class="skip-link" href="#main-content">Skip to content</a>
 
 	<div class="legal-page">
-		<SiteHeader />
+		<DraftHeader />
 
 		<main id="main-content" class="legal-main">
 			<header class="legal-header">
@@ -113,6 +115,7 @@ import SiteHeader from '../components/SiteHeader.astro';
 				</section>
 			</article>
 		</main>
+		<DraftContact />
 	</div>
 </Layout>
 

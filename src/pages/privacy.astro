@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import SiteHeader from '../components/SiteHeader.astro';
+import DraftHeader from '../components/draft/DraftHeader.astro';
+import DraftContact from '../components/draft/DraftContact.astro';
+import '../styles/draft.css';
 ---
 
 <Layout
@@ -12,7 +14,7 @@ import SiteHeader from '../components/SiteHeader.astro';
 	<a class="skip-link" href="#main-content">Skip to content</a>
 
 	<div class="legal-page">
-		<SiteHeader />
+		<DraftHeader />
 
 		<main id="main-content" class="legal-main">
 			<header class="legal-header">
@@ -63,7 +65,7 @@ import SiteHeader from '../components/SiteHeader.astro';
 					</p>
 					<p>
 						For a fuller overview of how consent is stored and how optional categories are meant
-						to be used, see the <a href="/cookies">Cookie Policy</a>.
+						to be used, see the <a href="/portfolio/cookies">Cookie Policy</a>.
 					</p>
 				</section>
 
@@ -84,11 +86,12 @@ import SiteHeader from '../components/SiteHeader.astro';
 					<h2>Contact</h2>
 					<p>
 						Questions about this policy can be directed to
-						<a href="mailto:hello@maria.com">hello@maria.com</a>.
+						<a href="mailto:asmithdigital@gmail.com">asmithdigital@gmail.com</a>.
 					</p>
 				</section>
 			</article>
 		</main>
+		<DraftContact />
 	</div>
 </Layout>
 

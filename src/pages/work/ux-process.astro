@@ -1,9 +1,11 @@
 ---
 import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
-import SiteHeader from '../../components/SiteHeader.astro';
-import CaseStudyNav from '../../components/CaseStudyNav.astro';
+import DraftHeader from '../../components/draft/DraftHeader.astro';
+import DraftContact from '../../components/draft/DraftContact.astro';
+import DraftCaseNav from '../../components/draft/DraftCaseNav.astro';
 import '../../styles/case-study.css';
+import '../../styles/draft.css';
 
 import discoveryDelivery from '../../assets/images/product-management-discovery-delivery.png';
 import waysOfWorking from '../../assets/images/way-of-working-2.png';
@@ -19,14 +21,14 @@ import uxBenchmarking from '../../assets/images/ux-benchmarking.png';
 import journeyMap1 from '../../assets/images/journey-map-1.png';
 import orchestration from '../../assets/images/claude-orchestration-layer-diagram.png';
 ---
-<Layout title="UX and Product Process | Andrew Smith" description="How experience design works within the product delivery cycle from early roadmap conversations through discovery, design, delivery, and measurement.">
+<Layout title="UX and Product Process | Andrew Smith" description="How experience design works within the product delivery cycle from early roadmap conversations through discovery, design, delivery, and measurement." showFooterCta={false}>
   <a class="skip-link" href="#main-content">Skip to content</a>
   <div class="case-page">
-    <SiteHeader />
+    <DraftHeader />
     <main id="main-content">
 
       <section class="case-hero">
-        <p class="eyebrow"><a class="breadcrumb-link" href="/portfolio/work">Work</a><span class="breadcrumb-separator">/</span><span>UX and Product Process</span></p>
+        <p class="eyebrow"><a class="breadcrumb-link" href="/portfolio/">Work</a><span class="breadcrumb-separator">/</span><span>UX and Product Process</span></p>
         <h1 class="display-title">How experience design works within the product delivery cycle.</h1>
         <p class="hero-text">The experience design team works as part of the product trio — alongside product management and engineering — from the earliest conversations about what is worth building through to measuring whether it worked. This is what that contribution looks like at each stage, and how I led the team through it as manager while contributing directly as a practitioner.</p>
         <p class="hero-subtext">Covering discovery, design, delivery, and measurement across multiple product squads simultaneously.</p>
@@ -163,7 +165,8 @@ import orchestration from '../../assets/images/claude-orchestration-layer-diagra
         </div>
       </section>
 
-      <CaseStudyNav />
+      <DraftCaseNav />
     </main>
+    <DraftContact />
   </div>
 </Layout>

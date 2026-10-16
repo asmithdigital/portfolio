@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import SiteHeader from '../components/SiteHeader.astro';
+import DraftHeader from '../components/draft/DraftHeader.astro';
+import DraftContact from '../components/draft/DraftContact.astro';
+import '../styles/draft.css';
 ---
 
 <Layout
@@ -12,7 +14,7 @@ import SiteHeader from '../components/SiteHeader.astro';
 	<a class="skip-link" href="#main-content">Skip to content</a>
 
 	<div class="not-found-page">
-		<SiteHeader />
+		<DraftHeader />
 
 		<main id="main-content" class="not-found-main">
 			<header class="not-found-header">
@@ -24,12 +26,13 @@ import SiteHeader from '../components/SiteHeader.astro';
 			</p>
 
 			<div class="actions">
-				<a href="/">
+				<a href="/portfolio/">
 					<span>Go to homepage</span>
 					<span aria-hidden="true">-&gt;</span>
 				</a>
 			</div>
 		</main>
+		<DraftContact />
 	</div>
 </Layout>
 

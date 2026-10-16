@@ -1,190 +1,115 @@
 ---
 import { Image } from 'astro:assets';
-import Layout from '../layouts/Layout.astro';
-import SiteHeader from '../components/SiteHeader.astro';
+import DraftPage from '../components/draft/DraftPage.astro';
+import { draftHref, draftPracticeLinks, draftThumbnails } from '../config/draft';
+import { stages } from '../data/draft/stages';
 import { projects } from '../data/projects';
+import profilePhoto from '../assets/images/profile-1.png';
+
+const { layout, stages: thumbs } = draftThumbnails;
+
+// Tiles reuse the live home page's project data so images, titles and colours match.
+const tiles = draftPracticeLinks.map((link) => {
+	const project = projects.find((item) => item.href === link.liveHref);
+	if (!project) throw new Error(`No live tile found for ${link.liveHref}`);
+	return { ...project, title: link.tileTitle ?? project.title, label: link.label, href: draftHref(link.draftPath) };
+});
 ---
-<Layout
-  title="Andrew Smith | UX Design Leader & Senior Product Designer"
-  description="Portfolio of Andrew Smith, UX designer and team manager based in Adelaide. Twenty years across product design, front-end development, and design leadership."
-  showFooterCta={true}
+
+<DraftPage
+	title="Andrew Smith | UX designer"
+	description="Andrew Smith, UX designer. How I work with product managers and engineers, from framing the work to measuring the result."
 >
-  <a class="skip-link" href="#main-content">Skip to content</a>
-  <div class="page">
-    <SiteHeader />
-    <main id="main-content">
-      <section class="hero" id="top">
-        <div class="hero-copy">
-          <h1 class="display-title">Hi, I'm Andrew. Senior UX designer and team manager based in Adelaide.</h1>
-          <p class="hero-text">
-            Twenty years across product design, front-end development, and leading UX teams.
-            I care about how design practice is structured, how teams make evidence-based decisions,
-            and how good work gets delivered consistently.
-          </p>
-          <p class="hero-note" id="about">
-            Most interested in the problems underneath the interface.
-          </p>
-        </div>
-      </section>
+	<section class="draft-intro draft-home-grid" aria-labelledby="draft-title">
+		<Image
+			class="draft-photo"
+			src={profilePhoto}
+			alt="Portrait of Andrew Smith"
+			widths={[224, 448]}
+			sizes="14rem"
+			loading="eager"
+		/>
+		<div>
+			<h1 class="display-title" id="draft-title">Hi, I'm Andrew. I'm a UX designer.</h1>
+			<p class="hero-text">
+				I work with product managers and engineers to study how people use complex systems. Then I design around what
+				I find, rather than guessing.
+			</p>
+			<p class="hero-text">
+				I started in front-end development, so I think about how things get built, as well as how they work for
+				people.
+			</p>
+		</div>
+	</section>
 
-      <section class="projects" id="work">
-        <div class="projects-grid">
-          {projects.map((project, index) => (
-            <a class="project-link" href={project.href}>
-              <article class={`project-card ${project.background}`}>
-                <div class="project-header">
-                  <p class="project-name">{project.name}</p>
-                </div>
-                <h2 class="project-title">{project.title}</h2>
-                <div class={`project-visual ${project.variant}`}>
-                  <Image
-                    class={project.imageClass}
-                    src={project.image}
-                    alt={project.alt}
-                    loading={index < 2 ? 'eager' : 'lazy'}
-                    decoding="async"
-                    widths={[480, 720, 960]}
-                    sizes="(max-width: 980px) 100vw, 50vw"
-                  />
-                </div>
-              </article>
-            </a>
-          ))}
-        </div>
-      </section>
-    </main>
-  </div>
-</Layout>
+	<section class="draft-timeline-section" aria-labelledby="stages-heading">
+		<h2 class="draft-section-heading" id="stages-heading">How I work</h2>
+		<p class="draft-section-lead">Seven stages, in order.</p>
 
-<style>
-  .page {
-    position: relative;
-    width: min(calc(100% - 3rem), 78rem);
-    margin: 0 auto;
-    padding: 1.25rem 0 5rem;
-  }
+		<ol
+			class="draft-stages"
+			style={`--thumb-aspect: ${layout.aspectRatio}; --thumb-width: ${layout.desktopWidth}; --thumb-mobile-width: ${layout.mobileWidth};`}
+		>
+			{
+				stages.map((stage) => {
+					const thumb = thumbs[stage.slug];
+					return (
+						<li class="draft-stage" id={`stage-${stage.slug}`}>
+							<span class="draft-stage-dot" aria-hidden="true">
+								{stage.number}
+							</span>
+							<div class="draft-thumb" style={`--thumb-position: ${thumb.position}; --thumb-zoom: ${thumb.zoom};`}>
+								<Image
+									src={thumb.image}
+									alt={thumb.alt}
+									widths={[240, 420, 630]}
+									sizes="(min-width: 40rem) 210px, 90px"
+									loading="lazy"
+									decoding="async"
+								/>
+							</div>
+							<h3 class="draft-stage-title">
+								<span class="draft-sr-only">Stage {stage.number}: </span>
+								{stage.title}
+							</h3>
+							<div class="draft-stage-body">
+								{stage.paragraphs.map((paragraph) => (
+									<p>{paragraph}</p>
+								))}
+							</div>
+						</li>
+					);
+				})
+			}
+		</ol>
+	</section>
 
-  .project-name {
-    font-family: var(--font-mono);
-    font-size: 0.82rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    line-height: 1.4;
-    text-transform: uppercase;
-    margin: 0;
-    color: var(--muted-foreground);
-  }
-
-  .hero {
-    padding: 7rem 0 6.5rem;
-  }
-
-  .hero-copy {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .display-title {
-    font-size: clamp(2.2rem, 4.5vw, 3.8rem);
-    font-weight: 800;
-    letter-spacing: -0.05em;
-    line-height: 1.06;
-    margin: 0 0 0;
-    max-width: 18ch;
-  }
-
-  .hero-text {
-    font-size: 1.15rem;
-    line-height: 1.6;
-    color: var(--muted-foreground);
-    margin: 1.5rem 0 0;
-    max-width: 38rem;
-  }
-
-  .hero-note {
-    font-size: 1.05rem;
-    line-height: 1.6;
-    color: var(--muted-foreground);
-    font-style: italic;
-    margin: 0.75rem 0 0;
-    max-width: 38rem;
-  }
-
-  .projects {
-    display: grid;
-    gap: 1.5rem;
-    margin-top: 1rem;
-  }
-
-  .projects-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-  }
-
-  .project-link {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-  }
-
-  .project-card {
-    border-radius: 1.5rem;
-    padding: 1.5rem 1.5rem 0;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-    transition: transform 120ms ease, box-shadow 120ms ease;
-    height: 26rem;
-  }
-
-  .project-link:hover .project-card {
-    transform: translateY(-2px);
-    box-shadow: 0 16px 40px rgba(23,23,23,0.12);
-  }
-
-  .project-card.lime   { background: #d4f5b0; }
-  .project-card.cyan   { background: #b0eaf5; }
-  .project-card.lavender { background: #d0c8f5; }
-  .project-card.mint   { background: #b0f0d8; }
-
-  .project-card .project-name { color: rgba(23,23,23,0.55); }
-  .project-card.cyan .project-title,
-  .project-card.mint .project-title { color: #171717; }
-
-  .project-title {
-    font-size: clamp(1rem, 1.4vw, 1.3rem);
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    line-height: 1.2;
-    margin: 0;
-    color: #171717;
-    max-width: 30ch;
-  }
-
-  .project-visual {
-    margin-top: auto;
-    overflow: hidden;
-    border-radius: 0.75rem 0.75rem 0 0;
-    flex: 1;
-    display: flex;
-    align-items: flex-end;
-  }
-
-  .project-preview-image {
-    width: 100%;
-    height: 100%;
-    display: block;
-    border-radius: 0.75rem 0.75rem 0 0;
-    object-fit: cover;
-    object-position: top center;
-  }
-
-  @media(max-width: 860px) {
-    .projects-grid { grid-template-columns: 1fr; }
-    .project-card { height: auto; min-height: 20rem; }
-    .project-visual { flex: 0 0 auto; margin-top: 1rem; height: 160px; }
-    .hero { padding: 4rem 0 3rem; }
-  }
-</style>
+	<section class="draft-practices-section" aria-labelledby="practices-heading">
+		<h2 class="draft-section-heading" id="practices-heading">Practices</h2>
+		<div class="projects-grid">
+			{
+				tiles.map((tile) => (
+					<a class="project-link" href={tile.href}>
+						<article class={`project-card ${tile.background}`}>
+							<div class="project-header">
+								<p class="project-name">{tile.label}</p>
+							</div>
+							<h3 class="project-title">{tile.title.replace(/\s\u2014\s/, ': ')}</h3>
+							<div class={`project-visual ${tile.variant}`}>
+								<Image
+									class={tile.imageClass}
+									src={tile.image}
+									alt={tile.alt}
+									loading="lazy"
+									decoding="async"
+									widths={[480, 720, 960]}
+									sizes="(max-width: 980px) 100vw, 50vw"
+								/>
+							</div>
+						</article>
+					</a>
+				))
+			}
+		</div>
+	</section>
+</DraftPage>

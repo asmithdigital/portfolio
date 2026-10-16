@@ -14,7 +14,8 @@ const {
 } = Astro.props;
 
 const canonicalUrl = new URL(Astro.url.pathname, siteConfig.siteUrl).toString();
-const ogImageUrl = new URL(siteConfig.ogImage, siteConfig.siteUrl).toString();
+// Resolve against the site folder so the image keeps the /portfolio base path.
+const ogImageUrl = new URL(siteConfig.ogImage.replace(/^\//, ''), `${siteConfig.siteUrl}/`).toString();
 const schemaData =
 	schema ??
 	[

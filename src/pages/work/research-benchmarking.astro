@@ -1,22 +1,24 @@
 ---
 import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
-import SiteHeader from '../../components/SiteHeader.astro';
-import CaseStudyNav from '../../components/CaseStudyNav.astro';
+import DraftHeader from '../../components/draft/DraftHeader.astro';
+import DraftContact from '../../components/draft/DraftContact.astro';
+import DraftCaseNav from '../../components/draft/DraftCaseNav.astro';
 import '../../styles/case-study.css';
+import '../../styles/draft.css';
 
 import uxBenchmarking from '../../assets/images/ux-benchmarking.png';
 import journeyMap1 from '../../assets/images/journey-map-1.png';
 import usertesting from '../../assets/images/usertesting-2.png';
 ---
-<Layout title="Benchmarking | Andrew Smith" description="Quantitative UX benchmarking tracking effectiveness, efficiency, satisfaction, and desirability over time.">
+<Layout title="Benchmarking | Andrew Smith" description="Quantitative UX benchmarking tracking effectiveness, efficiency, satisfaction, and desirability over time." showFooterCta={false}>
   <a class="skip-link" href="#main-content">Skip to content</a>
   <div class="case-page">
-    <SiteHeader />
+    <DraftHeader />
     <main id="main-content">
 
       <section class="case-hero">
-        <p class="eyebrow"><a class="breadcrumb-link" href="/portfolio/work">Work</a><span class="breadcrumb-separator">/</span><span>Benchmarking</span></p>
+        <p class="eyebrow"><a class="breadcrumb-link" href="/portfolio/">Work</a><span class="breadcrumb-separator">/</span><span>Benchmarking</span></p>
         <h1 class="display-title">Benchmarking digital product quality over time.</h1>
         <p class="hero-text">A single usability study tells you what is happening now. A benchmarking program tells you whether things are getting better or worse. Tracking effectiveness, efficiency, satisfaction, and desirability at regular intervals gives product and engineering teams evidence of whether changes are actually improving the experience — or just shipping features.</p>
         <p class="hero-subtext">Built from scratch at RAA and run across multiple product areas as a continuous measurement practice.</p>
@@ -38,6 +40,7 @@ import usertesting from '../../assets/images/usertesting-2.png';
         <div class="summary-body">
           <p>The benchmarking framework measures four dimensions across each product area. Effectiveness — can users complete the task at all? Efficiency — how long does it take and how many errors occur? Satisfaction — how do users rate the experience? Desirability — does the experience reflect the brand qualities the business wants to be associated with?</p>
           <p>Each study is run to a standardised protocol so results can be compared across time periods. A change in score means something because the methodology is consistent. When a metric improves after a delivery, there is evidence the change worked. When it does not improve, there is a signal that something else needs investigating. The data feeds directly into the journey map, keeping prioritisation grounded in measurement rather than assumption.</p>
+          <p>Before we measure, we define what success looks like for each product and align the team on it. Benchmarking puts numbers on the experience, so the qualitative findings sit alongside the analytics.</p>
         </div>
       </section>
 
@@ -65,7 +68,8 @@ import usertesting from '../../assets/images/usertesting-2.png';
         </div>
       </section>
 
-      <CaseStudyNav />
+      <DraftCaseNav />
     </main>
+    <DraftContact />
   </div>
 </Layout>

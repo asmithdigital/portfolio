@@ -1,9 +1,11 @@
 ---
 import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
-import SiteHeader from '../../components/SiteHeader.astro';
-import CaseStudyNav from '../../components/CaseStudyNav.astro';
+import DraftHeader from '../../components/draft/DraftHeader.astro';
+import DraftContact from '../../components/draft/DraftContact.astro';
+import DraftCaseNav from '../../components/draft/DraftCaseNav.astro';
 import '../../styles/case-study.css';
+import '../../styles/draft.css';
 
 import travelHome from '../../assets/images/raa-travel-home.png';
 import qtbStart from '../../assets/images/raa-qtb-start.png';
@@ -21,16 +23,29 @@ import freelance2a from '../../assets/images/freelance-2a.png';
 import freelance3a from '../../assets/images/freelance-3a.png';
 import freelance4a from '../../assets/images/freelance-4a.png';
 ---
-<Layout title="Working with UI Design Teams | Andrew Smith" description="How a senior UX lead works with UI design leads and external vendors across RAA digital products, using low-fidelity prototypes built within the design system, tested, and iterated.">
+<Layout title="UI Design and Working with UI Teams | Andrew Smith" description="How a senior UX lead works with UI design leads and external vendors across RAA digital products, using low-fidelity prototypes built within the design system, tested, and iterated." showFooterCta={false}>
   <a class="skip-link" href="#main-content">Skip to content</a>
   <div class="case-page">
-    <SiteHeader />
+    <DraftHeader />
     <main id="main-content">
 
       <section class="case-hero">
-        <p class="eyebrow"><a class="breadcrumb-link" href="/portfolio/work">Work</a><span class="breadcrumb-separator">/</span><span>Working with UI design teams</span></p>
-        <h1 class="display-title">Working with UI design teams across digital products.</h1>
-        <p class="hero-text">Design agencies and UI designers delivered the first iteration of the RAA interface and set up the design system. Since then, as senior UX lead, I have worked with the UI design leads in my team and in other teams, and with external vendors, within Agile squads and the product trio. Starting in front-end development means working with engineers is a peer conversation, not a handover.</p>
+        <p class="eyebrow"><a class="breadcrumb-link" href="/portfolio/">Work</a><span class="breadcrumb-separator">/</span><span>UI design and working with UI teams</span></p>
+        <h1 class="display-title">UI design and working with UI teams.</h1>
+        <p class="hero-text">I am trained and experienced in UI. Over the years I have done the UI design and the front-end code for many projects, especially freelance work and new products.</p>
+        <p class="hero-text">I write JavaScript and build websites. When a role needs it, I am confident doing UI end to end.</p>
+      </section>
+
+      <section class="content-section no-border">
+        <div class="section-content">
+          <p class="section-kicker">Where I spend my time now</p>
+          <p>In my recent roles, the more valuable use of that background has been running the UX process and working alongside dedicated UI design leads. Knowing UI principles, patterns and users' mental models means I prototype and test the right things, read an interface properly and make better recommendations.</p>
+        </div>
+      </section>
+
+      <section class="draft-ui-alongside">
+        <p class="section-kicker">Working alongside UI teams</p>
+        <p class="hero-text">Design agencies and UI designers delivered the first iteration of the RAA interface. Since then, as senior UX lead, I have worked with the UI design leads in my team and in other teams, and with external vendors, within Agile squads and the product trio. Starting in front-end development means working with engineers is a peer conversation, not a handover.</p>
         <p class="hero-subtext">Rapid, low-fidelity prototypes that work within the design system, tested with users and iterated for 800,000+ RAA members.</p>
       </section>
 
@@ -108,7 +123,7 @@ import freelance4a from '../../assets/images/freelance-4a.png';
         <div class="section-content">
           <p class="section-kicker">Design System and Mobile</p>
           <h2>Working within a design system built for engineering adoption.</h2>
-          <p>The RAA design system, first set up with design agencies, covers web and mobile across all product areas. Alert components, button variants, form elements, and mobile-specific components all governed through a documented library with usage guidelines, anatomy, accessibility notes, and coded examples.</p>
+          <p>The RAA design system, built in-house by the team in Figma, covers web and mobile across all product areas. Alert components, button variants, form elements, and mobile-specific components all governed through a documented library with usage guidelines, anatomy, accessibility notes, and coded examples.</p>
           <p>Contributed UX to the RAA native app alongside senior mobile designers, covering screen flows, interaction patterns, and how mobile-specific design system components are used.</p>
         </div>
       </section>
@@ -163,8 +178,9 @@ import freelance4a from '../../assets/images/freelance-4a.png';
         </div>
       </div>
 
-      <CaseStudyNav />
+      <DraftCaseNav />
     </main>
+    <DraftContact />
   </div>
 </Layout>
 

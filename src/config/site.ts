@@ -14,44 +14,31 @@ export type SiteConfig = {
 	authorRole: string;
 	keywords: string[];
 	ogImage: string;
-	navLinks: SiteLink[];
-	extraPages: SiteLink[];
 	legalLinks: SiteLink[];
 	socialLinks: SiteLink[];
 };
 
 export const siteConfig: SiteConfig = {
 	name: 'Andrew Smith',
-	title: 'Andrew Smith | UX Design Leader & Manager',
+	title: 'Andrew Smith | UX designer',
 	description:
-		'Portfolio of Andrew Smith — UX Design Leader and Manager with 20 years across design systems, journey mapping, research operations, product design, and front-end development.',
+		"Andrew Smith, UX designer. I work with product managers and engineers to study how people use complex systems, then design around what I find. I started in front-end development.",
 	siteUrl: 'https://asmithdigital.github.io/portfolio',
 	email: 'asmithdigital@gmail.com',
 	locale: 'en-AU',
 	authorName: 'Andrew Smith',
-	authorRole: 'UX Design Leader & Manager',
+	authorRole: 'UX designer',
 	keywords: [
-		'UX design leader',
-		'UX manager portfolio',
-		'design systems Adelaide',
+		'UX designer Adelaide',
+		'UX designer portfolio',
+		'UX research and usability testing',
+		'design sprints and workshops',
 		'journey mapping',
-		'research operations',
-		'product design case studies',
+		'design systems',
+		'UX benchmarking',
 		'Andrew Smith UX',
-		'senior UX designer Adelaide',
 	],
 	ogImage: '/og-image.svg',
-	navLinks: [
-		{ href: '/portfolio/work', label: 'Work' },
-		{ href: '/portfolio/about', label: 'About' },
-		{ href: '/portfolio/resume', label: 'Resume' },
-	],
-	extraPages: [
-		{ href: '/portfolio/work/ui-design', label: 'Working with UI design teams' },
-		{ href: '/portfolio/work/journey-mapping', label: 'Journey Mapping' },
-		{ href: '/portfolio/work/research-testing', label: 'Research' },
-		{ href: '/portfolio/work/design-systems', label: 'Design Systems' },
-	],
 	legalLinks: [],
 	socialLinks: [
 		{ href: 'https://www.linkedin.com/in/andrewstephensmith/', label: 'LinkedIn' },

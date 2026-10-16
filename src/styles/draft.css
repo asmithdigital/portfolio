@@ -1,0 +1,528 @@
+/* ============================================
+   DRAFT PROCESS PORTFOLIO
+   Styles for /portfolio/draft/ only. Mobile first.
+   Uses the theme tokens from Layout.astro and sits on top of case-study.css.
+   ============================================ */
+
+:root {
+  --draft-photo-size: 11.2rem;
+  --draft-gap: 1.5rem;
+  --draft-radius: 1rem;
+  --draft-measure: 44rem;
+}
+
+
+.draft-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Links inside draft copy */
+.draft-page main a:not(.draft-pager-link) {
+  color: var(--foreground);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--border-strong);
+}
+.draft-page main a:hover { text-decoration-thickness: 2px; }
+
+/* ---------- Header dropdowns ---------- */
+.draft-nav { gap: 1.5rem; align-items: center; }
+
+.draft-menu { position: relative; }
+
+.draft-menu-trigger {
+  list-style: none;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  cursor: pointer;
+  font-size: .95rem;
+  font-weight: 600;
+  letter-spacing: -.02em;
+}
+.draft-menu-trigger::-webkit-details-marker { display: none; }
+.draft-menu-trigger img { filter: var(--icon-filter); transition: transform 140ms ease; }
+.draft-menu[open] .draft-menu-trigger img { transform: rotate(180deg); }
+.draft-menu-trigger:hover { opacity: .68; }
+
+.draft-menu-panel {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 20;
+  min-width: 16rem;
+  margin: 0;
+  padding: .55rem;
+  list-style: none;
+  display: grid;
+  gap: .15rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: .9rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.shared-nav .draft-menu-panel a {
+  min-height: 40px;
+  display: flex;
+  padding: .4rem .6rem;
+  border-radius: .65rem;
+  white-space: nowrap;
+}
+.shared-nav .draft-menu-panel a:hover,
+.shared-nav .draft-menu-panel a:focus-visible { background: var(--muted); opacity: 1; }
+
+.draft-menu-panel a[aria-current='page'],
+.draft-mobile-list a[aria-current='page'] {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.draft-mobile-list { margin: 0; list-style: none; }
+.draft-mobile-list li { width: 100%; }
+
+/* ---------- Home: intro ---------- */
+.draft-intro {
+  display: grid;
+  gap: var(--draft-gap);
+  padding: 3rem 0 2.5rem;
+}
+
+.draft-photo {
+  width: var(--draft-photo-size);
+  height: var(--draft-photo-size);
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--border);
+}
+
+.draft-intro .display-title { margin: 0 0 1rem; }
+.draft-intro .hero-text { margin-bottom: .75rem; }
+
+/* ---------- Home: section headings ---------- */
+.draft-section-heading {
+  font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+  margin: 0 0 .5rem;
+}
+
+.draft-section-lead {
+  color: var(--muted-foreground);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  margin: 0 0 2rem;
+  max-width: var(--draft-measure);
+}
+
+.draft-timeline-section {
+  padding: 2rem 0 3rem;
+  border-top: 1px solid var(--border);
+}
+
+/* ---------- Home: stages ---------- */
+.draft-timeline-section .draft-section-lead { margin-bottom: 1.25rem; }
+
+.draft-stages {
+  --dot-size: 2.75rem;
+  --draft-line: #4a4a4a;
+  --stage-gap: 3.25rem;
+  --stage-col-gap: 1.75rem;
+  /* Pushes each circle down so it is centred on its 3:2 thumbnail. */
+  --dot-offset: calc((var(--thumb-mobile-width, 5.625rem) / 1.5 - var(--dot-size)) / 2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+:root[data-theme='dark'] .draft-stages { --draft-line: #8a93a0; }
+
+/*
+ * Mobile: dot | thumbnail + title side by side, text full width below.
+ * Desktop: dot | thumbnail | title and text.
+ * A 2px line runs from each circle down to the next.
+ */
+.draft-stage {
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--dot-size) var(--thumb-mobile-width, 5.625rem) minmax(0, 1fr);
+  grid-template-areas:
+    'dot thumb title'
+    'dot body body';
+  column-gap: var(--stage-col-gap);
+  row-gap: .9rem;
+  align-items: start;
+  padding-bottom: var(--stage-gap);
+}
+/* Line runs from the bottom of this circle to the top of the next one. */
+.draft-stage::before {
+  content: '';
+  position: absolute;
+  top: calc(var(--dot-offset) + var(--dot-size));
+  bottom: calc(-1 * var(--dot-offset));
+  left: calc(var(--dot-size) / 2 - 1px);
+  width: 2px;
+  background: var(--draft-line);
+}
+.draft-stage:last-child { padding-bottom: 0; }
+.draft-stage:last-child::before { display: none; }
+
+.draft-stage-dot {
+  grid-area: dot;
+  margin-top: var(--dot-offset);
+  width: var(--dot-size);
+  height: var(--dot-size);
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--foreground);
+  color: var(--background);
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.draft-thumb {
+  grid-area: thumb;
+  width: 100%;
+  aspect-ratio: var(--thumb-aspect, 3 / 2);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: .6rem;
+  background: var(--muted);
+}
+.draft-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--thumb-position, center);
+  transform: scale(var(--thumb-zoom, 1));
+  transform-origin: var(--thumb-position, center);
+}
+
+.draft-stage-title {
+  grid-area: title;
+  align-self: center;
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: -.02em;
+}
+
+.draft-stage-body { grid-area: body; min-width: 0; max-width: 52rem; }
+.draft-stage-body p {
+  margin: 0 0 .6rem;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.draft-stage-body p:last-child { margin-bottom: 0; }
+
+@media (min-width: 40rem) {
+  .draft-stage {
+    grid-template-columns: var(--dot-size) var(--thumb-width, 10rem) minmax(0, 1fr);
+    grid-template-areas:
+      'dot thumb title'
+      'dot thumb body';
+    grid-template-rows: auto 1fr;
+    row-gap: .4rem;
+  }
+  .draft-stages { --dot-offset: calc((var(--thumb-width, 13.125rem) / 1.5 - var(--dot-size)) / 2); }
+  .draft-stage-title { align-self: start; margin-top: .55rem; }
+}
+
+/* UI page: existing hero text, moved below the new capability text */
+.draft-ui-alongside { padding: 1rem 0 2.5rem; }
+
+/* ---------- Home: practices list ---------- */
+.draft-practices-section {
+  padding: 3rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.draft-link-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: .25rem;
+}
+
+.draft-link-list a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  font-weight: 700;
+}
+
+/* ---------- Home: practice tiles ----------
+   Copied from the live home page (src/pages/index.astro) so the tiles match exactly. */
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+.draft-page main a.project-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+.project-card {
+  border-radius: 1.5rem;
+  padding: 1.5rem 1.5rem 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  transition: transform 120ms ease, box-shadow 120ms ease;
+  height: 26rem;
+}
+.project-link:hover .project-card {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px rgba(23,23,23,0.12);
+}
+.project-card.lime     { background: #d4f5b0; }
+.project-card.cyan     { background: #b0eaf5; }
+.project-card.lavender { background: #d0c8f5; }
+.project-card.mint     { background: #b0f0d8; }
+.project-name {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  margin: 0;
+}
+.project-card .project-name { color: rgba(23,23,23,0.55); }
+.project-title {
+  font-size: clamp(1rem, 1.4vw, 1.3rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  margin: 0;
+  color: #171717;
+  max-width: 30ch;
+}
+.project-visual {
+  margin-top: auto;
+  overflow: hidden;
+  border-radius: 0.75rem 0.75rem 0 0;
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+}
+.project-preview-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 0.75rem 0.75rem 0 0;
+  object-fit: cover;
+  object-position: top center;
+}
+@media (max-width: 860px) {
+  .projects-grid { grid-template-columns: 1fr; }
+  .project-card { height: auto; min-height: 20rem; }
+  .project-visual { flex: 0 0 auto; margin-top: 1rem; height: 160px; }
+}
+
+/* ---------- Detail pages ---------- */
+.draft-breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--font-mono);
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+.draft-breadcrumb li + li::before { content: '/'; margin-right: .5rem; }
+.draft-page .draft-breadcrumb a { color: var(--muted-foreground); }
+
+.draft-detail-hero { padding: 3rem 0 1.5rem; }
+.draft-detail-hero .display-title { margin: .75rem 0 1rem; }
+
+.draft-lead-image {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 1.25rem;
+  box-shadow: var(--shadow-medium);
+}
+
+.draft-block {
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.draft-block:first-of-type { border-top: 0; }
+
+.draft-block h2 {
+  font-size: clamp(1.35rem, 2.2vw, 1.8rem);
+  margin: 0 0 1.25rem;
+}
+
+.draft-prose { max-width: var(--draft-measure); }
+.draft-prose p {
+  margin: 0 0 1rem;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+.draft-prose p:last-child { margin-bottom: 0; }
+
+.draft-example + .draft-example {
+  margin-top: 2.5rem;
+  padding-top: 2.5rem;
+  border-top: 1px dashed var(--border);
+}
+
+.draft-example h3 {
+  margin: 0 0 1rem;
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: -.03em;
+}
+
+.draft-figures {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.draft-figures figure,
+.draft-figure { margin: 0; }
+
+.draft-figures img,
+.draft-figure img {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: var(--draft-radius);
+}
+
+.draft-figure { margin-top: 1.5rem; }
+
+/* Image grid for the UI practice page */
+.draft-gallery {
+  display: grid;
+  gap: 1.25rem;
+}
+.draft-gallery figure { margin: 0; }
+.draft-gallery img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: contain;
+  object-position: top center;
+  border: 1px solid var(--border);
+  border-radius: var(--draft-radius);
+  background: var(--muted);
+}
+.draft-freelance .draft-gallery-group + .draft-gallery-group { margin-top: 2rem; }
+.draft-freelance h3 {
+  margin: 0 0 1rem;
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: -.03em;
+}
+
+.draft-small-label {
+  font-family: var(--font-mono);
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+.draft-block h2.draft-small-label { font-size: .8rem; letter-spacing: .06em; }
+
+.draft-stage-kicker { margin-top: 1.5rem; }
+.draft-hero-figure { margin-bottom: 1.5rem; }
+.draft-example-block h2 { margin-bottom: .75rem; }
+
+.draft-related {
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--border);
+}
+.draft-related h2 {
+  font-size: clamp(1.35rem, 2.2vw, 1.8rem);
+  margin: 0 0 1rem;
+}
+
+.draft-pager {
+  display: grid;
+  gap: 1rem;
+  padding: 2.5rem 0 0;
+  border-top: 1px solid var(--border);
+}
+
+.draft-pager-link {
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: .75rem;
+  text-decoration: none;
+  transition: background-color 120ms ease, border-color 120ms ease;
+}
+.draft-pager-link:hover { background: var(--muted); border-color: var(--foreground); }
+.draft-pager-dir {
+  font-family: var(--font-mono);
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+.draft-pager-title { font-weight: 700; }
+
+/* ---------- Contact ---------- */
+.draft-contact {
+  margin-top: 4rem;
+  padding-top: 3rem;
+  border-top: 1px solid var(--border);
+}
+.draft-contact h2 {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  margin: 0 0 .75rem;
+}
+.draft-contact p {
+  margin: 0 0 .5rem;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--muted-foreground);
+}
+.draft-contact a {
+  color: var(--accent-link);
+  font-weight: 700;
+  text-underline-offset: 3px;
+}
+
+/* ---------- Wider screens ---------- */
+@media (min-width: 40rem) {
+  :root { --draft-photo-size: 14rem; }
+  /* Intro, stages and practices share one grid, so headings and the timeline
+     start at the same left edge as the intro text. */
+  .draft-home-grid {
+    display: grid;
+    grid-template-columns: var(--draft-photo-size) minmax(0, 1fr);
+    column-gap: var(--draft-gap);
+    align-items: start;
+  }
+  .draft-home-grid > * { grid-column: 2; }
+  .draft-home-grid > .draft-photo { grid-column: 1; grid-row: 1; }
+  .draft-intro { padding-top: 4.5rem; column-gap: 3.5rem; }
+  .draft-figures,
+  .draft-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .draft-pager { grid-template-columns: 1fr 1fr; }
+  .draft-pager-next { grid-column: 2; text-align: right; }
+}
+

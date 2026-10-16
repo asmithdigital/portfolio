@@ -1,9 +1,11 @@
 ---
 import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
-import SiteHeader from '../../components/SiteHeader.astro';
-import CaseStudyNav from '../../components/CaseStudyNav.astro';
+import DraftHeader from '../../components/draft/DraftHeader.astro';
+import DraftContact from '../../components/draft/DraftContact.astro';
+import DraftCaseNav from '../../components/draft/DraftCaseNav.astro';
 import '../../styles/case-study.css';
+import '../../styles/draft.css';
 
 import journeyMap1 from '../../assets/images/journey-map-1.png';
 import journeyMap2 from '../../assets/images/journey-map-2.png';
@@ -13,14 +15,14 @@ import raaPersona1 from '../../assets/images/raa-persona.png';
 import raaPersona2 from '../../assets/images/detailed-donald.png';
 import raaPersona3 from '../../assets/images/quick-quote-quinn.png';
 ---
-<Layout title="Journey Mapping | Andrew Smith" description="Journey mapping as a practice of shared visibility connecting analytics, research, and team knowledge into a single reference.">
+<Layout title="Journey Mapping | Andrew Smith" description="Journey mapping as a practice of shared visibility connecting analytics, research, and team knowledge into a single reference." showFooterCta={false}>
   <a class="skip-link" href="#main-content">Skip to content</a>
   <div class="case-page">
-    <SiteHeader />
+    <DraftHeader />
     <main id="main-content">
 
       <section class="case-hero">
-        <p class="eyebrow"><a class="breadcrumb-link" href="/portfolio/work">Work</a><span class="breadcrumb-separator">/</span><span>Journey Mapping</span></p>
+        <p class="eyebrow"><a class="breadcrumb-link" href="/portfolio/">Work</a><span class="breadcrumb-separator">/</span><span>Journey Mapping</span></p>
         <h1 class="display-title">Journey mapping for experience visibility.</h1>
         <p class="hero-text">Most organisations have more data about their customers than they can make sense of. Analytics in one platform, research findings in another, customer feedback somewhere else, and no shared view connecting any of it to the specific moment in the product where the experience is breaking down.</p>
         <p class="hero-text">A well-maintained journey map changes that. It gives product, engineering, service design, and UX a single shared reference so that when decisions get made about what to build next, they are grounded in what is actually known about the experience.</p>
@@ -72,6 +74,14 @@ import raaPersona3 from '../../assets/images/quick-quote-quinn.png';
 
       <section class="content-section">
         <div class="section-content">
+          <p class="section-kicker">How the maps get built</p>
+          <h2>Built by hand, kept current.</h2>
+          <p>The maps are built by hand in Miro and printed on paper for team sessions. I work alongside service designers, who build the service blueprints while we map the digital products. I am working towards using AI tools to build and update a journey map for each product and feature, so the story stays current.</p>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <div class="section-content">
           <p class="section-kicker">Journey Map Directory</p>
           <h2>All product areas in one navigable reference.</h2>
           <p>Journey maps across all RAA product areas are maintained in a shared directory covering Road Service, Car Insurance, Home Insurance, Membership, and Solar and Energy. Each map is tagged by lifecycle stage, digital channel availability, and opportunity type, giving product and engineering teams a single reference for where the experience has been mapped and where gaps still exist.</p>
@@ -108,7 +118,8 @@ import raaPersona3 from '../../assets/images/quick-quote-quinn.png';
         </div>
       </div>
 
-      <CaseStudyNav />
+      <DraftCaseNav />
     </main>
+    <DraftContact />
   </div>
 </Layout>

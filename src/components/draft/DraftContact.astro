@@ -1,0 +1,20 @@
+---
+import { siteConfig } from '../../config/site';
+import { draftConfig, publicHref } from '../../config/draft';
+---
+
+<section class="draft-contact" aria-labelledby="draft-contact-heading">
+	<h2 id="draft-contact-heading">Get in touch</h2>
+	<p>
+		Email me at <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>.
+	</p>
+	{
+		draftConfig.resumeFile && (
+			<p>
+				<a href={publicHref(draftConfig.resumeFile)} download>
+					Download my resume
+				</a>
+			</p>
+		)
+	}
+</section>

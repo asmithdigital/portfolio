@@ -1,22 +1,24 @@
 ---
 import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
-import SiteHeader from '../../components/SiteHeader.astro';
-import CaseStudyNav from '../../components/CaseStudyNav.astro';
+import DraftHeader from '../../components/draft/DraftHeader.astro';
+import DraftContact from '../../components/draft/DraftContact.astro';
+import DraftCaseNav from '../../components/draft/DraftCaseNav.astro';
 import '../../styles/case-study.css';
+import '../../styles/draft.css';
 
 import orchestration from '../../assets/images/claude-orchestration-layer-diagram.png';
 import journeyMap1 from '../../assets/images/journey-map-1.png';
 import travelWireframes from '../../assets/images/travel-sd-wireframes.png';
 ---
-<Layout title="AI Tooling | Andrew Smith" description="How AI tools reduce overhead and accelerate discovery across the design and product process.">
+<Layout title="AI Tooling | Andrew Smith" description="How AI tools reduce overhead and accelerate discovery across the design and product process." showFooterCta={false}>
   <a class="skip-link" href="#main-content">Skip to content</a>
   <div class="case-page">
-    <SiteHeader />
+    <DraftHeader />
     <main id="main-content">
 
       <section class="case-hero">
-        <p class="eyebrow"><a class="breadcrumb-link" href="/portfolio/work">Work</a><span class="breadcrumb-separator">/</span><span>AI Tooling</span></p>
+        <p class="eyebrow"><a class="breadcrumb-link" href="/portfolio/">Work</a><span class="breadcrumb-separator">/</span><span>AI Tooling</span></p>
         <h1 class="display-title">AI in the design and product process.</h1>
         <p class="hero-text">AI tools are most useful when they reduce the overhead that competes with the work that requires judgment. Synthesis, documentation, spec generation, pattern identification — when AI handles these, the time that is freed up goes toward discovery, testing, and the decisions that actually move product quality forward.</p>
         <p class="hero-subtext">Faster discovery means the business can validate or redirect product decisions faster. That is a business outcome argument, not a craft efficiency argument.</p>
@@ -38,6 +40,7 @@ import travelWireframes from '../../assets/images/travel-sd-wireframes.png';
         <div class="summary-body">
           <p>When AI compresses the time it takes to synthesise research, generate journey map structures from raw notes, or produce component documentation from a design file, the gain is not just hours saved. It is earlier access to the insight that would have taken a week to surface manually — which means product decisions get better information sooner, and the cost of being wrong about a direction is lower.</p>
           <p>This framing shapes how AI has been used across the team's process. Not as a way to do design faster at the expense of quality, but as a way to reduce the administrative overhead that competes with quality.</p>
+          <p>I defined where AI fits across each stage of the team's ways of working, and I use it for faster ideation, prototyping and testing.</p>
         </div>
       </section>
 
@@ -78,7 +81,8 @@ import travelWireframes from '../../assets/images/travel-sd-wireframes.png';
         <Image class="full-image" src={orchestration} alt="Orchestration layer architecture showing business inputs, design tools, AI knowledge layer, and delivered outputs" loading="lazy" decoding="async" widths={[720,1080,1440]} sizes="(max-width:78rem) 100vw, 78rem"/>
       </section>
 
-      <CaseStudyNav />
+      <DraftCaseNav />
     </main>
+    <DraftContact />
   </div>
 </Layout>

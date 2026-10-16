@@ -1,9 +1,11 @@
 ---
 import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
-import SiteHeader from '../../components/SiteHeader.astro';
-import CaseStudyNav from '../../components/CaseStudyNav.astro';
+import DraftHeader from '../../components/draft/DraftHeader.astro';
+import DraftContact from '../../components/draft/DraftContact.astro';
+import DraftCaseNav from '../../components/draft/DraftCaseNav.astro';
 import '../../styles/case-study.css';
+import '../../styles/draft.css';
 
 import sprintDiagram from '../../assets/images/design-sprint-five-days.png';
 import qtbRoom from '../../assets/images/qtb-sprint-IMG_0306.jpg';
@@ -17,14 +19,14 @@ import travelMap from '../../assets/images/travel-sprint-map.jpg';
 import travelVoting from '../../assets/images/travel-sprint-voting.jpg';
 import travelStoryboards from '../../assets/images/travel-sprint-storyboards.jpg';
 ---
-<Layout title="Workshop Facilitation | Andrew Smith" description="Facilitating design sprints, ideation workshops, and cross-functional discovery sessions.">
+<Layout title="Workshop Facilitation | Andrew Smith" description="Facilitating design sprints, ideation workshops, and cross-functional discovery sessions." showFooterCta={false}>
   <a class="skip-link" href="#main-content">Skip to content</a>
   <div class="case-page">
-    <SiteHeader />
+    <DraftHeader />
     <main id="main-content">
 
       <section class="case-hero">
-        <p class="eyebrow"><a class="breadcrumb-link" href="/portfolio/work">Work</a><span class="breadcrumb-separator">/</span><span>Workshop Facilitation</span></p>
+        <p class="eyebrow"><a class="breadcrumb-link" href="/portfolio/">Work</a><span class="breadcrumb-separator">/</span><span>Workshop Facilitation</span></p>
         <h1 class="display-title">Facilitating discovery — getting the right people in the room to solve the right problem.</h1>
         <p class="hero-text">Workshops and design sprints are how a cross-functional team moves from individual opinions to a shared, evidence-based decision. Running them well means the right structure, strict timeboxing, and leaving with something the team can act on.</p>
         <p class="hero-subtext">Two design sprints facilitated using Google Ventures methodology, alongside ongoing ideation workshops, requirements gathering sessions, and cross-functional discovery work.</p>
@@ -46,6 +48,7 @@ import travelStoryboards from '../../assets/images/travel-sprint-storyboards.jpg
         <div class="section-content">
           <p class="section-kicker">Sprint 1 — QTB Payments</p>
           <h2>RAA Quote to Buy — Payments Design Sprint</h2>
+          <p>I facilitated this sprint alongside my senior manager and owned the research synthesis, three personas and the ROI case. Engineers gave feasibility checks throughout.</p>
           <p>RAA's online insurance purchase platform had a conversion problem at the payment stage. The business assumed the fix was adding more payment methods. Before committing delivery capacity to that assumption, a design sprint was run to find out whether it was actually true.</p>
           <p>The sprint synthesised five years of existing research including usability studies, GA4 analytics, journey maps, and third-party UX diagnostics into a single structured reference before any ideation began. Two senior leadership sessions were built in — the first to align on the right problems, the second to review prototypes and determine what would proceed to delivery.</p>
           <p>The synthesis revealed the real blocker: around 38 to 40 percent of quotes were ending as deferred because RAA could not verify the member's identity to proceed. The problem was member matching, not payment method. That finding redirected the product roadmap. Authenticated quote-to-buy is now live for motor insurance.</p>
@@ -82,6 +85,7 @@ import travelStoryboards from '../../assets/images/travel-sprint-storyboards.jpg
         <div class="section-content">
           <p class="section-kicker">Sprint 2 — Travel Discovery</p>
           <h2>RAA Travel — Discovery Design Sprint</h2>
+          <p>I co-facilitated this sprint, ran the in-store customer interviews and designed the prototypes. Engineers gave feasibility checks throughout.</p>
           <p>A design sprint run as part of the discovery program for the RAA Travel platform — bringing together product managers, travel agents, marketing, and engineering to map the end-to-end customer journey and identify the highest-impact opportunities for the redesigned booking experience.</p>
           <p>The sprint began with in-person customer interviews conducted in RAA stores alongside the product manager. The team then mapped the full customer journey on a whiteboard from awareness through booking and post-travel, with back-stage constraints from travel operations visible alongside the front-stage customer experience. The sprint outputs shaped the design direction for the Travel platform rebuild that followed.</p>
         </div>
@@ -113,7 +117,16 @@ import travelStoryboards from '../../assets/images/travel-sprint-storyboards.jpg
         </div>
       </div>
 
-      <CaseStudyNav />
+      <section class="content-section">
+        <div class="section-content">
+          <p class="section-kicker">Beyond the sprints</p>
+          <h2>Workshops within the product teams.</h2>
+          <p>I also facilitate ideation workshops and working sessions within the product teams, not only full sprints. I use structured methods such as how might we statements, affinity mapping, dot voting and silent sketching. That way everyone's ideas count equally.</p>
+        </div>
+      </section>
+
+      <DraftCaseNav />
     </main>
+    <DraftContact />
   </div>
 </Layout>
