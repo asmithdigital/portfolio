@@ -42,6 +42,35 @@ const tiles = draftPracticeLinks.map((link) => {
 		</div>
 	</section>
 
+	<section class="draft-practices-section" aria-labelledby="practices-heading">
+		<h2 class="draft-section-heading" id="practices-heading">Practices</h2>
+		<div class="projects-grid">
+			{
+				tiles.map((tile) => (
+					<a class="project-link" href={tile.href}>
+						<article class={`project-card ${tile.background}`}>
+							<div class="project-header">
+								<p class="project-name">{tile.label}</p>
+							</div>
+							<h3 class="project-title">{tile.title.replace(/\s\u2014\s/, ': ')}</h3>
+							<div class={`project-visual ${tile.variant}`}>
+								<Image
+									class={tile.imageClass}
+									src={tile.image}
+									alt={tile.alt}
+									loading="lazy"
+									decoding="async"
+									widths={[480, 720, 960]}
+									sizes="(max-width: 980px) 100vw, 50vw"
+								/>
+							</div>
+						</article>
+					</a>
+				))
+			}
+		</div>
+	</section>
+
 	<section class="draft-timeline-section" aria-labelledby="stages-heading">
 		<h2 class="draft-section-heading" id="stages-heading">How I work</h2>
 		<p class="draft-section-lead">Seven stages, in order.</p>
@@ -82,34 +111,5 @@ const tiles = draftPracticeLinks.map((link) => {
 				})
 			}
 		</ol>
-	</section>
-
-	<section class="draft-practices-section" aria-labelledby="practices-heading">
-		<h2 class="draft-section-heading" id="practices-heading">Practices</h2>
-		<div class="projects-grid">
-			{
-				tiles.map((tile) => (
-					<a class="project-link" href={tile.href}>
-						<article class={`project-card ${tile.background}`}>
-							<div class="project-header">
-								<p class="project-name">{tile.label}</p>
-							</div>
-							<h3 class="project-title">{tile.title.replace(/\s\u2014\s/, ': ')}</h3>
-							<div class={`project-visual ${tile.variant}`}>
-								<Image
-									class={tile.imageClass}
-									src={tile.image}
-									alt={tile.alt}
-									loading="lazy"
-									decoding="async"
-									widths={[480, 720, 960]}
-									sizes="(max-width: 980px) 100vw, 50vw"
-								/>
-							</div>
-						</article>
-					</a>
-				))
-			}
-		</div>
 	</section>
 </DraftPage>
