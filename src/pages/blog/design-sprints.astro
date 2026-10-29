@@ -1,0 +1,130 @@
+---
+import PostLayout from '../../layouts/PostLayout.astro';
+import PostFigure from '../../components/PostFigure.astro';
+import ImageStrip from '../../components/ImageStrip.astro';
+
+import sprintDiagram from '../../assets/images/design-sprint-five-days.png';
+import qtbRoom from '../../assets/images/qtb-sprint-IMG_0306.jpg';
+import qtbWall from '../../assets/images/qtb-sprint-IMG_0307.jpg';
+import qtbInsights from '../../assets/images/qtb-sprint-IMG_0308.jpg';
+import qtbVoting from '../../assets/images/qtb-sprint-IMG_0314.jpg';
+import qtbSketches from '../../assets/images/qtb-sprint-IMG_0315.jpg';
+import travelWhiteboard from '../../assets/images/travel-sprint-whiteboard.jpg';
+import travelMap from '../../assets/images/travel-sprint-map.jpg';
+import travelVoting from '../../assets/images/travel-sprint-voting.jpg';
+import travelStoryboards from '../../assets/images/travel-sprint-storyboards.jpg';
+---
+
+<PostLayout slug="design-sprints">
+	<p>
+		A design sprint is a structured way to get from a big question to a tested idea in about a week. The method comes
+		from Google Ventures, where Jake Knapp developed it. It brings product, engineering, design and the business into
+		one room and moves them through five steps together.
+	</p>
+
+	<h2>The five days</h2>
+	<PostFigure
+		src={sprintDiagram}
+		alt="Five-day design sprint diagram: Monday map, Tuesday sketch, Wednesday decide, Thursday prototype, Friday test"
+		caption="The five stages of a design sprint."
+	/>
+	<ul>
+		<li><strong>Map.</strong> Agree the long-term goal, map the problem, and choose where to focus.</li>
+		<li><strong>Sketch.</strong> Everyone sketches solutions on their own, so the loudest voice doesn't win.</li>
+		<li><strong>Decide.</strong> Review the sketches, vote, and the nominated decider makes the call.</li>
+		<li><strong>Prototype.</strong> Build a realistic prototype in a day, just real enough to test.</li>
+		<li><strong>Test.</strong> Put it in front of five customers and watch what happens.</li>
+	</ul>
+	<p>
+		The value isn't really the speed. It's the discipline. Every activity is timeboxed, and people work alone and in
+		parallel instead of debating as a group. That surfaces what the team actually knows, what it's assuming, and where
+		the evidence points. The facilitator keeps the process honest.
+	</p>
+
+	<h2>When to use one, and when not to</h2>
+	<p>
+		A sprint is expensive. It takes a week of several senior people's time. I use one for big, risky, high-profile
+		decisions with many stakeholders. For everyday work, a short assumption-mapping session and a quick ideas workshop
+		do the same job in a couple of hours.
+	</p>
+
+	<h2>Sprint one: insurance quote to buy</h2>
+	<p>
+		RAA's online insurance purchase had a conversion problem at the payment step. The business assumed the fix was
+		adding more payment methods. Before committing delivery time to that, we ran a design sprint to test whether it was
+		true.
+	</p>
+	<p>
+		I facilitated it alongside my senior manager, and owned the research synthesis, three personas and the business
+		case. Before any ideas, we brought five years of existing research together: usability studies, analytics, journey
+		maps and third-party reviews. We built in two sessions with senior leaders, one to agree the problem and one to
+		review the prototypes.
+	</p>
+	<p>
+		The synthesis showed that around 38 to 40 percent of quotes were ending up deferred because RAA couldn't verify the
+		member's identity. The problem was member identity matching, not payment options. That finding changed the
+		roadmap, and authenticated quote to buy is now live for motor insurance.
+	</p>
+	<ImageStrip
+		label="Quote to buy sprint photos"
+		items={[
+			{ src: qtbRoom, alt: 'Full room view during the quote to buy sprint', caption: 'The sprint room' },
+			{
+				src: qtbWall,
+				alt: 'Sprint wall showing how might we statements, personas and key insights',
+				caption: 'Research wall',
+			},
+			{
+				src: qtbInsights,
+				alt: 'Wall showing payment pain points and insights from analytics and research',
+				caption: 'Insights',
+			},
+			{ src: qtbVoting, alt: 'Dot votes applied to solution sketches on the wall', caption: 'Voting' },
+			{ src: qtbSketches, alt: 'Solution storyboards pinned to the wall', caption: 'Solution sketches' },
+		]}
+	/>
+
+	<h2>Sprint two: RAA Travel discovery</h2>
+	<p>
+		The second sprint was part of discovery for rebuilding the RAA Travel booking platform. It brought together product
+		managers, travel agents, marketing and engineering. I co-facilitated it, ran in-store customer interviews alongside
+		the product manager beforehand, and designed the prototypes.
+	</p>
+	<p>
+		We mapped the whole customer journey on a whiteboard, from first ideas to booking and after travel, with the
+		behind-the-scenes constraints from travel operations shown alongside what customers see. The outputs shaped the
+		design direction for the rebuild.
+	</p>
+	<ImageStrip
+		label="RAA Travel sprint photos"
+		items={[
+			{
+				src: travelWhiteboard,
+				alt: 'Facilitator at the whiteboard presenting the journey map to sprint participants',
+				caption: 'Journey on the whiteboard',
+			},
+			{ src: travelMap, alt: 'Full whiteboard showing the journey map with dot votes', caption: 'Mapping the problem' },
+			{
+				src: travelVoting,
+				alt: 'Whiteboard with sketches and red dot votes marking priority ideas',
+				caption: 'Voting',
+			},
+			{
+				src: travelStoryboards,
+				alt: 'Person reviewing hand-drawn solution storyboards',
+				caption: 'Storyboards',
+			},
+		]}
+	/>
+
+	<h2>What I took from them</h2>
+	<p>
+		The biggest lesson from both sprints was the same: the most valuable moment came before any sketching. Bringing the
+		existing evidence together changed what the team thought the problem was. A sprint that starts from shared evidence
+		makes better decisions than one that starts from opinions.
+	</p>
+	<p>
+		I use the same building blocks in everyday work: How might we questions, affinity mapping, silent sketching and dot
+		voting. They give everyone's ideas an equal chance, at a fraction of the cost of a full sprint.
+	</p>
+</PostLayout>

@@ -1,0 +1,63 @@
+---
+import PostLayout from '../../layouts/PostLayout.astro';
+import PostFigure from '../../components/PostFigure.astro';
+
+import usertesting2 from '../../assets/images/usertesting-2.png';
+---
+
+<PostLayout slug="measuring-experience-quality">
+	<p>
+		Most teams can tell you what they shipped. Far fewer can tell you whether the experience got better. Analytics show
+		what people do, but not always why, or how it felt. A one-off usability test shows how things are on the day, but
+		not the trend.
+	</p>
+	<p>
+		At RAA I set up a UX benchmarking practice to fill that gap. It's one of the pieces of work I'm most proud of,
+		because it changed how decisions got made.
+	</p>
+
+	<h2>Start by defining success</h2>
+	<p>
+		Before measuring anything, we agree what success looks like for each product, with the product manager and the
+		team. That's the same question I ask at every kickoff: how will we know it worked, and what's the number today?
+		Benchmarking makes that question answerable for the experience itself, not just for sales or clicks.
+	</p>
+
+	<h2>Four measures, the same way every time</h2>
+	<p>Each benchmark measures four things:</p>
+	<ul>
+		<li><strong>Effectiveness:</strong> can people complete the task at all?</li>
+		<li><strong>Efficiency:</strong> how long does it take, and how many errors are there?</li>
+		<li><strong>Satisfaction:</strong> how do people rate the experience?</li>
+		<li><strong>Desirability:</strong> does it feel the way the brand wants it to feel?</li>
+	</ul>
+	<p>
+		Every study follows the same protocol, so the results can be compared over time. That's the point: a change in
+		score only means something when the method doesn't change. On one home and contents insurance quote benchmark, 39
+		people completed the task, 1 didn't, and the average time was 4 minutes. On its own that's a snapshot. Repeated
+		after each release, it becomes a trend.
+	</p>
+
+	<h2>Built on research operations</h2>
+	<p>
+		Benchmarking needed foundations that didn't exist yet. Research findings used to be produced for one project and
+		then lost. I set up research operations from scratch: a repository that tagged findings to products and journey
+		stages, a standard testing process, and a regular benchmarking cadence.
+	</p>
+	<PostFigure
+		src={usertesting2}
+		alt="Moderated usability session showing a participant's screen with a tagged transcript and observation notes"
+		caption="A moderated session with a tagged transcript and observation notes."
+	/>
+
+	<h2>Closing the loop</h2>
+	<p>
+		Benchmark results feed straight into the journey map, at the stage where each study ran. When a measure drops, the
+		map shows which stage is affected and what's already planned to fix it. When a release improves the score, there's
+		evidence the change worked. When it doesn't, that's a signal to go back and understand why.
+	</p>
+	<p>
+		Without that connection, benchmarking produces reports that get filed. With it, the numbers shape what the team
+		works on next.
+	</p>
+</PostLayout>

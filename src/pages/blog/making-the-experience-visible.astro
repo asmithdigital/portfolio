@@ -1,0 +1,126 @@
+---
+import PostLayout from '../../layouts/PostLayout.astro';
+import PostFigure from '../../components/PostFigure.astro';
+import ImageStrip from '../../components/ImageStrip.astro';
+
+import journeyMap2 from '../../assets/images/journey-map-2.png';
+import raaJourney from '../../assets/images/raa-journey.png';
+import raaJourneyDirectory from '../../assets/images/raa-journey-directory.png';
+import designSystem2 from '../../assets/images/design-system-2.png';
+import dsButtons from '../../assets/images/raa-ds-buttons.png';
+import appAlerts from '../../assets/images/raa-app-ds-alerts.png';
+import uofaStyleguide from '../../assets/images/uofa-styleguide.png';
+---
+
+<PostLayout slug="making-the-experience-visible">
+	<p>
+		Most organisations know more about their customers than they can use. Analytics sit in one tool, research reports
+		in another, contact centre data somewhere else, and the knowledge of how a screen should behave lives in a few
+		designers' heads. When that knowledge is hard to find, teams guess, repeat work, or wait for the one person who
+		knows.
+	</p>
+	<p>
+		I've come to see journey mapping and design systems as two answers to the same problem. Both make knowledge
+		visible so that people can help themselves.
+	</p>
+
+	<h2>A journey map is only useful if it stays alive</h2>
+	<p>
+		The value of a journey map isn't the map. It's what happens when it stays connected to real data and real
+		decisions. A map made for one project, printed once and pinned to a wall, is out of date within months.
+	</p>
+	<p>
+		A living journey sits in a journey management platform. Each stage is connected to analytics such as drop-off and
+		completion rates, to research findings tagged to the step where they happened, and to benchmarking results over
+		time. Solutions are tagged to the stage they fix and prioritised by customer value and business value, so anyone
+		can see what's on the roadmap, in delivery, or on hold.
+	</p>
+	<PostFigure
+		src={journeyMap2}
+		alt="Journey explorer with a solution panel open, listing its priority, effort, customer value and business value"
+		caption="A journey explorer with a solution open, showing priority, effort, customer value and business value."
+	/>
+	<p>
+		When a product team arrives at an ideation session with that shared view, the time goes into the real unknowns
+		instead of re-establishing what's already known.
+	</p>
+
+	<h2>Built from evidence, not assumption</h2>
+	<p>
+		Before we had digital journey tools, I built maps by hand from research synthesis: interviews, usability sessions,
+		analytics and team knowledge. I worked alongside service designers, who built the service blueprints while I
+		mapped the digital products. The most useful thing those maps showed wasn't the pain points. It was the gaps: the
+		stages where the team was making decisions with no research at all. Those gaps became the next priorities for
+		discovery.
+	</p>
+	<PostFigure
+		src={raaJourney}
+		alt="Journey map with stages from research to booking, and rows for moods, touchpoints, pain points and opportunities"
+		caption="A journey map from research, showing stages from research to booking with moods, touchpoints, pain points and opportunities."
+	/>
+	<p>
+		We kept every map in one shared directory across product areas, tagged by lifecycle stage and opportunity type, so
+		teams could see where the experience had been mapped and where it hadn't.
+	</p>
+	<PostFigure
+		src={raaJourneyDirectory}
+		alt="Miro journey map directory showing road service, car insurance and home insurance product areas"
+		caption="A shared directory of journey maps across road service, car insurance and home insurance."
+	/>
+
+	<h2>A design system is the same idea, for the interface</h2>
+	<p>
+		A design system makes the knowledge of how the interface should look and behave visible: components, patterns,
+		design tokens, accessibility notes and coded examples, all in one place. When it's documented and governed well,
+		product and engineering teams can build standard patterns without waiting on a designer. Designers write lighter
+		specs, and the time saved goes back into discovery and testing.
+	</p>
+	<p>
+		At RAA the team built the design system in-house in Figma, with design tokens and documentation published for
+		engineers, covering the website, insurance, membership, travel, payments and the native app. Through a partnership
+		with Vision Australia, accessibility standards were built in at the component level, so they were designed in from
+		the start rather than audited after delivery.
+	</p>
+	<ImageStrip
+		label="Design system examples"
+		items={[
+			{
+				src: designSystem2,
+				alt: 'Component documentation page showing anatomy, usage guidelines and specs',
+				caption: 'Component documentation with anatomy, usage and specs',
+			},
+			{
+				src: dsButtons,
+				alt: 'Button documentation showing anatomy, spacing, typography, states and accessibility guidelines',
+				caption: 'Buttons, with anatomy, states and accessibility notes',
+			},
+			{
+				src: appAlerts,
+				alt: 'App design system alerts in information, confirmation, warning, error and tip variants',
+				caption: 'Alert variants for the native app',
+			},
+		]}
+	/>
+	<p>
+		Earlier, at the University of Adelaide, I was on the website rebuild from the start and wrote the front-end code.
+		That code became a custom JavaScript design system, with every component documented in a style guide, so every
+		delivery team built to the same standard.
+	</p>
+	<PostFigure
+		src={uofaStyleguide}
+		alt="University of Adelaide style guide page documenting the audio player and playlist components, with HTML code examples"
+		caption="The University of Adelaide style guide, with documented components and code examples."
+	/>
+
+	<h2>Connecting the two</h2>
+	<p>
+		The real gain comes when these sources are connected. I built an AI-assisted workflow that linked the design
+		system, journey maps and research synthesis, so a designer could ask a question and get an answer drawn from all of
+		them. A small team can keep its quality high when what it knows is easy to find.
+	</p>
+	<p>
+		My view is simple: if knowledge only lives in people's heads, it leaves when they do. Making the experience
+		visible, in a living journey and a well-kept design system, is how a team keeps getting better rather than starting
+		again each time.
+	</p>
+</PostLayout>

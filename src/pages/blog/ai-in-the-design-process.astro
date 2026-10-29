@@ -1,0 +1,70 @@
+---
+import PostLayout from '../../layouts/PostLayout.astro';
+import PostFigure from '../../components/PostFigure.astro';
+
+import travelWireframes from '../../assets/images/travel-sd-wireframes.png';
+---
+
+<PostLayout slug="ai-in-the-design-process">
+	<p>
+		A lot of design work is slow but not hard. Reading transcripts, tagging notes, turning sticky notes into themes,
+		writing up specs, documenting components. It all matters, but it competes for time with the work that needs
+		judgement: deciding which problem matters, what to test, and what the evidence really says.
+	</p>
+	<p>
+		That's where I use AI. Not to design for me, but to take on the slow parts so I can spend more time on the
+		judgement.
+	</p>
+
+	<h2>Faster synthesis, same standard</h2>
+	<p>
+		Research synthesis is one of the most time-consuming parts of discovery. AI tools can now help tag observations,
+		find patterns across participants and draft a summary. A round of research that used to take days to synthesise
+		can be turned around in hours.
+	</p>
+	<p>
+		The rule I keep: AI drafts, a person decides. I read the transcripts behind any pattern it suggests, check its
+		themes against what I saw in the sessions, and rewrite anything that doesn't hold up. It's a fast first pass, not
+		the answer.
+	</p>
+
+	<h2>First-draft journey maps</h2>
+	<p>
+		AI can also turn raw research notes into a first draft of a journey map structure: stages, steps, pain points and
+		quotes. That gives the team something to react to and correct in a workshop, instead of a blank board. The map
+		still gets checked against the evidence, step by step.
+	</p>
+
+	<h2>Testing ideas sooner</h2>
+	<p>
+		AI-assisted prototyping means an idea can be in front of a customer much earlier. Some tools can recreate a live
+		product and add a new feature into it, so people test it in context rather than against an abstract mock-up.
+		Design tools can also help with variants, accessibility checks and spec notes, which cuts down documentation time.
+	</p>
+	<PostFigure
+		src={travelWireframes}
+		alt="Travel booking wireframes showing search, detail, payment and confirmation screens"
+		caption="Early wireframes. AI helps get ideas like these in front of people sooner."
+	/>
+
+	<h2>Making knowledge easy to find</h2>
+	<p>
+		The most useful thing I've built with AI wasn't a design at all. As our team got smaller, a lot of knowledge lived
+		in individual heads. I connected the design system documentation, journey maps, research repository, live products
+		and internal standards, such as accessibility guidelines, brand and legal requirements, into one source the team
+		could ask questions of through chat. A designer in a squad could ask a question where they were already working and
+		get an answer drawn from every source, instead of searching four tools.
+	</p>
+
+	<h2>Where I don't trust it</h2>
+	<p>
+		AI is confident even when it's wrong. I don't let it stand in for talking to real customers, invent research
+		findings, or make the final call on what the evidence means. I'm careful with customer data and follow the
+		organisation's privacy rules about what can go into which tool. And I treat anything it writes as a draft that
+		still needs a designer's eye.
+	</p>
+	<p>
+		Used this way, AI doesn't replace the design process. It makes each loop faster, which means better information
+		reaches product decisions sooner, and being wrong costs less.
+	</p>
+</PostLayout>
