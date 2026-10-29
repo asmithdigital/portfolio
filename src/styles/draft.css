@@ -311,46 +311,23 @@
 .process-card p { margin: 0; line-height: 1.6; color: var(--muted-foreground); max-width: var(--draft-measure); }
 
 .process-strip {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.25rem .75rem;
-  margin: 1.5rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem 2rem;
+  margin: 1.25rem 0 0;
   padding: 0;
   list-style: none;
 }
 .process-strip li {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: .4rem;
-  min-width: 0;
-  font-size: .9rem;
-  font-weight: 700;
-  line-height: 1.25;
+  font-size: .95rem;
+  font-weight: 600;
+  line-height: 1.4;
 }
 .process-strip-number {
-  position: relative;
-  z-index: 1;
-  flex: 0 0 auto;
-  width: 1.75rem;
-  height: 1.75rem;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: var(--foreground);
-  color: var(--background);
+  margin-right: .3rem;
+  font-family: var(--font-mono);
   font-size: .8rem;
-}
-/* Phones: number above the label, with a thin line joining the numbers in each row of three. */
-.process-strip li:not(:nth-child(3n))::after {
-  content: '';
-  position: absolute;
-  top: .875rem;
-  left: 2.25rem;
-  right: -.25rem;
-  height: 1px;
-  background: var(--muted-foreground);
+  color: var(--muted-foreground);
 }
 
 /* ---------- Post cards (media object rows) ---------- */
@@ -420,8 +397,10 @@
   line-height: 1.2;
   letter-spacing: -.04em;
 }
-.draft-article ul { margin: 0 0 1.25rem; padding-left: 1.25rem; }
-.draft-article li { margin-bottom: .5rem; }
+.draft-article :where(ul, ol) { margin: 0 0 1.25rem; padding-left: 1.5rem; }
+.draft-article :where(ul) { list-style: disc; }
+.draft-article :where(ol) { list-style: decimal; }
+.draft-article li { margin-bottom: .5rem; padding-left: .25rem; }
 .draft-article li::marker { color: var(--muted-foreground); }
 .draft-article blockquote {
   margin: 1.5rem 0;
@@ -518,6 +497,198 @@
 }
 .process-board figcaption { margin-top: 1rem; font-size: .9rem; }
 
+/* ---------- Process page ---------- */
+.process-page {
+  --process-accent: #6b43b8;
+  --process-accent-soft: #f1ecfb;
+}
+:root[data-theme='dark'] .process-page {
+  --process-accent: #b9a2ec;
+  --process-accent-soft: #221b33;
+}
+.process-page .process-board { max-width: 64rem; }
+
+.process-stage,
+.process-wide {
+  padding: 3.5rem 0;
+  border-top: 1px solid var(--border);
+}
+.process-stage { display: grid; gap: 1.75rem; }
+
+.process-stage-aside h2 {
+  margin: 0 0 .75rem;
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  line-height: 1.15;
+  letter-spacing: -.04em;
+}
+.process-stage-number {
+  display: block;
+  margin-bottom: .35rem;
+  font-family: var(--font-mono);
+  font-size: .85rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  color: var(--muted-foreground);
+}
+.process-stage-question {
+  margin: 0 0 1.5rem;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+.process-stage-label {
+  margin: 0 0 .5rem;
+  font-family: var(--font-mono);
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+.process-stage-activities {
+  margin: 0;
+  padding-left: 1.1rem;
+  list-style: disc;
+  font-size: .92rem;
+  line-height: 1.5;
+}
+.process-stage-activities li { margin-bottom: .3rem; }
+.process-stage-activities li::marker { color: var(--muted-foreground); }
+
+/* Story column: text at a readable width, images and visuals can use the full column. */
+.process-page .process-stage-body > *,
+.process-wide .draft-article > * { max-width: 40rem; }
+.process-page .draft-article > .draft-figure { max-width: none; }
+.process-stage-body > .draft-figure:first-child,
+.process-stage-lead + .draft-figure { margin-top: 0; }
+.process-stage-lead {
+  font-size: clamp(1.15rem, 1.8vw, 1.35rem);
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: -.02em;
+}
+.process-wide h2 { margin-top: 0; }
+.process-wide .draft-article > .draft-figure { max-width: 56rem; }
+
+/* Kickoff questions */
+.draft-article .process-question-card {
+  margin: 0 0 1.5rem;
+  padding: 1.25rem 1.5rem 1.25rem 2.75rem;
+  border: 1px solid var(--border);
+  border-radius: var(--draft-radius);
+  background: var(--muted);
+}
+.draft-article .process-question-card li { margin-bottom: .4rem; }
+.draft-article .process-question-card li:last-child { margin-bottom: 0; }
+
+/* Situation and guess cards */
+.draft-article .process-cards {
+  display: grid;
+  gap: .75rem;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+.draft-article .process-cards-2 { max-width: 48rem; }
+.draft-article .process-cards-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 48rem; }
+.draft-article .process-card-item {
+  margin: 0;
+  padding: 1rem 1.15rem;
+  border: 1px solid var(--border);
+  border-radius: .75rem;
+  background: var(--card);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.draft-article .process-cards-2 .process-card-item strong { display: block; margin-bottom: .25rem; }
+.draft-article .process-cards-4 .process-card-item { font-size: .95rem; line-height: 1.45; }
+.draft-article .process-cards-4 .process-card-item strong { display: block; }
+
+/* Pull quote */
+.draft-article .process-pullquote {
+  margin: .5rem 0 1.75rem;
+  padding: .25rem 0 .25rem 1.25rem;
+  border-left: 4px solid var(--process-accent);
+  font-size: clamp(1.3rem, 2.2vw, 1.65rem);
+  font-weight: 700;
+  font-style: italic;
+  line-height: 1.35;
+  letter-spacing: -.02em;
+}
+
+/* Hypothesis callout */
+.process-callout {
+  margin: 0 0 1.5rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--process-accent);
+  border-radius: var(--draft-radius);
+  background: var(--process-accent-soft);
+}
+.draft-article .process-callout p:last-child { margin: 0; font-size: 1.1rem; line-height: 1.65; }
+.draft-article .process-callout-label {
+  margin: 0 0 .4rem;
+  font-family: var(--font-mono);
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+.process-callout strong { color: var(--process-accent); }
+
+/* Importance and evidence grid */
+.process-page .assumption-map { margin: 0 0 1.75rem; }
+.assumption-map-chart {
+  display: grid;
+  grid-template-columns: auto minmax(0, 18rem);
+  justify-content: start;
+  grid-template-areas:
+    'y grid'
+    '. x';
+  gap: .5rem;
+}
+.assumption-map-y {
+  grid-area: y;
+  align-self: start;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-family: var(--font-mono);
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+.assumption-map-grid {
+  grid-area: grid;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  aspect-ratio: 1;
+  border: 1px solid var(--border-strong);
+  border-radius: .5rem;
+  overflow: hidden;
+}
+.assumption-map-grid > span { border: 1px solid var(--border); }
+.assumption-map-grid > .assumption-map-hot {
+  display: grid;
+  place-items: center;
+  background: var(--process-accent-soft);
+  border: 2px solid var(--process-accent);
+  font-weight: 800;
+  color: var(--foreground);
+}
+.assumption-map-x {
+  grid-area: x;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+
 /* ---------- Contact ---------- */
 .draft-contact {
   margin-top: 4rem;
@@ -564,24 +735,22 @@
   .process-board ol { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
+@media (min-width: 48rem) {
+  .draft-article .process-cards-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .draft-article .process-cards-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+@media (min-width: 60rem) {
+  .process-stage {
+    grid-template-columns: 17rem minmax(0, 1fr);
+    gap: 4rem;
+    align-items: start;
+  }
+  .process-stage-aside { position: sticky; top: 1.5rem; }
+}
+
 @media (min-width: 861px) {
   .projects-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
-@media (min-width: 52rem) {
-  /* Wider screens: one row, number beside the label, small arrows between stages. */
-  .process-strip { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 1rem 1.75rem; }
-  .process-strip li { flex-direction: row; align-items: center; gap: .5rem; }
-  .process-strip li:not(:last-child)::after {
-    content: '\2192';
-    position: absolute;
-    top: auto;
-    left: auto;
-    right: -1.3rem;
-    height: auto;
-    background: none;
-    color: var(--muted-foreground);
-    font-weight: 400;
-  }
-}
 

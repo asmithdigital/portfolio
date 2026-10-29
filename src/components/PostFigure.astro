@@ -7,17 +7,19 @@ interface Props {
 	src: ImageMetadata;
 	alt: string;
 	caption: string;
+	/** Override when the figure is wider or narrower than the reading measure. */
+	sizes?: string;
 }
 
-const { src, alt, caption } = Astro.props;
+const { src, alt, caption, sizes = '(min-width: 48rem) 44rem, calc(100vw - 3rem)' } = Astro.props;
 ---
 
 <figure class="draft-figure">
 	<Image
 		src={src}
 		alt={alt}
-		widths={[480, 720, 1056]}
-		sizes="(min-width: 48rem) 44rem, calc(100vw - 3rem)"
+		widths={[480, 720, 1056, 1400]}
+		sizes={sizes}
 		loading="lazy"
 		decoding="async"
 	/>

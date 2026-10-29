@@ -1,7 +1,17 @@
 ---
 import DraftPage from '../components/draft/DraftPage.astro';
 import PostCard from '../components/PostCard.astro';
+import PostFigure from '../components/PostFigure.astro';
+import ProcessStage from '../components/ProcessStage.astro';
 import { posts } from '../data/posts';
+
+import travelWhiteboard from '../assets/images/travel-sprint-whiteboard.jpg';
+import wayOfWorking from '../assets/images/way-of-working-2.png';
+import miroIdeation from '../assets/images/miro-ideation-example.png';
+import travelAffinity from '../assets/images/travel-sprint-affinity.jpg';
+import usertesting from '../assets/images/usertesting-2.png';
+import claimsFigma from '../assets/images/raa-claims-figma.png';
+import uxBenchmarking from '../assets/images/ux-benchmarking.png';
 
 type Tone = 'grey' | 'blue' | 'purple' | 'green';
 
@@ -24,6 +34,35 @@ const boardRows: { label: string; boxes: { number: number; name: string; tone: T
 		],
 	},
 ];
+
+const situations = [
+	{
+		name: 'New or fuzzy.',
+		text: "The goal isn't clear yet. Before talking to customers, I partner with the product manager to talk to stakeholders and agree what success means. The problem side of the board is where most of the time goes.",
+	},
+	{
+		name: 'Known problem.',
+		text: 'The data shows where people struggle, but not why. I start with what we already know, then talk to a handful of customers to find the why.',
+	},
+	{
+		name: 'Ongoing work.',
+		text: "The work is already moving, often with research done and a solution planned. I catch up on what's been decided, build on the existing research rather than redo it, and treat the planned solution as a bet to test.",
+	},
+	{
+		name: 'Small change.',
+		text: 'Clear and low risk. A quick look at the data, a few options, a light test, and one number to check afterwards.',
+	},
+];
+
+const guesses = [
+	{ name: 'Desirable', question: 'will people want it?' },
+	{ name: 'Usable', question: 'can they use it?' },
+	{ name: 'Buildable', question: 'can we make it?' },
+	{ name: 'Viable', question: 'does it work for the business?' },
+];
+
+// Stage images fill the right-hand column: about 57rem at full width, full width on phones.
+const stageImageSizes = '(min-width: 80rem) 57rem, (min-width: 60rem) calc(100vw - 25rem), calc(100vw - 3rem)';
 ---
 
 <DraftPage
@@ -31,7 +70,7 @@ const boardRows: { label: string; boxes: { number: number; name: string; tone: T
 	description="How I take a vague request to a measured result, in six stages, and how the process changes when work is fuzzy, already moving, or small."
 	ogType="article"
 >
-	<article>
+	<article class="process-page">
 		<header class="draft-article-hero">
 			<p class="eyebrow">Process</p>
 			<h1 class="display-title">How I work</h1>
@@ -52,44 +91,63 @@ const boardRows: { label: string; boxes: { number: number; name: string; tone: T
 				What changes from project to project is how deep I go in each stage. A small label change might take an
 				afternoon. A fuzzy new problem might need weeks of discovery. The stages stay the same.
 			</p>
+		</div>
 
-			<figure class="process-board">
-				{
-					boardRows.map((row) => (
-						<div class="process-board-row">
-							<p class="process-board-label">{row.label}</p>
-							<ol start={row.boxes[0].number}>
-								{row.boxes.map((box) => (
-									<li data-tone={box.tone}>
-										<span class="process-board-number" aria-hidden="true">
-											{box.number}
-										</span>
-										{box.name}
-									</li>
-								))}
-							</ol>
-						</div>
-					))
-				}
-				<figcaption>
-					The board I set up at the start of every piece of work, in Miro or on a whiteboard. The top row is the
-					problem. The bottom row is the solution. You can't skip to the bottom row without filling in the top.
-				</figcaption>
-			</figure>
+		<figure class="process-board">
+			{
+				boardRows.map((row) => (
+					<div class="process-board-row">
+						<p class="process-board-label">{row.label}</p>
+						<ol start={row.boxes[0].number}>
+							{row.boxes.map((box) => (
+								<li data-tone={box.tone}>
+									<span class="process-board-number" aria-hidden="true">
+										{box.number}
+									</span>
+									{box.name}
+								</li>
+							))}
+						</ol>
+					</div>
+				))
+			}
+			<figcaption>
+				The board I set up at the start of every piece of work, in Miro or on a whiteboard. The top row is the problem.
+				The bottom row is the solution. You can't skip to the bottom row without filling in the top.
+			</figcaption>
+		</figure>
 
-			<h2>1. Kickoff: agree the problem and how we'll know it worked</h2>
+		<ProcessStage
+			number={1}
+			name="Kickoff"
+			question="What are we trying to change, and for whom?"
+			activities={[
+				'Kickoff meeting',
+				'Success measure and baseline',
+				'Limits and constraints',
+				'Checking a solution already in mind',
+				'Deciding the situation',
+			]}
+		>
+			<p class="process-stage-lead">Agree the problem and how we'll know it worked.</p>
+			<PostFigure
+				src={travelWhiteboard}
+				alt="Facilitator at a whiteboard presenting a journey map to the team"
+				caption="Mapping the problem on a whiteboard with the team."
+				sizes={stageImageSizes}
+			/>
 			<p>
 				Every piece of work starts with a kickoff with the product manager, the engineer, and usually the content
 				designer and business analyst. I ask six questions:
 			</p>
-			<ul>
+			<ol class="process-question-card">
 				<li>What are we trying to change, and for whom?</li>
 				<li>How will we know it worked?</li>
 				<li>What is the number today?</li>
 				<li>What must not get worse?</li>
 				<li>What can't change?</li>
 				<li>Is a solution already in mind, and which problem would it solve?</li>
-			</ul>
+			</ol>
 			<p>
 				The number today is the one most teams skip. Without a baseline, nobody can ever show the work made a
 				difference. The "must not get worse" list protects us from winning one number by breaking another, like
@@ -103,46 +161,64 @@ const boardRows: { label: string; boxes: { number: number; name: string; tone: T
 				The gaps in those answers tell me what kind of work this is, and that decides how much of the rest of the
 				process we need.
 			</p>
+		</ProcessStage>
 
-			<h2>Four kinds of work, one process</h2>
-			<p>At the end of kickoff I decide which of four situations we're in.</p>
-			<ul>
-				<li>
-					<strong>New or fuzzy.</strong> The goal isn't clear yet. Before talking to customers, I partner with the
-					product manager to talk to stakeholders and agree what success means. The problem side of the board is
-					where most of the time goes.
-				</li>
-				<li>
-					<strong>Known problem.</strong> The data shows where people struggle, but not why. I start with what we
-					already know, then talk to a handful of customers to find the why.
-				</li>
-				<li>
-					<strong>Ongoing work.</strong> The work is already moving, often with research done and a solution
-					planned. I catch up on what's been decided, build on the existing research rather than redo it, and treat
-					the planned solution as a bet to test.
-				</li>
-				<li>
-					<strong>Small change.</strong> Clear and low risk. A quick look at the data, a few options, a light test,
-					and one number to check afterwards.
-				</li>
-			</ul>
-			<p>Some work also takes a detour:</p>
-			<ul>
-				<li>
-					<strong>When a solution is brought in,</strong> I run it through the bet stage as a hypothesis instead of
-					building it on trust.
-				</li>
-				<li>
-					<strong>For AI or automation,</strong> I test with a person behind the scenes before anything is built,
-					and design for the moments it gets things wrong.
-				</li>
-				<li>
-					<strong>When the deadline is urgent,</strong> I never skip the problem or the baseline. Everything else
-					shrinks.
-				</li>
-			</ul>
+		<section class="process-wide" aria-labelledby="kinds-heading">
+			<div class="draft-article">
+				<h2 id="kinds-heading">Four kinds of work, one process</h2>
+				<p>At the end of kickoff I decide which of four situations we're in.</p>
+				<ul class="process-cards process-cards-2">
+					{
+						situations.map((situation) => (
+							<li class="process-card-item">
+								<strong>{situation.name}</strong> {situation.text}
+							</li>
+						))
+					}
+				</ul>
+				<p>Some work also takes a detour:</p>
+				<ul>
+					<li>
+						<strong>When a solution is brought in,</strong> I run it through the bet stage as a hypothesis instead of
+						building it on trust.
+					</li>
+					<li>
+						<strong>For AI or automation,</strong> I test with a person behind the scenes before anything is built,
+						and design for the moments it gets things wrong.
+					</li>
+					<li>
+						<strong>When the deadline is urgent,</strong> I never skip the problem or the baseline. Everything else
+						shrinks.
+					</li>
+				</ul>
+				<PostFigure
+					src={wayOfWorking}
+					alt="Ways of working framework with the pathway panel open, showing dual-track discovery, solution discovery and existing components"
+					caption="Deciding the pathway at the start of a piece of work."
+					sizes="(min-width: 60rem) 56rem, calc(100vw - 3rem)"
+				/>
+			</div>
+		</section>
 
-			<h2>2. Understand: who is struggling, where, and why</h2>
+		<ProcessStage
+			number={2}
+			name="Understand"
+			question="Who is struggling, where, and why?"
+			activities={[
+				'Evidence review',
+				'Stakeholder interviews',
+				'Customer interviews',
+				'Call recordings and shadowing',
+				'Current flow mapping',
+				'Journey mapping',
+			]}
+		>
+			<PostFigure
+				src={miroIdeation}
+				alt="Miro board showing current state analysis, annotated observations and design options"
+				caption="Current state analysis: what customers see, annotated with what we found."
+				sizes={stageImageSizes}
+			/>
 			<p>
 				The golden rule is to start with what we already know. The answer is often already in an analytics
 				dashboard, the contact centre's call reasons, customer feedback, past research or the journey management
@@ -165,17 +241,35 @@ const boardRows: { label: string; boxes: { number: number; name: string; tone: T
 				I circle the cause, not the symptom. The calls were the symptom. The silence during the wait was the
 				cause.
 			</p>
-			<p>
-				This stage ends when I can finish one sentence with evidence:
-				<em>these people struggle at this step because of this reason.</em>
-			</p>
+			<p>This stage ends when I can finish one sentence with evidence:</p>
+			<p class="process-pullquote">These people struggle at this step because of this reason.</p>
 			<p>
 				The journey on my board is a snapshot of the steps that matter for this problem. The full journey lives in
 				the organisation's journey management platform, shared with service design and the customer experience
 				team. What I learn goes back into it, so the next team starts from a better place.
 			</p>
+		</ProcessStage>
 
-			<h2>3. Explore: make the bet visible</h2>
+		<ProcessStage
+			number={3}
+			name="Explore"
+			question="What are we betting on?"
+			activities={[
+				'How might we',
+				'Assumption mapping',
+				'Writing the hypothesis',
+				'Crazy 8s',
+				'Dot voting and decision log',
+				'Design sprints for big bets',
+			]}
+		>
+			<p class="process-stage-lead">Make the bet visible.</p>
+			<PostFigure
+				src={travelAffinity}
+				alt="Team affinity mapping with sticky notes on a large window during a design sprint"
+				caption="Grouping findings on a window during a design sprint."
+				sizes={stageImageSizes}
+			/>
 			<p>
 				Before anyone draws a screen, I turn the problem sentence into an open question that starts with "How might
 				we", then sketch a few rough directions and pick one.
@@ -184,11 +278,14 @@ const boardRows: { label: string; boxes: { number: number; name: string; tone: T
 				Then I run a short assumption-mapping workshop with the product trio. Everyone finishes the sentence "For
 				this to work, it has to be true that..." on sticky notes, grouped into four kinds of guess:
 			</p>
-			<ul>
-				<li><strong>Desirable:</strong> will people want it?</li>
-				<li><strong>Usable:</strong> can they use it?</li>
-				<li><strong>Buildable:</strong> can we make it?</li>
-				<li><strong>Viable:</strong> does it work for the business?</li>
+			<ul class="process-cards process-cards-4">
+				{
+					guesses.map((guess) => (
+						<li class="process-card-item">
+							<strong>{guess.name}:</strong> {guess.question}
+						</li>
+					))
+				}
 			</ul>
 			<p>
 				We place each note on a simple grid: how important it is, against how much evidence we already have.
@@ -196,14 +293,34 @@ const boardRows: { label: string; boxes: { number: number; name: string; tone: T
 				to each test. The riskiest guess is often not about the customer at all. It's whether the system can do
 				what the idea needs, so the engineer checks it before any design work.
 			</p>
+			<figure class="assumption-map">
+				<p class="draft-sr-only">
+					A grid of importance against evidence. Important guesses with little evidence sit in the top-left
+					quarter, marked test first.
+				</p>
+				<div class="assumption-map-chart" aria-hidden="true">
+					<span class="assumption-map-y">Important</span>
+					<div class="assumption-map-grid">
+						<span class="assumption-map-hot">Test first</span>
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
+					<span class="assumption-map-x">
+						<span>Little evidence</span>
+						<span>Strong evidence</span>
+					</span>
+				</div>
+			</figure>
 			<p>Then I write the bet as a hypothesis the whole team agrees with:</p>
-			<blockquote>
+			<div class="process-callout">
+				<p class="process-callout-label">The hypothesis</p>
 				<p>
-					We believe <strong>[the change]</strong> for <strong>[these people]</strong> will
-					<strong>[this outcome]</strong>. We'll know when <strong>[this number moves]</strong>. We're wrong if
+					We believe <strong>[the change]</strong> for <strong>[these people]</strong> will{' '}
+					<strong>[this outcome]</strong>. We'll know when <strong>[this number moves]</strong>. We're wrong if{' '}
 					<strong>[this happens]</strong>.
 				</p>
-			</blockquote>
+			</div>
 			<p>
 				The "we're wrong if" line is what makes it scientific. We decide what failure looks like before we start,
 				so nobody can spin the result afterwards.
@@ -218,8 +335,27 @@ const boardRows: { label: string; boxes: { number: number; name: string; tone: T
 				existing components and patterns, so I sketch straight from the system. For something new, I start from
 				the system and only design new components where the problem needs them.
 			</p>
+		</ProcessStage>
 
-			<h2>4. Test: check the bet cheaply, before it's built</h2>
+		<ProcessStage
+			number={4}
+			name="Test"
+			question="Does it work for people?"
+			activities={[
+				'Choosing the method and fidelity',
+				'Usability testing',
+				'Tree testing',
+				'Testing AI with a person behind the scenes',
+				'Accessibility check',
+			]}
+		>
+			<p class="process-stage-lead">Check the bet cheaply, before it's built.</p>
+			<PostFigure
+				src={usertesting}
+				alt="Moderated usability session showing a participant's screen with a tagged transcript and observation notes"
+				caption="A moderated usability session with a tagged transcript."
+				sizes={stageImageSizes}
+			/>
 			<p>
 				I make the prototype only as real as the question needs. Rough sketches answer "is this the right idea?". A
 				clickable prototype answers "can people find their way?". Real content and real prices answer "do they
@@ -232,8 +368,27 @@ const boardRows: { label: string; boxes: { number: number; name: string; tone: T
 				product manager joins the sessions and the engineers observe when they can. Then we fix what failed and
 				retest with a smaller group. Accessibility gets checked before anything goes near a sprint.
 			</p>
+		</ProcessStage>
 
-			<h2>5. Deliver: build it the way it was tested</h2>
+		<ProcessStage
+			number={5}
+			name="Deliver"
+			question="Are we building it well?"
+			activities={[
+				'Designing every state',
+				'Design system specs and tokens',
+				'Refinement walkthrough',
+				'Design QA',
+				'Release checkpoint',
+			]}
+		>
+			<p class="process-stage-lead">Build it the way it was tested.</p>
+			<PostFigure
+				src={claimsFigma}
+				alt="Figma file showing motor claims screens, including the review and lodge step"
+				caption="Screens and specs in Figma, ready for the build."
+				sizes={stageImageSizes}
+			/>
 			<p>
 				I stay in the squad through the build, working a sprint or two ahead. Before refinement, I design every
 				state: loading, error, empty and success, plus the awkward edge cases the engineers raise. The specs
@@ -246,8 +401,20 @@ const boardRows: { label: string; boxes: { number: number; name: string; tone: T
 				Once it's in a test environment, I check the build against the design. Before release, I confirm two
 				things: the baseline has been captured, and tracking works. Without them, we can't measure anything.
 			</p>
+		</ProcessStage>
 
-			<h2>6. Measure and learn: did it work?</h2>
+		<ProcessStage
+			number={6}
+			name="Measure and learn"
+			question="Did it work?"
+			activities={['Results against the baseline', 'Frontline check-in', 'Benchmarking', 'Playback', 'Looping back']}
+		>
+			<PostFigure
+				src={uxBenchmarking}
+				alt="Usability benchmarking dashboard for an insurance quote, showing effectiveness, efficiency, satisfaction and desirability"
+				caption="A benchmarking dashboard that tracks the experience over time."
+				sizes={stageImageSizes}
+			/>
 			<p>
 				A few weeks after release, we compare the main number against the baseline from kickoff and check that the
 				guardrails held. I also ask the frontline teams what they're hearing, because they often notice a change
@@ -260,20 +427,24 @@ const boardRows: { label: string; boxes: { number: number; name: string; tone: T
 				exploring. If it worked, on to the next problem. The results go into the journey management platform, so
 				the whole organisation can see what changed.
 			</p>
+		</ProcessStage>
 
-			<h2>The bigger picture</h2>
-			<p>
-				A single project is one loop. The work that lasts is what connects the loops. Each project adds to a shared
-				picture of the experience in the journey management platform, alongside service design, customer experience
-				research, analytics and benchmarks. Each new pattern strengthens the design system. Over time, that means
-				teams start from what's already known instead of from scratch, and quick work can be done well without a
-				designer in every decision.
-			</p>
-			<p>
-				That's the part of the job I find most interesting: not just solving this problem, but leaving the
-				organisation better at solving the next one.
-			</p>
-		</div>
+		<section class="process-wide" aria-labelledby="bigger-picture-heading">
+			<div class="draft-article">
+				<h2 id="bigger-picture-heading">The bigger picture</h2>
+				<p>
+					A single project is one loop. The work that lasts is what connects the loops. Each project adds to a
+					shared picture of the experience in the journey management platform, alongside service design, customer
+					experience research, analytics and benchmarks. Each new pattern strengthens the design system. Over time,
+					that means teams start from what's already known instead of from scratch, and quick work can be done well
+					without a designer in every decision.
+				</p>
+				<p>
+					That's the part of the job I find most interesting: not just solving this problem, but leaving the
+					organisation better at solving the next one.
+				</p>
+			</div>
+		</section>
 	</article>
 
 	<section class="draft-related-posts" aria-labelledby="related-heading">

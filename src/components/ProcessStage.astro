@@ -1,0 +1,33 @@
+---
+/**
+ * One stage on the process page. On wide screens the summary (number, name,
+ * key question, activities) sits in a sticky left column beside the story;
+ * on phones it stacks above. The story goes in the default slot.
+ */
+interface Props {
+	number: number;
+	name: string;
+	question: string;
+	activities: string[];
+}
+
+const { number, name, question, activities } = Astro.props;
+const id = `stage-${number}`;
+---
+
+<section class="process-stage" aria-labelledby={id}>
+	<div class="process-stage-aside">
+		<h2 id={id}>
+			<span class="process-stage-number">{number}</span>
+			{name}
+		</h2>
+		<p class="process-stage-question"><em>{question}</em></p>
+		<h3 class="process-stage-label">Activities</h3>
+		<ul class="process-stage-activities">
+			{activities.map((activity) => <li>{activity}</li>)}
+		</ul>
+	</div>
+	<div class="draft-article process-stage-body">
+		<slot />
+	</div>
+</section>
