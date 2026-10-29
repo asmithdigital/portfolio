@@ -20,14 +20,14 @@ export type SiteConfig = {
 
 export const siteConfig: SiteConfig = {
 	name: 'Andrew Smith',
-	title: 'Andrew Smith | UX designer',
+	title: 'Andrew Smith | UX and product designer',
 	description:
-		"Andrew Smith, UX designer. I work with product managers and engineers to study how people use complex systems, then design around what I find. I started in front-end development.",
+		'Andrew Smith, UX and product designer in Adelaide. I work with product managers and engineers to find the real problem, test ideas with people, and measure what changed.',
 	siteUrl: 'https://asmithdigital.github.io/portfolio',
 	email: 'asmithdigital@gmail.com',
 	locale: 'en-AU',
 	authorName: 'Andrew Smith',
-	authorRole: 'UX designer',
+	authorRole: 'UX and product designer',
 	keywords: [
 		'UX designer Adelaide',
 		'UX designer portfolio',

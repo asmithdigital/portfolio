@@ -1,0 +1,46 @@
+---
+/** Placeholder page for each case study until the full write-up is ready. */
+import type { GetStaticPaths } from 'astro';
+import { Image } from 'astro:assets';
+import DraftPage from '../../components/draft/DraftPage.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { siteHref } from '../../config/draft';
+import { caseStudies, type CaseStudy } from '../../data/caseStudies';
+
+export const getStaticPaths = (() =>
+	caseStudies.map((study) => ({ params: { slug: study.slug }, props: { study } }))) satisfies GetStaticPaths;
+
+interface Props {
+	study: CaseStudy;
+}
+
+const { study } = Astro.props;
+---
+
+<DraftPage title={`${study.title} | Andrew Smith`} description={study.teaser}>
+	<section class="draft-detail-hero" aria-labelledby="case-title">
+		<Breadcrumb
+			items={[
+				{ label: 'Home', href: siteHref('/') },
+				{ label: 'Case studies', href: siteHref('/#case-studies') },
+				{ label: study.label },
+			]}
+		/>
+		<p class="eyebrow draft-case-eyebrow">{study.label}</p>
+		<h1 class="display-title" id="case-title">{study.title}</h1>
+		<p class="hero-text">{study.teaser}</p>
+	</section>
+
+	<Image
+		class="draft-lead-image"
+		src={study.image}
+		alt={study.alt}
+		widths={[640, 960, 1280, 1600]}
+		sizes="(min-width: 80rem) 78rem, calc(100vw - 3rem)"
+		loading="eager"
+	/>
+
+	<aside class="draft-notice" aria-label="Status">
+		<p>Full case study coming soon. In the meantime, you can <a href={siteHref('/process/')}>read about how I work</a>.</p>
+	</aside>
+</DraftPage>

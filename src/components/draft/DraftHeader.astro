@@ -1,30 +1,18 @@
 ---
 /**
- * Header for the hidden draft: name plus one Practices dropdown.
+ * Site header: name, menu links and the dark mode toggle.
  *
  * Keyboard behaviour:
- * - The desktop dropdown is a native <details>: Enter or Space opens and closes.
- *   Escape closes it and returns focus to its button. Clicking outside or
- *   tabbing away closes it.
  * - On small screens the menu opens full screen, traps focus while open,
  *   and closes on Escape with focus returned to the menu button.
- * - Without JavaScript, all menus still open and close natively.
+ * - Without JavaScript, the mobile menu still opens and closes natively.
  */
 import { siteConfig } from '../../config/site';
-import { draftHref, draftPracticeLinks, publicHref } from '../../config/draft';
+import { navLinks, siteHref } from '../../config/draft';
 
 const normalise = (path: string) => path.replace(/\/$/, '');
 const currentPath = normalise(Astro.url.pathname);
-const homeHref = draftHref('/');
-const chevronSrc = publicHref('icons/chevron-down.svg');
-
-const menus = [
-	{
-		id: 'practices',
-		label: 'Practices',
-		links: draftPracticeLinks.map((link) => ({ href: draftHref(link.draftPath), label: link.label })),
-	},
-];
+const homeHref = siteHref('/');
 
 const isCurrent = (href: string) => normalise(href) === currentPath;
 ---
@@ -37,22 +25,10 @@ const isCurrent = (href: string) => normalise(href) === currentPath;
 	<div class="shared-header-actions">
 		<nav class="shared-nav shared-nav-desktop draft-nav" aria-label="Primary">
 			{
-				menus.map((menu) => (
-					<details class="draft-menu" data-draft-menu>
-						<summary class="draft-menu-trigger">
-							{menu.label}
-							<img src={chevronSrc} alt="" width="14" height="14" />
-						</summary>
-						<ul class="draft-menu-panel">
-							{menu.links.map((link) => (
-								<li>
-									<a href={link.href} aria-current={isCurrent(link.href) ? 'page' : undefined}>
-										{link.label}
-									</a>
-								</li>
-							))}
-						</ul>
-					</details>
+				navLinks.map((link) => (
+					<a href={link.href} aria-current={isCurrent(link.href) ? 'page' : undefined}>
+						{link.label}
+					</a>
 				))
 			}
 		</nav>
@@ -110,22 +86,10 @@ const isCurrent = (href: string) => normalise(href) === currentPath;
 			<nav class="shared-mobile-panel" aria-label="Mobile">
 				<a class="shared-mobile-brand" href={homeHref}>{siteConfig.name}</a>
 				{
-					menus.map((menu) => (
-						<details class="shared-mobile-submenu">
-							<summary class="shared-mobile-submenu-trigger">
-								{menu.label}
-								<img src={chevronSrc} alt="" width="14" height="14" />
-							</summary>
-							<ul class="shared-mobile-submenu-panel draft-mobile-list">
-								{menu.links.map((link) => (
-									<li>
-										<a href={link.href} aria-current={isCurrent(link.href) ? 'page' : undefined}>
-											{link.label}
-										</a>
-									</li>
-								))}
-							</ul>
-						</details>
+					navLinks.map((link) => (
+						<a href={link.href} aria-current={isCurrent(link.href) ? 'page' : undefined}>
+							{link.label}
+						</a>
 					))
 				}
 			</nav>
@@ -134,40 +98,6 @@ const isCurrent = (href: string) => normalise(href) === currentPath;
 </header>
 
 <script>
-	const desktopMenus = Array.from(document.querySelectorAll<HTMLDetailsElement>('[data-draft-menu]'));
-
-	const closeMenu = (menu: HTMLDetailsElement, returnFocus = false) => {
-		if (!menu.open) return;
-		menu.open = false;
-		if (returnFocus) menu.querySelector('summary')?.focus();
-	};
-
-	desktopMenus.forEach((menu) => {
-		menu.addEventListener('toggle', () => {
-			if (!menu.open) return;
-			desktopMenus.filter((other) => other !== menu).forEach((other) => closeMenu(other));
-		});
-
-		menu.addEventListener('keydown', (event) => {
-			if (event.key === 'Escape' && menu.open) {
-				event.preventDefault();
-				closeMenu(menu, true);
-			}
-		});
-
-		menu.addEventListener('focusout', (event) => {
-			const next = event.relatedTarget;
-			if (next instanceof Node && menu.contains(next)) return;
-			closeMenu(menu);
-		});
-	});
-
-	document.addEventListener('click', (event) => {
-		const target = event.target;
-		if (!(target instanceof Node)) return;
-		desktopMenus.filter((menu) => !menu.contains(target)).forEach((menu) => closeMenu(menu));
-	});
-
 	const mobileMenu = document.querySelector<HTMLDetailsElement>('[data-draft-mobile-menu]');
 
 	if (mobileMenu) {

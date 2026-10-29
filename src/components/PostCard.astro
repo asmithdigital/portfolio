@@ -1,0 +1,38 @@
+---
+/**
+ * One blog post as a media object row: thumbnail on the left, title, intro and
+ * "Read more" on the right. The title link covers the whole row, so the row is
+ * one click target and one tab stop. On phones the thumbnail stacks above the text.
+ */
+import { Image } from 'astro:assets';
+import type { Post } from '../data/posts';
+import { siteHref } from '../config/draft';
+
+interface Props {
+	post: Post;
+	/** Heading level for the title, so the card fits the page outline. */
+	headingLevel?: 2 | 3 | 4;
+}
+
+const { post, headingLevel = 3 } = Astro.props;
+const Heading = `h${headingLevel}` as 'h2' | 'h3' | 'h4';
+---
+
+<article class="draft-card post-card">
+	<Image
+		class="post-card-thumb"
+		src={post.image}
+		alt=""
+		widths={[200, 400, 640]}
+		sizes="(min-width: 40rem) 200px, calc(100vw - 5rem)"
+		loading="lazy"
+		decoding="async"
+	/>
+	<div>
+		<Heading class="post-card-title">
+			<a class="draft-card-link" href={siteHref(`/blog/${post.slug}/`)}>{post.title}</a>
+		</Heading>
+		<p class="post-card-intro">{post.standfirst}</p>
+		<span class="draft-card-more" aria-hidden="true">Read more &rarr;</span>
+	</div>
+</article>

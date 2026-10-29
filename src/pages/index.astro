@@ -1,24 +1,18 @@
 ---
 import { Image } from 'astro:assets';
 import DraftPage from '../components/draft/DraftPage.astro';
-import { draftHref, draftPracticeLinks, draftThumbnails } from '../config/draft';
-import { stages } from '../data/draft/stages';
-import { projects } from '../data/projects';
+import PostCard from '../components/PostCard.astro';
+import { siteHref } from '../config/draft';
+import { caseStudies } from '../data/caseStudies';
+import { posts } from '../data/posts';
 import profilePhoto from '../assets/images/profile-1.png';
 
-const { layout, stages: thumbs } = draftThumbnails;
-
-// Tiles reuse the live home page's project data so images, titles and colours match.
-const tiles = draftPracticeLinks.map((link) => {
-	const project = projects.find((item) => item.href === link.liveHref);
-	if (!project) throw new Error(`No live tile found for ${link.liveHref}`);
-	return { ...project, title: link.tileTitle ?? project.title, label: link.label, href: draftHref(link.draftPath) };
-});
+const stages = ['Kickoff', 'Understand', 'Explore', 'Test', 'Deliver', 'Measure and learn'];
 ---
 
 <DraftPage
-	title="Andrew Smith | UX designer"
-	description="Andrew Smith, UX designer. How I work with product managers and engineers, from framing the work to measuring the result."
+	title="Andrew Smith | UX and product designer"
+	description="Andrew Smith, UX and product designer in Adelaide. I work with product managers and engineers to find the real problem, test ideas with people, and measure what changed."
 >
 	<section class="draft-intro draft-home-grid" aria-labelledby="draft-title">
 		<Image
@@ -30,38 +24,43 @@ const tiles = draftPracticeLinks.map((link) => {
 			loading="eager"
 		/>
 		<div>
-			<h1 class="display-title" id="draft-title">Hi, I'm Andrew. I'm a UX designer.</h1>
+			<h1 class="display-title" id="draft-title">Hi, I'm Andrew. I'm a UX and product designer.</h1>
 			<p class="hero-text">
-				I work with product managers and engineers to study how people use complex systems. Then I design around what
-				I find, rather than guessing.
+				I work with product managers and engineers to find out what is really going wrong for people, test ideas
+				before they are built, and measure whether the change worked.
 			</p>
 			<p class="hero-text">
-				I started in front-end development, so I think about how things get built, as well as how they work for
-				people.
+				I started in front-end development and web design, so I think about how things get built, as well as how
+				they work for people.
 			</p>
 		</div>
 	</section>
 
-	<section class="draft-practices-section" aria-labelledby="practices-heading">
-		<h2 class="draft-section-heading" id="practices-heading">Practices</h2>
-		<div class="projects-grid">
+	<section class="draft-home-section" id="case-studies" aria-labelledby="case-studies-heading">
+		<h2 class="draft-section-heading" id="case-studies-heading">Case studies</h2>
+		<p class="draft-section-lead">
+			Full write-ups are on the way. Each one follows the same process I use on every project.
+		</p>
+		<div class="projects-grid projects-grid-3">
 			{
-				tiles.map((tile) => (
-					<a class="project-link" href={tile.href}>
-						<article class={`project-card ${tile.background}`}>
+				caseStudies.map((study) => (
+					<a class="project-link" href={siteHref(`/case-studies/${study.slug}/`)}>
+						<article class={`project-card ${study.background}`}>
 							<div class="project-header">
-								<p class="project-name">{tile.label}</p>
+								<p class="project-name">{study.label}</p>
+								<p class="project-badge">Coming soon</p>
 							</div>
-							<h3 class="project-title">{tile.title.replace(/\s\u2014\s/, ': ')}</h3>
-							<div class={`project-visual ${tile.variant}`}>
+							<h3 class="project-title">{study.title}</h3>
+							<p class="project-teaser">{study.teaser}</p>
+							<div class="project-visual">
 								<Image
-									class={tile.imageClass}
-									src={tile.image}
-									alt={tile.alt}
+									class="project-preview-image"
+									src={study.image}
+									alt={study.alt}
 									loading="lazy"
 									decoding="async"
-									widths={[480, 720, 960]}
-									sizes="(max-width: 980px) 100vw, 50vw"
+									widths={[400, 640, 960]}
+									sizes="(min-width: 861px) 33vw, 100vw"
 								/>
 							</div>
 						</article>
@@ -71,45 +70,40 @@ const tiles = draftPracticeLinks.map((link) => {
 		</div>
 	</section>
 
-	<section class="draft-timeline-section" aria-labelledby="stages-heading">
-		<h2 class="draft-section-heading" id="stages-heading">How I work</h2>
-		<p class="draft-section-lead">Seven stages, in order.</p>
-
-		<ol
-			class="draft-stages"
-			style={`--thumb-aspect: ${layout.aspectRatio}; --thumb-width: ${layout.desktopWidth}; --thumb-mobile-width: ${layout.mobileWidth};`}
-		>
-			{
-				stages.map((stage) => {
-					const thumb = thumbs[stage.slug];
-					return (
-						<li class="draft-stage" id={`stage-${stage.slug}`}>
-							<span class="draft-stage-dot" aria-hidden="true">
-								{stage.number}
-							</span>
-							<div class="draft-thumb" style={`--thumb-position: ${thumb.position}; --thumb-zoom: ${thumb.zoom};`}>
-								<Image
-									src={thumb.image}
-									alt={thumb.alt}
-									widths={[240, 420, 630]}
-									sizes="(min-width: 40rem) 210px, 90px"
-									loading="lazy"
-									decoding="async"
-								/>
-							</div>
-							<h3 class="draft-stage-title">
-								<span class="draft-sr-only">Stage {stage.number}: </span>
-								{stage.title}
-							</h3>
-							<div class="draft-stage-body">
-								{stage.paragraphs.map((paragraph) => (
-									<p>{paragraph}</p>
-								))}
-							</div>
+	<section class="draft-home-section" aria-labelledby="process-heading">
+		<h2 class="draft-section-heading" id="process-heading">How I work</h2>
+		<article class="draft-card process-card">
+			<h3>
+				<a class="draft-card-link" href={siteHref('/process/')}>My UX and product design process</a>
+			</h3>
+			<p>
+				Six stages that take a vague request to a measured result, and how I adapt them when work is fuzzy, already
+				moving, or small.
+			</p>
+			<ol class="process-strip">
+				{
+					stages.map((stage, index) => (
+						<li>
+							<span class="process-strip-number">{index + 1}</span>
+							{stage}
 						</li>
-					);
-				})
+					))
+				}
+			</ol>
+			<span class="draft-card-more" aria-hidden="true">Read more &rarr;</span>
+		</article>
+	</section>
+
+	<section class="draft-home-section" id="blog" aria-labelledby="blog-heading">
+		<h2 class="draft-section-heading" id="blog-heading">From the blog</h2>
+		<ul class="post-list">
+			{
+				posts.map((post) => (
+					<li>
+						<PostCard post={post} />
+					</li>
+				))
 			}
-		</ol>
+		</ul>
 	</section>
 </DraftPage>
