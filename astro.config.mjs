@@ -5,7 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   site: 'https://asmithdigital.github.io',
   base: '/portfolio',
-  // Retired pages send visitors to the home page. The old site lives on at /portfolio/backup/.
+  // Retired pages send visitors to the closest new page. The old site lives on at /portfolio/backup/.
   // Astro does not add `base` to redirect targets, so they include /portfolio/ in full.
   redirects: {
     '/about': '/portfolio/',
@@ -18,15 +18,24 @@ export default defineConfig({
     '/work/research-testing': '/portfolio/',
     '/work/product-management': '/portfolio/',
     '/work/designing-product-interaction': '/portfolio/',
+    '/work/ux-process': '/portfolio/process/',
+    '/work/workshops': '/portfolio/blog/design-sprints/',
+    '/work/journey-mapping': '/portfolio/blog/making-the-experience-visible/',
+    '/work/design-systems': '/portfolio/blog/making-the-experience-visible/',
+    '/work/research-benchmarking': '/portfolio/blog/measuring-experience-quality/',
+    '/work/ai-tooling': '/portfolio/blog/ai-in-the-design-process/',
+    '/work/ui-design': '/portfolio/',
   },
-  // Only the home page and the seven case studies go in the sitemap.
+  // Only the home page, the process page, the case studies and the blog posts go in the sitemap.
   integrations: [
     sitemap({
       filter: (page) => {
         const path = new URL(page).pathname.replace(/\/$/, '');
         return (
           path === '/portfolio' ||
-          /^\/portfolio\/work\/(ux-process|workshops|journey-mapping|design-systems|research-benchmarking|ai-tooling|ui-design)$/.test(path)
+          path === '/portfolio/process' ||
+          /^\/portfolio\/case-studies\/(travel|quote-to-buy|university-website)$/.test(path) ||
+          /^\/portfolio\/blog\/(making-the-experience-visible|ai-in-the-design-process|measuring-experience-quality|design-sprints)$/.test(path)
         );
       },
     }),
