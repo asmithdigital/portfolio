@@ -1,0 +1,291 @@
+---
+import DraftPage from '../components/draft/DraftPage.astro';
+import PostCard from '../components/PostCard.astro';
+import { posts } from '../data/posts';
+
+type Tone = 'grey' | 'blue' | 'purple' | 'green';
+
+// The six-box board: the top row is the problem, the bottom row is the solution.
+const boardRows: { label: string; boxes: { number: number; name: string; tone: Tone }[] }[] = [
+	{
+		label: 'The problem',
+		boxes: [
+			{ number: 1, name: 'Problem and success', tone: 'grey' },
+			{ number: 2, name: 'Who and what we know', tone: 'blue' },
+			{ number: 3, name: 'Journey and pain', tone: 'blue' },
+		],
+	},
+	{
+		label: 'The solution',
+		boxes: [
+			{ number: 4, name: 'Riskiest assumption and bet', tone: 'purple' },
+			{ number: 5, name: 'Ideas and screens', tone: 'purple' },
+			{ number: 6, name: 'Test and measure', tone: 'green' },
+		],
+	},
+];
+---
+
+<DraftPage
+	title="My design process | Andrew Smith"
+	description="How I take a vague request to a measured result, in six stages, and how the process changes when work is fuzzy, already moving, or small."
+	ogType="article"
+>
+	<article>
+		<header class="draft-article-hero">
+			<p class="eyebrow">Process</p>
+			<h1 class="display-title">How I work</h1>
+		</header>
+
+		<div class="draft-article">
+			<p>
+				Most work doesn't arrive as a clear problem. It arrives as a request: "we need fewer calls", "can we add a
+				chatbot", "make the button bigger". My job is to work out what is really going on, find the riskiest guess
+				behind the idea, test it cheaply, and then measure whether the change made a difference.
+			</p>
+			<p>
+				I use the same six stages on every piece of work. They are based on the Double Diamond (first make sure we're
+				solving the right problem, then make sure we're building the right solution), and I run them in short loops
+				alongside the product team: think, make, check, then go round again.
+			</p>
+			<p>
+				What changes from project to project is how deep I go in each stage. A small label change might take an
+				afternoon. A fuzzy new problem might need weeks of discovery. The stages stay the same.
+			</p>
+
+			<figure class="process-board">
+				{
+					boardRows.map((row) => (
+						<div class="process-board-row">
+							<p class="process-board-label">{row.label}</p>
+							<ol start={row.boxes[0].number}>
+								{row.boxes.map((box) => (
+									<li data-tone={box.tone}>
+										<span class="process-board-number" aria-hidden="true">
+											{box.number}
+										</span>
+										{box.name}
+									</li>
+								))}
+							</ol>
+						</div>
+					))
+				}
+				<figcaption>
+					The board I set up at the start of every piece of work, in Miro or on a whiteboard. The top row is the
+					problem. The bottom row is the solution. You can't skip to the bottom row without filling in the top.
+				</figcaption>
+			</figure>
+
+			<h2>1. Kickoff: agree the problem and how we'll know it worked</h2>
+			<p>
+				Every piece of work starts with a kickoff with the product manager, the engineer, and usually the content
+				designer and business analyst. I ask six questions:
+			</p>
+			<ul>
+				<li>What are we trying to change, and for whom?</li>
+				<li>How will we know it worked?</li>
+				<li>What is the number today?</li>
+				<li>What must not get worse?</li>
+				<li>What can't change?</li>
+				<li>Is a solution already in mind, and which problem would it solve?</li>
+			</ul>
+			<p>
+				The number today is the one most teams skip. Without a baseline, nobody can ever show the work made a
+				difference. The "must not get worse" list protects us from winning one number by breaking another, like
+				selling more add-ons but getting more complaints.
+			</p>
+			<p>
+				If someone arrives with a solution, I don't argue with it. I park it, and we come back to it once we
+				understand the problem. Often it turns out to be a good idea. Sometimes it solves the wrong thing.
+			</p>
+			<p>
+				The gaps in those answers tell me what kind of work this is, and that decides how much of the rest of the
+				process we need.
+			</p>
+
+			<h2>Four kinds of work, one process</h2>
+			<p>At the end of kickoff I decide which of four situations we're in.</p>
+			<ul>
+				<li>
+					<strong>New or fuzzy.</strong> The goal isn't clear yet. Before talking to customers, I partner with the
+					product manager to talk to stakeholders and agree what success means. The problem side of the board is
+					where most of the time goes.
+				</li>
+				<li>
+					<strong>Known problem.</strong> The data shows where people struggle, but not why. I start with what we
+					already know, then talk to a handful of customers to find the why.
+				</li>
+				<li>
+					<strong>Ongoing work.</strong> The work is already moving, often with research done and a solution
+					planned. I catch up on what's been decided, build on the existing research rather than redo it, and treat
+					the planned solution as a bet to test.
+				</li>
+				<li>
+					<strong>Small change.</strong> Clear and low risk. A quick look at the data, a few options, a light test,
+					and one number to check afterwards.
+				</li>
+			</ul>
+			<p>Some work also takes a detour:</p>
+			<ul>
+				<li>
+					<strong>When a solution is brought in,</strong> I run it through the bet stage as a hypothesis instead of
+					building it on trust.
+				</li>
+				<li>
+					<strong>For AI or automation,</strong> I test with a person behind the scenes before anything is built,
+					and design for the moments it gets things wrong.
+				</li>
+				<li>
+					<strong>When the deadline is urgent,</strong> I never skip the problem or the baseline. Everything else
+					shrinks.
+				</li>
+			</ul>
+
+			<h2>2. Understand: who is struggling, where, and why</h2>
+			<p>
+				The golden rule is to start with what we already know. The answer is often already in an analytics
+				dashboard, the contact centre's call reasons, customer feedback, past research or the journey management
+				platform. I split what I find into two lists: what we know (with the source next to each finding) and what
+				we don't know yet. Every gap gets a method and a person: interviews, watching call recordings, shadowing
+				frontline staff, or walking through the journey myself.
+			</p>
+			<p>
+				An interview gives me a lead, and the data confirms it. When two sources disagree, I find out why and use a
+				third source to settle it.
+			</p>
+			<p>
+				Then I lay out the journey as customers actually experience it, not how the system thinks it works. For
+				each step I note what people are doing and feeling, and, alongside the engineer and business analyst, what
+				system or business rule sits behind it. That system lane is where the real cause often hides. In one
+				example, customers kept calling to check on their refund. The status existed in the system, and the
+				contact centre could see it. The customer couldn't.
+			</p>
+			<p>
+				I circle the cause, not the symptom. The calls were the symptom. The silence during the wait was the
+				cause.
+			</p>
+			<p>
+				This stage ends when I can finish one sentence with evidence:
+				<em>these people struggle at this step because of this reason.</em>
+			</p>
+			<p>
+				The journey on my board is a snapshot of the steps that matter for this problem. The full journey lives in
+				the organisation's journey management platform, shared with service design and the customer experience
+				team. What I learn goes back into it, so the next team starts from a better place.
+			</p>
+
+			<h2>3. Explore: make the bet visible</h2>
+			<p>
+				Before anyone draws a screen, I turn the problem sentence into an open question that starts with "How might
+				we", then sketch a few rough directions and pick one.
+			</p>
+			<p>
+				Then I run a short assumption-mapping workshop with the product trio. Everyone finishes the sentence "For
+				this to work, it has to be true that..." on sticky notes, grouped into four kinds of guess:
+			</p>
+			<ul>
+				<li><strong>Desirable:</strong> will people want it?</li>
+				<li><strong>Usable:</strong> can they use it?</li>
+				<li><strong>Buildable:</strong> can we make it?</li>
+				<li><strong>Viable:</strong> does it work for the business?</li>
+			</ul>
+			<p>
+				We place each note on a simple grid: how important it is, against how much evidence we already have.
+				Anything important with little evidence goes in the top-left corner, and we test it first, with a name next
+				to each test. The riskiest guess is often not about the customer at all. It's whether the system can do
+				what the idea needs, so the engineer checks it before any design work.
+			</p>
+			<p>Then I write the bet as a hypothesis the whole team agrees with:</p>
+			<blockquote>
+				<p>
+					We believe <strong>[the change]</strong> for <strong>[these people]</strong> will
+					<strong>[this outcome]</strong>. We'll know when <strong>[this number moves]</strong>. We're wrong if
+					<strong>[this happens]</strong>.
+				</p>
+			</blockquote>
+			<p>
+				The "we're wrong if" line is what makes it scientific. We decide what failure looks like before we start,
+				so nobody can spin the result afterwards.
+			</p>
+			<p>
+				Only then do we generate ideas. I use quick, structured methods like Crazy 8s (eight sketches in eight
+				minutes) so everyone's ideas count equally, and dot voting to choose. For big, risky decisions, I run a full
+				design sprint. Every decision goes in a decision log, with the reason, so it doesn't get argued twice.
+			</p>
+			<p>
+				This is also where the design system earns its keep. For a quick change, most of the answer is already in
+				existing components and patterns, so I sketch straight from the system. For something new, I start from
+				the system and only design new components where the problem needs them.
+			</p>
+
+			<h2>4. Test: check the bet cheaply, before it's built</h2>
+			<p>
+				I make the prototype only as real as the question needs. Rough sketches answer "is this the right idea?". A
+				clickable prototype answers "can people find their way?". Real content and real prices answer "do they
+				trust it?". A tree test answers "where does this belong in the menu?". For AI, a person quietly playing the
+				system answers "how should it behave?".
+			</p>
+			<p>
+				I plan, recruit and run the sessions, usually with five or six people from the group we're designing for,
+				including people who use assistive technology. I watch what people do, not what they say they like. The
+				product manager joins the sessions and the engineers observe when they can. Then we fix what failed and
+				retest with a smaller group. Accessibility gets checked before anything goes near a sprint.
+			</p>
+
+			<h2>5. Deliver: build it the way it was tested</h2>
+			<p>
+				I stay in the squad through the build, working a sprint or two ahead. Before refinement, I design every
+				state: loading, error, empty and success, plus the awkward edge cases the engineers raise. The specs
+				reference the design system's components and design tokens, so engineers build from the same source of
+				truth. New components we've tested go back into the design system with their documentation and
+				accessibility notes.
+			</p>
+			<p>
+				When something has to give mid-sprint, I protect the customer outcome over pixels, and log the trade-off.
+				Once it's in a test environment, I check the build against the design. Before release, I confirm two
+				things: the baseline has been captured, and tracking works. Without them, we can't measure anything.
+			</p>
+
+			<h2>6. Measure and learn: did it work?</h2>
+			<p>
+				A few weeks after release, we compare the main number against the baseline from kickoff and check that the
+				guardrails held. I also ask the frontline teams what they're hearing, because they often notice a change
+				before the dashboards do. Over time, regular benchmarking shows whether the experience is getting better or
+				worse.
+			</p>
+			<p>
+				Then we play it back: what we believed, what we did, what happened, and what's next. That decides where we
+				loop back to. If we had the wrong problem, back to understanding it. If we had the wrong idea, back to
+				exploring. If it worked, on to the next problem. The results go into the journey management platform, so
+				the whole organisation can see what changed.
+			</p>
+
+			<h2>The bigger picture</h2>
+			<p>
+				A single project is one loop. The work that lasts is what connects the loops. Each project adds to a shared
+				picture of the experience in the journey management platform, alongside service design, customer experience
+				research, analytics and benchmarks. Each new pattern strengthens the design system. Over time, that means
+				teams start from what's already known instead of from scratch, and quick work can be done well without a
+				designer in every decision.
+			</p>
+			<p>
+				That's the part of the job I find most interesting: not just solving this problem, but leaving the
+				organisation better at solving the next one.
+			</p>
+		</div>
+	</article>
+
+	<section class="draft-related-posts" aria-labelledby="related-heading">
+		<h2 id="related-heading">Read more about how I work</h2>
+		<ul class="post-list">
+			{
+				posts.map((post) => (
+					<li>
+						<PostCard post={post} />
+					</li>
+				))
+			}
+		</ul>
+	</section>
+</DraftPage>
