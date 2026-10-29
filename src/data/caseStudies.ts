@@ -2,7 +2,7 @@
 
 import type { ImageMetadata } from 'astro';
 import raaTravelHome from '../assets/images/raa-travel-home.png';
-import qtbSprintWall from '../assets/images/qtb-sprint-IMG_0307.jpg';
+import qtbSprintSketches from '../assets/images/qtb-sprint-IMG_0314.jpg';
 import uofaBanner from '../assets/images/uofa-banner.png';
 
 export type CaseStudy = {
@@ -33,8 +33,8 @@ export const caseStudies: CaseStudy[] = [
 		title: 'Quote to buy: finding the real conversion blocker',
 		teaser:
 			'The business assumed people were dropping out at payment because of payment options. A design sprint built on five years of research showed the real blocker was member identity matching, and the roadmap changed.',
-		image: qtbSprintWall,
-		alt: 'Design sprint wall covered in research notes for the quote to buy sprint',
+		image: qtbSprintSketches,
+		alt: 'Four people standing at a design sprint wall, reviewing solution sketches together.',
 		background: 'lavender',
 	},
 	{
