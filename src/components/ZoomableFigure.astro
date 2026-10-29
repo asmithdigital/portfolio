@@ -1,0 +1,33 @@
+---
+/**
+ * A captioned image that links to its full-size file in a new tab, for
+ * screenshots with small text that people may want to zoom in to read.
+ */
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+	src: ImageMetadata;
+	alt: string;
+	caption: string;
+}
+
+const { src, alt, caption } = Astro.props;
+// Never ask for a width larger than the source file.
+const widths = [480, 640, src.width].filter((width, index, all) => width <= src.width && all.indexOf(width) === index);
+---
+
+<figure class="zoomable-figure">
+	<a href={src.src} target="_blank" rel="noopener">
+		<Image
+			src={src}
+			alt={alt}
+			widths={widths}
+			sizes="(min-width: 44rem) 40rem, calc(100vw - 3rem)"
+			loading="lazy"
+			decoding="async"
+		/>
+		<span class="draft-sr-only">(opens full size in a new tab)</span>
+	</a>
+	<figcaption>{caption}</figcaption>
+</figure>

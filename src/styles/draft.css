@@ -565,27 +565,22 @@
 }
 .process-wide h2 { margin-top: 0; }
 
-/* Screenshot placeholders, the same width as the story text */
-.screenshot-placeholder {
+/* Zoomable screenshots, the same width as the story text */
+.zoomable-figure {
   width: 100%;
   max-width: 40rem;
-  aspect-ratio: 16 / 10;
-  display: grid;
-  place-items: center;
   margin: 0 0 1.75rem;
-  padding: 1.5rem;
-  border: 2px dashed var(--control-border);
+}
+.zoomable-figure a { display: block; border-radius: var(--draft-radius); }
+.zoomable-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--border);
   border-radius: var(--draft-radius);
-  background: var(--muted);
-  text-align: center;
+  background: #ffffff;
 }
-.draft-article .screenshot-placeholder p {
-  margin: 0;
-  max-width: 24rem;
-  font-size: .95rem;
-  line-height: 1.5;
-  color: var(--muted-foreground);
-}
+.zoomable-figure figcaption { margin-top: .6rem; }
 
 /* Kickoff questions */
 .draft-article .process-question-card {
