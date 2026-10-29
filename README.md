@@ -170,19 +170,15 @@ Theme behavior:
 - the header includes an icon-only theme toggle for switching between light and dark mode
 - the selected theme is saved in `localStorage`
 
-Main pages:
+Main pages (all under the `/portfolio` base):
 
-- `/`
-- `/about`
-- `/resume`
-- `/work`
-- `/work/nextpoint`
-- `/privacy`
-- `/cookies`
-- `/terms`
-- `/404`
+- `/`: intro, case study tiles, process card and blog list
+- `/process/`: the design process, told as a story
+- `/case-studies/<slug>/`: case study pages, generated from [src/data/caseStudies.ts](./src/data/caseStudies.ts)
+- `/blog/<slug>/`: blog posts, listed in [src/data/posts.ts](./src/data/posts.ts) with each body in `src/pages/blog/<slug>.astro`
+- `/privacy`, `/cookies`, `/terms`, `/404`
 
-At the moment, `Nextpoint` is the only fully built case study page in the theme. The other homepage project cards intentionally point to `/work/nextpoint` as placeholders until you add their own case study pages.
+Header menu links live in [src/config/draft.ts](./src/config/draft.ts) (`navLinks`). Retired URLs redirect through `redirects` in [astro.config.mjs](./astro.config.mjs).
 
 ## Images and Assets
 
