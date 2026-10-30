@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import DraftPage from '../components/draft/DraftPage.astro';
+import DoubleDiamond from '../components/DoubleDiamond.astro';
 import PostCard from '../components/PostCard.astro';
 import { siteHref } from '../config/draft';
 import { caseStudies } from '../data/caseStudies';
@@ -73,23 +74,28 @@ const stages = ['Kickoff', 'Understand', 'Explore', 'Test', 'Deliver', 'Measure 
 	<section class="draft-home-section" aria-labelledby="process-heading">
 		<h2 class="draft-section-heading" id="process-heading">How I work</h2>
 		<article class="draft-card process-card">
-			<h3>
-				<a class="draft-card-link" href={siteHref('/process/')}>My UX and product design process</a>
-			</h3>
-			<p>
-				Six stages that take a vague request to a measured result, and how I adapt them when work is fuzzy, already
-				moving, or small.
-			</p>
-			<ol class="process-strip">
-				{
-					stages.map((stage, index) => (
-						<li>
-							<span class="process-strip-number">{index + 1}</span> {stage}
-						</li>
-					))
-				}
-			</ol>
-			<span class="draft-card-more" aria-hidden="true">Read more &rarr;</span>
+			<div class="process-card-diagram">
+				<DoubleDiamond />
+			</div>
+			<div class="process-card-text">
+				<h3>
+					<a class="draft-card-link" href={siteHref('/process/')}>My UX and product design process</a>
+				</h3>
+				<p>
+					Six stages that take a vague request to a measured result, and how I adapt them when work is fuzzy,
+					already moving, or small.
+				</p>
+				<ol class="process-strip">
+					{
+						stages.map((stage, index) => (
+							<li>
+								<span class="process-strip-number">{index + 1}</span> {stage}
+							</li>
+						))
+					}
+				</ol>
+				<span class="draft-card-more" aria-hidden="true">Read more &rarr;</span>
+			</div>
 		</article>
 	</section>
 

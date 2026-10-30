@@ -1,0 +1,55 @@
+---
+/**
+ * Double diamond with a measure-and-learn loop, drawn as inline SVG.
+ * Decorative: the six stages are always listed as text next to it, so it is
+ * hidden from assistive technology. Colours match the process page board.
+ */
+---
+
+<svg
+	class="double-diamond"
+	viewBox="0 0 464 252"
+	width="100%"
+	aria-hidden="true"
+	focusable="false"
+>
+	<defs>
+		<linearGradient id="dd-solution" x1="230" y1="0" x2="384" y2="0" gradientUnits="userSpaceOnUse">
+			<stop offset="0" class="dd-stop-purple"></stop>
+			<stop offset="1" class="dd-stop-green"></stop>
+		</linearGradient>
+		<marker
+			id="dd-arrow"
+			viewBox="0 0 10 10"
+			refX="7"
+			refY="5"
+			markerWidth="6"
+			markerHeight="6"
+			orient="auto-start-reverse"
+		>
+			<path class="dd-arrow-head" d="M2 1.5 L7.5 5 L2 8.5"></path>
+		</marker>
+	</defs>
+
+	<!-- The problem: first diamond -->
+	<path class="dd-problem" d="M76 88 L153 28 L230 88 L153 148 Z"></path>
+	<!-- The solution: second diamond, purple into green -->
+	<path class="dd-solution" d="M230 88 L307 28 L384 88 L307 148 Z"></path>
+
+	<!-- Measure and learn: from the right point, under both diamonds, back to the left point -->
+	<path class="dd-loop" d="M380 104 C 400 280, 56 280, 80 104" marker-end="url(#dd-arrow)"></path>
+
+	<circle class="dd-dot-grey" cx="76" cy="88" r="4"></circle>
+	<circle class="dd-dot-blue" cx="230" cy="88" r="3"></circle>
+	<circle class="dd-dot-green" cx="384" cy="88" r="4"></circle>
+
+	<text class="dd-label dd-grey" x="66" y="92" text-anchor="end">Kickoff</text>
+	<text class="dd-label dd-blue" x="153" y="92" text-anchor="middle">Understand</text>
+	<text class="dd-label dd-purple" x="279" y="92" text-anchor="middle">Explore</text>
+	<text class="dd-label dd-green" x="349" y="92" text-anchor="middle">Test</text>
+	<text class="dd-label dd-green" x="394" y="92">Deliver</text>
+
+	<text class="dd-caption" x="153" y="170" text-anchor="middle">The problem</text>
+	<text class="dd-caption" x="307" y="170" text-anchor="middle">The solution</text>
+	<text class="dd-label dd-green dd-on-line" x="230" y="240" text-anchor="middle">Measure and learn</text>
+</svg>

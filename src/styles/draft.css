@@ -301,7 +301,54 @@
 }
 
 /* ---------- Home: process card ---------- */
-.process-card { padding: 1.5rem; }
+.process-card {
+  display: grid;
+  gap: 1.5rem;
+  padding: 1.5rem;
+}
+.process-card-diagram { max-width: 28rem; }
+
+/* Double diamond diagram. Colours match the process page board. */
+.double-diamond {
+  --dd-grey: #444444;
+  --dd-blue: #1f5fbf;
+  --dd-purple: #6b43b8;
+  --dd-green: #1d8a4f;
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+:root[data-theme='dark'] .double-diamond {
+  --dd-grey: #b5b5b5;
+  --dd-blue: #8ab0ee;
+  --dd-purple: #b9a2ec;
+  --dd-green: #72d29a;
+}
+.double-diamond path,
+.double-diamond circle { stroke-width: 1.5; stroke-linejoin: round; stroke-linecap: round; }
+.dd-problem { fill: var(--dd-blue); fill-opacity: .07; stroke: var(--dd-blue); }
+.dd-solution { fill: url(#dd-solution); fill-opacity: .07; stroke: url(#dd-solution); }
+.dd-stop-purple { stop-color: var(--dd-purple); }
+.dd-stop-green { stop-color: var(--dd-green); }
+.dd-loop { fill: none; stroke: var(--dd-green); }
+.dd-arrow-head { fill: none; stroke: var(--dd-green); }
+.dd-dot-grey { fill: var(--dd-grey); stroke: none; }
+.dd-dot-blue { fill: var(--card); stroke: var(--dd-blue); }
+.dd-dot-green { fill: var(--dd-green); stroke: none; }
+.double-diamond text {
+  font-family: var(--font-sans);
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -.01em;
+}
+.dd-grey { fill: var(--dd-grey); }
+.dd-blue { fill: var(--dd-blue); }
+.dd-purple { fill: var(--dd-purple); }
+.dd-green { fill: var(--dd-green); }
+.double-diamond .dd-caption { fill: var(--muted-foreground); font-weight: 600; }
+/* Card-coloured halo so the label sits on the loop line. */
+.dd-on-line { paint-order: stroke; stroke: var(--card); stroke-width: 6px; stroke-linejoin: round; }
 .process-card h3 {
   margin: 0 0 .5rem;
   font-size: clamp(1.15rem, 1.8vw, 1.45rem);
@@ -564,23 +611,8 @@
   letter-spacing: -.02em;
 }
 .process-wide h2 { margin-top: 0; }
-
-/* Zoomable screenshots, the same width as the story text */
-.zoomable-figure {
-  width: 100%;
-  max-width: 40rem;
-  margin: 0 0 1.75rem;
-}
-.zoomable-figure a { display: block; border-radius: var(--draft-radius); }
-.zoomable-figure img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border: 1px solid var(--border);
-  border-radius: var(--draft-radius);
-  background: #ffffff;
-}
-.zoomable-figure figcaption { margin-top: .6rem; }
+.process-stage-body > :last-child,
+.process-wide .draft-article > :last-child { margin-bottom: 0; }
 
 /* Kickoff questions */
 .draft-article .process-question-card {
@@ -746,6 +778,22 @@
     align-items: center;
   }
   .process-board ol { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (min-width: 40rem) {
+  /* Wider than a phone, the diagram has room for smaller, calmer labels. */
+  .double-diamond text { font-size: 13px; }
+}
+
+@media (min-width: 60rem) {
+  .process-card {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 28rem);
+    grid-template-areas: 'text diagram';
+    column-gap: 3rem;
+    align-items: center;
+  }
+  .process-card-text { grid-area: text; }
+  .process-card-diagram { grid-area: diagram; width: 100%; }
 }
 
 @media (min-width: 48rem) {
