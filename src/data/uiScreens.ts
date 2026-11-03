@@ -1,13 +1,13 @@
 // Screens shown on the UI design page. This is the only file to edit to change them.
-// The grid and the Previous and Next buttons follow `order`, lowest first.
+// The grid and the lightbox follow `order`, lowest first.
 //
 // To add a screen:
 // 1. Put the image in src/assets/images/ and import it below.
 // 2. Add an entry to `uiScreens` with a title, an order, the image and real alt text.
-//    The title is shown as the heading of the large view.
+//    Screen readers announce the title as the lightbox moves to each image.
 //
 // To show a tile that is still to come, use placeholder: true with a title and a status.
-// It is not a link and does not open the large view. When the design is ready, remove
+// It is not a link and does not open the lightbox. When the design is ready, remove
 // placeholder and status, then add image and alt.
 import type { ImageMetadata } from 'astro';
 import footwearHome from '../assets/images/freelance-1a.png';
