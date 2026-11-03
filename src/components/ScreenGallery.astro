@@ -1,16 +1,20 @@
 ---
 /**
- * Bento grid of images that open in a gallery overlay.
+ * Even grid of image thumbnails. A thumbnail opens a larger view in a full width
+ * panel directly below its row, and the rows below move down.
  *
- * Each tile is a link to the large image, so the images still open without JavaScript.
- * With JavaScript, the link opens a native <dialog> instead.
+ * Each thumbnail is a link to the large image, so the images still open without
+ * JavaScript. With JavaScript, the link opens the panel instead.
  *
- * Keyboard behaviour in the overlay:
- * - Focus moves to the close button on open, and Tab stays inside the overlay.
- * - Left and Right arrows change image. Up and Down arrows scroll a tall image.
- * - Escape closes the overlay, and focus returns to the tile that opened it.
+ * Keyboard behaviour:
+ * - Enter on a thumbnail opens the panel and moves focus to Close.
+ * - While the panel is open, Left and Right arrows change image, and Up and Down
+ *   arrows scroll a tall image when focus is inside the panel.
+ * - Enter on the open thumbnail, the Close button or Escape closes the panel, and
+ *   focus returns to the thumbnail.
  */
 import { getImage, Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
 import type { UiScreen } from '../data/uiScreens';
 
 interface Props {
@@ -19,179 +23,181 @@ interface Props {
 
 const { screens } = Astro.props;
 
-const LARGE_WIDTH = 1800;
-
 /** Keeps only the widths an image can supply, so nothing is scaled up. */
-const widthsFor = (screen: UiScreen, widths: number[]) => {
-	const usable = widths.filter((width) => width < screen.image.width);
-	return [...usable, Math.min(screen.image.width, widths[widths.length - 1])];
+const widthsFor = (image: ImageMetadata, widths: number[]) => {
+	const usable = widths.filter((width) => width < image.width);
+	return [...usable, Math.min(image.width, widths[widths.length - 1])];
 };
 
 const items = await Promise.all(
-	screens.map(async (screen) => ({
-		...screen,
-		fullHref: (
-			await getImage({ src: screen.image, width: Math.min(screen.image.width, LARGE_WIDTH), format: 'webp' })
-		).src,
-	})),
+	screens.map(async (screen) =>
+		screen.placeholder
+			? screen
+			: { ...screen, large: await getImage({ src: screen.image, widths: widthsFor(screen.image, [800, 1200, 1800]), format: 'webp' }) },
+	),
 );
 
-const tileSizes = {
-	small: '(min-width: 48rem) 25vw, 50vw',
-	tall: '(min-width: 48rem) 25vw, 50vw',
-	wide: '(min-width: 48rem) 50vw, 100vw',
-	large: '(min-width: 48rem) 50vw, 100vw',
-};
+const panelSizes = '(min-width: 78rem) 78rem, 100vw';
 ---
 
-<div class="screen-bento-frame">
-	<ul class="screen-bento">
-		{
-			items.map((item, index) => (
-				<li class={`screen-tile screen-tile-${item.size}`}>
-					<a class="screen-tile-link" href={item.fullHref} aria-haspopup="dialog" data-gallery-open={index}>
+<ul class="screen-grid" data-screen-grid>
+	{
+		items.map((item, index) =>
+			item.placeholder ? (
+				<li data-screen-item>
+					<div class="screen-placeholder">
+						<p class="screen-placeholder-title">{item.title}</p>
+						<p class="screen-placeholder-status">{item.status}</p>
+					</div>
+				</li>
+			) : (
+				<li data-screen-item>
+					<a
+						class="screen-thumb"
+						href={item.large.src}
+						data-screen-thumb
+						data-title={item.title}
+						data-srcset={item.large.srcSet.attribute}
+						data-width={item.image.width}
+						data-height={item.image.height}
+					>
 						<Image
-							class:list={['screen-tile-image', { 'screen-tile-contain': item.fit === 'contain' }]}
+							class="screen-thumb-image"
 							src={item.image}
 							alt={item.alt}
-							widths={widthsFor(item, [400, 800, 1200])}
-							sizes={tileSizes[item.size]}
-							loading="lazy"
+							widths={widthsFor(item.image, [480, 800, 1200])}
+							sizes="(min-width: 60rem) 33vw, (min-width: 40rem) 50vw, 100vw"
+							loading={index < 3 ? 'eager' : 'lazy'}
 							decoding="async"
 						/>
 					</a>
 				</li>
-			))
-		}
-	</ul>
-</div>
-
-<dialog class="screen-gallery" aria-label="Screen gallery" data-screen-gallery>
-	<div class="screen-gallery-bar">
-		<p class="screen-gallery-count" aria-live="polite">
-			<span data-gallery-count></span>
-			<span class="draft-sr-only" data-gallery-alt></span>
-		</p>
-		<div class="screen-gallery-controls">
-			<button class="screen-gallery-button" type="button" data-gallery-prev>Previous</button>
-			<button class="screen-gallery-button" type="button" data-gallery-next>Next</button>
-			<button class="screen-gallery-button" type="button" autofocus data-gallery-close>Close</button>
-		</div>
-	</div>
-	<div class="screen-gallery-track" data-gallery-track>
-		{
-			items.map((item, index) => (
-				<figure class="screen-gallery-slide" tabindex="0" aria-label={`Screen ${index + 1} of ${items.length}`} inert>
-					<Image
-						class="screen-gallery-image"
-						style={`--image-width: ${item.image.width}px`}
-						src={item.image}
-						alt={item.alt}
-						widths={widthsFor(item, [800, 1200, LARGE_WIDTH])}
-						sizes="(min-width: 72rem) 72rem, 100vw"
-						loading="lazy"
-						decoding="async"
-					/>
-				</figure>
-			))
-		}
-	</div>
-</dialog>
+			),
+		)
+	}
+	<li class="screen-panel" id="screen-panel" data-screen-panel data-sizes={panelSizes} hidden>
+		<section aria-labelledby="screen-panel-title">
+			<div class="screen-panel-bar">
+				<div>
+					<h3 class="screen-panel-title" id="screen-panel-title" data-panel-title></h3>
+					<p class="screen-panel-count" aria-live="polite">
+						<span data-panel-count></span>
+						<span class="draft-sr-only" data-panel-alt></span>
+					</p>
+				</div>
+				<div class="screen-panel-controls">
+					<button class="screen-panel-button" type="button" data-panel-prev>Previous</button>
+					<button class="screen-panel-button" type="button" data-panel-next>Next</button>
+					<button class="screen-panel-button" type="button" data-panel-close>Close</button>
+				</div>
+			</div>
+			<div class="screen-panel-view" tabindex="0" role="group" aria-label="Large view" data-panel-view></div>
+		</section>
+	</li>
+</ul>
 
 <style>
-	.screen-bento-frame {
-		container-type: inline-size;
-	}
-
-	.screen-bento {
-		--bento-gap: 0.75rem;
-		--bento-columns: 2;
-		--bento-row: calc((100cqi - (var(--bento-columns) - 1) * var(--bento-gap)) / var(--bento-columns) * 0.72);
+	.screen-grid {
 		display: grid;
-		grid-template-columns: repeat(var(--bento-columns), minmax(0, 1fr));
-		grid-auto-rows: var(--bento-row);
-		grid-auto-flow: dense;
-		gap: var(--bento-gap);
+		grid-template-columns: minmax(0, 1fr);
+		gap: var(--draft-gap);
 		margin: 0;
 		padding: 0;
 		list-style: none;
 	}
 
-	.screen-tile-wide { grid-column: span 2; }
-	.screen-tile-tall { grid-row: span 2; }
-	.screen-tile-large { grid-column: span 2; grid-row: span 2; }
-
-	/* Same gentle lift as the case study tiles on the home page. */
-	.screen-tile-link {
+	.screen-thumb,
+	.screen-placeholder {
 		display: block;
-		height: 100%;
+		aspect-ratio: 16 / 10;
 		overflow: hidden;
 		border: 1px solid var(--border);
 		border-radius: var(--draft-radius);
 		background: var(--muted);
+	}
+
+	/* Same gentle lift as the case study tiles on the home page. */
+	.screen-thumb {
 		transition: transform 120ms ease, box-shadow 120ms ease;
 	}
-	.screen-tile-link:hover {
+	.screen-thumb:hover {
 		transform: translateY(-2px);
 		box-shadow: var(--shadow-medium);
 	}
+	.screen-thumb[aria-expanded='true'] {
+		border-color: var(--foreground);
+	}
 
-	.screen-tile-image {
+	.screen-thumb-image {
 		display: block;
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		object-position: top left;
-	}
-	.screen-tile-contain {
-		padding: 0.75rem;
-		object-fit: contain;
-		object-position: center;
+		object-position: top;
 	}
 
-	/* Overlay */
-	:global(html:has(.screen-gallery[open])),
-	:global(html:has(.screen-gallery[open]) body) {
-		overflow: hidden;
+	.screen-placeholder {
+		display: grid;
+		place-content: center;
+		gap: 0.25rem;
+		padding: 1rem;
+		text-align: center;
 	}
-
-	.screen-gallery {
-		width: 100%;
-		max-width: none;
-		height: 100dvh;
-		max-height: none;
+	.screen-placeholder-title {
 		margin: 0;
-		padding: 0;
-		border: 0;
-		color: var(--foreground);
-		background: var(--background);
+		font-weight: 700;
 	}
-	.screen-gallery[open] {
-		display: flex;
-		flex-direction: column;
+	.screen-placeholder-status {
+		margin: 0;
+		font-size: 0.95rem;
+		color: var(--muted-foreground);
 	}
 
-	.screen-gallery-bar {
+	/* Large view */
+	.screen-panel {
+		grid-column: 1 / -1;
+		min-width: 0;
+		padding: 1rem;
+		border: 1px solid var(--border);
+		border-radius: var(--draft-radius);
+		background: var(--card);
+		scroll-margin: 1rem;
+		animation: screen-panel-open 180ms ease-out;
+	}
+
+	@keyframes screen-panel-open {
+		from {
+			opacity: 0;
+			transform: translateY(-0.4rem);
+		}
+	}
+
+	.screen-panel-bar {
 		display: flex;
 		flex-wrap: wrap;
 		align-items: center;
 		justify-content: space-between;
-		gap: 0.5rem 1rem;
-		padding: 0.75rem 1rem;
-		border-bottom: 1px solid var(--border);
+		gap: 0.75rem 1rem;
+		margin-bottom: 1rem;
 	}
-	.screen-gallery-count {
+	.screen-panel-title {
 		margin: 0;
-		font-family: var(--font-mono);
-		font-size: 0.85rem;
-		font-weight: 600;
+		font-size: 1.2rem;
+		font-weight: 800;
+		letter-spacing: -0.03em;
+		line-height: 1.25;
+	}
+	.screen-panel-count {
+		margin: 0.15rem 0 0;
+		font-size: 0.95rem;
 		color: var(--muted-foreground);
 	}
-	.screen-gallery-controls {
+	.screen-panel-controls {
 		display: flex;
+		flex-wrap: wrap;
 		gap: 0.5rem;
 	}
-	.screen-gallery-button {
+	.screen-panel-button {
 		min-height: 2.75rem;
 		padding: 0 0.9rem;
 		font: inherit;
@@ -202,130 +208,171 @@ const tileSizes = {
 		border-radius: 0.6rem;
 		cursor: pointer;
 	}
-	.screen-gallery-button:hover {
+	.screen-panel-button:hover {
 		text-decoration: underline;
 		text-underline-offset: 3px;
 	}
 
-	.screen-gallery-track {
-		position: relative;
-		display: flex;
-		flex: 1;
-		min-height: 0;
-		overflow-x: auto;
-		scroll-snap-type: x mandatory;
+	/* Tall screens scroll inside the panel. */
+	.screen-panel-view {
+		max-height: min(70vh, 48rem);
+		overflow: auto;
+		border: 1px solid var(--border);
+		border-radius: 0.6rem;
+		background: var(--muted);
 	}
-	.screen-gallery-slide {
-		display: grid;
-		flex: 0 0 100%;
-		margin: 0;
-		padding: 1rem;
-		overflow-y: auto;
-		scroll-snap-align: center;
-		scroll-snap-stop: always;
-	}
-	.screen-gallery-slide:focus-visible {
+	.screen-panel-view:focus-visible {
 		outline-offset: -3px;
 	}
-	.screen-gallery-image {
-		/* Capped at the real pixel width so small images are not scaled up. */
+	.screen-panel-view :global(img) {
 		display: block;
-		width: min(100%, var(--image-width), 72rem);
+		width: min(100%, var(--image-width));
 		height: auto;
-		margin: auto;
-		border: 1px solid var(--border);
-		border-radius: var(--draft-radius);
+		margin-inline: auto;
 	}
 
-	@media (min-width: 48rem) {
-		.screen-bento {
-			--bento-gap: 1rem;
-			--bento-columns: 4;
+	@media (min-width: 40rem) {
+		.screen-grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+
+	@media (min-width: 60rem) {
+		.screen-grid {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+			gap: 2rem;
 		}
 	}
 
 	@media (prefers-reduced-motion: reduce) {
-		.screen-tile-link:hover {
+		.screen-thumb:hover {
 			transform: none;
+		}
+		.screen-panel {
+			animation: none;
 		}
 	}
 </style>
 
 <script>
-	const gallery = document.querySelector<HTMLDialogElement>('[data-screen-gallery]');
+	const grid = document.querySelector<HTMLElement>('[data-screen-grid]');
+	const panel = document.querySelector<HTMLElement>('[data-screen-panel]');
 
-	// Without native dialog support, the tiles stay plain links to the large images.
-	if (gallery && typeof gallery.showModal === 'function') {
-		const track = gallery.querySelector<HTMLElement>('[data-gallery-track]')!;
-		const count = gallery.querySelector<HTMLElement>('[data-gallery-count]')!;
-		const altText = gallery.querySelector<HTMLElement>('[data-gallery-alt]')!;
-		const close = gallery.querySelector<HTMLButtonElement>('[data-gallery-close]')!;
-		const slides = Array.from(track.children) as HTMLElement[];
+	if (grid && panel) {
+		const items = Array.from(grid.querySelectorAll<HTMLElement>('[data-screen-item]'));
+		const thumbs = Array.from(grid.querySelectorAll<HTMLAnchorElement>('[data-screen-thumb]'));
+		const title = panel.querySelector<HTMLElement>('[data-panel-title]')!;
+		const count = panel.querySelector<HTMLElement>('[data-panel-count]')!;
+		const altText = panel.querySelector<HTMLElement>('[data-panel-alt]')!;
+		const view = panel.querySelector<HTMLElement>('[data-panel-view]')!;
+		const close = panel.querySelector<HTMLButtonElement>('[data-panel-close]')!;
 		const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-		let current = 0;
-		let opener: HTMLElement | null = null;
-		let scrollTimer: number | undefined;
+		let current = -1;
+		let columns = 0;
 
-		const setCurrent = (index: number) => {
+		const columnCount = () => getComputedStyle(grid).gridTemplateColumns.split(' ').length;
+
+		/** Puts the panel straight after the last item in the open thumbnail's row. */
+		const placePanel = () => {
+			columns = columnCount();
+			const position = items.indexOf(thumbs[current].closest<HTMLElement>('[data-screen-item]')!);
+			const rowEnd = Math.min(Math.floor(position / columns) * columns + columns - 1, items.length - 1);
+			if (panel.previousElementSibling === items[rowEnd]) return;
+
+			// Moving an element drops focus, so put it back on the same control.
+			const focused = panel.contains(document.activeElement) ? (document.activeElement as HTMLElement) : null;
+			items[rowEnd].after(panel);
+			focused?.focus({ preventScroll: true });
+		};
+
+		const showImage = (index: number) => {
+			if (current >= 0) thumbs[current].setAttribute('aria-expanded', 'false');
 			current = index;
-			slides.forEach((slide, slideIndex) => {
-				slide.inert = slideIndex !== index;
-			});
-			count.textContent = `${index + 1} of ${slides.length}`;
-			altText.textContent = slides[index].querySelector('img')?.alt ?? '';
+
+			const thumb = thumbs[index];
+			const source = thumb.querySelector('img')!;
+			const image = document.createElement('img');
+			image.src = thumb.href;
+			image.srcset = thumb.dataset.srcset ?? '';
+			image.sizes = panel.dataset.sizes ?? '';
+			image.alt = source.alt;
+			image.width = Number(thumb.dataset.width);
+			image.height = Number(thumb.dataset.height);
+			image.style.setProperty('--image-width', `${thumb.dataset.width}px`);
+
+			thumb.setAttribute('aria-expanded', 'true');
+			title.textContent = thumb.dataset.title ?? '';
+			count.textContent = `${index + 1} of ${thumbs.length}`;
+			altText.textContent = source.alt;
+			view.replaceChildren(image);
+			view.scrollTop = 0;
+			panel.hidden = false;
+			placePanel();
 		};
 
-		const show = (index: number) => {
-			// A swipe check still waiting to run would undo this change before the scroll starts.
-			window.clearTimeout(scrollTimer);
-			const next = (index + slides.length) % slides.length;
-			setCurrent(next);
-			track.scrollTo({ left: slides[next].offsetLeft, behavior: reducedMotion.matches ? 'auto' : 'smooth' });
+		const scrollToPanel = () => {
+			panel.scrollIntoView({ block: 'nearest', behavior: reducedMotion.matches ? 'auto' : 'smooth' });
 		};
 
-		document.querySelectorAll<HTMLElement>('[data-gallery-open]').forEach((tile) => {
-			tile.addEventListener('click', (event) => {
+		const openPanel = (index: number) => {
+			showImage(index);
+			close.focus({ preventScroll: true });
+			scrollToPanel();
+		};
+
+		const step = (direction: number) => {
+			showImage((current + direction + thumbs.length) % thumbs.length);
+			scrollToPanel();
+		};
+
+		const closePanel = () => {
+			const thumb = thumbs[current];
+			thumb.setAttribute('aria-expanded', 'false');
+			current = -1;
+			panel.hidden = true;
+			view.replaceChildren();
+			thumb.focus();
+		};
+
+		thumbs.forEach((thumb, index) => {
+			thumb.setAttribute('aria-expanded', 'false');
+			thumb.setAttribute('aria-controls', panel.id);
+			thumb.addEventListener('click', (event) => {
 				// Let modified clicks open the image in a new tab as normal.
 				if (event.metaKey || event.ctrlKey || event.shiftKey) return;
 				event.preventDefault();
-				window.clearTimeout(scrollTimer);
-				opener = tile;
-				const index = Number(tile.dataset.galleryOpen);
-				gallery.showModal();
-				setCurrent(index);
-				track.scrollLeft = slides[index].offsetLeft;
-				slides[index].scrollTop = 0;
-				close.focus();
+				if (index === current) closePanel();
+				else openPanel(index);
 			});
 		});
 
-		gallery.querySelector('[data-gallery-prev]')?.addEventListener('click', () => show(current - 1));
-		gallery.querySelector('[data-gallery-next]')?.addEventListener('click', () => show(current + 1));
-		close.addEventListener('click', () => gallery.close());
-		gallery.addEventListener('close', () => opener?.focus());
+		panel.querySelector('[data-panel-prev]')?.addEventListener('click', () => step(-1));
+		panel.querySelector('[data-panel-next]')?.addEventListener('click', () => step(1));
+		close.addEventListener('click', closePanel);
 
-		gallery.addEventListener('keydown', (event) => {
-			if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+		document.addEventListener('keydown', (event) => {
+			if (current < 0 || event.altKey || event.ctrlKey || event.metaKey) return;
+			// The mobile menu handles its own keys when it is open.
+			if (event.target instanceof Element && event.target.closest('[data-draft-mobile-menu]')) return;
+
+			if (event.key === 'Escape') {
+				closePanel();
+			} else if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
 				event.preventDefault();
-				show(current + (event.key === 'ArrowRight' ? 1 : -1));
-			} else if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
+				step(event.key === 'ArrowRight' ? 1 : -1);
+			} else if (
+				(event.key === 'ArrowUp' || event.key === 'ArrowDown') &&
+				panel.contains(document.activeElement) &&
+				view.scrollHeight > view.clientHeight
+			) {
 				event.preventDefault();
-				slides[current].scrollBy({ top: event.key === 'ArrowDown' ? 120 : -120 });
+				view.scrollBy({ top: event.key === 'ArrowDown' ? 120 : -120 });
 			}
 		});
 
-		// Keeps the counter right after a swipe, once the track has settled on a slide.
-		track.addEventListener(
-			'scroll',
-			() => {
-				window.clearTimeout(scrollTimer);
-				scrollTimer = window.setTimeout(() => {
-					const index = Math.round(track.scrollLeft / track.clientWidth);
-					if (gallery.open && index !== current) setCurrent(index);
-				}, 150);
-			},
-			{ passive: true },
-		);
+		window.addEventListener('resize', () => {
+			if (current >= 0 && columnCount() !== columns) placePanel();
+		});
 	}
 </script>
