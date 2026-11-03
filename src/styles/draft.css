@@ -390,14 +390,31 @@
 .work-card-diagram {
   display: grid;
   place-items: center;
-  overflow: hidden;
+  container-type: inline-size;
 }
-/* The labels are too small to read at this size, so the shapes fill the thumbnail instead. */
-.work-card-diagram .double-diamond {
-  width: 118%;
-  max-width: none;
+.work-diamonds {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: max(3px, 2.5cqw) 0;
+  width: max(106px, 88cqw);
+  justify-items: center;
 }
-.work-card-diagram .double-diamond text { display: none; }
+.work-diamonds svg {
+  grid-column: 1 / -1;
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.work-diamonds-label {
+  font-size: max(12px, 6cqw);
+  font-weight: 600;
+  letter-spacing: -.02em;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+.work-diamonds-discovery { color: var(--dd-blue); }
+.work-diamonds-delivery { color: var(--dd-purple); }
 
 /* ---------- Case study placeholder ---------- */
 .draft-notice {

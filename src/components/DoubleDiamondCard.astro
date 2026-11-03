@@ -1,0 +1,25 @@
+---
+/**
+ * Simplified double diamond for the home page Process card: two matching diamonds
+ * touching at the middle, with a label centred under each. The labels are HTML text,
+ * so they stay sharp and never drop below 12px however small the diamonds get.
+ *
+ * Screen readers skip this markup. Give the parent role="img" and an aria-label that
+ * names both labels, so they are read once.
+ */
+---
+
+<div class="double-diamond work-diamonds" aria-hidden="true">
+	<svg viewBox="-2 -2 312 124" focusable="false">
+		<defs>
+			<linearGradient id="dd-solution" x1="154" y1="0" x2="308" y2="0" gradientUnits="userSpaceOnUse">
+				<stop offset="0" class="dd-stop-purple"></stop>
+				<stop offset="1" class="dd-stop-green"></stop>
+			</linearGradient>
+		</defs>
+		<path class="dd-problem" vector-effect="non-scaling-stroke" d="M0 60 L77 0 L154 60 L77 120 Z"></path>
+		<path class="dd-solution" vector-effect="non-scaling-stroke" d="M154 60 L231 0 L308 60 L231 120 Z"></path>
+	</svg>
+	<span class="work-diamonds-label work-diamonds-discovery">Discovery</span>
+	<span class="work-diamonds-label work-diamonds-delivery">Delivery</span>
+</div>

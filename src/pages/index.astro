@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import DraftPage from '../components/draft/DraftPage.astro';
-import DoubleDiamond from '../components/DoubleDiamond.astro';
+import DoubleDiamondCard from '../components/DoubleDiamondCard.astro';
 import PostCard from '../components/PostCard.astro';
 import { siteHref } from '../config/draft';
 import { caseStudies } from '../data/caseStudies';
@@ -77,9 +77,9 @@ import quoteScreen from '../assets/images/QTB-motor.png';
 				<div
 					class="post-card-thumb work-card-diagram"
 					role="img"
-					aria-label="Double diamond diagram: one diamond for the problem and one for the solution, side by side, with a loop from the end back to the start."
+					aria-label="Double diamond diagram: two diamonds side by side, labelled Discovery and Delivery."
 				>
-					<DoubleDiamond />
+					<DoubleDiamondCard />
 				</div>
 				<div>
 					<h3 class="post-card-title">
