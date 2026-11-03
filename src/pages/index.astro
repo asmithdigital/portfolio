@@ -8,8 +8,6 @@ import { caseStudies } from '../data/caseStudies';
 import { posts } from '../data/posts';
 import profilePhoto from '../assets/images/profile-1.png';
 import quoteScreen from '../assets/images/QTB-motor.png';
-
-const stages = ['Kickoff', 'Understand', 'Explore', 'Test', 'Deliver', 'Measure and learn'];
 ---
 
 <DraftPage
@@ -74,40 +72,40 @@ const stages = ['Kickoff', 'Understand', 'Explore', 'Test', 'Deliver', 'Measure 
 
 	<section class="draft-home-section" aria-labelledby="process-heading">
 		<h2 class="draft-section-heading" id="process-heading">How I work</h2>
-		<div class="projects-grid">
-			<article class="draft-card work-card">
-				<h3>
-					<a class="draft-card-link" href={siteHref('/process/')}>Process</a>
-				</h3>
-				<ol class="process-strip">
-					{
-						stages.map((stage, index) => (
-							<li>
-								<span class="process-strip-number">{index + 1}</span> {stage}
-							</li>
-						))
-					}
-				</ol>
-				<div class="work-card-diagram">
+		<div class="work-grid">
+			<article class="draft-card post-card work-card">
+				<div
+					class="post-card-thumb work-card-diagram"
+					role="img"
+					aria-label="Double diamond diagram: one diamond for the problem and one for the solution, side by side, with a loop from the end back to the start."
+				>
 					<DoubleDiamond />
 				</div>
-				<span class="draft-card-more" aria-hidden="true">Read more &rarr;</span>
+				<div>
+					<h3 class="post-card-title">
+						<a class="draft-card-link" href={siteHref('/process/')}>Process</a>
+					</h3>
+					<p class="post-card-intro">Six stages, from kickoff through to measuring and learning.</p>
+					<span class="draft-card-more" aria-hidden="true">Read more &rarr;</span>
+				</div>
 			</article>
-			<article class="draft-card work-card">
-				<h3>
-					<a class="draft-card-link" href={siteHref('/ui-design/')}>UI design</a>
-				</h3>
-				<p>A sample of finished screens from products and projects I have worked on.</p>
+			<article class="draft-card post-card work-card">
 				<Image
-					class="work-card-image"
+					class="post-card-thumb"
 					src={quoteScreen}
 					alt="Car insurance quote form at step 2 of 4, asking how the car is used and how far it drives each year."
-					widths={[480, 800, 1200]}
-					sizes="(min-width: 861px) 40vw, 100vw"
+					widths={[240, 480]}
+					sizes="(min-width: 48rem) 240px, 35vw"
 					loading="lazy"
 					decoding="async"
 				/>
-				<span class="draft-card-more" aria-hidden="true">See the screens &rarr;</span>
+				<div>
+					<h3 class="post-card-title">
+						<a class="draft-card-link" href={siteHref('/ui-design/')}>UI design</a>
+					</h3>
+					<p class="post-card-intro">A sample of the finished screens I have designed for websites, stores and apps.</p>
+					<span class="draft-card-more" aria-hidden="true">Read more &rarr;</span>
+				</div>
 			</article>
 		</div>
 	</section>

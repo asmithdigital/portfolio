@@ -300,25 +300,6 @@
   font-weight: 700;
 }
 
-/* ---------- Home: How I work cards ---------- */
-.work-card {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-  padding: 1.5rem;
-}
-.work-card-diagram { width: 100%; max-width: 28rem; margin-inline: auto; }
-.work-card-image {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 8 / 5;
-  object-fit: cover;
-  object-position: top left;
-  border: 1px solid var(--border);
-  border-radius: .6rem;
-}
-.work-card .draft-card-more { margin-top: auto; }
-
 /* Double diamond diagram. Colours match the process page board. */
 .double-diamond {
   --dd-grey: #444444;
@@ -360,35 +341,6 @@
 .double-diamond .dd-caption { fill: var(--muted-foreground); font-weight: 600; }
 /* Card-coloured halo so the label sits on the loop line. */
 .dd-on-line { paint-order: stroke; stroke: var(--card); stroke-width: 6px; stroke-linejoin: round; }
-.work-card h3 {
-  margin: 0;
-  font-size: clamp(1.15rem, 1.8vw, 1.45rem);
-  font-weight: 800;
-  letter-spacing: -.03em;
-}
-.work-card p { margin: 0; line-height: 1.6; color: var(--muted-foreground); max-width: var(--draft-measure); }
-
-.process-strip {
-  display: grid;
-  grid-template-rows: repeat(3, auto);
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-auto-flow: column;
-  gap: .6rem 1.5rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-.process-strip li {
-  font-size: .95rem;
-  font-weight: 600;
-  line-height: 1.4;
-}
-.process-strip-number {
-  margin-right: .3rem;
-  font-family: var(--font-mono);
-  font-size: .8rem;
-  color: var(--muted-foreground);
-}
 
 /* ---------- Post cards (media object rows) ---------- */
 .post-list {
@@ -421,6 +373,31 @@
 }
 .post-card-intro { margin: 0; line-height: 1.6; color: var(--muted-foreground); }
 .post-card .draft-card-more { margin-top: .5rem; }
+
+/* ---------- Home: How I work cards ----------
+   Post cards at half width. The thumbnail stays on the left at every size. */
+.work-grid {
+  display: grid;
+  grid-auto-rows: 1fr;
+  gap: 1rem;
+}
+.post-card.work-card {
+  /* A share of the space inside the padding: about 35 to 40 percent of the whole card. */
+  grid-template-columns: 39% minmax(0, 1fr);
+  gap: 1rem;
+  align-items: center;
+}
+.work-card-diagram {
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+/* The labels are too small to read at this size, so the shapes fill the thumbnail instead. */
+.work-card-diagram .double-diamond {
+  width: 118%;
+  max-width: none;
+}
+.work-card-diagram .double-diamond text { display: none; }
 
 /* ---------- Case study placeholder ---------- */
 .draft-notice {
@@ -791,6 +768,11 @@
     align-items: center;
   }
   .process-board ol { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (min-width: 48rem) {
+  .work-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .post-card.work-card { grid-template-columns: 41% minmax(0, 1fr); }
 }
 
 @media (min-width: 40rem) {
