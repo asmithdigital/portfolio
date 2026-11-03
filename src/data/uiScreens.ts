@@ -14,11 +14,13 @@ import footwearHome from '../assets/images/freelance-1a.png';
 import footwearProducts from '../assets/images/freelance-1c.png';
 import quoteStart from '../assets/images/raa-qtb-start.png';
 import quoteCarUse from '../assets/images/QTB-motor.png';
-import yogaSection from '../assets/images/freelance-3b.png';
-import eventHireHome from '../assets/images/freelance-2a.png';
-import universityPage from '../assets/images/uofa-subpage.png';
 import memberWebsite from '../assets/images/raa-website.png';
 import travelHome from '../assets/images/raa-travel-home.png';
+import logIn from '../assets/images/log-in.png';
+import eventHireHome from '../assets/images/freelance-2a.png';
+import universityPage from '../assets/images/uofa-subpage.png';
+import yogaHomeTop from '../assets/images/graceful-grounded-yoga-home-top.png';
+import yogaHomeMid from '../assets/images/graceful-grounded-yoga-home-mid.png';
 
 export interface UiScreenImage {
 	title: string;
@@ -63,38 +65,50 @@ const screens: UiScreen[] = [
 		alt: 'Second step of a car insurance quote form, asking how the car is used, how far it drives each year and whether it is financed, with a progress tracker and a helper message.',
 	},
 	{
-		title: 'Yoga studio website',
-		order: 5,
-		image: yogaSection,
-		alt: 'Yoga website section on a dark green background, headed "How Yoga Supports a Better Life", with a Book class button between photos of a glowing lamp and a singing bowl.',
-	},
-	{
-		title: 'Event hire home page',
-		order: 6,
-		image: eventHireHome,
-		alt: 'Event hire website home page with a full width photo of a couple beside a long wedding table, the headline "For your special day" and a View all products button.',
-	},
-	{
-		title: 'University website',
-		order: 7,
-		image: universityPage,
-		alt: 'University research page with a photo of a smiling diver in a wetsuit, a section menu on the left and an introduction to the research institutes.',
-	},
-	{
 		title: 'Membership website home page',
-		order: 8,
+		order: 5,
 		image: memberWebsite,
 		alt: 'Home page with the headline "It\'s better to be a member", four quick links for insurance, claims, road service and payments, and feature cards below.',
 	},
 	{
 		title: 'Travel website home page',
-		order: 9,
+		order: 6,
 		image: travelHome,
 		alt: 'Travel website home page with a beach photo, a flight search form with tabs for flights, stays, cruises and car hire, and a row of holiday deal cards.',
 	},
 	{
-		title: 'Bass Coast Podiatry',
+		title: 'Log in page',
+		order: 7,
+		image: logIn,
+		alt: 'Log in page with one email field and a yellow Continue button in a white card, on a background of small pale icons.',
+	},
+	{
+		title: 'Event hire home page',
+		order: 8,
+		image: eventHireHome,
+		alt: 'Event hire website home page with a full width photo of a couple beside a long wedding table, the headline "For your special day" and a View all products button.',
+	},
+	{
+		title: 'University website',
+		order: 9,
+		image: universityPage,
+		alt: 'University research page with a photo of a smiling diver in a wetsuit, a section menu on the left and an introduction to the research institutes.',
+	},
+	{
+		title: 'Yoga studio home page, top',
 		order: 10,
+		image: yogaHomeTop,
+		alt: 'Yoga studio home page with a dark green menu bar, a large photo of a person resting on a mat in a warmly lit room, the tagline "A nurturing yoga studio in Melbourne\'s east" and a Book a class button.',
+	},
+	{
+		title: 'Yoga studio home page, middle',
+		order: 11,
+		image: yogaHomeMid,
+		alt: 'Yoga website section on a dark green background, with a short teacher biography, a Contact me button and overlapping photos of the teacher and the studio.',
+	},
+	{
+		title: 'Bass Coast Podiatry',
+		order: 12,
 		placeholder: true,
 		status: 'Coming soon',
 	},
