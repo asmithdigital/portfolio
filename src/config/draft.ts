@@ -24,5 +24,6 @@ export function publicHref(file: string) {
 export const navLinks: { label: string; href: string }[] = [
 	{ label: 'Case studies', href: siteHref('/#case-studies') },
 	{ label: 'Process', href: siteHref('/process/') },
+	{ label: 'UI design', href: siteHref('/ui-design/') },
 	{ label: 'Blog', href: siteHref('/#blog') },
 ];

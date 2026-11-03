@@ -7,6 +7,7 @@ import { siteHref } from '../config/draft';
 import { caseStudies } from '../data/caseStudies';
 import { posts } from '../data/posts';
 import profilePhoto from '../assets/images/profile-1.png';
+import quoteScreen from '../assets/images/QTB-motor.png';
 
 const stages = ['Kickoff', 'Understand', 'Explore', 'Test', 'Deliver', 'Measure and learn'];
 ---
@@ -73,18 +74,11 @@ const stages = ['Kickoff', 'Understand', 'Explore', 'Test', 'Deliver', 'Measure 
 
 	<section class="draft-home-section" aria-labelledby="process-heading">
 		<h2 class="draft-section-heading" id="process-heading">How I work</h2>
-		<article class="draft-card process-card">
-			<div class="process-card-diagram">
-				<DoubleDiamond />
-			</div>
-			<div class="process-card-text">
+		<div class="projects-grid">
+			<article class="draft-card work-card">
 				<h3>
-					<a class="draft-card-link" href={siteHref('/process/')}>My UX and product design process</a>
+					<a class="draft-card-link" href={siteHref('/process/')}>Process</a>
 				</h3>
-				<p>
-					Six stages that take a vague request to a measured result, and how I adapt them when work is fuzzy,
-					already moving, or small.
-				</p>
 				<ol class="process-strip">
 					{
 						stages.map((stage, index) => (
@@ -94,9 +88,28 @@ const stages = ['Kickoff', 'Understand', 'Explore', 'Test', 'Deliver', 'Measure 
 						))
 					}
 				</ol>
+				<div class="work-card-diagram">
+					<DoubleDiamond />
+				</div>
 				<span class="draft-card-more" aria-hidden="true">Read more &rarr;</span>
-			</div>
-		</article>
+			</article>
+			<article class="draft-card work-card">
+				<h3>
+					<a class="draft-card-link" href={siteHref('/ui-design/')}>UI design</a>
+				</h3>
+				<p>A sample of finished screens from products and projects I have worked on.</p>
+				<Image
+					class="work-card-image"
+					src={quoteScreen}
+					alt="Car insurance quote form at step 2 of 4, asking how the car is used and how far it drives each year."
+					widths={[480, 800, 1200]}
+					sizes="(min-width: 861px) 40vw, 100vw"
+					loading="lazy"
+					decoding="async"
+				/>
+				<span class="draft-card-more" aria-hidden="true">See the screens &rarr;</span>
+			</article>
+		</div>
 	</section>
 
 	<section class="draft-home-section" id="blog" aria-labelledby="blog-heading">

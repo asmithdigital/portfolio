@@ -1,0 +1,33 @@
+---
+import DraftPage from '../components/draft/DraftPage.astro';
+import ScreenGallery from '../components/ScreenGallery.astro';
+import { uiScreens } from '../data/uiScreens';
+---
+
+<DraftPage
+	title="UI design | Andrew Smith"
+	description="A sample of finished screens from products and projects I have worked on, and how I work with UI designers."
+>
+	<header class="draft-article-hero">
+		<h1 class="display-title">UI design</h1>
+		<p class="draft-standfirst">
+			I have worked on many products and projects over the years. This is a sample of the finished screens.
+		</p>
+	</header>
+
+	<section class="draft-block" aria-labelledby="ui-designers-heading">
+		<h2 id="ui-designers-heading">Working with UI designers</h2>
+		<div class="draft-prose">
+			<p>
+				I work with UI designers from low to high fidelity. The UI fundamentals I use are layout, type, colour,
+				spacing, components and accessibility. My main work is running the UX process alongside UI design leads. I
+				can also do UI and front-end code if a role needs it.
+			</p>
+		</div>
+	</section>
+
+	<section class="draft-block" aria-labelledby="screens-heading">
+		<h2 id="screens-heading">Finished screens</h2>
+		<ScreenGallery screens={uiScreens} />
+	</section>
+</DraftPage>

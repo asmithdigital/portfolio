@@ -26,7 +26,7 @@ export default defineConfig({
     '/work/ai-tooling': '/portfolio/blog/ai-in-the-design-process/',
     '/work/ui-design': '/portfolio/',
   },
-  // Only the home page, the process page, the case studies and the blog posts go in the sitemap.
+  // Only the home page, the process and UI design pages, the case studies and the blog posts go in the sitemap.
   integrations: [
     sitemap({
       filter: (page) => {
@@ -34,6 +34,7 @@ export default defineConfig({
         return (
           path === '/portfolio' ||
           path === '/portfolio/process' ||
+          path === '/portfolio/ui-design' ||
           /^\/portfolio\/case-studies\/(travel|quote-to-buy|university-website)$/.test(path) ||
           /^\/portfolio\/blog\/(making-the-experience-visible|ai-in-the-design-process|measuring-experience-quality|design-sprints)$/.test(path)
         );
