@@ -2,6 +2,11 @@
 import '../styles/global.css';
 import SiteFooter from '../components/SiteFooter.astro';
 import { siteConfig } from '../config/site';
+import { publicHref } from '../config/draft';
+// Imported so Vite adds the /portfolio base path and a content hash.
+import manropeFont from '../assets/fonts/manrope-latin-wght-normal.woff2?url';
+
+const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 const {
 	title = siteConfig.title,
@@ -57,8 +62,8 @@ const schemaData =
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="color-scheme" content="light dark" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<link rel="icon" type="image/svg+xml" href={publicHref('favicon.svg')} />
+		<link rel="icon" href={publicHref('favicon.ico')} />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={description} />
 		<meta name="keywords" content={siteConfig.keywords.join(', ')} />
@@ -79,13 +84,13 @@ const schemaData =
 		<meta name="twitter:image" content={ogImageUrl} />
 		<link
 			rel="preload"
-			href="/fonts/manrope-latin-wght-normal.woff2"
+			href={manropeFont}
 			as="font"
 			type="font/woff2"
 			crossorigin
 		/>
 		<title>{title}</title>
-		<link rel="stylesheet" href="/cookie-consent.css" />
+		<link rel="stylesheet" href={publicHref('cookie-consent.css')} />
 		<script type="application/ld+json" set:html={JSON.stringify(schemaData)}></script>
 		<script is:inline>
 			(() => {
@@ -102,7 +107,7 @@ const schemaData =
 	<body>
 		<slot />
 		<SiteFooter showCta={showFooterCta} />
-		<script src="/cookie-consent.js" defer></script>
+		<script src={publicHref('cookie-consent.js')} data-base={basePath} defer></script>
 		<script is:inline>
 			(() => {
 				const storageKey = 'maria-theme';
@@ -148,7 +153,7 @@ const schemaData =
 		font-style: normal;
 		font-display: optional;
 		font-weight: 200 800;
-		src: url('/fonts/manrope-latin-wght-normal.woff2') format('woff2-variations');
+		src: url('../assets/fonts/manrope-latin-wght-normal.woff2') format('woff2-variations');
 		unicode-range:
 			U+0000-00FF,
 			U+0131,

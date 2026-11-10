@@ -5,7 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   site: 'https://asmithdigital.github.io',
   base: '/portfolio',
-  // Retired pages send visitors to the closest new page. The old site lives on at /portfolio/backup/.
+  // Retired pages send visitors to the closest new page.
   // Astro does not add `base` to redirect targets, so they include /portfolio/ in full.
   redirects: {
     '/about': '/portfolio/',

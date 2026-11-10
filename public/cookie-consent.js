@@ -1,6 +1,8 @@
 (function () {
   const KEY = 'maria-cookie-consent';
   const VERSION = '1';
+  // The site's base path (for example /portfolio), set on the script tag in Layout.astro.
+  const BASE = (document.currentScript && document.currentScript.dataset.base) || '';
   let injected = false;
 
   function readConsent() {
@@ -148,7 +150,7 @@
           <div class="mcc-banner-copy">
             <p class="mcc-banner-text">
               This site can store essential preference data and, if you choose, optional analytics or marketing consent settings.
-              <a href="/cookies" class="mcc-link">Cookie Policy</a>
+              <a href="${BASE}/cookies/" class="mcc-link">Cookie Policy</a>
               <button class="mcc-manage-link" id="mcc-manage" type="button">Manage Preferences</button>
             </p>
           </div>
