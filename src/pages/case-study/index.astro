@@ -1,0 +1,26 @@
+---
+// Plain directory of the case study pages. Not linked from anywhere, noindex,
+// and left out of the sitemap by the filter in astro.config.mjs.
+import { siteHref } from '../../config/draft';
+
+const pages = [
+	{ label: 'RAA Travel', href: siteHref('/case-study/raa-travel/') },
+	{ label: 'RAA Quote to Buy', href: siteHref('/case-study/raa-quote-to-buy/') },
+];
+---
+
+<!doctype html>
+<html lang="en-AU">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="robots" content="noindex, nofollow" />
+		<title>Case studies</title>
+	</head>
+	<body>
+		<h1>Case studies</h1>
+		<ul>
+			{pages.map((page) => <li><a href={page.href}>{page.label}</a></li>)}
+		</ul>
+	</body>
+</html>
