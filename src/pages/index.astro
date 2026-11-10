@@ -73,35 +73,33 @@ const featured = caseStudies.filter((study) => featuredSlugs.includes(study.slug
 				))
 			}
 		</div>
-	</section>
-
-	<section class="draft-home-section" id="more-work" aria-labelledby="more-work-heading">
-		<h2 class="draft-section-heading" id="more-work-heading">More work</h2>
-		<ul class="more-work-grid">
+		<div class="projects-grid projects-grid-3 projects-grid-small">
 			{
 				moreWork.map((item) => (
-					<li class="more-work-card">
-						{item.image ? (
-							<Image
-								class="more-work-thumb"
-								src={item.image}
-								alt={item.alt ?? ''}
-								widths={[400, 640, 800]}
-								sizes="(min-width: 60rem) 30vw, (min-width: 40rem) 45vw, 100vw"
-								loading="lazy"
-								decoding="async"
-							/>
-						) : (
-							<div class="more-work-thumb more-work-placeholder" aria-hidden="true">
-								{item.title}
-							</div>
-						)}
-						<h3 class="more-work-title">{item.title}</h3>
-						<p class="more-work-blurb">{item.blurb}</p>
-					</li>
+					<article class={`project-card ${item.background}`}>
+						<h3 class="project-title">{item.title}</h3>
+						<p class="project-teaser">{item.blurb}</p>
+						<div class="project-visual">
+							{item.image ? (
+								<Image
+									class="project-preview-image"
+									src={item.image}
+									alt={item.alt ?? ''}
+									loading="lazy"
+									decoding="async"
+									widths={[400, 640, 800]}
+									sizes="(min-width: 861px) 33vw, 100vw"
+								/>
+							) : (
+								<div class="project-visual-placeholder" aria-hidden="true">
+									{item.title}
+								</div>
+							)}
+						</div>
+					</article>
 				))
 			}
-		</ul>
+		</div>
 	</section>
 
 	<section class="draft-home-section" aria-labelledby="process-heading">

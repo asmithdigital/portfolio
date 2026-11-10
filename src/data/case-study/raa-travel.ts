@@ -33,7 +33,8 @@ export const raaTravel: CaseStudyData = {
 		role: 'Lead UX',
 		dates: '2019 to 2022',
 		image: sprintDay1,
-		position: 'center 40%',
+		// Shows people from about chest height up, with the sticky notes on the window.
+		position: 'center 25%',
 	},
 	intro:
 		'This is RAA Travel, where I led the UX for the move to online search and book, from the first design sprint in 2019 through to launch and the live-site research in 2022. This page follows the way I run any project: agree the problem, understand the people, explore and test ideas, deliver, then measure and learn. I’m also upfront about what I’d do differently.',
