@@ -73,10 +73,10 @@ const featured = caseStudies.filter((study) => featuredSlugs.includes(study.slug
 				))
 			}
 		</div>
-		<div class="projects-grid projects-grid-3 projects-grid-small">
+		<div class="projects-grid projects-grid-2 projects-grid-small">
 			{
 				moreWork.map((item) => (
-					<article class={`project-card ${item.background}`}>
+					<article class="project-card project-card-plain">
 						<h3 class="project-title">{item.title}</h3>
 						<p class="project-teaser">{item.blurb}</p>
 						<div class="project-visual">
@@ -88,7 +88,7 @@ const featured = caseStudies.filter((study) => featuredSlugs.includes(study.slug
 									loading="lazy"
 									decoding="async"
 									widths={[400, 640, 800]}
-									sizes="(min-width: 861px) 33vw, 100vw"
+									sizes="(min-width: 861px) 50vw, 100vw"
 								/>
 							) : (
 								<div class="project-visual-placeholder" aria-hidden="true">

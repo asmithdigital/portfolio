@@ -108,7 +108,6 @@
 .project-card.cyan     { background: #b0eaf5; }
 .project-card.lavender { background: #d0c8f5; }
 .project-card.mint     { background: #b0f0d8; }
-.project-card.peach    { background: #f7d9c2; }
 .project-name {
   font-family: var(--font-mono);
   font-size: 0.82rem;
@@ -247,7 +246,16 @@
 .projects-grid-small .project-card { min-height: 0; padding-top: 1.25rem; }
 .projects-grid-small .project-title { font-size: 1.05rem; }
 .projects-grid-small .project-teaser { font-size: .9rem; }
-.projects-grid-small .project-visual { height: 11rem; margin-top: auto; padding-top: .75rem; }
+.projects-grid-small .project-visual { height: 13rem; margin-top: auto; padding-top: .75rem; }
+
+/* Plain tile: the site's card colours instead of a tint, so it follows light and dark mode. */
+.project-card.project-card-plain {
+  background: var(--card);
+  border: 1px solid var(--border);
+}
+.project-card-plain .project-title { color: var(--foreground); }
+.project-card-plain .project-teaser { color: var(--muted-foreground); }
+.project-card-plain .project-preview-image { border: 1px solid var(--border); border-bottom: 0; }
 /* Stands in for a screenshot that is still to come. */
 .project-visual-placeholder {
   display: grid;
