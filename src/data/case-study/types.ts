@@ -60,8 +60,18 @@ export type CaseStudyData = {
 		image: ImageMetadata;
 		/** The banner image is decorative behind the title, so this is usually empty. */
 		alt?: string;
-		/** CSS object-position for the cropped background, for example 'center top'. */
+		/** CSS object-position for the cropped background, for example 'center top'. Cover layout only. */
 		position?: string;
+		/**
+		 * 'cover' (default): the image fills the banner under a dark overlay, with white text.
+		 * 'split': text on the left and the whole image on the right, uncropped, on a solid
+		 * background. Use it for wide images such as device mockups.
+		 */
+		layout?: 'cover' | 'split';
+		/** Split layout: banner background, ideally the image's own edge colour so it blends in. */
+		background?: string;
+		/** Split layout: text colour. Check it has at least 4.5:1 contrast with `background`. */
+		foreground?: string;
 	};
 	/** Opening paragraph under the banner, before the first section. */
 	intro?: string;

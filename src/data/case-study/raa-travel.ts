@@ -1,7 +1,7 @@
 // RAA Travel case study. All words and images for /case-study/raa-travel/ live here.
 // See ./types.ts for what each block does.
 import type { CaseStudyData } from './types';
-import homePage from '../../assets/case-study/raa-travel/raa-travel-home-page.png';
+import bannerDevices from '../../assets/images/raa-banner.png';
 import sprintDay1 from '../../assets/case-study/raa-travel/design-sprint-day-1-goal.jpg';
 import uxPlanTimeline from '../../assets/case-study/raa-travel/ux-plan-timeline-2020.png';
 import sprintMap from '../../assets/case-study/raa-travel/sprint-map-dreaming-to-booking.jpg';
@@ -32,8 +32,12 @@ export const raaTravel: CaseStudyData = {
 		subtitle: 'Designing online search and book',
 		role: 'Lead UX',
 		dates: '2019 to 2022',
-		image: homePage,
-		position: 'center top',
+		image: bannerDevices,
+		alt: 'The RAA Travel website on a tablet, a laptop and a phone',
+		layout: 'split',
+		// Matches the image's own background, so the devices sit on one continuous colour.
+		background: '#86b9e4',
+		foreground: '#0d1014',
 	},
 	intro:
 		'This is RAA Travel, where I led the UX for the move to online search and book, from the first design sprint in 2019 through to launch and the live-site research in 2022. This page follows the way I run any project: agree the problem, understand the people, explore and test ideas, deliver, then measure and learn. I’m also upfront about what I’d do differently.',
