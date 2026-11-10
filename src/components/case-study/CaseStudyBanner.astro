@@ -1,12 +1,8 @@
 ---
 /**
- * Full-width case study banner with the page H1. Two layouts, set in the data file:
- *
- * - cover (default): the image fills the banner under a dark overlay, with white text.
- * - split: text on the left and the whole image on the right (under the text on small
- *   screens), uncropped and at its own proportions, on a solid background colour.
- *
- * The colours are fixed, so the banner looks the same in light and dark mode.
+ * Full-width case study banner: background image under a dark overlay, with the
+ * page H1. The overlay is the same in light and dark mode so the white text
+ * always has strong contrast.
  */
 import { Image } from 'astro:assets';
 import type { CaseStudyData } from '../../data/case-study/types';
@@ -17,80 +13,45 @@ interface Props {
 }
 
 const { banner } = Astro.props;
-const split = banner.layout === 'split';
-const style = split
-	? `--cs-banner-bg: ${banner.background ?? '#0d1014'}; --cs-banner-fg: ${banner.foreground ?? '#ffffff'}`
-	: undefined;
 ---
 
-<header class:list={['cs-banner', split ? 'cs-banner-split' : 'cs-banner-cover']} style={style}>
-	{
-		!split && (
-			<Image
-				class="cs-banner-image"
-				src={banner.image}
-				alt={banner.alt ?? ''}
-				widths={widthsFor(banner.image, [800, 1280, 1600, 1920, 2400])}
-				sizes="100vw"
-				loading="eager"
-				fetchpriority="high"
-				decoding="async"
-				style={banner.position ? `object-position: ${banner.position}` : undefined}
-			/>
-		)
-	}
+<header class="cs-banner">
+	<Image
+		class="cs-banner-image"
+		src={banner.image}
+		alt={banner.alt ?? ''}
+		widths={widthsFor(banner.image, [800, 1280, 1600, 1920, 2400])}
+		sizes="100vw"
+		loading="eager"
+		fetchpriority="high"
+		decoding="async"
+		style={banner.position ? `object-position: ${banner.position}` : undefined}
+	/>
 	<div class="cs-banner-inner">
-		<div class="cs-banner-text">
-			<p class="cs-banner-eyebrow">{banner.eyebrow}</p>
-			<h1 class="cs-banner-title">{banner.title}</h1>
-			<p class="cs-banner-subtitle">{banner.subtitle}</p>
-			<p class="cs-banner-meta">
-				<span>{banner.role}</span>
-				<span class="cs-banner-divider" aria-hidden="true">|</span>
-				<span>{banner.dates}</span>
-			</p>
-		</div>
-		{
-			split && (
-				<Image
-					class="cs-banner-media"
-					src={banner.image}
-					alt={banner.alt ?? ''}
-					widths={widthsFor(banner.image, [640, 960, 1280, 1600, 2000])}
-					sizes="(min-width: 64rem) 58vw, calc(100vw - 3rem)"
-					loading="eager"
-					fetchpriority="high"
-					decoding="async"
-				/>
-			)
-		}
+		<p class="cs-banner-eyebrow">{banner.eyebrow}</p>
+		<h1 class="cs-banner-title">{banner.title}</h1>
+		<p class="cs-banner-subtitle">{banner.subtitle}</p>
+		<p class="cs-banner-meta">
+			<span>{banner.role}</span>
+			<span class="cs-banner-divider" aria-hidden="true">|</span>
+			<span>{banner.dates}</span>
+		</p>
 	</div>
 </header>
 
 <style>
 	.cs-banner {
 		position: relative;
-		margin-top: 1.25rem;
-		overflow: hidden;
-		color: var(--cs-banner-fg);
-		background: var(--cs-banner-bg);
-	}
-
-	.cs-banner-inner {
-		position: relative;
-		z-index: 1;
-		width: min(calc(100% - 3rem), var(--cs-max));
-		margin: 0 auto;
-	}
-
-	/* ---------- Cover: image fills the banner, cropped, never stretched ---------- */
-	.cs-banner-cover {
-		--cs-banner-fg: #ffffff;
-		--cs-banner-bg: #0d1014;
 		display: flex;
 		align-items: flex-end;
 		min-height: clamp(20rem, 52vh, 32rem);
+		margin-top: 1.25rem;
+		overflow: hidden;
+		color: #ffffff;
+		background: #0d1014;
 	}
+
+	/* Cropped to fill, never stretched. */
 	.cs-banner-image {
 		position: absolute;
 		inset: 0;
@@ -98,39 +59,22 @@ const style = split
 		height: 100%;
 		object-fit: cover;
 	}
-	.cs-banner-cover::after {
+
+	.cs-banner::after {
 		content: '';
 		position: absolute;
 		inset: 0;
 		background: linear-gradient(180deg, rgb(10 12 16 / 70%) 0%, rgb(10 12 16 / 88%) 100%);
 	}
-	.cs-banner-cover .cs-banner-inner {
+
+	.cs-banner-inner {
+		position: relative;
+		z-index: 1;
+		width: min(calc(100% - 3rem), var(--cs-max));
+		margin: 0 auto;
 		padding: 4rem 0 3rem;
 	}
 
-	/* ---------- Split: text beside the whole image ---------- */
-	.cs-banner-split .cs-banner-inner {
-		display: grid;
-		gap: 1.75rem;
-		align-items: center;
-		padding: 2.5rem 0 2rem;
-	}
-	/* Width and height come from the image, so it keeps its proportions. */
-	.cs-banner-media {
-		display: block;
-		width: 100%;
-		height: auto;
-	}
-
-	@media (min-width: 64rem) {
-		.cs-banner-split .cs-banner-inner {
-			grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-			gap: 2.5rem;
-			padding: 3rem 0;
-		}
-	}
-
-	/* ---------- Text ---------- */
 	.cs-banner-eyebrow,
 	.cs-banner-meta {
 		margin: 0;
@@ -147,7 +91,7 @@ const style = split
 		font-size: clamp(2.4rem, 5vw, 4.25rem);
 		line-height: 1.02;
 		letter-spacing: -0.05em;
-		color: var(--cs-banner-fg);
+		color: #ffffff;
 	}
 
 	.cs-banner-subtitle {
