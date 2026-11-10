@@ -234,9 +234,67 @@
 }
 .draft-pager-title { font-weight: 700; }
 
-/* ---------- Home: three case study tiles ---------- */
+/* ---------- Home: case study tiles, two or three to a row ---------- */
+.projects-grid-2 .project-card,
 .projects-grid-3 .project-card { height: auto; min-height: 30rem; }
+.projects-grid-2 .project-visual,
 .projects-grid-3 .project-visual { flex: 0 0 auto; height: 13rem; margin-top: auto; }
+.projects-grid-2 .project-visual { height: 16rem; }
+
+/* ---------- Home: More work cards ---------- */
+.more-work-grid {
+  display: grid;
+  gap: var(--draft-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.more-work-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--draft-radius);
+  background: var(--card);
+}
+.more-work-thumb {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: top left;
+  border: 1px solid var(--border);
+  border-radius: .6rem;
+  background: var(--muted);
+}
+/* Stands in for a screenshot that is still to come. */
+.more-work-placeholder {
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--muted-foreground);
+}
+.more-work-title {
+  margin: 1rem 0 .35rem;
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: -.03em;
+  line-height: 1.25;
+}
+.more-work-blurb {
+  margin: 0;
+  font-size: .95rem;
+  line-height: 1.55;
+  color: var(--muted-foreground);
+}
+@media (min-width: 40rem) {
+  .more-work-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 60rem) {
+  .more-work-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
 .project-teaser {
   margin: 0;
   font-size: .95rem;
