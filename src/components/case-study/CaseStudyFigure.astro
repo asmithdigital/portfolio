@@ -1,0 +1,104 @@
+---
+/**
+ * A case study image with its caption. The image keeps its natural shape and is
+ * never shown larger than its own size. It links to a large version, which opens
+ * in the page lightbox (see Lightbox.astro).
+ */
+import { Image } from 'astro:assets';
+import type { CaseStudyImage } from '../../data/case-study/types';
+import { lightboxImage, widthsFor } from '../../utils/images';
+
+interface Props {
+	image: CaseStudyImage;
+}
+
+const { image } = Astro.props;
+const alt = image.alt ?? image.caption ?? '';
+const large = await lightboxImage(image.src);
+---
+
+<figure class="cs-figure">
+	<a
+		class="cs-figure-link"
+		href={large.src}
+		data-lightbox-thumb
+		data-title={image.caption ?? alt}
+		data-srcset={large.srcSet.attribute}
+		data-width={image.src.width}
+		data-height={image.src.height}
+	>
+		<Image
+			class="cs-figure-image"
+			src={image.src}
+			alt={alt}
+			widths={widthsFor(image.src, [480, 800, 1200])}
+			sizes="(min-width: 90rem) 36rem, (min-width: 56.25rem) 40vw, calc(100vw - 3rem)"
+			loading="lazy"
+			decoding="async"
+		/>
+		<span class="cs-figure-zoom" aria-hidden="true">
+			<svg viewBox="0 0 24 24" focusable="false"><path d="M10.5 4a6.5 6.5 0 1 0 4.03 11.6l4.43 4.43 1.06-1.06-4.43-4.43A6.5 6.5 0 0 0 10.5 4Zm0 3v7m-3.5-3.5h7"></path></svg>
+		</span>
+		<span class="draft-sr-only">, open larger image</span>
+	</a>
+	{image.caption && <figcaption>{image.caption}</figcaption>}
+</figure>
+
+<style>
+	.cs-figure {
+		margin: 0;
+	}
+
+	.cs-figure-link {
+		position: relative;
+		display: block;
+		width: fit-content;
+		max-width: 100%;
+		border-radius: 0.75rem;
+		text-decoration: none;
+	}
+
+	/* Width and height come from the image itself, so it keeps its aspect ratio and never scales up. */
+	.cs-figure-image {
+		display: block;
+		max-width: 100%;
+		height: auto;
+		border: 1px solid var(--border);
+		border-radius: 0.75rem;
+		background: var(--muted);
+	}
+
+	.cs-figure-zoom {
+		position: absolute;
+		right: 0.6rem;
+		bottom: 0.6rem;
+		display: grid;
+		place-items: center;
+		width: 2.25rem;
+		height: 2.25rem;
+		border-radius: 50%;
+		color: #ffffff;
+		background: rgb(13 16 20 / 78%);
+		opacity: 0;
+		transition: opacity 120ms ease;
+	}
+	.cs-figure-zoom svg {
+		width: 1.15rem;
+		height: 1.15rem;
+		fill: none;
+		stroke: currentColor;
+		stroke-width: 2;
+		stroke-linecap: round;
+	}
+	.cs-figure-link:hover .cs-figure-zoom,
+	.cs-figure-link:focus-visible .cs-figure-zoom {
+		opacity: 1;
+	}
+
+	figcaption {
+		margin-top: 0.6rem;
+		font-size: 0.9rem;
+		line-height: 1.5;
+		color: var(--muted-foreground);
+	}
+</style>

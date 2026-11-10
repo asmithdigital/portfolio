@@ -1,0 +1,78 @@
+---
+/**
+ * One slide of a case study: a subheading (H3), its blocks, and its images.
+ * With images, text sits on the left and images on the right when the content
+ * column is wide enough. Otherwise images follow the text at full width.
+ */
+import type { CaseStudySlide } from '../../data/case-study/types';
+import CaseStudyBlock from './CaseStudyBlock.astro';
+import CaseStudyFigure from './CaseStudyFigure.astro';
+
+interface Props {
+	slide: CaseStudySlide;
+	id: string;
+	sectionId: string;
+}
+
+const { slide, id, sectionId } = Astro.props;
+const images = slide.images ?? [];
+---
+
+<div class:list={['cs-slide', images.length > 0 && 'cs-slide-with-media']} id={id} data-cs-spy data-section={sectionId}>
+	<h3 class="cs-slide-title">{slide.title}</h3>
+	<div class="cs-slide-body">
+		<div class="cs-slide-text">
+			{slide.blocks.map((block) => <CaseStudyBlock block={block} />)}
+		</div>
+		{
+			images.length > 0 && (
+				<div class="cs-slide-media">
+					{images.map((image) => (
+						<CaseStudyFigure image={image} />
+					))}
+				</div>
+			)
+		}
+	</div>
+</div>
+
+<style>
+	.cs-slide {
+		scroll-margin-top: var(--cs-scroll-offset);
+	}
+
+	.cs-slide-title {
+		max-width: var(--draft-measure);
+		margin: 0 0 1.25rem;
+		font-size: clamp(1.3rem, 2vw, 1.6rem);
+		font-weight: 800;
+		line-height: 1.2;
+		letter-spacing: -0.035em;
+	}
+
+	.cs-slide-body {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr);
+		gap: 2rem;
+	}
+
+	.cs-slide-text,
+	.cs-slide-media {
+		display: grid;
+		align-content: start;
+		gap: 1.5rem;
+		min-width: 0;
+	}
+
+	.cs-slide-media {
+		gap: 2rem;
+	}
+
+	/* `cs` is the content column, set in CaseStudy.astro. */
+	@container cs (min-width: 48rem) {
+		.cs-slide-with-media .cs-slide-body {
+			grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+			gap: 3rem;
+		}
+	}
+</style>

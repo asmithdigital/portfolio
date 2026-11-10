@@ -1,0 +1,194 @@
+---
+/**
+ * Case study page: site header, full-width banner, a sticky "On this page" menu
+ * beside the content, links to home and the other case study, then the contact
+ * block and footer.
+ *
+ * All words and images come from one data file in src/data/case-study/.
+ * Consecutive slides with the same stage label are grouped into one section (H2),
+ * and each slide title is a subheading (H3).
+ *
+ * The pages are noindex and left out of the sitemap until they are linked from the home page.
+ */
+import Layout from './Layout.astro';
+import DraftHeader from '../components/draft/DraftHeader.astro';
+import DraftContact from '../components/draft/DraftContact.astro';
+import Lightbox from '../components/Lightbox.astro';
+import CaseStudyBanner from '../components/case-study/CaseStudyBanner.astro';
+import CaseStudyNav from '../components/case-study/CaseStudyNav.astro';
+import CaseStudySlide from '../components/case-study/CaseStudySlide.astro';
+import { siteHref } from '../config/draft';
+import type { CaseStudyData, CaseStudyNavSection, CaseStudySlide as Slide } from '../data/case-study/types';
+import { uniqueSlugger } from '../utils/slug';
+import '../styles/case-study.css';
+import '../styles/draft.css';
+
+interface Props {
+	study: CaseStudyData;
+}
+
+const { study } = Astro.props;
+
+type Section = CaseStudyNavSection & { items: { id: string; slide: Slide }[] };
+
+const slug = uniqueSlugger();
+const sections: Section[] = [];
+
+for (const slide of study.slides) {
+	const previous = sections[sections.length - 1];
+	const sameStage =
+		previous && previous.label === slide.stage.label && previous.number === slide.stage.number;
+	const section: Section = sameStage
+		? previous
+		: { id: slug(slide.stage.label), number: slide.stage.number, label: slide.stage.label, slides: [], items: [] };
+	if (!sameStage) sections.push(section);
+
+	const id = slug(slide.title);
+	section.slides.push({ id, title: slide.title });
+	section.items.push({ id, slide });
+}
+---
+
+<Layout title={study.meta.title} description={study.meta.description} ogType="article" showFooterCta={false} noindex>
+	<a class="skip-link" href="#main-content">Skip to content</a>
+	<div class="draft-page cs-page">
+		<div class="cs-header">
+			<DraftHeader />
+		</div>
+
+		<main id="main-content">
+			<CaseStudyBanner banner={study.banner} />
+
+			<div class="cs-body">
+				<CaseStudyNav sections={sections} />
+
+				<div class="cs-content">
+					{study.intro && <p class="cs-intro">{study.intro}</p>}
+
+					{
+						sections.map((section) => (
+							<section class="cs-section" id={section.id}>
+								<h2 class="cs-section-heading">
+									{section.number && <span class="cs-section-number">{section.number}</span>}
+									{section.label}
+								</h2>
+								<div class="cs-section-slides">
+									{section.items.map((item) => (
+										<CaseStudySlide slide={item.slide} id={item.id} sectionId={section.id} />
+									))}
+								</div>
+							</section>
+						))
+					}
+
+					<nav class="draft-pager cs-pager" aria-label="More pages">
+						<a class="draft-pager-link" href={siteHref('/')}>
+							<span class="draft-pager-dir">Back to</span>
+							<span class="draft-pager-title">Home</span>
+						</a>
+						<a class="draft-pager-link draft-pager-next" href={siteHref(study.related.href)}>
+							<span class="draft-pager-dir">{study.related.label}</span>
+							<span class="draft-pager-title">{study.related.title}</span>
+						</a>
+					</nav>
+				</div>
+			</div>
+		</main>
+
+		<div class="cs-contact">
+			<DraftContact />
+		</div>
+	</div>
+
+	<Lightbox />
+</Layout>
+
+<style>
+	.cs-page {
+		--cs-max: 90rem;
+		--cs-scroll-offset: 1.5rem;
+		padding-bottom: 5rem;
+	}
+
+	.cs-header,
+	.cs-contact {
+		width: min(calc(100% - 3rem), 78rem);
+		margin: 0 auto;
+	}
+
+	.cs-header {
+		padding-top: 1.25rem;
+	}
+
+	.cs-body {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr);
+		width: min(calc(100% - 3rem), var(--cs-max));
+		margin: 0 auto;
+	}
+
+	/* Named so blocks inside can respond to the column width, not the window. */
+	.cs-content {
+		min-width: 0;
+		container: cs / inline-size;
+	}
+
+	.cs-intro {
+		max-width: var(--draft-measure);
+		margin: 0;
+		padding: 2.5rem 0 3rem;
+		font-size: clamp(1.1rem, 1.6vw, 1.3rem);
+		line-height: 1.6;
+		color: var(--muted-foreground);
+	}
+
+	.cs-section {
+		padding: 3rem 0;
+		border-top: 1px solid var(--border);
+		scroll-margin-top: var(--cs-scroll-offset);
+	}
+
+	.cs-section-heading {
+		margin: 0 0 2rem;
+		font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+		line-height: 1.1;
+		letter-spacing: -0.04em;
+	}
+
+	.cs-section-number {
+		display: block;
+		margin-bottom: 0.4rem;
+		font-family: var(--font-mono);
+		font-size: 0.85rem;
+		font-weight: 600;
+		letter-spacing: 0.06em;
+		color: var(--muted-foreground);
+	}
+
+	.cs-section-slides {
+		display: grid;
+		gap: 4rem;
+	}
+
+	.cs-pager {
+		margin-top: 1rem;
+	}
+
+	@media (min-width: 56.25rem) {
+		.cs-body {
+			grid-template-columns: 15rem minmax(0, 1fr);
+			column-gap: clamp(2.5rem, 4vw, 4.5rem);
+			padding-top: 3rem;
+		}
+		.cs-intro {
+			padding-top: 0;
+		}
+	}
+
+	@media (max-width: 56.1875rem) {
+		/* Room for the sticky "On this page" bar above a heading you jump to. */
+		.cs-page {
+			--cs-scroll-offset: 4.75rem;
+		}
+	}
+</style>

@@ -1,0 +1,487 @@
+---
+/** Renders one content block from a case study data file. See src/data/case-study/types.ts. */
+import type { CaseStudyBlock } from '../../data/case-study/types';
+
+interface Props {
+	block: CaseStudyBlock;
+}
+
+const { block } = Astro.props;
+const pad = (index: number) => String(index + 1).padStart(2, '0');
+---
+
+{block.type === 'text' && (
+	<div class="cs-prose">
+		{block.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+	</div>
+)}
+
+{block.type === 'lead' && <p class="cs-lead">{block.text}</p>}
+
+{block.type === 'list' && (
+	<div class="cs-list">
+		{block.heading && <h4>{block.heading}</h4>}
+		<ul>
+			{block.items.map((item) => <li>{item}</li>)}
+		</ul>
+	</div>
+)}
+
+{block.type === 'quote' && (
+	<figure class="cs-quote">
+		<blockquote>
+			{(Array.isArray(block.text) ? block.text : [block.text]).map((line) => <p>{line}</p>)}
+		</blockquote>
+		{block.cite && <figcaption>{block.cite}</figcaption>}
+	</figure>
+)}
+
+{block.type === 'stats' && (
+	<dl class="cs-stats">
+		{block.items.map((item) => (
+			<div class="cs-stat">
+				<dt>{item.label}</dt>
+				<dd>{item.value}</dd>
+			</div>
+		))}
+	</dl>
+)}
+
+{block.type === 'points' && (
+	<ol class="cs-points">
+		{block.items.map((item) => (
+			<li>
+				<strong>{item.title}</strong>
+				<span>{item.text}</span>
+			</li>
+		))}
+	</ol>
+)}
+
+{
+	/*
+	 * Below about 40rem the rows become stacked cards. CSS display changes can drop
+	 * table semantics in some browsers, so the roles restore them for screen readers.
+	 */
+	block.type === 'table' && (
+		<div class="cs-table-wrap">
+			<table class="cs-table" role="table">
+				<caption class="draft-sr-only">{block.caption}</caption>
+				<thead role="rowgroup">
+					<tr role="row">
+						{block.columns.map((column) => (
+							<th scope="col" role="columnheader">
+								{column}
+							</th>
+						))}
+					</tr>
+				</thead>
+				<tbody role="rowgroup">
+					{block.rows.map((row) => (
+						<tr role="row">
+							{row.map((cell, index) => (
+								<td role="cell" data-label={block.columns[index]}>
+									{cell}
+								</td>
+							))}
+						</tr>
+					))}
+				</tbody>
+			</table>
+		</div>
+	)
+}
+
+{block.type === 'timeline' && (
+	<ol class="cs-timeline" style={`--cs-timeline-count: ${block.items.length}`}>
+		{block.items.map((item) => (
+			<li>
+				<p class="cs-timeline-date">{item.date}</p>
+				<p class="cs-timeline-title">{item.title}</p>
+				<p class="cs-timeline-text">{item.text}</p>
+			</li>
+		))}
+	</ol>
+)}
+
+{block.type === 'cards' && (
+	<ol class="cs-cards">
+		{block.items.map((item, index) => (
+			<li class="cs-card">
+				<span class="cs-card-number" aria-hidden="true">
+					{pad(index)}
+				</span>
+				<h4>{item.title}</h4>
+				<p>{item.text}</p>
+			</li>
+		))}
+	</ol>
+)}
+
+{block.type === 'note' && <p class="cs-note">{block.text}</p>}
+
+<style>
+	/* ---------- Running text ---------- */
+	.cs-prose {
+		max-width: var(--draft-measure);
+	}
+	.cs-prose p {
+		margin: 0 0 1rem;
+		font-size: 1.05rem;
+		line-height: 1.75;
+	}
+	.cs-prose p:last-child {
+		margin-bottom: 0;
+	}
+
+	.cs-lead {
+		max-width: var(--draft-measure);
+		margin: 0;
+		font-size: clamp(1.15rem, 1.6vw, 1.3rem);
+		font-weight: 700;
+		line-height: 1.45;
+		letter-spacing: -0.02em;
+	}
+
+	/* ---------- Lists ---------- */
+	.cs-list {
+		max-width: var(--draft-measure);
+	}
+	.cs-list h4 {
+		margin: 0 0 0.5rem;
+		font-size: 1rem;
+		font-weight: 800;
+		letter-spacing: -0.01em;
+	}
+	.cs-list ul {
+		margin: 0;
+		padding-left: 1.25rem;
+		list-style: disc;
+	}
+	.cs-list li {
+		margin-bottom: 0.45rem;
+		padding-left: 0.2rem;
+		font-size: 1rem;
+		line-height: 1.6;
+	}
+	.cs-list li:last-child {
+		margin-bottom: 0;
+	}
+	.cs-list li::marker {
+		color: var(--muted-foreground);
+	}
+
+	/* ---------- Quote: a large opening mark, no side stripe ---------- */
+	.cs-quote {
+		position: relative;
+		max-width: var(--draft-measure);
+		margin: 0;
+		padding: 1.25rem 1.5rem 1.25rem 3.75rem;
+		border-radius: var(--draft-radius);
+		background: var(--muted);
+	}
+	.cs-quote::before {
+		content: '\201C';
+		position: absolute;
+		top: 0.35rem;
+		left: 1rem;
+		font-size: 4rem;
+		font-weight: 800;
+		line-height: 1;
+		color: var(--accent-link);
+	}
+	.cs-quote blockquote {
+		margin: 0;
+	}
+	.cs-quote p {
+		margin: 0 0 0.75rem;
+		font-size: clamp(1.1rem, 1.5vw, 1.25rem);
+		font-weight: 700;
+		line-height: 1.45;
+		letter-spacing: -0.015em;
+	}
+	.cs-quote p:last-child {
+		margin-bottom: 0;
+	}
+	.cs-quote figcaption {
+		margin-top: 0.75rem;
+		font-size: 0.92rem;
+		color: var(--muted-foreground);
+	}
+
+	/* ---------- Big numbers ---------- */
+	.cs-stats {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem 2rem;
+		margin: 0;
+	}
+	.cs-stat {
+		display: flex;
+		flex-direction: column-reverse;
+		justify-content: flex-end;
+		max-width: 24rem;
+	}
+	.cs-stat dd {
+		margin: 0;
+		font-size: clamp(2.25rem, 4vw, 3.25rem);
+		font-weight: 800;
+		line-height: 1;
+		letter-spacing: -0.04em;
+		color: var(--accent-link);
+		white-space: nowrap;
+	}
+	.cs-stat dt {
+		margin-top: 0.4rem;
+		font-size: 0.95rem;
+		line-height: 1.45;
+		color: var(--muted-foreground);
+	}
+
+	/* ---------- Numbered points ---------- */
+	.cs-points {
+		display: grid;
+		gap: 1rem;
+		max-width: var(--draft-measure);
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		counter-reset: cs-point;
+	}
+	.cs-points li {
+		position: relative;
+		display: grid;
+		gap: 0.2rem;
+		padding-left: 2.75rem;
+		counter-increment: cs-point;
+		line-height: 1.55;
+	}
+	.cs-points li::before {
+		content: counter(cs-point);
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: grid;
+		place-items: center;
+		width: 2rem;
+		height: 2rem;
+		border-radius: 50%;
+		background: var(--foreground);
+		color: var(--background);
+		font-size: 0.9rem;
+		font-weight: 800;
+	}
+	.cs-points span {
+		color: var(--muted-foreground);
+	}
+
+	/* ---------- Table ---------- */
+	.cs-table-wrap {
+		container-type: inline-size;
+	}
+	.cs-table {
+		width: 100%;
+		border-collapse: collapse;
+		font-size: 0.98rem;
+		line-height: 1.55;
+	}
+	.cs-table th {
+		padding: 0 1rem 0.75rem 0;
+		border-bottom: 1px solid var(--border-strong);
+		font-family: var(--font-mono);
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 0.06em;
+		text-align: left;
+		text-transform: uppercase;
+		color: var(--muted-foreground);
+	}
+	.cs-table td {
+		padding: 1rem 1rem 1rem 0;
+		border-bottom: 1px solid var(--border);
+		vertical-align: top;
+	}
+	.cs-table td:first-child {
+		width: 30%;
+		font-weight: 700;
+	}
+	.cs-table td:nth-child(2) {
+		width: 18%;
+		white-space: nowrap;
+	}
+
+	@container (max-width: 40rem) {
+		.cs-table thead {
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			overflow: hidden;
+			clip: rect(0, 0, 0, 0);
+			white-space: nowrap;
+		}
+		.cs-table,
+		.cs-table tbody,
+		.cs-table tr,
+		.cs-table td {
+			display: block;
+			width: auto;
+		}
+		.cs-table tr {
+			padding: 1rem 0;
+			border-bottom: 1px solid var(--border);
+		}
+		.cs-table td,
+		.cs-table td:first-child,
+		.cs-table td:nth-child(2) {
+			width: auto;
+			padding: 0.15rem 0;
+			border: 0;
+			white-space: normal;
+		}
+		.cs-table td::before {
+			content: attr(data-label);
+			display: block;
+			margin-top: 0.4rem;
+			font-family: var(--font-mono);
+			font-size: 0.72rem;
+			font-weight: 600;
+			letter-spacing: 0.06em;
+			text-transform: uppercase;
+			color: var(--muted-foreground);
+		}
+		.cs-table td:first-child::before {
+			margin-top: 0;
+		}
+	}
+
+	/* ---------- Timeline: stacked by default, horizontal when the content column has room ---------- */
+	.cs-timeline {
+		position: relative;
+		display: grid;
+		gap: 1.5rem;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	.cs-timeline::before {
+		content: '';
+		position: absolute;
+		top: 0.5rem;
+		bottom: 0.5rem;
+		left: 0.45rem;
+		width: 2px;
+		background: var(--border);
+	}
+	.cs-timeline li {
+		position: relative;
+		padding-left: 2rem;
+	}
+	.cs-timeline li::before {
+		content: '';
+		position: absolute;
+		top: 0.2rem;
+		left: 0;
+		width: 1rem;
+		height: 1rem;
+		border: 3px solid var(--background);
+		border-radius: 50%;
+		background: var(--accent-link);
+		box-shadow: 0 0 0 1px var(--accent-link);
+	}
+	.cs-timeline p {
+		margin: 0;
+	}
+	.cs-timeline-date {
+		font-family: var(--font-mono);
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: var(--muted-foreground);
+	}
+	.cs-timeline-title {
+		margin-top: 0.25rem !important;
+		font-size: 1.05rem;
+		font-weight: 800;
+		letter-spacing: -0.02em;
+	}
+	.cs-timeline-text {
+		margin-top: 0.3rem !important;
+		font-size: 0.95rem;
+		line-height: 1.5;
+		color: var(--muted-foreground);
+	}
+
+	/* `cs` is the content column, set in CaseStudy.astro. */
+	@container cs (min-width: 50rem) {
+		.cs-timeline {
+			grid-template-columns: repeat(var(--cs-timeline-count), minmax(0, 1fr));
+			gap: 1.25rem;
+		}
+		.cs-timeline::before {
+			top: 0.45rem;
+			right: 0;
+			bottom: auto;
+			left: 0;
+			width: auto;
+			height: 2px;
+		}
+		.cs-timeline li {
+			padding: 1.75rem 0 0;
+		}
+	}
+
+	/* ---------- Numbered cards ---------- */
+	.cs-cards {
+		display: grid;
+		gap: 1rem;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	.cs-card {
+		padding: 1.5rem;
+		border: 1px solid var(--border);
+		border-radius: var(--draft-radius);
+		background: var(--card);
+	}
+	.cs-card-number {
+		display: block;
+		font-family: var(--font-mono);
+		font-size: 0.9rem;
+		font-weight: 600;
+		letter-spacing: 0.06em;
+		color: var(--accent-link);
+	}
+	.cs-card h4 {
+		margin: 0.6rem 0 0.5rem;
+		font-size: 1.15rem;
+		font-weight: 800;
+		line-height: 1.3;
+		letter-spacing: -0.02em;
+	}
+	.cs-card p {
+		margin: 0;
+		font-size: 0.98rem;
+		line-height: 1.6;
+		color: var(--muted-foreground);
+	}
+
+	@container cs (min-width: 46rem) {
+		.cs-cards {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
+	}
+
+	/* ---------- Note ---------- */
+	.cs-note {
+		max-width: var(--draft-measure);
+		margin: 0;
+		padding: 1rem 1.25rem;
+		border: 1px solid var(--border);
+		border-radius: 0.75rem;
+		background: var(--muted);
+		font-weight: 700;
+		line-height: 1.55;
+	}
+</style>

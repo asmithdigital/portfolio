@@ -1,0 +1,116 @@
+---
+/**
+ * Full-width case study banner: background image under a dark overlay, with the
+ * page H1. The overlay is the same in light and dark mode so the white text
+ * always has strong contrast.
+ */
+import { Image } from 'astro:assets';
+import type { CaseStudyData } from '../../data/case-study/types';
+import { widthsFor } from '../../utils/images';
+
+interface Props {
+	banner: CaseStudyData['banner'];
+}
+
+const { banner } = Astro.props;
+---
+
+<header class="cs-banner">
+	<Image
+		class="cs-banner-image"
+		src={banner.image}
+		alt={banner.alt ?? ''}
+		widths={widthsFor(banner.image, [800, 1280, 1600, 1920, 2400])}
+		sizes="100vw"
+		loading="eager"
+		fetchpriority="high"
+		decoding="async"
+		style={banner.position ? `object-position: ${banner.position}` : undefined}
+	/>
+	<div class="cs-banner-inner">
+		<p class="cs-banner-eyebrow">{banner.eyebrow}</p>
+		<h1 class="cs-banner-title">{banner.title}</h1>
+		<p class="cs-banner-subtitle">{banner.subtitle}</p>
+		<p class="cs-banner-meta">
+			<span>{banner.role}</span>
+			<span class="cs-banner-divider" aria-hidden="true">|</span>
+			<span>{banner.dates}</span>
+		</p>
+	</div>
+</header>
+
+<style>
+	.cs-banner {
+		position: relative;
+		display: flex;
+		align-items: flex-end;
+		min-height: clamp(20rem, 52vh, 32rem);
+		margin-top: 1.25rem;
+		overflow: hidden;
+		color: #ffffff;
+		background: #0d1014;
+	}
+
+	/* Cropped to fill, never stretched. */
+	.cs-banner-image {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.cs-banner::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(180deg, rgb(10 12 16 / 70%) 0%, rgb(10 12 16 / 88%) 100%);
+	}
+
+	.cs-banner-inner {
+		position: relative;
+		z-index: 1;
+		width: min(calc(100% - 3rem), var(--cs-max));
+		margin: 0 auto;
+		padding: 4rem 0 3rem;
+	}
+
+	.cs-banner-eyebrow,
+	.cs-banner-meta {
+		margin: 0;
+		font-family: var(--font-mono);
+		font-size: 0.82rem;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+
+	.cs-banner-title {
+		margin: 0.75rem 0 0.75rem;
+		max-width: 20ch;
+		font-size: clamp(2.4rem, 5vw, 4.25rem);
+		line-height: 1.02;
+		letter-spacing: -0.05em;
+		color: #ffffff;
+	}
+
+	.cs-banner-subtitle {
+		max-width: 36rem;
+		margin: 0 0 1.5rem;
+		font-size: clamp(1.15rem, 2vw, 1.45rem);
+		font-weight: 600;
+		line-height: 1.4;
+		letter-spacing: -0.02em;
+	}
+
+	.cs-banner-meta {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.25rem 0.6rem;
+		line-height: 1.5;
+	}
+
+	.cs-banner-divider {
+		opacity: 0.7;
+	}
+</style>

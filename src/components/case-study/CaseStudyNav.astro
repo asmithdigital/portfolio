@@ -1,0 +1,324 @@
+---
+/**
+ * "On this page" menu for a case study.
+ *
+ * Wide screens: a sticky side menu. Small screens (under 900px): a sticky bar
+ * that opens and closes. Without JavaScript the menu is a plain list of links
+ * with every subheading shown.
+ *
+ * With JavaScript (scrollspy):
+ * - The section you are reading is highlighted and expanded to show its
+ *   subheadings. Other sections collapse.
+ * - The current subheading link gets aria-current="true".
+ * - Links scroll smoothly (the page sets scroll-behavior, and reduced motion turns it off).
+ *
+ * Keyboard behaviour on small screens: Enter or Space on the bar opens and closes
+ * the menu, Escape closes it and returns focus to the bar, and choosing a link
+ * closes it.
+ */
+import type { CaseStudyNavSection } from '../../data/case-study/types';
+
+interface Props {
+	sections: CaseStudyNavSection[];
+}
+
+const { sections } = Astro.props;
+---
+
+<aside class="cs-aside" data-cs-aside>
+	<details class="cs-toc" open data-cs-toc>
+		<summary class="cs-toc-bar">
+			<span class="cs-toc-bar-label">On this page</span>
+			<span class="cs-toc-bar-current" data-cs-toc-current></span>
+			<svg class="cs-toc-bar-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"></path></svg>
+		</summary>
+		<nav class="cs-toc-nav" aria-label="On this page" data-cs-toc-scroller>
+			<p class="cs-toc-title" aria-hidden="true">On this page</p>
+			<ol class="cs-toc-sections">
+				{
+					sections.map((section) => (
+						<li class="cs-toc-section" data-cs-toc-section={section.id}>
+							<a class="cs-toc-link cs-toc-section-link" href={`#${section.id}`} data-cs-target={section.id}>
+								{section.number && <span class="cs-toc-number">{section.number}</span>}
+								<span data-cs-toc-label>{section.label}</span>
+							</a>
+							<ol class="cs-toc-subs">
+								{section.slides.map((slide) => (
+									<li>
+										<a class="cs-toc-link cs-toc-sub-link" href={`#${slide.id}`} data-cs-target={slide.id}>
+											{slide.title}
+										</a>
+									</li>
+								))}
+							</ol>
+						</li>
+					))
+				}
+			</ol>
+		</nav>
+	</details>
+</aside>
+
+<style>
+	.cs-aside {
+		align-self: start;
+		min-width: 0;
+	}
+
+	.cs-toc-bar {
+		display: none;
+	}
+
+	.cs-toc-nav {
+		padding: 0.25rem;
+	}
+
+	.cs-toc-title {
+		margin: 0 0 0.75rem;
+		padding: 0 0.6rem;
+		font-family: var(--font-mono);
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--muted-foreground);
+	}
+
+	.cs-toc-sections,
+	.cs-toc-subs {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.cs-toc-sections {
+		display: grid;
+		gap: 0.15rem;
+	}
+
+	.cs-toc-subs {
+		display: grid;
+		gap: 0.1rem;
+		margin: 0.15rem 0 0.5rem;
+		padding-left: 0.75rem;
+	}
+
+	.cs-toc .cs-toc-link {
+		display: flex;
+		gap: 0.5rem;
+		align-items: baseline;
+		padding: 0.4rem 0.6rem;
+		border-radius: 0.5rem;
+		color: var(--muted-foreground);
+		text-decoration: none;
+		line-height: 1.35;
+		transition: background-color 120ms ease, color 120ms ease;
+	}
+	.cs-toc .cs-toc-link:hover {
+		color: var(--foreground);
+		text-decoration: underline;
+		text-underline-offset: 3px;
+	}
+	.cs-toc .cs-toc-link:focus-visible {
+		outline-offset: 0;
+	}
+
+	.cs-toc-section-link {
+		font-size: 0.95rem;
+		font-weight: 700;
+	}
+
+	.cs-toc-number {
+		font-family: var(--font-mono);
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 0.04em;
+	}
+
+	.cs-toc-sub-link {
+		font-size: 0.9rem;
+		font-weight: 500;
+	}
+
+	/* Scrollspy states, added by the script. */
+	.cs-toc.is-enhanced .cs-toc-section:not(.is-active) .cs-toc-subs {
+		display: none;
+	}
+	.cs-toc .cs-toc-section.is-active > .cs-toc-section-link {
+		color: var(--foreground);
+	}
+	.cs-toc .cs-toc-sub-link[aria-current='true'] {
+		color: var(--foreground);
+		font-weight: 700;
+		background: var(--muted);
+	}
+
+	/* ---------- Wide screens: sticky side menu ---------- */
+	@media (min-width: 56.25rem) {
+		.cs-aside {
+			position: sticky;
+			top: 1.5rem;
+		}
+		.cs-toc-nav {
+			max-height: calc(100vh - 3rem);
+			overflow-y: auto;
+			overscroll-behavior: contain;
+		}
+	}
+
+	/* ---------- Small screens: collapsible bar ---------- */
+	@media (max-width: 56.1875rem) {
+		.cs-aside {
+			margin: 0 -1.5rem;
+			padding: 0 1.5rem;
+			background: var(--background);
+			border-bottom: 1px solid var(--border);
+		}
+		.cs-aside.is-enhanced {
+			position: sticky;
+			top: 0;
+			z-index: 20;
+		}
+
+		.cs-toc-title {
+			display: none;
+		}
+
+		.cs-aside.is-enhanced .cs-toc-bar {
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+			min-height: 3.25rem;
+			cursor: pointer;
+			list-style: none;
+			font-size: 0.95rem;
+			font-weight: 700;
+		}
+		.cs-toc-bar::-webkit-details-marker {
+			display: none;
+		}
+		.cs-toc-bar-current {
+			flex: 1;
+			min-width: 0;
+			overflow: hidden;
+			font-weight: 500;
+			color: var(--muted-foreground);
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+		.cs-toc-bar-current:not(:empty)::before {
+			content: '·';
+			margin-right: 0.5rem;
+		}
+		.cs-toc-bar-icon {
+			flex: none;
+			width: 1.25rem;
+			height: 1.25rem;
+			margin-left: auto;
+			fill: none;
+			stroke: currentColor;
+			stroke-width: 2;
+			stroke-linecap: round;
+			stroke-linejoin: round;
+			transition: transform 140ms ease;
+		}
+		.cs-toc[open] .cs-toc-bar-icon {
+			transform: rotate(180deg);
+		}
+
+		.cs-toc-nav {
+			padding: 0.5rem 0 1rem;
+		}
+		.cs-aside.is-enhanced .cs-toc-nav {
+			max-height: min(60vh, 28rem);
+			overflow-y: auto;
+			overscroll-behavior: contain;
+			border-top: 1px solid var(--border);
+		}
+	}
+</style>
+
+<script>
+	const aside = document.querySelector<HTMLElement>('[data-cs-aside]');
+	const toc = aside?.querySelector<HTMLDetailsElement>('[data-cs-toc]');
+
+	if (aside && toc && 'IntersectionObserver' in window) {
+		const summary = toc.querySelector<HTMLElement>('summary')!;
+		const current = toc.querySelector<HTMLElement>('[data-cs-toc-current]')!;
+		const scroller = toc.querySelector<HTMLElement>('[data-cs-toc-scroller]')!;
+		const sectionItems = Array.from(toc.querySelectorAll<HTMLElement>('[data-cs-toc-section]'));
+		const links = new Map(
+			Array.from(toc.querySelectorAll<HTMLAnchorElement>('a[data-cs-target]')).map((link) => [link.dataset.csTarget!, link]),
+		);
+		const targets = Array.from(document.querySelectorAll<HTMLElement>('[data-cs-spy]'));
+		const small = window.matchMedia('(max-width: 56.1875rem)');
+
+		aside.classList.add('is-enhanced');
+		toc.classList.add('is-enhanced');
+
+		// Open as a side menu on wide screens, closed as a bar on small screens.
+		const syncOpen = () => {
+			toc.open = !small.matches;
+		};
+		syncOpen();
+		small.addEventListener('change', syncOpen);
+
+		/** Keeps the current link in view when the side menu is taller than the window. */
+		const keepInView = (link: HTMLElement) => {
+			if (small.matches || scroller.scrollHeight <= scroller.clientHeight) return;
+			const box = scroller.getBoundingClientRect();
+			const item = link.getBoundingClientRect();
+			if (item.top < box.top) scroller.scrollTop -= box.top - item.top + 8;
+			else if (item.bottom > box.bottom) scroller.scrollTop += item.bottom - box.bottom + 8;
+		};
+
+		let activeId = '';
+		const setActive = (target: HTMLElement) => {
+			if (target.id === activeId) return;
+			activeId = target.id;
+			const sectionId = target.dataset.section;
+
+			links.forEach((link) => link.removeAttribute('aria-current'));
+			const link = links.get(target.id);
+			link?.setAttribute('aria-current', 'true');
+
+			sectionItems.forEach((item) => {
+				const isActive = item.dataset.csTocSection === sectionId;
+				item.classList.toggle('is-active', isActive);
+				if (isActive) current.textContent = item.querySelector('[data-cs-toc-label]')?.textContent ?? '';
+			});
+
+			if (link) keepInView(link);
+		};
+
+		// A slide becomes current once its top passes into the upper part of the window.
+		const visible = new Set<Element>();
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => (entry.isIntersecting ? visible.add(entry.target) : visible.delete(entry.target)));
+				const latest = targets.filter((target) => visible.has(target)).pop();
+				if (latest) setActive(latest);
+			},
+			{ rootMargin: '-15% 0px -55% 0px' },
+		);
+		targets.forEach((target) => observer.observe(target));
+		if (targets[0]) setActive(targets[0]);
+
+		// On small screens, close the menu after choosing a link.
+		toc.addEventListener('click', (event) => {
+			if (small.matches && event.target instanceof Element && event.target.closest('a[href]')) toc.open = false;
+		});
+
+		toc.addEventListener('keydown', (event) => {
+			if (event.key === 'Escape' && small.matches && toc.open) {
+				event.preventDefault();
+				toc.open = false;
+				summary.focus();
+			}
+		});
+
+		document.addEventListener('click', (event) => {
+			if (small.matches && toc.open && event.target instanceof Node && !toc.contains(event.target)) toc.open = false;
+		});
+	}
+</script>
