@@ -1,0 +1,35 @@
+---
+import DraftPage from '../components/draft/DraftPage.astro';
+import ScreenGallery from '../components/ScreenGallery.astro';
+import { siteHref } from '../config/draft';
+import { uiScreens } from '../data/uiScreens';
+---
+
+<DraftPage
+	title="UI design | Andrew Smith"
+	description="A sample of finished screens from the websites, online stores and digital products I have designed."
+>
+	<header class="draft-article-hero">
+		<h1 class="display-title">UI design</h1>
+		<p class="draft-standfirst">
+			Over the years I have designed websites, online stores and digital products for a wide range of businesses. This is
+			a sample of finished screens.
+		</p>
+	</header>
+
+	<section class="draft-block" aria-labelledby="how-i-design-heading">
+		<h2 id="how-i-design-heading">How I design</h2>
+		<div class="draft-prose">
+			<p>
+				I design interfaces from rough sketches through to finished screens, and I build them in code as well. I care
+				about clear layout, readable type, consistent components and accessibility. Most of these screens were designed
+				as part of a wider UX process, which you can read about on the <a href={siteHref('/process/')}>Process page</a>.
+			</p>
+		</div>
+	</section>
+
+	<section class="draft-block" aria-labelledby="screens-heading">
+		<h2 id="screens-heading">Finished screens</h2>
+		<ScreenGallery screens={uiScreens} />
+	</section>
+</DraftPage>

@@ -300,14 +300,6 @@
   font-weight: 700;
 }
 
-/* ---------- Home: process card ---------- */
-.process-card {
-  display: grid;
-  gap: 1.5rem;
-  padding: 1.5rem;
-}
-.process-card-diagram { max-width: 28rem; }
-
 /* Double diamond diagram. Colours match the process page board. */
 .double-diamond {
   --dd-grey: #444444;
@@ -349,33 +341,6 @@
 .double-diamond .dd-caption { fill: var(--muted-foreground); font-weight: 600; }
 /* Card-coloured halo so the label sits on the loop line. */
 .dd-on-line { paint-order: stroke; stroke: var(--card); stroke-width: 6px; stroke-linejoin: round; }
-.process-card h3 {
-  margin: 0 0 .5rem;
-  font-size: clamp(1.15rem, 1.8vw, 1.45rem);
-  font-weight: 800;
-  letter-spacing: -.03em;
-}
-.process-card p { margin: 0; line-height: 1.6; color: var(--muted-foreground); max-width: var(--draft-measure); }
-
-.process-strip {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .6rem 2rem;
-  margin: 1.25rem 0 0;
-  padding: 0;
-  list-style: none;
-}
-.process-strip li {
-  font-size: .95rem;
-  font-weight: 600;
-  line-height: 1.4;
-}
-.process-strip-number {
-  margin-right: .3rem;
-  font-family: var(--font-mono);
-  font-size: .8rem;
-  color: var(--muted-foreground);
-}
 
 /* ---------- Post cards (media object rows) ---------- */
 .post-list {
@@ -408,6 +373,48 @@
 }
 .post-card-intro { margin: 0; line-height: 1.6; color: var(--muted-foreground); }
 .post-card .draft-card-more { margin-top: .5rem; }
+
+/* ---------- Home: How I work cards ----------
+   Post cards at half width. The thumbnail stays on the left at every size. */
+.work-grid {
+  display: grid;
+  grid-auto-rows: 1fr;
+  gap: 1rem;
+}
+.post-card.work-card {
+  /* A share of the space inside the padding: about 35 to 40 percent of the whole card. */
+  grid-template-columns: 39% minmax(0, 1fr);
+  gap: 1rem;
+  align-items: center;
+}
+.work-card-diagram {
+  display: grid;
+  place-items: center;
+  container-type: inline-size;
+}
+.work-diamonds {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: max(3px, 2.5cqw) 0;
+  width: max(106px, 88cqw);
+  justify-items: center;
+}
+.work-diamonds svg {
+  grid-column: 1 / -1;
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.work-diamonds-label {
+  font-size: max(12px, 6cqw);
+  font-weight: 600;
+  letter-spacing: -.02em;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+.work-diamonds-discovery { color: var(--dd-blue); }
+.work-diamonds-delivery { color: var(--dd-purple); }
 
 /* ---------- Case study placeholder ---------- */
 .draft-notice {
@@ -780,20 +787,14 @@
   .process-board ol { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
+@media (min-width: 48rem) {
+  .work-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .post-card.work-card { grid-template-columns: 41% minmax(0, 1fr); }
+}
+
 @media (min-width: 40rem) {
   /* Wider than a phone, the diagram has room for smaller, calmer labels. */
   .double-diamond text { font-size: 13px; }
-}
-
-@media (min-width: 60rem) {
-  .process-card {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 28rem);
-    grid-template-areas: 'text diagram';
-    column-gap: 3rem;
-    align-items: center;
-  }
-  .process-card-text { grid-area: text; }
-  .process-card-diagram { grid-area: diagram; width: 100%; }
 }
 
 @media (min-width: 48rem) {
