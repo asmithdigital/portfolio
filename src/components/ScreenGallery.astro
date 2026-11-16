@@ -3,18 +3,24 @@
  * Even grid of image thumbnails that open in a lightbox over the page.
  *
  * Each thumbnail is a link to the large image, so the images still open without
- * JavaScript. See Lightbox.astro for the keyboard behaviour.
+ * JavaScript. The page adds <Lightbox /> once, so several galleries can share it.
+ * See Lightbox.astro for the keyboard behaviour.
+ *
+ * With `captions`, each screen's title is shown under its tile.
  */
 import { Image } from 'astro:assets';
-import Lightbox from './Lightbox.astro';
 import type { UiScreen } from '../data/uiScreens';
 import { lightboxImage, widthsFor } from '../utils/images';
 
 interface Props {
 	screens: UiScreen[];
+	/** Show each title as a caption under its tile. */
+	captions?: boolean;
+	/** How many tiles load straight away. Use 0 for a gallery below the fold. */
+	eagerCount?: number;
 }
 
-const { screens } = Astro.props;
+const { screens, captions = false, eagerCount = 3 } = Astro.props;
 
 const items = await Promise.all(
 	screens.map(async (screen) => (screen.placeholder ? screen : { ...screen, large: await lightboxImage(screen.image) })),
@@ -34,7 +40,7 @@ const items = await Promise.all(
 			) : (
 				<li data-screen-item>
 					<a
-						class="screen-thumb"
+						class:list={['screen-thumb', item.fit === 'contain' && 'screen-thumb-contain']}
 						href={item.large.src}
 						data-lightbox-thumb
 						data-title={item.title}
@@ -48,17 +54,16 @@ const items = await Promise.all(
 							alt={item.alt}
 							widths={widthsFor(item.image, [480, 800, 1200])}
 							sizes="(min-width: 60rem) 33vw, (min-width: 40rem) 50vw, 100vw"
-							loading={index < 3 ? 'eager' : 'lazy'}
+							loading={index < eagerCount ? 'eager' : 'lazy'}
 							decoding="async"
 						/>
 					</a>
+					{captions && <p class="screen-caption">{item.title}</p>}
 				</li>
 			),
 		)
 	}
 </ul>
-
-<Lightbox />
 
 <style>
 	.screen-grid {
@@ -94,6 +99,20 @@ const items = await Promise.all(
 		height: 100%;
 		object-fit: cover;
 		object-position: top;
+	}
+
+	/* Whole image inside the tile, for tall mobile screens. */
+	.screen-thumb-contain .screen-thumb-image {
+		object-fit: contain;
+		object-position: center;
+		padding: 0.75rem;
+	}
+
+	.screen-caption {
+		margin: 0.6rem 0 0;
+		font-size: 0.92rem;
+		line-height: 1.45;
+		color: var(--muted-foreground);
 	}
 
 	.screen-placeholder {

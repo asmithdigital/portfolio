@@ -9,6 +9,9 @@
 // To show a tile that is still to come, use placeholder: true with a title and a status.
 // It is not a link and does not open the lightbox. When the design is ready, remove
 // placeholder and status, then add image and alt.
+//
+// `bassCoastScreens` is a separate group shown under its own heading, with each
+// title shown as a caption under the tile.
 import type { ImageMetadata } from 'astro';
 import footwearHome from '../assets/images/freelance-1a.png';
 import footwearProducts from '../assets/images/freelance-1c.png';
@@ -21,6 +24,9 @@ import eventHireHome from '../assets/images/freelance-2a.png';
 import universityPage from '../assets/images/uofa-subpage.png';
 import yogaHomeTop from '../assets/images/graceful-grounded-yoga-home-top.png';
 import yogaHomeMid from '../assets/images/graceful-grounded-yoga-home-mid.png';
+import podiatryHomeDesktop from '../assets/images/bass-coast-podiatry-home-desktop.jpg';
+import podiatryServicesDesktop from '../assets/images/bass-coast-podiatry-services-desktop.jpg';
+import podiatryHomeMobile from '../assets/images/bass-coast-podiatry-home-mobile.png';
 
 export interface UiScreenImage {
 	title: string;
@@ -28,6 +34,8 @@ export interface UiScreenImage {
 	placeholder?: false;
 	image: ImageMetadata;
 	alt: string;
+	/** 'contain' shows the whole image inside the tile, for tall mobile screens. Default crops from the top. */
+	fit?: 'contain';
 }
 
 export interface UiScreenPlaceholder {
@@ -106,12 +114,30 @@ const screens: UiScreen[] = [
 		image: yogaHomeMid,
 		alt: 'Yoga website section on a dark green background, with a short teacher biography, a Contact me button and overlapping photos of the teacher and the studio.',
 	},
-	{
-		title: 'Bass Coast Podiatry',
-		order: 12,
-		placeholder: true,
-		status: 'Coming soon',
-	},
 ];
 
 export const uiScreens = [...screens].sort((a, b) => a.order - b.order);
+
+const bassCoast: UiScreen[] = [
+	{
+		title: 'Home page on desktop, with opening hours, the address and a map beside the headline',
+		order: 1,
+		image: podiatryHomeDesktop,
+		alt: 'Podiatry clinic home page with the headline "Expert foot care in Wonthaggi" over a beach photo of footprints in the sand, an Our services button, and a white card with opening hours, the street address, a Call button, a Send us a message link and a small street map.',
+	},
+	{
+		title: 'Services page on desktop, with the page heading and the first service cards',
+		order: 2,
+		image: podiatryServicesDesktop,
+		alt: 'Our Services page with soft blue shapes behind the heading, a photo of a podiatrist at work, and cards for laser treatment for fungal nail infections and biomechanical assessment.',
+	},
+	{
+		title: 'Home page on mobile, with the headline, a services button and the opening hours card',
+		order: 3,
+		image: podiatryHomeMobile,
+		alt: 'Podiatry clinic home page on a phone, with a Menu button, the headline "Expert foot care in Wonthaggi", an Our services button and a card with opening hours, the address and a Call button.',
+		fit: 'contain',
+	},
+];
+
+export const bassCoastScreens = [...bassCoast].sort((a, b) => a.order - b.order);

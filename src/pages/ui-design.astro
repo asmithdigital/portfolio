@@ -1,8 +1,9 @@
 ---
 import DraftPage from '../components/draft/DraftPage.astro';
+import Lightbox from '../components/Lightbox.astro';
 import ScreenGallery from '../components/ScreenGallery.astro';
 import { siteHref } from '../config/draft';
-import { uiScreens } from '../data/uiScreens';
+import { bassCoastScreens, uiScreens } from '../data/uiScreens';
 ---
 
 <DraftPage
@@ -31,5 +32,35 @@ import { uiScreens } from '../data/uiScreens';
 	<section class="draft-block" aria-labelledby="screens-heading">
 		<h2 id="screens-heading">Finished screens</h2>
 		<ScreenGallery screens={uiScreens} />
+
+		<div class="screen-group">
+			<h3 id="bass-coast-podiatry-heading">Bass Coast Podiatry</h3>
+			<p class="screen-group-intro">
+				Website refresh concept for a podiatry clinic in Wonthaggi: a new brand, design and front-end build.
+			</p>
+			<ScreenGallery screens={bassCoastScreens} captions eagerCount={0} />
+		</div>
 	</section>
+
+	<Lightbox />
 </DraftPage>
+
+<style>
+	.screen-group {
+		margin-top: clamp(2.5rem, 5vw, 4rem);
+	}
+
+	.screen-group h3 {
+		margin: 0 0 0.5rem;
+		font-size: clamp(1.25rem, 2vw, 1.5rem);
+		font-weight: 800;
+		line-height: 1.2;
+		letter-spacing: -0.03em;
+	}
+
+	.screen-group-intro {
+		max-width: var(--draft-measure);
+		margin: 0 0 1.5rem;
+		color: var(--muted-foreground);
+	}
+</style>
