@@ -71,18 +71,18 @@ export const raaQuoteToBuy: CaseStudyData = {
 				{
 					type: 'text',
 					paragraphs: [
-						'I was managing the UX team, and I facilitated the sprint and led the discovery. I pulled five years of research into one board, wrote the insight cards and made the business case. I interviewed stakeholders and planned and ran the ideation workshop.',
-						'The squad’s UX lead designed the UI, and we planned, ran and analysed the testing together. Afterwards I built a tool to keep the research visible to the squad.',
+						'I was managing the UX team, and I facilitated the sprint. Discovery was a team effort. I worked alongside service design, senior managers in experience design, product managers, business analysts, content, UX and subject matter experts to bring five years of research together, write the insight cards and make the business case.',
+						'With the other designers, I built prototypes, ran the testing and analysed what we found. Afterwards I built a tool to keep the research visible to the squad.',
 					],
 				},
 				{
 					type: 'list',
 					items: [
 						'Facilitated a two-week discovery and design sprint as UX Manager',
-						'Led discovery and synthesis: five years of research in one place, insight cards and the business case',
-						'Ran stakeholder interviews with product, business analysis, UX and delivery',
+						'Brought five years of research together with service design, senior managers, product, business analysis, content and UX, into insight cards and the business case',
+						'Interviewed stakeholders and subject matter experts alongside the team',
 						'Planned and facilitated the ideation workshop: agenda, script, prep and evidence wall',
-						'Worked alongside the squad’s UX lead to plan, run and analyse the testing',
+						'Built prototypes and ran the testing with the other designers, then analysed and affinity mapped the results together',
 						'Afterwards, built a linked journey and insight tool for the squad',
 					],
 				},
@@ -144,8 +144,8 @@ export const raaQuoteToBuy: CaseStudyData = {
 				{
 					type: 'text',
 					paragraphs: [
-						'I started with what we already knew, before talking to anyone new. Five years of research went into one board: usability studies, benchmarks, analytics, journey maps and a third-party review. Every note traced back to its source, so nothing on the wall was opinion.',
-						'I also interviewed stakeholders across product, business analysis, UX and delivery. They gave us the limits behind the symptoms: the legacy platform, slow partner approvals and an unreliable payment gateway.',
+						'We started with what we already knew, before talking to anyone new. Working with service design, senior managers, product, business analysis, content and UX, we pulled five years of research into one board: usability studies, benchmarks, analytics, journey maps and a third-party review. Every note traced back to its source, so nothing on the wall was opinion.',
+						'We also interviewed stakeholders and subject matter experts across product, business analysis, UX and delivery. They gave us the limits behind the symptoms: the legacy platform, slow partner approvals and an unreliable payment gateway.',
 					],
 				},
 				{
@@ -207,12 +207,12 @@ export const raaQuoteToBuy: CaseStudyData = {
 			blocks: [
 				{
 					type: 'lead',
-					text: 'Before any new testing, I turned the evidence wall into insight cards: who, what they want, why, and what stops them.',
+					text: 'Before any new testing, we turned the evidence wall into insight cards: who, what they want, why, and what stops them.',
 				},
 				{
 					type: 'text',
 					paragraphs: [
-						'This was still discovery week, so everything here came from past research, not new testing. I wrote each insight in one format: who, what they want, why, and what stops them.',
+						'This was still discovery week, so everything here came from past research, not new testing. We wrote each insight in one format: who, what they want, why, and what stops them.',
 						'Most of it was about payment. But the third quote wasn’t. That member wasn’t stopped by payment options. They were stopped because we couldn’t verify who they were. That clue mattered later.',
 					],
 				},
@@ -294,7 +294,7 @@ export const raaQuoteToBuy: CaseStudyData = {
 					type: 'text',
 					paragraphs: [
 						'The group chose one payment page where you choose how and how often you pay, and the page updates. I wrote up the outcome: the chosen idea, plus a backlog of eight more ideas in priority order, with instalments at the top.',
-						'The squad’s UX lead turned the sketches into a clickable prototype. The final screens stayed with RAA, so I’m showing the winning sketch.',
+						'I worked with the other designers to turn the sketches into a clickable prototype. The final screens stayed with RAA, so I’m showing the winning sketch.',
 					],
 				},
 				{
@@ -302,7 +302,7 @@ export const raaQuoteToBuy: CaseStudyData = {
 					heading: 'One dynamic payment page',
 					items: [
 						'Choose how and how often you pay, and the page updates',
-						'The squad’s UX lead turned the sketches into a clickable prototype',
+						'I worked with the other designers to turn the sketches into a clickable prototype',
 					],
 				},
 				{
@@ -320,7 +320,7 @@ export const raaQuoteToBuy: CaseStudyData = {
 				{
 					type: 'text',
 					paragraphs: [
-						'Each round answered a different question. First, does the idea work? People liked it and everyone paid. Second, do people understand our payment words? Half expected a discount for paying yearly, which we don’t offer.',
+						'With the other designers, I planned and ran each round, then we analysed the sessions and affinity mapped the findings together. Each round answered a different question. First, does the idea work? People liked it and everyone paid. Second, do people understand our payment words? Half expected a discount for paying yearly, which we don’t offer.',
 						'The third round tested the assumption, not the idea: the new design against the current one, with the same tasks. The result was the same both ways. Everyone could pay, so the payment page wasn’t what was stopping people.',
 					],
 				},

@@ -85,11 +85,6 @@
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
 }
-.draft-page main a.project-link {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-}
 .project-card {
   border-radius: 1.5rem;
   padding: 1.5rem 1.5rem 0;
@@ -100,10 +95,33 @@
   transition: transform 120ms ease, box-shadow 120ms ease;
   height: 26rem;
 }
-.project-link:hover .project-card {
+/* Linked tile: the title link covers the whole tile, so it is one click target and one tab stop. */
+.project-card-linked { position: relative; }
+.draft-page main a.project-card-link {
+  color: inherit;
+  text-decoration: none;
+}
+.project-card-link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 1.5rem;
+}
+.project-card-linked:hover {
   transform: translateY(-2px);
   box-shadow: 0 16px 40px rgba(23,23,23,0.12);
 }
+.project-card-linked:hover .project-card-link { text-decoration: underline; text-underline-offset: 3px; }
+@supports selector(:has(*)) {
+  .project-card-link:focus-visible { outline: none; }
+  .project-card-linked:has(.project-card-link:focus-visible) {
+    outline: 3px solid var(--ring);
+    outline-offset: 3px;
+  }
+}
+.project-card .draft-card-more { margin-top: 0; }
+/* The coloured tiles stay light in dark mode, so their link colour stays dark. */
+.project-card:not(.project-card-plain) .draft-card-more { color: #2f3fa8; }
 .project-card.lime     { background: #d4f5b0; }
 .project-card.cyan     { background: #b0eaf5; }
 .project-card.lavender { background: #d0c8f5; }
@@ -287,13 +305,6 @@
   font-weight: 600;
   letter-spacing: .06em;
   text-transform: uppercase;
-}
-.project-card .project-header {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: .5rem;
 }
 .project-card .project-name { color: #3d3d3d; }
 

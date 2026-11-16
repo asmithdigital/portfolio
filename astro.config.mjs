@@ -35,7 +35,7 @@ export default defineConfig({
           path === '/portfolio' ||
           path === '/portfolio/process' ||
           path === '/portfolio/ui-design' ||
-          /^\/portfolio\/case-studies\/(travel|quote-to-buy|university-website)$/.test(path) ||
+          /^\/portfolio\/case-study\/(raa-travel|raa-quote-to-buy|university-of-adelaide)$/.test(path) ||
           /^\/portfolio\/blog\/(making-the-experience-visible|ai-in-the-design-process|measuring-experience-quality|design-sprints)$/.test(path)
         );
       },

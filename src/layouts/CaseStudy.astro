@@ -7,8 +7,6 @@
  * All words and images come from one data file in src/data/case-study/.
  * Consecutive slides with the same stage label are grouped into one section (H2),
  * and each slide title is a subheading (H3).
- *
- * The pages are noindex and left out of the sitemap until they are linked from the home page.
  */
 import Layout from './Layout.astro';
 import DraftHeader from '../components/draft/DraftHeader.astro';
@@ -50,7 +48,7 @@ for (const slide of study.slides) {
 }
 ---
 
-<Layout title={study.meta.title} description={study.meta.description} ogType="article" showFooterCta={false} noindex>
+<Layout title={study.meta.title} description={study.meta.description} ogType="article" showFooterCta={false}>
 	<a class="skip-link" href="#main-content">Skip to content</a>
 	<div class="draft-page cs-page">
 		<div class="cs-header">
