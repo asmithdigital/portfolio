@@ -1,5 +1,8 @@
 // RAA Travel case study. All words and images for /case-study/raa-travel/ live here.
 // See ./types.ts for what each block does.
+//
+// Source: RAA-Travel-web-copy-v2.md and RAA-Travel-case-study-v2.pptx. Slides follow
+// the deck order, so each stage label appears once in the "On this page" menu.
 import type { CaseStudyData } from './types';
 import sprintDay1 from '../../assets/case-study/raa-travel/design-sprint-day-1-goal.jpg';
 import sprintDay1Whiteboard from '../../assets/case-study/raa-travel/design-sprint-day-1-whiteboard.jpg';
@@ -19,12 +22,16 @@ import wishlistFlow from '../../assets/case-study/raa-travel/wishlist-enquiry-fl
 import mobileFlow from '../../assets/case-study/raa-travel/mobile-flow-annotated.png';
 import liveHolidayPage from '../../assets/case-study/raa-travel/live-site-holiday-page.png';
 import liveMobileResults from '../../assets/case-study/raa-travel/live-site-mobile-results.png';
+import memberPriceBanners from '../../assets/case-study/raa-travel/after-launch-member-price-banners.png';
+import manageBooking from '../../assets/case-study/raa-travel/after-launch-manage-booking.png';
+import experiencesSearch from '../../assets/case-study/raa-travel/after-launch-experiences-predictive-search.png';
+import searchSuggestions from '../../assets/case-study/raa-travel/after-launch-search-suggestions.png';
 
 export const raaTravel: CaseStudyData = {
 	meta: {
 		title: 'RAA Travel case study | Andrew Smith',
 		description:
-			'Designing online search and book for RAA Travel: leading the UX from the first design sprint in 2019 through to launch and live-site research in 2022.',
+			'Designing online search and book for RAA Travel: leading the UX from the first design sprint in 2019 through to launch, live-site research in 2022 and the work that followed.',
 	},
 	banner: {
 		eyebrow: 'Case study',
@@ -37,7 +44,7 @@ export const raaTravel: CaseStudyData = {
 		position: 'center 25%',
 	},
 	intro:
-		'This is RAA Travel, where I led the UX for the move to online search and book, from the first design sprint in 2019 through to launch and the live-site research in 2022. This page follows the way I run any project: agree the problem, understand the people, explore and test ideas, deliver, then measure and learn. I’m also upfront about what I’d do differently.',
+		'This is RAA Travel, where I led the UX for the move to online search and book, from the first design sprint in 2019 through to launch, the live-site research in 2022, and the work that followed. I’ll walk through it the way I run any project: agree the problem, understand the people, explore and test ideas, deliver, then measure and learn. I’ll also be upfront about what I’d do differently.',
 	slides: [
 		{
 			stage: { number: '01', label: 'Kickoff' },
@@ -45,13 +52,13 @@ export const raaTravel: CaseStudyData = {
 			blocks: [
 				{
 					type: 'quote',
-					text: 'We want to create a new channel for customers to dream about travel and then book with RAA.',
+					text: 'We want to create a new channel (which integrates with existing channels) for customers to dream about travel and then book with RAA.',
 				},
 				{
 					type: 'text',
 					paragraphs: [
-						'The goal came out of day one of the design sprint I facilitated in November 2019. At the time, travel was sold in store and over the phone. The website had a holidays page, but you couldn’t book anything on it.',
-						'Success was simple: more people researching and booking travel online with RAA. The guardrails were trust, because members trust RAA, and our agents, because we didn’t want online to compete with them. The limits were the legacy CMS and, later, a vendor platform.',
+						'RAA already had a travel strategy. The design sprint I facilitated in November 2019 turned it into a goal for the online channel, and the words “integrates with existing channels” mattered: online had to work with our agents, not against them.',
+						'At the time travel was sold in store and over the phone. The website had a holidays page, but you couldn’t book anything on it. Success was simple: more people researching and booking travel online with RAA. The guardrails were member trust and our agents. The limits were the legacy CMS and, later, a vendor platform.',
 					],
 				},
 				{
@@ -69,6 +76,32 @@ export const raaTravel: CaseStudyData = {
 				},
 			],
 			images: [{ src: sprintDay1Whiteboard, caption: 'Design sprint, day 1: agreeing the goal (Nov 2019)' }],
+		},
+		{
+			stage: { number: '01', label: 'Kickoff' },
+			title: 'Questions before answers',
+			blocks: [
+				{
+					type: 'lead',
+					text: 'On day 1 the team wrote 19 questions we needed answered before anyone designed a screen. Four of the big ones:',
+				},
+				{
+					type: 'list',
+					items: [
+						'How do we know customers even want this?',
+						'How do we transfer trust from an agent to RAA?',
+						'What’s the real customer journey?',
+						'Does this need to work as a stand-alone website?',
+					],
+				},
+				{
+					type: 'text',
+					paragraphs: [
+						'Before anyone sketched, we wrote down the questions we needed to answer. There were 19, and these four were the big ones. Writing them down meant that at the end of the week we could check which ones we’d actually answered.',
+					],
+				},
+			],
+			images: [{ src: sprintMap, caption: 'Sprint map: the journey from dreaming to booking' }],
 		},
 		{
 			stage: { label: 'My role' },
@@ -102,7 +135,7 @@ export const raaTravel: CaseStudyData = {
 				{
 					type: 'text',
 					paragraphs: [
-						'Here’s the shape of it. The sprint ran in late 2019, then discovery through 2020, slowed by COVID. The research agency round ran over summer 2020-21, followed by IA testing and a spec in early 2021, launch in December 2021 with hotels first, and a live-site study in May 2022.',
+						'Here’s the shape of it. The sprint in late 2019. Discovery through 2020, slowed by COVID. The research agency round over summer 2020-21, IA testing and a spec in early 2021, then launch in December 2021 with hotels first. Flights followed, then holidays, experiences, cruises and car hire in later releases. The live-site study was in May 2022.',
 						'The move to a vendor platform was a business decision during COVID: we could have built it in house, but the business chose to buy rather than build.',
 					],
 				},
@@ -129,41 +162,19 @@ export const raaTravel: CaseStudyData = {
 							title: 'IA and spec',
 							text: 'Card sort and tree test, playback, UX design spec',
 						},
-						{ date: 'Dec 2021', title: 'Launch', text: 'Hotels first, then flights and car hire in 2022' },
+						{
+							date: 'Dec 2021',
+							title: 'Launch',
+							text: 'Hotels first, then flights, holidays, experiences, cruises and car hire',
+						},
 						{ date: 'May 2022', title: 'Live-site study', text: '32 sessions. Recommendations into the backlog' },
 					],
 				},
 				{
 					type: 'note',
-					text: 'The business chose a vendor platform in 2020 as COVID tightened budgets. Building in house was possible, but too costly at the time.',
+					text: 'The business chose a vendor platform as COVID tightened budgets. Building in house was possible, but too costly at the time.',
 				},
 			],
-		},
-		{
-			stage: { number: '01', label: 'Kickoff' },
-			title: 'Questions before answers',
-			blocks: [
-				{
-					type: 'lead',
-					text: 'On day 1 the team wrote 19 questions we needed answered before anyone designed a screen.',
-				},
-				{
-					type: 'text',
-					paragraphs: [
-						'Before anyone sketched, we wrote down the questions we needed to answer. There were 19. These four were the big ones. Writing them down meant that at the end of the week we could check which ones we’d actually answered.',
-					],
-				},
-				{
-					type: 'list',
-					items: [
-						'How do we know customers even want this?',
-						'How do we transfer trust from an agent to RAA?',
-						'What’s the real customer journey?',
-						'Does this need to work as a stand-alone website?',
-					],
-				},
-			],
-			images: [{ src: sprintMap, caption: 'Sprint map: the journey from dreaming to booking' }],
 		},
 		{
 			stage: { number: '02', label: 'Understand' },
@@ -236,7 +247,7 @@ export const raaTravel: CaseStudyData = {
 					type: 'text',
 					paragraphs: [
 						'To fill the gap I brought in U1. I got the budget approved, wrote the brief and the discussion guides, handled recruitment with our recruitment team, and sat in on every session.',
-						'In all, 29 people across five segments, members and non-members, took part through workshops, depth interviews and prototype testing. Then I synthesised with the agency and ran the playbacks.',
+						'29 people across five segments, 17 members and 12 non-members, through workshops, depth interviews and prototype testing. Then I synthesised with the agency and ran the playbacks.',
 					],
 				},
 				{
@@ -297,7 +308,7 @@ export const raaTravel: CaseStudyData = {
 				{
 					type: 'text',
 					paragraphs: [
-						'From the questions we wrote how-might-we statements and voted. The riskiest assumptions were whether members would book online with us at all, and whether they could use it, so that’s what we tested first, on day five.',
+						'From the questions we wrote how might we statements and voted. The riskiest assumptions were whether members would book online with us at all, and whether they could use it, so that’s what we tested first, on day five.',
 						'Later the riskiest assumption became whether the vendor platform could deliver what we designed, and that turned out to be the hardest one.',
 					],
 				},
@@ -355,7 +366,7 @@ export const raaTravel: CaseStudyData = {
 					type: 'text',
 					paragraphs: [
 						'I don’t test once. Every round answered a different question. The sprint test told us people search flights first and want flexible dates. The legacy web test, with 15 people online because of COVID, told us the site looked like a shop you couldn’t buy from.',
-						'The tree tests sorted out the menu and labels. And the agency’s prototype testing confirmed the design felt familiar and simple, with specific fixes.',
+						'The tree tests sorted out the menu and labels, and the March 2021 card sort and tree test, with 15 people, set the categories for the new site. The agency’s prototype testing confirmed the design felt familiar and simple, with specific fixes.',
 					],
 				},
 				{
@@ -374,7 +385,7 @@ export const raaTravel: CaseStudyData = {
 							'“Looks like an online store, but you can’t book much.” Start the search simply',
 						],
 						['Tree test, 2020', '41 people', 'Where labels and menu groups failed'],
-						['IA card sort and tree test, Mar 2021', 'Online panel', 'Menu and categories for the new site'],
+						['IA card sort and tree test, Mar 2021', '15 people, online', 'Menu and categories for the new site'],
 						[
 							'U1 prototype tests, 2021',
 							'16 interviews',
@@ -385,7 +396,7 @@ export const raaTravel: CaseStudyData = {
 			],
 		},
 		{
-			stage: { number: '05', label: 'Ideas and screens' },
+			stage: { number: '06', label: 'Test' },
 			title: 'What changed because of testing',
 			blocks: [
 				{
@@ -414,14 +425,14 @@ export const raaTravel: CaseStudyData = {
 			],
 		},
 		{
-			stage: { number: '05', label: 'Deliver' },
+			stage: { number: '07', label: 'Deliver' },
 			title: 'Designing for a platform we didn’t control',
 			blocks: [
 				{
 					type: 'text',
 					paragraphs: [
 						'Then the hard part. The vendor gave us no documentation, so I worked from their demo sites. I wrote a UX spec to bridge the ideal design and what the platform could do, mapped the desktop and mobile flows up to the vendor’s booking flow, and worked with content on the templates.',
-						'The honest bit: the vendor treated designs as guidelines, and we couldn’t touch the booking flow. Hotels launched on 15 December 2021, then flights after some integration defects, then car hire.',
+						'The honest bit: the vendor treated designs as guidelines, and we couldn’t touch the booking flow. Hotels launched on 15 December 2021, then flights after some integration defects, then holidays, experiences, cruises and car hire in later releases.',
 					],
 				},
 				{
@@ -437,14 +448,14 @@ export const raaTravel: CaseStudyData = {
 					type: 'list',
 					heading: 'The reality',
 					items: [
-						'Designs were treated as guidelines, and the booking flow was off limits. Hotels launched on 15 December 2021, then flights and car hire',
+						'Designs were treated as guidelines, and the booking flow was off limits. Hotels launched on 15 December 2021, then flights, holidays, experiences, cruises and car hire',
 					],
 				},
 			],
 			images: [{ src: mobileFlow, caption: 'Mobile flow with annotations, handing off to the booking flow (2021)' }],
 		},
 		{
-			stage: { number: '06', label: 'Measure and learn' },
+			stage: { number: '08', label: 'Measure and learn' },
 			title: 'Testing the live site',
 			blocks: [
 				{ type: 'lead', text: 'Five months after launch I brought U1 back to test the live site.' },
@@ -460,8 +471,8 @@ export const raaTravel: CaseStudyData = {
 				{
 					type: 'text',
 					paragraphs: [
-						'Once it was live, I brought the agency back to test the real thing. 32 sessions and a usability score of 70.6, a bit above the industry average. It showed the site was easy to use overall, and exactly where the platform was hurting the experience.',
-						'Those recommendations fed the backlog, and I kept working on Travel features after I moved into managing the team.',
+						'Once it was live, I brought the agency back to test the real thing. 32 sessions and a usability score of 70.6, a bit above the industry average of about 68. It showed the site was easy to use overall, and exactly where the platform was hurting the experience.',
+						'Those recommendations fed the backlog, and I kept working on Travel as I moved on to insurance, membership and then managing the team.',
 					],
 				},
 				{
@@ -469,7 +480,7 @@ export const raaTravel: CaseStudyData = {
 					items: [
 						'Easy to use overall, with clear problems where the platform got in the way',
 						'Recommendations went into the backlog for the next releases',
-						'I kept improving Travel after moving into the UX manager role',
+						'I kept improving Travel as I moved on to other products',
 					],
 				},
 			],
@@ -479,14 +490,45 @@ export const raaTravel: CaseStudyData = {
 			],
 		},
 		{
+			stage: { label: 'After launch' },
+			title: 'After launch: still designing Travel',
+			blocks: [
+				{
+					type: 'text',
+					paragraphs: [
+						'The project didn’t stop at launch. It became business as usual, and I kept working with the team as I moved on to insurance and membership. For experiences and car hire, the content came from APIs, car hire through a vendor called Meili, so I worked to keep the predictive search and results consistent with flights and stays.',
+						'Some prices couldn’t be shown publicly because of supplier contracts, so I designed the log-in banners and flow that unlock member prices. I created new design system components and handed them to Vibe’s team to build, and did QA, accessibility audits and usability feedback on each release. I also worked with other designers and service design on the mid-office tool our travel agents use.',
+					],
+				},
+				{
+					type: 'list',
+					items: [
+						'Kept designing Travel features through sprint delivery, alongside insurance and membership work',
+						'Experiences and car hire: predictive search and results kept consistent with flights and stays, working through Meili’s APIs',
+						'Member prices: log-in banners and a flow to unlock discounts we couldn’t show publicly',
+						'New design system components, handed over to Vibe’s team to build',
+						'QA, accessibility audits and usability feedback on each release',
+						'Worked with other designers and service design on the travel agents’ mid-office tool',
+					],
+				},
+			],
+			imageLayout: 'grid',
+			images: [
+				{ src: memberPriceBanners, caption: 'Member price banners: creative options' },
+				{ src: manageBooking, caption: 'Manage booking: desktop and mobile' },
+				{ src: experiencesSearch, caption: 'Experiences: predictive search' },
+				{ src: searchSuggestions, caption: 'Search suggestions: places and products' },
+			],
+		},
+		{
 			stage: { label: 'Reflection' },
 			title: 'What I’d do differently',
 			blocks: [
 				{
 					type: 'text',
 					paragraphs: [
-						'Three things I’d do differently. First, the number. I put an analytics plan and a UX baseline in my 2020 plan, but tracking sat with the business and was never set up on the platform, so I can’t show you a before and after. That’s why I now agree the baseline at kickoff and put tracking in the acceptance criteria.',
-						'Second, get the platform constraints before designing the ideal. Third, set up the loop from live insights to the backlog before go-live.',
+						'Three things I’d do differently. First, the number. Tracking sat with the business and was never set up on the platform, so I can’t show a before and after. That’s why I now agree the baseline at kickoff and put tracking in the acceptance criteria.',
+						'Second, get the platform constraints before designing the ideal. Third, close the loop. Once the project became business as usual, nobody owned turning what we learned on the live site into priorities, and features like the wishlist and my bookings are still waiting. Before go-live I’d agree who reviews live feedback, how often, and how it becomes backlog items.',
 					],
 				},
 				{
@@ -502,7 +544,7 @@ export const raaTravel: CaseStudyData = {
 						},
 						{
 							title: 'Close the loop after launch',
-							text: 'At handover there was no process for live insights to reach the backlog. I’d set that up before go-live.',
+							text: 'At handover, nobody owned turning live insights into backlog items. Features like the wishlist and my bookings are still waiting. Before go-live I’d agree who reviews live feedback, how often, and how it reaches the backlog.',
 						},
 					],
 				},

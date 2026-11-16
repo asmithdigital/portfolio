@@ -49,6 +49,11 @@ export type CaseStudySlide = {
 	title?: string;
 	blocks: CaseStudyBlock[];
 	images?: CaseStudyImage[];
+	/**
+	 * 'grid' puts the images under the text in a two-column grid (one column on
+	 * small screens), for sets of related screenshots. By default images sit beside the text.
+	 */
+	imageLayout?: 'grid';
 };
 
 export type CaseStudyData = {

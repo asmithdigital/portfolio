@@ -18,7 +18,15 @@ const { slide, id, sectionId } = Astro.props;
 const images = slide.images ?? [];
 ---
 
-<div class:list={['cs-slide', images.length > 0 && 'cs-slide-with-media']} id={id} data-cs-spy data-section={sectionId}>
+<div
+	class:list={[
+		'cs-slide',
+		images.length > 0 && (slide.imageLayout === 'grid' ? 'cs-slide-with-grid' : 'cs-slide-with-media'),
+	]}
+	id={id}
+	data-cs-spy
+	data-section={sectionId}
+>
 	{slide.title && <h3 class="cs-slide-title">{slide.title}</h3>}
 	<div class="cs-slide-body">
 		<div class="cs-slide-text">
@@ -73,6 +81,14 @@ const images = slide.images ?? [];
 		.cs-slide-with-media .cs-slide-body {
 			grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
 			gap: 3rem;
+		}
+	}
+
+	/* Images in a grid under the text. Each image keeps its own shape, top aligned. */
+	@container cs (min-width: 30rem) {
+		.cs-slide-with-grid .cs-slide-media {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			align-items: start;
 		}
 	}
 </style>

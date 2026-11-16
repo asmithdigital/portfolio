@@ -1,15 +1,21 @@
 // RAA Quote to Buy case study. All words and images for /case-study/raa-quote-to-buy/ live here.
 // See ./types.ts for what each block does.
+//
+// Source: RAA-QTB-web-copy-v2.md and RAA-QTB-case-study-v2.pptx.
+// Confidentiality: never add the unblurred journey explorer, Miro board screenshots,
+// or any drop-off, match rate, win rate or roadmap figures to this page.
 import type { CaseStudyData } from './types';
 import galleryWalk from '../../assets/case-study/raa-quote-to-buy/ideation-gallery-walk.jpg';
 import quoteJourney from '../../assets/case-study/raa-quote-to-buy/car-insurance-quote-journey.png';
-import researchBoard from '../../assets/case-study/raa-quote-to-buy/miro-research-board.png';
+import evidenceWall from '../../assets/case-study/raa-quote-to-buy/evidence-wall-illustration.png';
 import personaQuinn from '../../assets/case-study/raa-quote-to-buy/persona-quick-quote-quinn.png';
 import personaDonald from '../../assets/case-study/raa-quote-to-buy/persona-detailed-donald.png';
-import evidenceWall from '../../assets/case-study/raa-quote-to-buy/miro-evidence-wall.png';
+import insightCards from '../../assets/case-study/raa-quote-to-buy/insight-cards-illustration.png';
 import solutionSketch from '../../assets/case-study/raa-quote-to-buy/solution-sketch-dot-votes.jpg';
 import lightningDemos from '../../assets/case-study/raa-quote-to-buy/lightning-demos.jpg';
 import winningSketch from '../../assets/case-study/raa-quote-to-buy/winning-sketch-payment-page.jpg';
+import quoteStart from '../../assets/case-study/raa-quote-to-buy/quote-start-log-in-banner.png';
+import journeyExplorer from '../../assets/case-study/raa-quote-to-buy/journey-explorer-blurred.png';
 
 export const raaQuoteToBuy: CaseStudyData = {
 	meta: {
@@ -27,7 +33,7 @@ export const raaQuoteToBuy: CaseStudyData = {
 		position: 'center 40%',
 	},
 	intro:
-		'This is RAA’s online insurance quote and buy journey, for car, home and landlord insurance. I was managing the UX team. The business believed payment options were stopping people buying online. I facilitated a discovery and design sprint to test that, and the evidence took us somewhere else.',
+		'This is RAA’s online insurance quote and buy journey, for car, home and landlord insurance. I was managing the UX team and facilitated the sprint. The business believed payment options were stopping people buying online. The evidence took us somewhere else.',
 	slides: [
 		{
 			stage: { number: '01', label: 'Kickoff' },
@@ -40,7 +46,7 @@ export const raaQuoteToBuy: CaseStudyData = {
 				{
 					type: 'text',
 					paragraphs: [
-						'The ask came with a solution attached: add more payment options. I didn’t say no. I parked it and asked what problem it would solve and how we’d know.',
+						'The ask came with a solution attached: add more ways to pay. I didn’t say no. I parked it and asked what problem it would solve and how we’d know.',
 						'Success was more quotes finished online, and fewer people pushed to the phone. The limits were real: a legacy platform, approvals from our insurance partner, and a payment gateway that wasn’t reliable.',
 					],
 				},
@@ -65,18 +71,18 @@ export const raaQuoteToBuy: CaseStudyData = {
 				{
 					type: 'text',
 					paragraphs: [
-						'I was managing the UX team, and I facilitated the sprint. I led the discovery and synthesis: pulling five years of research into one Miro board, writing insight cards, building three personas and the business case.',
-						'I interviewed stakeholders, planned and ran the ideation workshop, and set up the testing my team ran. The squad’s UX lead designed the UI, and we worked with content, service design and product throughout.',
+						'I was managing the UX team, and I facilitated the sprint and led the discovery. I pulled five years of research into one board, wrote the insight cards and made the business case. I interviewed stakeholders and planned and ran the ideation workshop.',
+						'The squad’s UX lead designed the UI, and we planned, ran and analysed the testing together. Afterwards I built a tool to keep the research visible to the squad.',
 					],
 				},
 				{
 					type: 'list',
 					items: [
 						'Facilitated a two-week discovery and design sprint as UX Manager',
-						'Led discovery and synthesis: five years of research in one place, insight cards, three personas and the business case',
+						'Led discovery and synthesis: five years of research in one place, insight cards and the business case',
 						'Ran stakeholder interviews with product, business analysis, UX and delivery',
 						'Planned and facilitated the ideation workshop: agenda, script, prep and evidence wall',
-						'Set up the usability testing my team ran, and reviewed the results',
+						'Worked alongside the squad’s UX lead to plan, run and analyse the testing',
 						'Afterwards, built a linked journey and insight tool for the squad',
 					],
 				},
@@ -90,7 +96,7 @@ export const raaQuoteToBuy: CaseStudyData = {
 				{
 					type: 'text',
 					paragraphs: [
-						'It wasn’t a textbook five-day sprint. The first week was discovery, the first diamond. Stakeholders could only give us half a day, so I compressed the ideation part of a Google Ventures sprint into four hours on the Monday of week two.',
+						'It wasn’t a textbook five-day sprint. The first week was discovery. Stakeholders could only give us half a day, so I compressed the ideation part of a Google Ventures sprint into four hours on the Monday of week two.',
 						'The rest of that week went to prototyping and testing. Then in October we tested the new design against the current one.',
 					],
 				},
@@ -138,8 +144,8 @@ export const raaQuoteToBuy: CaseStudyData = {
 				{
 					type: 'text',
 					paragraphs: [
-						'I started with what we already knew. Five years of research, pulled into one Miro board: usability studies, benchmarks, analytics, journey maps and a third-party review. Every insight on the wall traced back to its source.',
-						'I also interviewed stakeholders across product, business analysis, UX and delivery. They gave us the constraints behind the symptoms: the legacy platform, slow partner approvals and the payment gateway.',
+						'I started with what we already knew, before talking to anyone new. Five years of research went into one board: usability studies, benchmarks, analytics, journey maps and a third-party review. Every note traced back to its source, so nothing on the wall was opinion.',
+						'I also interviewed stakeholders across product, business analysis, UX and delivery. They gave us the limits behind the symptoms: the legacy platform, slow partner approvals and an unreliable payment gateway.',
 					],
 				},
 				{
@@ -155,21 +161,30 @@ export const raaQuoteToBuy: CaseStudyData = {
 					heading: 'Stakeholder interviews',
 					items: [
 						'Product, business analysis, UX and delivery',
-						'They pointed to a legacy platform, slow partner approvals and a payment gateway problem',
+						'They pointed to a legacy platform, slow partner approvals and an unreliable payment gateway',
 					],
 				},
 			],
-			images: [{ src: researchBoard, caption: 'Miro board: research brought together before the sprint' }],
+			images: [
+				{
+					src: evidenceWall,
+					caption: 'The evidence wall, recreated for this case study. The real board stays with RAA',
+					alt: 'Illustrated evidence wall titled Quote to buy: what we already know, with sticky notes in five columns: usability tests, benchmarks, analytics, third-party review and stakeholders',
+				},
+			],
 		},
 		{
 			stage: { number: '02', label: 'Understand' },
-			title: 'Personas built from the evidence',
+			title: 'Who we were designing for',
 			blocks: [
+				{
+					type: 'lead',
+					text: 'We didn’t build new personas. We used three from RAA’s existing set, built earlier across quote, My Account, claims and renewals.',
+				},
 				{
 					type: 'text',
 					paragraphs: [
-						'I built three personas from the research, each with a confidence level. Quinn wants a fast price and will leave if it’s slow. Patrick needs cover right now, often after hours, and hates being pushed to the phone.',
-						'Donald is the engaged member who wants control over how he pays, and expects us to know he’s a member. Donald turned out to matter most.',
+						'We didn’t build new personas for this. We used three from RAA’s existing set, so the sprint stayed focused on real people. Quinn wants a fast price and will leave if it’s slow. Patrick needs cover right now, often after hours, and hates being pushed to the phone. Donald wants control over how he pays, and expects us to know he’s a member. Donald turned out to matter most.',
 					],
 				},
 				{
@@ -188,17 +203,17 @@ export const raaQuoteToBuy: CaseStudyData = {
 		},
 		{
 			stage: { number: '03', label: 'Journey and pain' },
-			title: 'What members told us',
+			title: 'What past research told us',
 			blocks: [
 				{
 					type: 'lead',
-					text: 'Insight cards in one format: who, what they want, why, and what stops them.',
+					text: 'Before any new testing, I turned the evidence wall into insight cards: who, what they want, why, and what stops them.',
 				},
 				{
 					type: 'text',
 					paragraphs: [
-						'I wrote the insights in one format: who, what they want, why, and what stops them. For example, Patrick wants to buy after hours, but he’s pushed to call during business hours.',
-						'The quotes were mostly about payment. But look at the third one. That member wasn’t stopped by payment options. They were stopped because we couldn’t verify who they were. That clue mattered later.',
+						'This was still discovery week, so everything here came from past research, not new testing. I wrote each insight in one format: who, what they want, why, and what stops them.',
+						'Most of it was about payment. But the third quote wasn’t. That member wasn’t stopped by payment options. They were stopped because we couldn’t verify who they were. That clue mattered later.',
 					],
 				},
 				{ type: 'quote', text: 'Why are there so many payment pages? Just put it all together.' },
@@ -208,12 +223,22 @@ export const raaQuoteToBuy: CaseStudyData = {
 					text: 'I couldn’t get to the final payments page as they wanted to call me for verification.',
 				},
 			],
-			images: [{ src: evidenceWall, caption: 'Miro: preparing the evidence wall' }],
+			images: [
+				{
+					src: insightCards,
+					caption: 'Insight cards, recreated for this case study',
+					alt: 'Illustrated insight cards in a wants, because, but format for Panicking Patrick and Quick Quote Quinn, and a pink card labelled The clue with the verification quote, tagged not about payment options',
+				},
+			],
 		},
 		{
 			stage: { number: '04', label: 'Riskiest assumption' },
-			title: 'The question we took into ideation',
+			title: 'Leadership voted, and payments won',
 			blocks: [
+				{
+					type: 'lead',
+					text: 'At the end of discovery week, leadership voted on the how might we statements. This one won, so it became the workshop’s focus:',
+				},
 				{
 					type: 'quote',
 					text: 'How might we make insurance payments simple and flexible, so members can pay quickly, in the way and at the time that works for them?',
@@ -221,8 +246,7 @@ export const raaQuoteToBuy: CaseStudyData = {
 				{
 					type: 'text',
 					paragraphs: [
-						'Leadership voted on the how-might-we statements, and payments won. So that was our question for the workshop. But I named the riskiest assumption up front: that payments really was the main blocker.',
-						'The plan was to prototype the best idea and test it against what we had, so the evidence would tell us.',
+						'At the end of discovery week, leadership voted on the how might we statements, and payments won. I went with it, but I named the riskiest assumption up front: was payment really the main blocker? The plan was to prototype the best idea, then test it against what we already had, so the evidence would tell us.',
 					],
 				},
 				{
@@ -245,8 +269,8 @@ export const raaQuoteToBuy: CaseStudyData = {
 				{
 					type: 'text',
 					paragraphs: [
-						'Stakeholders only had half a day, so I compressed the ideation part of a Google Ventures sprint into four hours. I sent a prep email asking everyone to bring one printed idea.',
-						'We did lightning demos, Crazy Eights, three-panel solution sketches, a silent gallery walk with dot votes, then a super vote. Silent, individual work means the loudest voice doesn’t win.',
+						'Stakeholders only had half a day, so I compressed the ideation days of a Google Ventures sprint into four hours. I planned the agenda and script, and sent a prep email asking everyone to bring one printed idea from any industry.',
+						'On the day we did lightning demos, Crazy Eights, three-panel solution sketches, a silent gallery walk with dot votes, then a super vote. Silent, individual work means the loudest voice doesn’t win.',
 					],
 				},
 				{
@@ -256,7 +280,7 @@ export const raaQuoteToBuy: CaseStudyData = {
 						'Crazy Eights: eight quick sketches in eight minutes',
 						'Three-panel solution sketches: problem, idea, outcome',
 						'Gallery walk and dot votes, then a super vote',
-						'Ground rules: no laptops or email, silent work with music',
+						'I planned the agenda, script and prep email, and facilitated the day: 4 hours, 7 people',
 					],
 				},
 			],
@@ -264,24 +288,27 @@ export const raaQuoteToBuy: CaseStudyData = {
 		},
 		{
 			stage: { number: '05', label: 'Ideas and screens' },
-			title: 'The idea we chose',
+			title: 'What came out of the workshop',
 			blocks: [
 				{
 					type: 'text',
 					paragraphs: [
-						'The group chose a single dynamic payment page: pick your method and frequency, and the page updates. Other ideas went into a prioritised backlog, with instalments at the top.',
-						'The squad’s UX lead turned the sketches into the prototype. The final screens stayed with RAA, so the sketches are shown here.',
+						'The group chose one payment page where you choose how and how often you pay, and the page updates. I wrote up the outcome: the chosen idea, plus a backlog of eight more ideas in priority order, with instalments at the top.',
+						'The squad’s UX lead turned the sketches into a clickable prototype. The final screens stayed with RAA, so I’m showing the winning sketch.',
 					],
 				},
 				{
 					type: 'list',
 					heading: 'One dynamic payment page',
-					items: ['Card, bank account, PayPal, Google Pay and Apple Pay', 'Monthly or yearly, updating as you choose'],
+					items: [
+						'Choose how and how often you pay, and the page updates',
+						'The squad’s UX lead turned the sketches into a clickable prototype',
+					],
 				},
 				{
 					type: 'list',
-					heading: 'Saved for later, in priority order',
-					items: ['Pay in instalments, saved payment details, deferred payment, after-hours payment'],
+					heading: 'My part',
+					items: ['Wrote up the outcome: the chosen idea, plus a backlog of eight more ideas in priority order'],
 				},
 			],
 			images: [{ src: winningSketch, caption: 'The winning sketch: one page for method and frequency' }],
@@ -293,8 +320,8 @@ export const raaQuoteToBuy: CaseStudyData = {
 				{
 					type: 'text',
 					paragraphs: [
-						'We tested the sprint prototype and people liked it. But I wanted to test the assumption, not just the idea. So we ran the new design and the current design side by side, with the same tasks.',
-						'Twenty people, and both scored about the same. Everyone could pay either way. So the payment page wasn’t what was stopping people.',
+						'Each round answered a different question. First, does the idea work? People liked it and everyone paid. Second, do people understand our payment words? Half expected a discount for paying yearly, which we don’t offer.',
+						'The third round tested the assumption, not the idea: the new design against the current one, with the same tasks. The result was the same both ways. Everyone could pay, so the payment page wasn’t what was stopping people.',
 					],
 				},
 				{
@@ -305,49 +332,58 @@ export const raaQuoteToBuy: CaseStudyData = {
 						[
 							'Sprint prototype, Sep 2025',
 							'6 people',
-							'Everyone completed the payment. Rated 4.8 out of 5 for ease',
+							'Can people pay with the new design? Everyone did, and rated it 4 or 5 out of 5 for ease',
 						],
 						[
 							'Payment wording, Oct 2025',
 							'6 people',
-							'What “pay later”, card fees and auto-renew mean to people',
+							'Do people understand the words? We checked “pay later”, monthly versus yearly and auto-renew. Half expected a discount for paying yearly',
 						],
 						[
 							'New design against current design, Oct 2025',
-							'20 people, 4 tests',
-							'Both designs scored about the same, and everyone completed both',
+							'20 people, 5 per test',
+							'Is the new design better than today’s? Two tests on each. Everyone paid in both, and ease scores were about the same',
 						],
 					],
 				},
-				{ type: 'note', text: 'Once people reached the payment page, they could already pay.' },
+				{
+					type: 'note',
+					text: 'The current payment page already worked. Payment options weren’t what stopped people buying.',
+				},
 			],
 		},
 		{
-			stage: { number: '06', label: 'Measure and learn' },
+			stage: { number: '07', label: 'Measure and learn' },
 			title: 'The real blocker was earlier',
 			blocks: [
 				{
 					type: 'text',
 					paragraphs: [
-						'The real blocker was earlier in the journey. Members who couldn’t be matched to their record were pushed to the phone to verify. That’s what the verification quote was telling us.',
-						'The evidence moved the roadmap: logging in from within the quote is live, member matching and login improvements are in progress, and more payment options moved down the list.',
+						'The real blocker was earlier in the journey. Members we couldn’t match to their record were pushed to the phone to verify, which is what the verification quote was telling us.',
+						'It was a known technical problem, but stakeholders wanted payments as a quick win. The process tested their idea properly and gave us the evidence to point to the bigger lever. Logging in from within the quote is now live.',
 					],
 				},
 				{
 					type: 'list',
 					items: [
 						'Members who couldn’t be matched to their record were pushed to the phone to verify',
-						'The evidence moved the roadmap from payment options to member recognition',
+						'It was a known technical problem. The testing gave us the evidence to put it ahead of more payment options',
 					],
 				},
 				{
 					type: 'list',
 					heading: 'Where it’s at',
 					items: [
-						'Log in from within the quote: live',
-						'Member matching improvements and more login options: in progress',
-						'Expanding payment options: moved down the list',
+						'Log in from within the quote is now live',
+						'Better member recognition became the priority, ahead of more payment options',
 					],
+				},
+			],
+			images: [
+				{
+					src: quoteStart,
+					caption: 'Live today: members can log in to pre-fill the quote (raa.com.au)',
+					alt: 'Start your quote page with a banner reading Already have My Account? Log in to pre-fill your details',
 				},
 			],
 		},
@@ -358,7 +394,7 @@ export const raaQuoteToBuy: CaseStudyData = {
 				{
 					type: 'text',
 					paragraphs: [
-						'After the sprint, I built a tool so anyone in the squad, including the product manager, could click a pain point and see the research behind it, the idea it led to, and whether it’s on the roadmap.',
+						'After the sprint, I built a tool so anyone in the squad, including the product manager, could click a pain point and see the research behind it, the idea it led to, and where it sits.',
 						'I used AI to build it, with one strict rule: never invent a number, quote or source. Then I wrote a playbook so the other UX leads could do the same for their products.',
 					],
 				},
@@ -372,6 +408,13 @@ export const raaQuoteToBuy: CaseStudyData = {
 					],
 				},
 			],
+			images: [
+				{
+					src: journeyExplorer,
+					caption: 'The QTB Journey Explorer I built. Business figures and roadmap detail blurred',
+					alt: 'QTB Journey Explorer showing journey phases and steps, an emotion line from hopeful to frustrated, and blurred metrics and solution cards',
+				},
+			],
 		},
 		{
 			stage: { label: 'Reflection' },
@@ -380,23 +423,23 @@ export const raaQuoteToBuy: CaseStudyData = {
 				{
 					type: 'text',
 					paragraphs: [
-						'Three things I’d do differently. Test the assumption before the workshop: a quick test of the current page would have saved us a day on the wrong problem. Map the whole journey, not just one step, because the bigger lever was earlier. And agree the measure up front, so we can show the result.',
+						'Three things I’d do differently. Testing the stakeholders’ idea was right, but I’d also test the real problem in the same round, because past research already pointed to it. I’d map the whole journey before choosing a focus, not just one step. And I’d measure outcomes, not just usability: agree the number up front and check it after release.',
 					],
 				},
 				{
 					type: 'cards',
 					items: [
 						{
-							title: 'Test the assumption first',
-							text: 'A quick test of the current payment page before the workshop would have shown it wasn’t the main blocker, and focused the day on the right problem.',
+							title: 'Test the real problem alongside the idea',
+							text: 'Parking the payments idea and testing it was right. But past research already hinted at verification, so I’d test the whole quote journey as a member in the same round.',
 						},
 						{
-							title: 'Map the whole journey, not one step',
-							text: 'The sprint zoomed in on payments. The bigger lever was earlier, when members were recognised and verified.',
+							title: 'Map the whole journey before choosing a focus',
+							text: 'The sprint zoomed in on one step. The journey map I built afterwards showed the bigger lever was earlier, at member recognition.',
 						},
 						{
-							title: 'Agree the measure up front',
-							text: 'Set the baseline and the tracking at kickoff, so the result of each change can be seen.',
+							title: 'Measure outcomes, not just usability',
+							text: 'We had analytics, but judged the design on usability scores. I’d agree the outcome up front, like quotes finished online and calls to verify, and check it after release.',
 						},
 					],
 				},
