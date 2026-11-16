@@ -2,13 +2,13 @@
 // /case-study/university-of-adelaide/ live here. See ./types.ts for what each block does.
 //
 // This is a career showcase, not a staged project, so sections have no numbers and
-// only "The first design system" has subheadings. The banner is the sub-page
-// screenshot cropped to its header and hero photo, so no page text sits behind the
-// title. The other images are shared with other pages, so they stay in
-// src/assets/images/. Do not use uofa-banner.png here: it is the device mock-up made
-// for the home page tile.
+// only "The first design system" has subheadings. The research photos live next to
+// this page's data in src/assets/case-study/university-of-adelaide/. The website
+// screenshots are shared with other pages, so they stay in src/assets/images/.
+// Do not use uofa-banner.png here: it is the device mock-up made for the home page tile.
 import type { CaseStudyData } from './types';
-import bannerImage from '../../assets/case-study/university-of-adelaide/website-research-page-hero.png';
+import researchWall from '../../assets/case-study/university-of-adelaide/uofa-research-wall.jpg';
+import degreeFinderResearch from '../../assets/case-study/university-of-adelaide/uofa-degree-finder-research.jpg';
 import subPage from '../../assets/images/uofa-subpage.png';
 import mobileMenu from '../../assets/images/uofa-mobile-global-menu.png';
 import styleGuide from '../../assets/images/uofa-styleguide.png';
@@ -25,7 +25,7 @@ export const universityOfAdelaide: CaseStudyData = {
 		subtitle: 'Web design, UX and the university’s first design system',
 		role: 'Web designer, front-end developer and lead UX designer',
 		dates: '2014 to 2019',
-		image: bannerImage,
+		image: researchWall,
 	},
 	intro:
 		'I spent five years at the University of Adelaide. I started as a web designer and front-end developer, became the lead designer on the website rebuild, and introduced UX to the university along the way. This page covers the work across those years, with the website rebuild in the middle.',
@@ -72,6 +72,20 @@ export const universityOfAdelaide: CaseStudyData = {
 						'Ran research with students and staff: student interviews, pop-up interviews with students, and usability testing',
 						'Used it on features like the degree finder, to help students find the right degree',
 					],
+				},
+			],
+			imageLayout: 'grid',
+			images: [
+				{
+					src: degreeFinderResearch,
+					caption:
+						'Planning the degree finder research: what do students look for, and how do they compare degrees?',
+					alt: 'Whiteboard with the focus question for the degree finder research and columns of sticky notes under questions about how students choose and compare degrees',
+				},
+				{
+					src: researchWall,
+					caption: 'Sorting what students told us by how serious each problem was',
+					alt: 'Whiteboard of sticky notes from student research, grouped under handwritten labels for critical, serious and medium problems',
 				},
 			],
 		},
