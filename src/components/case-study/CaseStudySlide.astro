@@ -19,7 +19,7 @@ const images = slide.images ?? [];
 ---
 
 <div class:list={['cs-slide', images.length > 0 && 'cs-slide-with-media']} id={id} data-cs-spy data-section={sectionId}>
-	<h3 class="cs-slide-title">{slide.title}</h3>
+	{slide.title && <h3 class="cs-slide-title">{slide.title}</h3>}
 	<div class="cs-slide-body">
 		<div class="cs-slide-text">
 			{slide.blocks.map((block) => <CaseStudyBlock block={block} />)}

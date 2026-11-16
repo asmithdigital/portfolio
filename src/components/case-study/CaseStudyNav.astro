@@ -42,15 +42,17 @@ const { sections } = Astro.props;
 								{section.number && <span class="cs-toc-number">{section.number}</span>}
 								<span data-cs-toc-label>{section.label}</span>
 							</a>
-							<ol class="cs-toc-subs">
-								{section.slides.map((slide) => (
-									<li>
-										<a class="cs-toc-link cs-toc-sub-link" href={`#${slide.id}`} data-cs-target={slide.id}>
-											{slide.title}
-										</a>
-									</li>
-								))}
-							</ol>
+							{section.slides.length > 0 && (
+								<ol class="cs-toc-subs">
+									{section.slides.map((slide) => (
+										<li>
+											<a class="cs-toc-link cs-toc-sub-link" href={`#${slide.id}`} data-cs-target={slide.id}>
+												{slide.title}
+											</a>
+										</li>
+									))}
+								</ol>
+							)}
 						</li>
 					))
 				}

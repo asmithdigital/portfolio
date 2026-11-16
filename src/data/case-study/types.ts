@@ -42,8 +42,11 @@ export type CaseStudyBlock =
 export type CaseStudySlide = {
 	/** Stage label shown above the slide title, for example { number: '02', label: 'Understand' }. */
 	stage: { number?: string; label: string };
-	/** Slide title, used as the subheading. */
-	title: string;
+	/**
+	 * Slide title, used as the subheading and listed under its section in the menu.
+	 * Leave it out when a section has a single slide that needs no subheading.
+	 */
+	title?: string;
 	blocks: CaseStudyBlock[];
 	images?: CaseStudyImage[];
 };
